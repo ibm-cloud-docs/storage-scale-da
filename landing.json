@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "title": "IBM Storage Scale",
+  "introduction": "Find useful information to learn about IBM Storage Scale",
+  "product_page": "https://www.ibm.com/products/storage-scale",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      },
+      {
+        "title": "Topic title",
+        "href": "/docs/overview?topic=overview-get-started-checklist"
+      }
+    ]
+  },
+  "section_architectures": [
+    {
+      "title": "IBM Storage Scale",
+      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
+      "deployable": true
+    }
+  ],
+  "section_updates": {
+    "view_more": "/docs/overview?topic=overview-whatsnew"
+  }
+}

@@ -1,0 +1,81 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs-internal/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: storage-scale-da
+    href: /docs/storage-scale-da
+    path: storage-scale-da
+    audience: solution
+    category: solution_docs
+    content-type: deployment
+    label: IBM Storage Scale
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+      - release-notes.md
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture.md
+  - navgroup:
+      id: plan
+      topics:
+      - boot-drive-encryption.md
+      - enabling-encryption.md
+      - topicgroup:
+          label: Integration and Configuration
+          topics:
+          - ces-configuration-any-scale-node.md
+          - ces-failover-setup.md
+          - configure-afm-integration.md
+          - configure-ces-integration.md
+      - config-setup-symph-cluster.md
+      - integrate-ad-samba.md
+      - integrate-scale-ad-secure-user-file-access.md
+      - scale-cem.md
+  - navgroup:
+      id: deploy
+      topics:
+      - before-deploying.md
+      - deployment-values.md
+      - deploying-scale.md
+  - navgroup:
+      id: howto
+      topics:
+      - setting-storage-scale.md
+      - topicgroup:
+          label: Using OpenLDAP with the deployed environment
+          topics:
+          - about-ldapp-scale.md
+          - integrate-openldapp-scale.md
+          - integrate-existing-openldapp-scale.md
+          - check-openldap-status-scale.md
+          - create-ldapp-user-scale.md
+          - config-ldap-ces-scale.md
+          - configure-ldap-server-setup.md
+      - create-user-group-ad-symphony.md
+      - creating-user-group-oldap-dir.md
+      - creating-workspace.md
+      - topicgroup:
+          label: Schematics API
+          topics:
+          - retrieving-apply-plan-logs.md
+          - retrieving-action-logs-hide.md
+          - updating-variables-scale.md
+  - navgroup:
+      id: reference
+      topics:
+      - responsibilities-da.md
+      - security-groups.md
+      - storage-types.md
+      - vnic-info.md
+  - navgroup:
+      id: help
+      topics:
+      - faqs.md
+      - troubleshoot.md
+      - get-help-da.md
