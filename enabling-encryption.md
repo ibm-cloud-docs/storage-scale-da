@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: storage-scale-da
 {:table: .aria-labeledby="caption"}
 
 # Enabling Encryption
-{: #enable-encryption}
+{: #enable-encryptions}
 
 The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. You can enable encryption features during deployment. The encryption provides highly available key servers for cryptographic operations on the GPFS file system.
 {: shortdesc}

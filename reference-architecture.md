@@ -75,11 +75,6 @@ If you have a list or text to describe the diagram, include it here.
 
 Customize the design requirement heat map template image and highlight the scope of the architecture. Publishing in IBM Cloud Docs requires a caption to meet accessibility requirements.
 
-![Enter image alt text here.](heatmap.svg "Title text that shows on hover here"){: caption="A description that prints on the page" caption-side="bottom"}
-
-For more information about creating a design requirements heat map image, see [Design requirements heat map](https://test.cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-heat-map).
-
-
 ## Requirements
 {: #requirements}
 
