@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: storage-scale-da
 {:api: .ph data-hd-interface='api'}
 {:table: .aria-labeledby="caption"}
 
-# Creating a User group and users in Active Directory for accessing the Symphony cluster
+# Creating a user group and users in Active Directory for accessing the Symphony cluster
 {: #create-user-group-ad-symphony}
 
 Create a user group named "Symphony-group" and a user named "Symphonyuser01" in the Active Directory domain "pocdomain.local" using the Active Directory Users and Computers (ADUC) management tool on a Windows Server:

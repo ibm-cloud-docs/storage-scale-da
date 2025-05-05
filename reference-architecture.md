@@ -5,7 +5,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords: # Not typically populated
 
@@ -49,16 +49,12 @@ content-type: reference-architecture
 production: false
 
 ---
-
-
 {{site.data.keyword.attribute-definition-list}}
 
-
-
-# Title
+# IBM Storage Scale
 {: #storage-scale}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="value"}
+{: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="StorageScale"}
 
 

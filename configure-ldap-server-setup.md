@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -39,17 +39,13 @@ You should have access to a Linux system with root privileges. You should also h
 ## Procedure
 {: #proc-config-openldap}
 
-
 Use these steps to configure an OpenLDAP server:
 
-1.	Install the OpenLDAP server and client packages
+1. Install the OpenLDAP server and client packages
 
-   ```shell
-    Code:
-    yum -y install openldap-servers openldap-clients
+    `yum -y install openldap-servers openldap-clients`
 
-   ```
-2.	Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
+2. Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
 
     ```shell
     Code:

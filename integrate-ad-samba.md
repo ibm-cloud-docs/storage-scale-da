@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -104,14 +104,15 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     ```
 
    In addition to the above confirmation, ping the Domain Controller with Name : - Ping POCDOMAIN.LOCAL
-shell
-    ```
+
+    ```pre
     [root@amit-rhel84 ~]# ping POCDOMAIN.LOCAL
     PING POCDOMAIN.LOCAL (10.243.0.41) 56(84) bytes of data.
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=1 ttl=128 time=0.365 ms
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=2 ttl=128 time=0.722 ms
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=3 ttl=128 time=0.581 ms
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=4 ttl=128 time=0.525 ms
+    ```
 
 5.  Use `nslookup` to make sure that AD domain is resolvable:
 
@@ -150,12 +151,13 @@ shell
 
 10.  Edit the /etc/krb5.conf file and add this section:
 
-    ```
-     [plugins]
+    ```pre
+    [plugins]
       localauth = {
         module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
         enable_only = winbind
-     }
+    }
+    ```
 
 11.  Verify that the winbind service is running. For example:
 

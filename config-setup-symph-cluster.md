@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -21,9 +21,10 @@ subcollection: storage-scale-da
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Integrating IBM Storage Scale with Active Directory for Secure User Authentication and NFS File Access
+# Integrating IBM Storage Scale with Active Directory
 {: #integrate-scale-ad-auth-tut}
 
 ## Introduction
@@ -74,8 +75,9 @@ For this procedure you need:
 * A Windows Server 2019 system with administrative privileges.
 * Basic familiarity with PowerShell commands and Windows Server management.
 
-## Step 1 -  Installing and Configuring Active Directory and DNS Server on Windows Server 2019 using PowerShell
-{: #step-1-inst-conf-ad-dns}
+## Installing and Configuring Active Directory and DNS Server on Windows Server 2019 using PowerShell
+{: #inst-conf-ad-dns}
+{: step}
 
 1.  Open PowerShell with Administrative Privileges:
 
@@ -125,8 +127,9 @@ Verify that Active Directory and DNS are configured correctly by checking:
 4. On a client system within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller.
 5.  Attempt to join the client system to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
 
-## Step 2 - Creating a User group and users in Active Directory for users that are accessing the Symphony cluster
+## Creating a User group and users in Active Directory for users that are accessing the Symphony cluster
 {: #create-user-group-ad-symphony}
+{: step}
 
 Create a user group named "Symphony-group" and a user named "Symphonyuser01" in the Active Directory domain "pocdomain.local" using the Active Directory Users and Computers (ADUC) management tool on a Windows Server:
 
@@ -194,8 +197,9 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
     Creating user groups and users in the "pocdomain.local" Active Directory domain requires administrative privileges within that domain. Ensure that you have the necessary permissions to create groups and users. Also, always set strong passwords and follow security best practices when you create user accounts and groups in Active Directory to maintain a secure network environment.
     {: note}
 
-## Step 3 - Integrating Symphony Cluster running on RHEL 8.4 based Systems Directly to AD using Samba Winbind
+## Integrating Symphony Cluster running on RHEL 8.4 based Systems Directly to AD using Samba Winbind
 {: #scale-integrate-symph-cluster-ad-samba}
+{: step}
 
 ### Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
@@ -216,7 +220,7 @@ Supported operating systems for direct integration include:
 *  Windows Server 2012 R2
 
 Windows Server 2019 and Windows Server 2022 do not introduce new functional levels and use the highest functional level of Windows Server 2016.
-{: note)
+{: note}
 
 ### Ensuring Support for Common Encryption Types in AD and RHEL
 {: #encryption-types-ad-rhel}
@@ -259,7 +263,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
 
 3.  Update the DNS entries in /etc/resolv.conf file by using:
 
-    ```
+    ```pre
     sudo nmcli connection modify "System eth0" ipv4.dns "10.243.0.41" ipv4.ignore-auto-dns yes
     ```
 
@@ -298,7 +302,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
 
 6.  If your Active Directory requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
 
-    ```
+    ```pre
     # update-crypto-policies --set DEFAULT:AD-SUPPORT
     ```
 
@@ -395,7 +399,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
 
 5.  Display the cached Kerberos ticket:
 
-    ```
+    ```pre
     # klist
     Ticket cache: KCM:0
     Default principal: Administrator@POCDOMAIN.LOCAL
@@ -459,11 +463,12 @@ To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Li
 
 ## Step 4 - Configuring setup on the Symphony cluster side
 {: #config-setup-symphony-cluster-side}
+{: step}
 
 In addition to configuring the AD client authentication at the OS layer, you need to configure the Symphony Cluster to inherit the OS authentication:
 
 1.  (Get-ADUser -Filter 'Name -like "*hpcindia*"').userPrincipalName
-    ```
+    ```pre
     PS C:\> (Get-ADUser -Filter 'Name -like "*hpcindia*"').userPrincipalName
     hpcindiauser0@POCDOMAIN.LOCAL
     hpcindiauser1@POCDOMAIN.LOCAL
@@ -479,7 +484,7 @@ In addition to configuring the AD client authentication at the OS layer, you nee
 
 2.  Add the AD user “hpcindiauser0@POCDOMAIN.LOCAL” to Symphony cluster:
 
-    ```
+    ```pre
     Admin@HPCCluster> user add
     user account: hpcindiauser0@POCDOMAIN.LOCAL
     password:
@@ -537,7 +542,7 @@ In addition to configuring the AD client authentication at the OS layer, you nee
 
 3.  Log in with the user you added to the Symphony cluster:
 
-    ```
+    ```pre
     [POCDOMAIN\ hpcindiauser0@pp-hpcc-sym-primary-0]$ egosh
     egosh> user logon
     user account:hpcindiauser0@POCDOMAIN.LOCAL
