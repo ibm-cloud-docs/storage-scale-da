@@ -86,10 +86,10 @@ For this procedure you need:
 
 2. Install the Active Directory Domain Services Role and DNS Server Role by running these PowerShell commands:
 
-```pre
+   ```pre
    powershell code
    # Install the Active Directory Domain Services Role and DNS Server Role
-Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools
+   Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools
    ```
 
 3. Promote the Server to a Domain Controller with Integrated DNS by executing these PowerShell commands:
@@ -112,7 +112,7 @@ Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools
 
    The server automatically restarts to complete the domain controller promotion process.
 
-4.  After the server restarts, log in using the domain administrator account that you created during the promotion process to verify Active Directory and DNS Configuration.
+4. After the server restarts, log in using the domain administrator account that you created during the promotion process to verify Active Directory and DNS Configuration.
 
 ### Verify Active Directory and DNS Configuration
 {: #verfy-dns-ad-config}
@@ -120,8 +120,13 @@ Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools
 Verify that Active Directory and DNS are configured correctly by checking:
 
 1. Verify Active Directory Management
+
    * Open "Server Manager," and in the "Dashboard," confirm the presence of "Active Directory Users and Computers" and "DNS" listed under "Tools." This indicates successful installation of the Active Directory and DNS management tools.
+
 2. Start the Active Directory Users and Computers to manage user accounts, groups, and organizational units (OUs) within the domain.
+
 3. Access DNS Manager to manage DNS zones and records for the domain.
+
 4. On a client system within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller.
-5.  Attempt to join the client system to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
+
+5. Attempt to join the client system to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.

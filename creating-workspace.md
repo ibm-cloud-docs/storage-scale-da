@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-12"
 
 keywords:
 
@@ -66,7 +66,7 @@ The first step using {{site.data.keyword.bpshort}} is to create a workspace with
 
 Use the following CLI command to create a workspace with your `config.json` file. Make sure that the `config.json` file exists in the directory where you run the command.
 
-```
+```pre
 ibmcloud schematics workspace new -f hpc_workspace_config.json --github-token GITHUB_TOKEN
 ```
 {: pre}
@@ -80,14 +80,14 @@ The `--github-token` parameter is optional and only needed if you are using a pr
 
 You can list the workspaces in your account by using the following command:
 
-```
+```pre
 ibmcloud schematics workspace list
 ```
 {: pre}
 
 Example response with workspace details:
 
-```
+```pre
 Name                  ID                                              Description           Status         Frozen
 spectrum-scale-test   us-east.workspace.hpcc-scale-test.7cbc3f6b      Sample workspace      INACTIVE       False
 ```
@@ -99,7 +99,7 @@ spectrum-scale-test   us-east.workspace.hpcc-scale-test.7cbc3f6b      S
 
 You can retrieve the details of an existing workspace, including the values of all input variables, by running the following command:
 
-```
+```pre
 ibmcloud schematics workspace get --id WORKSPACE_ID [--output OUTPUT][--json]
 ```
 {: pre}
@@ -110,7 +110,7 @@ ibmcloud schematics workspace get --id WORKSPACE_ID [--output OUTPUT][--json]
 
 You can update the details for an existing workspace, such as the workspace name, variables, or source control URL by running the following command:
 
-```
+```pre
 ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME [--github-token GITHUB_TOKEN]
 ```
 {: pre}
