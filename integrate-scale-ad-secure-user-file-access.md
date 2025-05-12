@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-12"
 
 keywords:
 
@@ -52,21 +52,21 @@ Before the configuration process, make sure that these prerequisites are met:
 
 Before proceeding with the configuration of {{site.data.keyword.scale_full_notm}} to use the Active Directory and connecting RHEL systems to AD, make sure that the following network prerequisites are met:
 
-1.	Network connectivity: You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
+1. **Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 
-2.	Domain controller reachability: Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
+2. **Domain controller reachability:** Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
 
-3.	Time synchronization: Make sure that all systems participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
+3. **Time synchronization:** Make sure that all systems participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
 
-4.	Domain DNS configuration: The Active Directory domain must have properly configured DNS settings. The domain controllers IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that is part of the AD domain.
+4. **Domain DNS configuration:** The Active Directory domain must have properly configured DNS settings. The domain controllers IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that is part of the AD domain.
 
-5.	DNS resolution: Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname must be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname must be resolvable from the RHEL systems.
+5. **DNS resolution:** Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname must be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname must be resolvable from the RHEL systems.
 
-6.	DNS domain name: Make sure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory must be consistent throughout the configuration.
+6. **DNS domain name:** Make sure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory must be consistent throughout the configuration.
 
-7.	Firewall rules: Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
+7. **Firewall rules:** Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
-8.	Active Directory user account with administrative privileges: Make sure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
+8. **Active Directory user account with administrative privileges:** Make sure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
 
 ### Before you begin
 {: #before-you-begin}
@@ -79,12 +79,14 @@ For this procedure you need:
 {: #procedure}
 
 1. Open PowerShell with Administrative Privileges:
-    a.  Press the "Windows + X" keys on your keyboard to access the Power User menu.
-    b.  From the list, choose "Windows PowerShell (Admin)" to start an elevated PowerShell session with administrative privileges.
+
+    a. Press the "Windows + X" keys on your keyboard to access the Power User menu.
+
+    b. From the list, choose "Windows PowerShell (Admin)" to start an elevated PowerShell session with administrative privileges.
 
 2. Install the Active Directory Domain Services Role and DNS Server Role by running these PowerShell commands:
 
-   ```shell
+```pre
    powershell code
    # Install the Active Directory Domain Services Role and DNS Server Role
 Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools

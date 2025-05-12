@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-12"
 
 keywords:
 
@@ -24,6 +24,8 @@ subcollection: storage-scale-da
 # Setting up CES Failover
 {: #ces-failover-setupp}
 
+This section describes the procedure to setup the CES failover.
+
 ## Before you begin
 {: #before-you-begin-ces-failoverr}
 
@@ -32,22 +34,18 @@ Ensure that you have a correct Scale cluster with the ability to move CES IP add
 ## Procedure
 {: #procedures-ces-failover}
 
-1. Install the IBM Cloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
+1. Install the IBM Cloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources:`curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
-`curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
+2. Install the VPC Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI:`ibmcloud plugin install is`
 
-2. Install the VPC Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI.
+3. Update the `mmcesExtendedIpMgmt` script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
 
-`ibmcloud plugin install is`
-
-3. Update the mmcesExtendedIpMgmt script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
-
-* export IC_API_KEY=<ibmcloud_apikey>
-* export IC_REGION=<region>
-* export IC_ZONE=<zone>
-* export IC_RG=<resource_group>
-* export IC_VPC=<vpc_id>
-* export IC_RT=<route_table_id>
+    * export IC_API_KEY=<ibmcloud_apikey>
+    * export IC_REGION=<region>
+    * export IC_ZONE=<zone>
+    * export IC_RG=<resource_group>
+    * export IC_VPC=<vpc_id>
+    * export IC_RT=<route_table_id>
 
 Example script code:
 
