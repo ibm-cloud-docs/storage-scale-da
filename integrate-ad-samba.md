@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -23,13 +23,13 @@ subcollection: storage-scale-da
 {:api: .ph data-hd-interface='api'}
 {:table: .aria-labeledby="caption"}
 
-# Integrating Symphony Cluster running on RHEL 8.4 based Systems Directly to AD using Samba Winbind
+# Integrating Symphony cluster running on RHEL 8.4 based systems directly to Active Directory using Samba Winbind
 {: #scale-integrate-symph-cluster-ad-samba}
 
 ## Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
 
-To connect an RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
+To connect an RHEL system to AD, two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
 
 In this section, you will explore how to connect a RHEL system to AD using Samba Winbind. The steps include an overview of the direct integration process, supported Windows platforms, ensuring encryption compatibility, joining the AD domain, and using realm commands.
 
@@ -55,7 +55,7 @@ Windows Server 2019 and Windows Server 2022 do not introduce new functional leve
 Samba Winbind supports RC4, AES-128, and AES-256 Kerberos encryption types by default. However, RC4 encryption is deprecated and disabled by default due to security considerations. AD user credentials and trusts may still rely on RC4 encryption, leading to authentication issues.
 
 To ensure compatibility, you have two options:
-*  Enable AES encryption support in Active Directory.
+*  Enable AES encryption support in AD.
 *  Enable RC4 support in RHEL.
 
 For enabling RC4 support in RHEL, the steps differ depending on the RHEL version. It is recommended to refer to the official documentation for detailed instructions.
@@ -63,7 +63,7 @@ For enabling RC4 support in RHEL, the steps differ depending on the RHEL version
 ## Procedure
 {: #procedure}
 
-Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with Active Directory (AD). This section describes how to join an RHEL system to an AD domain by using realmd to configure Samba Winbind.
+Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with AD. This section describes how to join an RHEL system to an AD domain by using realmd to configure Samba Winbind.
 
 Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd``:
 
@@ -125,7 +125,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     Address: 10.243.0.41
     ```
 
-6.  If your Active Directory requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
+6.  If your AD requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
 
     `# update-crypto-policies --set DEFAULT:AD-SUPPORT`
 
@@ -136,7 +136,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
 
     `# mv /etc/samba/smb.conf /etc/samba/smb.conf.bak`
 
-8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
+8.  Join the RHEL 8.x host to the AD domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
 
     `# realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL`
 
@@ -239,7 +239,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     Additional resources
     * If you do not want to use the deprecated RC4 ciphers, you can enable the AES encryption type in AD.
 
-### To provide root user permissions to Active Directory (AD) users
+### To provide root user permissions to AD users
 {: #provide-root-permission}
 
 To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux system:

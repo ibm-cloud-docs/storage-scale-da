@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -52,21 +52,21 @@ Before you configure, be sure that these prerequisites are met:
 
 Before you proceed with the configuration of {{site.data.keyword.scale_full_notm}} to utilize Active Directory and connecting RHEL systems to AD, ensure that the following network prerequisites are met:
 
-1.	Network connectivity: You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
+1. **Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 
-2.	Domain controller reachability: Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
+2. **Domain controller reachability:** Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
 
-3.	Time synchronization: Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
+3. **Time synchronization:** Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
 
-4.	Domain DNS configuration: The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that are part of the AD domain.
+4. **Domain DNS configuration:** The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that are part of the AD domain.
 
-5.	DNS resolution: Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname should be resolvable from the RHEL systems.
+5. **DNS resolution:** Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname should be resolvable from the RHEL systems.
 
-6.	DNS domain name: Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory should be consistent throughout the configuration.
+6. **DNS domain name:** Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory should be consistent throughout the configuration.
 
-7.	Firewall rules: Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
+7. **Firewall rules:** Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
-8.	Active Directory user account with administrative privileges: Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
+8. **Active Directory user account with administrative privileges:** Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
 
 ### Windows Server and Powershell
 {: #windows-server-powershell-prereq}
@@ -79,11 +79,11 @@ For this procedure you need:
 {: #inst-conf-ad-dns}
 {: step}
 
-1.  Open PowerShell with Administrative Privileges:
+1. Open PowerShell with Administrative Privileges:
 
-    a.  Press the "Windows + X" keys on your keyboard to access the Power User menu.
+    a. Press the "Windows + X" keys on your keyboard to access the Power User menu.
 
-    b.  From the list, choose "Windows PowerShell (Admin)" to launch an elevated PowerShell session with administrative privileges.
+    b. From the list, choose "Windows PowerShell (Admin)" to launch an elevated PowerShell session with administrative privileges.
 
 2. Install the Active Directory Domain Services Role and DNS Server Role by running these PowerShell commands:
 
@@ -161,30 +161,30 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 
     c. In the ***New Object - User*** dialog box, enter the required information for the new user **symphonyuser01*:
 
-      *  Full name: Enter the user's full name (for example, LSF User 01).
+      * Full name: Enter the user's full name (for example, LSF User 01).
 
-      *  User logon name: Enter the user's logon name (for example, Symphonyser01).
+      * User logon name: Enter the user's logon name (for example, Symphonyser01).
 
-      *  User Principal Name (UPN): The UPN is automatically generated based on the user logon name and the domain name (for example, Symphonyuser01@pocdomain.local).
+      * User Principal Name (UPN): The UPN is automatically generated based on the user logon name and the domain name (for example, Symphonyuser01@pocdomain.local).
 
-      *  Password: Set a secure password for the user account and choose whether the user must change the password on the first logon.
+      * Password: Set a secure password for the user account and choose whether the user must change the password on the first logon.
 
-      *  The user cannot change the password: Check this option if you want to prevent the user from changing their password.
+      * The user cannot change the password: Check this option if you want to prevent the user from changing their password.
 
-      *  Password never expires: Check this option if you want the user's password to never expire.
+      * Password never expires: Check this option if you want the user's password to never expire.
 
-      *  Account is disabled: By default, the account is enabled. If you want to create the user account in a disabled state, clear this option.
+      * Account is disabled: By default, the account is enabled. If you want to create the user account in a disabled state, clear this option.
 
-    d.  Click Next to continue through any additional wizard steps.
+    d. Click Next to continue through any additional wizard steps.
 
-    e.  Review the information entered, and click **Finish** to create the new user "Symphonyuser01."
+    e. Review the information entered, and click **Finish** to create the new user "Symphonyuser01."
 
 4.  Add "Symphonyuser01" to "Symphony-group" User Group:
 
     a. In the ADUC console, locate the ***Symphony-group*** user group that you created earlier.
 
     b. Right-click on the ***Symphony-group*** user group and select **Properties**.
-    c.  In the **Properties** dialog box, go to the **Members** tab.
+    c. In the **Properties** dialog box, go to the **Members** tab.
 
     d. Click **Add** and then enter ***Symphonyuser01*** in the **Enter the object names to select** field.
 
@@ -192,7 +192,7 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 
     f. Click **OK** to add "Symphonyuser01" to the "Symphony-group" user group.
 
-    g.  Click **Apply** and then **OK** to save the changes.
+    g. Click **Apply** and then **OK** to save the changes.
 
     Creating user groups and users in the "pocdomain.local" Active Directory domain requires administrative privileges within that domain. Ensure that you have the necessary permissions to create groups and users. Also, always set strong passwords and follow security best practices when you create user accounts and groups in Active Directory to maintain a secure network environment.
     {: note}
@@ -210,14 +210,14 @@ To connect an RHEL system to Active Directory (AD), two components are needed: S
 {: #supported-windows-platforms}
 
 Direct integration with AD forests is compatible with the following forest and domain functional levels:
-*  Forest functional level range: Windows Server 2008 - Windows Server 2016
-*  Domain functional level range: Windows Server 2008 - Windows Server 2016
+* Forest functional level range: Windows Server 2008 - Windows Server 2016
+* Domain functional level range: Windows Server 2008 - Windows Server 2016
 
 Supported operating systems for direct integration include:
-*  Windows Server 2022 (RHEL 8.7 and above)
-*  Windows Server 2019
-*  Windows Server 2016
-*  Windows Server 2012 R2
+* Windows Server 2022 (RHEL 8.7 and above)
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
 
 Windows Server 2019 and Windows Server 2022 do not introduce new functional levels and use the highest functional level of Windows Server 2016.
 {: note}
@@ -228,8 +228,8 @@ Windows Server 2019 and Windows Server 2022 do not introduce new functional leve
 Samba Winbind supports RC4, AES-128, and AES-256 Kerberos encryption types by default. However, RC4 encryption is deprecated and disabled by default due to security considerations. AD user credentials and trusts might still rely on RC4 encryption, leading to authentication issues.
 
 To ensure compatibility, you have two options:
-*  Enable AES encryption support in Active Directory.
-*  Enable RC4 support in RHEL.
+* Enable AES encryption support in Active Directory.
+* Enable RC4 support in RHEL.
 
 For enabling RC4 support in RHEL, the steps differ depending on the RHEL version. It is recommended to refer to the official documentation for detailed instructions.
 
@@ -238,9 +238,9 @@ For enabling RC4 support in RHEL, the steps differ depending on the RHEL version
 
 Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with Active Directory (AD). You need to join a RHEL system to an AD domain by using realmd to configure Samba Winbind.
 
-Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd`:
+Join a IBM Spectrum Symphony cluster node that is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd`:
 
-1.  Install and update the following packages:
+1. Install and update the following packages:
 
     ```shell
     # yum install realmd oddjob-mkhomedir oddjob samba-winbind-clients \
@@ -249,7 +249,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     #yum update
     ```
 
-2.  Updating the /etc/hosts with adding AD domain ip and name.  For example:
+2. Updating the /etc/hosts with adding AD domain ip and name.  For example:
 
     ```shell
     [root@amit-rhel84 ~]# cat /etc/hosts
@@ -261,7 +261,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     addc1.POCDomain.local is the AD server FQDN name
     {: note}
 
-3.  Update the DNS entries in /etc/resolv.conf file by using:
+3. Update the DNS entries in /etc/resolv.conf file by using:
 
     ```pre
     sudo nmcli connection modify "System eth0" ipv4.dns "10.243.0.41" ipv4.ignore-auto-dns yes
@@ -269,7 +269,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
 
     This command not only updates the DNS entries in the `/etc/resolv.conf` file but also verifies that the DNS entries are not auto-updated to cloud based DNS servers.
 
-4.  Confirm the changes in the DNS file:
+4. Confirm the changes in the DNS file:
 
     ```shell
     [root@amit-rhel84 ~]# cat /etc/resolv.conf
@@ -278,7 +278,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     [root@amit-rhel84 ~]#
     ```
 
-    In addition to the confirmation, ping the Domain Controller with Name : - Ping POCDOMAIN.LOCAL shell:
+    In addition to the confirmation, ping the Domain Controller with Name : - Ping POCDOMAIN.LOCAL:
 
     ```shell
     [root@amit-rhel84 ~]# ping POCDOMAIN.LOCAL
@@ -289,7 +289,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=4 ttl=128 time=0.525 ms
     ```
 
-5.  Use `nslookup` to ensure that the AD domain is resolvable:
+5. Use `nslookup` to ensure that the AD domain is resolvable:
 
     ```shell
     [root@amit-rhel84 ~]#  nslookup pocdomain.local
@@ -300,7 +300,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     Address: 10.243.0.41
     ```
 
-6.  If your Active Directory requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
+6. If your Active Directory requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
 
     ```pre
     # update-crypto-policies --set DEFAULT:AD-SUPPORT
@@ -309,37 +309,37 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     After you run this command, it updates the crypto policies and asks to reboot the system.
 
 
-7.  Back up the existing `/etc/samba/smb.conf` Samba configuration file:
+7. Back up the existing `/etc/samba/smb.conf` Samba configuration file:
 
     ```shell
     # mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
     ```
 
-8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
+8. Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
 
     ```shell
     # realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL
     ```
 
     When you use this command, the realm utility automatically:
-    *  Creates a /etc/samba/smb.conf file for a membership in the pocdomain.local domain.
-    *  Adds the winbind module for user and group lookups to the /etc/nsswitch.conf file.
-    *  Updates the Pluggable Authentication Module (PAM) configuration files in the /etc/pam.d/ directory.
-    *  Starts the winbind service and enables the service to start when the system boots.
+    * Creates a /etc/samba/smb.conf file for a membership in the pocdomain.local domain.
+    * Adds the winbind module for user and group lookups to the /etc/nsswitch.conf file.
+    * Updates the Pluggable Authentication Module (PAM) configuration files in the /etc/pam.d/ directory.
+    * Starts the winbind service and enables the service to start when the system boots.
 
 
-9.  (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For more information, see the [Understanding and configuring Samba ID mapping](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}
+9. (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For more information, see the [Understanding and configuring Samba ID mapping](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}
 
-10.  Edit the /etc/krb5.conf file and add this information:
+10. Edit the `/etc/krb5.conf` file and add this information:
 
     ```shell
-     [plugins]
-      localauth = {
-        module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
-        enable_only = winbind
-     }
+    [plugins]
+    localauth = {
+    module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
+    enable_only = winbind
+    }
     ```
-11.  Verify that the winbind service is running. For example:
+11. Verify that the winbind service is running. For example:
 
     ```shell
     # systemctl status winbind
@@ -362,7 +362,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
            └─5997 /usr/sbin/winbindd --foreground --no-process-group Important
     ```
 
-12.  If you installed the samba package to share directories and printers, enable and start the smb service:
+12. If you installed the samba package to share directories and printers, enable and start the smb service:
 
     ```shell
     # systemctl enable --now smb ----tobe noted
@@ -441,18 +441,18 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
 {: #provide-root-permission}
 
 To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux system:
-1.  Open a terminal or connect to the Linux system.
-2.  Edit the sudoers file by using the visudo command:
+1. Open a terminal or connect to the Linux system.
+2. Edit the sudoers file by using the visudo command:
     `sudo visudo`
-3.  Locate the section in the sudoers file that configures user privileges:
+3. Locate the section in the sudoers file that configures user privileges:
 
     `# Allow root to run any commands anywhere root ALL=(ALL) ALL`
 
-4.  Add the following line below the root user entry to allow AD users in the "POCDOMAIN\Domain Administrators" group to run commands with root privileges:
+4. Add the following line below the root user entry to allow AD users in the "POCDOMAIN\Domain Administrators" group to run commands with root privileges:
     `%POCDOMAIN\\Domain\ Administrators ALL=(ALL) ALL`
 
     This line grants root user privileges to all AD users in the "POCDOMAIN\Domain Users" group. The double backslashes ("") are used to escape special characters.
-5.  Save the changes to the sudoers file and exit the editor.
+5. Save the changes to the sudoers file and exit the editor.
     AD users who are members of the "POCDOMAIN\Domain Users" group can now run commands with root privileges by using the sudo command. For example:
     `sudo command_to_execute_as_root`
 
@@ -467,7 +467,7 @@ To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Li
 
 In addition to configuring the AD client authentication at the OS layer, you need to configure the Symphony Cluster to inherit the OS authentication:
 
-1.  (Get-ADUser -Filter 'Name -like "*hpcindia*"').userPrincipalName
+1. (Get-ADUser -Filter 'Name -like "*hpcindia*"').userPrincipalName
     ```pre
     PS C:\> (Get-ADUser -Filter 'Name -like "*hpcindia*"').userPrincipalName
     hpcindiauser0@POCDOMAIN.LOCAL
@@ -482,7 +482,7 @@ In addition to configuring the AD client authentication at the OS layer, you nee
     hpcindiauser9@POCDOMAIN.LOCAL
     ```
 
-2.  Add the AD user “hpcindiauser0@POCDOMAIN.LOCAL” to Symphony cluster:
+2. Add the AD user “hpcindiauser0@POCDOMAIN.LOCAL” to Symphony cluster:
 
     ```pre
     Admin@HPCCluster> user add
@@ -540,7 +540,7 @@ In addition to configuring the AD client authentication at the OS layer, you nee
     @chrony
     ```
 
-3.  Log in with the user you added to the Symphony cluster:
+3. Log in with the user you added to the Symphony cluster:
 
     ```pre
     [POCDOMAIN\ hpcindiauser0@pp-hpcc-sym-primary-0]$ egosh

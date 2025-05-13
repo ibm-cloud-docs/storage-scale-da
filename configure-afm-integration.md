@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -71,36 +71,38 @@ To enable the AFM feature on a Storage Scale cluster, the following variables ne
 
 Following components are required for a successful scale deployment with AFM feature:
 
-* Storage Cluster: This includes designated storage and a set of AFM gateway node.
+* **Storage Cluster:** This includes designated storage and a set of AFM gateway node.
 
-* Filesets: Created on the storage cluster with the appropriate fileset mode specified in the configuration variables.
+* **Filesets:** Created on the storage cluster with the appropriate fileset mode specified in the configuration variables.
 
-* Cloud Object Storage (COS): COS buckets that are defined with specified bucket types and storage classes with HMAC keys for secure access.
+* **Cloud Object Storage (COS):** COS buckets that are defined with specified bucket types and storage classes with HMAC keys for secure access.
 
-## Verifying AFM on the Storage Cluster
+## Verifying AFM on the storage cluster
 {: #verify-afm-storage-cluster}
 
 Verify Active File Management on the Storage Cluster by using the following steps:
 
 1. Login to one of the storage nodes by using SSH with a jump host by running the command:
-  ` ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE`
+
+`ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE`
 
 2. To get details about a specific fileset and its mode (including AFM specifics), run the `mmlsfileset fs1 fileset1 --afm -L` command.
-  *  fs1: The name of the file system.
-  *  fileset1: The name of the fileset.
-  *  --afm: Option to include AFM-specific details.
-  *  -L: Option to list all details about the fileset.
+
+    * fs1: The name of the file system.
+    * fileset1: The name of the fileset.
+    * --afm: Option to include AFM-specific details.
+    * -L: Option to list all details about the fileset.
 
 3. To check the synchronization status from an AFM fileset to the home cluster, run the `mmafmctl  fs1 getstate -j fileset1` command.
-  *  fs1: The name of the file system.
-  *  getstate: The operation to retrieve the state.
-  *  -j fileset1: Specifies the fileset for which to check the synchronization state.
+    * fs1: The name of the file system.
+    * getstate: The operation to retrieve the state.
+    * -j fileset1: Specifies the fileset for which to check the synchronization state.
 
 4. To check the HMAC for a bucket, run the `mmafmcoskeys storage-scale-bucket get` command.
-  *  storage-scale-bucket: The name of the Cloud Object Storage bucket.
-  *  get: Operation to retrieve the HMAC key associated with the specified bucket.
+    * storage-scale-bucket: The name of the Cloud Object Storage bucket.
+    * get: Operation to retrieve the HMAC key associated with the specified bucket.
 
-## LDAP User Access to COS Filesets
+## LDAP user access to COS filesets
 {: #ldap-user-access-cos}
 
-It is recommended to adjust the ownership, group, and permissions of the fileset to meet the specific needs of the users. While our automation process creates the fileset and establishes the initial relationship, it is the responsibility of the system administrator or user to make sure that these settings are correctly configured afterward. This approach ensures that the LDAP users can access the data with the necessary permissions, maintaining a secure and manageable environment. Properly managing ownership and permissions provides a controlled way for users to interact with the fileset while preserving the integrity and security of the system.
+To adjust the ownership, group, and permissions of the fileset to meet the specific needs of the users. While our automation process creates the fileset and establishes the initial relationship, it is the responsibility of the system administrator or user to make sure that these settings are correctly configured afterward. This approach ensures that the LDAP users can access the data with the necessary permissions, maintaining a secure and manageable environment. Properly managing ownership and permissions provides a controlled way for users to interact with the fileset while preserving the integrity and security of the system.

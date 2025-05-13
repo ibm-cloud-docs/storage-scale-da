@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: storage-scale-da
 {:api: .ph data-hd-interface='api'}
 {:table: .aria-labeledby="caption"}
 
-#  Integrating IBM Storage Scale with Active Directory for Secure User Authentication and NFS File Access
+# Integrating IBM Storage Scale with Active Directory for secure user authentication and NFS file access
 {: #integrate-scale-ad-secure-user-nfs}
 
 ## Introduction

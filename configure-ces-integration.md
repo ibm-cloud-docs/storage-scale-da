@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Enabling Cluster Export Services
+# Enabling cluster export services
 {: #config-ces-integration-ldap-authentication}
 
 Cluster Export Services (CES) is a key component of the {{site.data.keyword.scale_full_notm}} architecture, which is designed to enable access to data stored in the Scale-out File and Object Storage (Storage Scale) system. CES plays a critical role in providing efficient and versatile data access to meet the diverse needs of modern enterprises.
@@ -74,49 +74,49 @@ The successful scale deployment with the CES feature enabled consists of differe
 
 1.	Log in to any of the clusters (storage or compute nodes) by running the following SSH command:
 
-    ```
+    ```pre
     ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
     ```
 
 2.	To view the cluster shared root configuration on the storage cluster, run the following command:
 
-    ```
+    ```pre
     mmlsconfig cesSharedRoot
     ```
 
 3.	To list the protocol nodes in the cluster, run the following command:
 
-    ```
+    ```pre
     mmces node list
     ```
 
 4.	To view the protocol cluster information, use the mmlscluster command:
 
-    ```
+    ```pre
     mmlscluster --ces
     ```
 
 5.	Use the service list command that provides comprehensive list of the services that are running in the CES cluster, use --verbose and -a flag for detailed information:
 
-    ```
+    ```pre
     mmces service list --verbose -a
     ```
 
 6.	Use the mmuserauth command to view the details on the type of authentication used for CES:
 
-    ```
+    ```pre
     mmuserauth service check
     ```
 
 7.	Use the mmnfs export command to add, change, list, load, or remove NFS export declarations for IP addresses on nodes that are configured as CES types. Use list to view the current NFS exports:
 
-    ```
+    ```pre
     mmnfs export list
     ```
 
 8.	Use the mmlsquota command to display quota information for a user, group, or file set. The -j flag is used for displaying the quota for file set in a file system.
 
-    ```
+    ```pre
     mmlsquota -j data FILESYSTEM
     ```
 

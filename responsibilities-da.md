@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: storage-scale-da
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Understanding your responsibilities when you use _deployable-architecture-name_
+# Understanding your responsibilities when you use {{site.data.keyword.scale_full_notm}}
 {: #your-id}
 
 

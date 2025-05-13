@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Enabling boot drive encryption for Bare Metal Server
+# Enabling boot drive encryption for Bare Metal server
 {: #boot-drive-encryption}
 
 Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a local disk drive for boot. This makes sure that the responsibility for encryption of the drive is with the users. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
@@ -31,12 +31,12 @@ Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a loc
 |`bms_boot_drive_encryption`|Enable the boot drive encryption for the bare metal server. Select true or false	|false|
 {: caption='Boot drive variables'}
 
-## Verifying boot drive encryption on the Bare Metal Server
+## Verifying boot drive encryption on the Bare Metal server
 {: #boot-drive-encryption-verify}
 
 To verify if the boot drive is encrypted, the user can run the `lsblk` command to check that the root type partition that is mounted at `/` is set to crypt.
 
-```
+```pre
 [root@scale-bm-drive-strg-002 ~]# lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
 sda           8:0    0 894.2G  0 disk
@@ -75,14 +75,14 @@ Following are the steps to rotate the LUKS Encryption Keys:
 
 * List the TPM keys:
 
-```
+```pre
 [root@scale-boot-test-strg-001 ~]# clevis luks list -d /dev/sda5
 1: tpm2 '{"hash":"sha256","key":"rsa"}'
 ```
 
 * Regenerate the TPM key (rotate it):
 
-```
+```pre
 [root@scale-boot-test-strg-002 ~]# clevis luks regen -d /dev/sda5 -s 1
 Regenerating binding (device /dev/sda5, slot 1):
 Pin: tpm2, Config: '{"hash":"sha256","key":"rsa"}'
@@ -92,7 +92,7 @@ Binding regenerated successfully
 
 * Change the recovery key:
 
-```
+```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksChangeKey /dev/sda5
 Enter passphrase to be changed:
 Enter new passphrase:
@@ -101,20 +101,20 @@ Verify passphrase:
 
 * Test the passphrase:
 
-```
+```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksOpen --test-passphrase /dev/sda5
 Enter passphrase for /dev/sda5:
 ```
 
 * Back up the key:
 
-```
+```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksHeaderBackup /dev/sda5 --header-backup-file luksbackup-sensitive.raw
 ```
 
 * Restore the key:
 
-```
+```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksHeaderRestore /dev/sda5 --header-backup-file luksbackup-sensitive.raw
 
 WARNING!

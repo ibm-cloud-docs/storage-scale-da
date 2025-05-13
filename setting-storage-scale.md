@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Setting up an cluster
+# Setting up a cluster
 {: #using-hpc-cluster}
 
 Deploy the HPC cluster with your choice of configuration properties.

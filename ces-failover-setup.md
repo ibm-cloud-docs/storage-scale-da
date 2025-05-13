@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -21,7 +21,7 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Setting up CES Failover
+# Setting up CES failover
 {: #ces-failover-setupp}
 
 This section describes the procedure to setup the CES failover.

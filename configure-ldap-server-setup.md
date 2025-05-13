@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -21,12 +21,12 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Configuration for LDAP Server setup
+# Configuration for LDAP server setup
 {: #configure-ldap-server}
 
 Make sure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
 
-## Configuring an OpenLDAP Server
+## Configuring an OpenLDAP server
 {: #configure-openldap-server}
 
 OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.

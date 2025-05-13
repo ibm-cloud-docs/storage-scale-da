@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -26,23 +26,20 @@ subcollection: storage-scale-da
 
 You can integrate Scale with CES services and enable LDAP-based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By using LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps. This enables the LDAP-based authentication and provide instructions for setting up an OpenLDAP server on a Linux system.
 
-## Configuration for OpenLDAP Server setup
+## Configuration for OpenLDAP server setup
 {: #configure-ldap-server}
 {: step}
 
-Make sure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
-
-### Configuring an OpenLDAP Server
-{: #configure-openldap-server}
-
 OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.
 
-### Before you begin - OpenLDAP Server
+Make sure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
+
+### Before you begin - OpenLDAP server
 {: #beforeyoubegin-openldap}
 
 You need to have access to a Linux system with root privileges. You need to have a basic understanding of the command-line interface and how to use a text editor.
 
-### Configuring an OpenLDAP Server
+### Configuring an OpenLDAP server
 {: #proc-config-openldap}
 
 Use these steps to configure an OpenLDAP server:
@@ -313,7 +310,7 @@ This output shows that there are two group entries, " ScaleAdmin" and " Scalecon
 
 Later, one can use the `ldapmodify` command to add exiting users to these groups.  In the above `ldapsearch` output, two users are seen as the member of each of the groups.
 
-## Configuration for CES integration and LDAP Authentication
+## Configuration for CES integration and LDAP authentication
 {: #config-ces-integration}
 {: step}
 
@@ -464,7 +461,7 @@ Additional Input includes:
 13.  Mount the NFS share from the CES server to the LSF node.
     `mount -t nfs4 -o sec=sys storage-scale-ces-1.cesscale.com:/gpfs/fs1/lsf /mnt/lsf`
 
-## CES Failover Setup
+## CES failover setup
 {: #ces-failover-setup}
 {: step}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -45,7 +45,7 @@ The command that is mentioned indicates that the authentication process is being
 
 To know more about CES authentication click [CES User Authentication](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication&interface=cli#verify-ces).
 
-## Creating and Configuring an LDAP certificate with your LDAP server
+## Creating and configuring a LDAP certificate with your LDAP server
 {: #create-configure-ldap-certificate}
 
 If your existing LDAP server is configured without a certificate, follow these steps to create one and configure it with the LDAP server. If your LDAP server is already configured with a certificate, you can skip steps 1 through 16 and proceed directly to copying the certificate content [step 17].

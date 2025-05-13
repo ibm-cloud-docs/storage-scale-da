@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -20,11 +20,11 @@ subcollection: storage-scale-da
 {:beta: .beta}
 {:important: .important}
 
-# Enabling Parallel vNIC
+# Enabling parallel vNIC
 {: #enabling-vnic}
 
-## About
-{: #about-vnic}
+## Overview
+{: #overview-vnic}
 
 A vNIC (Virtual Network Interface Controller) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see [Managing network interfaces](https://cloud.ibm.com/docs/vpc?topic=vpc-using-instance-vnics).
 
@@ -46,31 +46,31 @@ Parallel vNIC feature is not supported for persistent storage type.
 
 Parallel virtual network interface cards (vNICs) are beneficial for {{site.data.keyword.scale_full_notm}}.
 
-### Parallelism and Load Balancing
+### Parallelism and load balancing
 {: #parallel-load-balance}
 
 Load Distribution: With two vNICs, network traffic gets distributed between them, effectively balancing the load. This is beneficial in scenarios where there is a high volume of network traffic.
 
 Parallel Processing: Multiple vNICs can handle network tasks in parallel, allowing for more efficient use of available bandwidth. This is similar to the concept of parallel processing in computing.
 
-### Redundancy and Failover
+### Redundancy and failover
 {: #redendant-failover}
 
 Network Redundancy: Two vNICs can provide network redundancy. If one network path or vNIC fails, the other can take over, ensuring continuous network connectivity. This is often implemented in environments where high availability is crucial.
 
 Failover: In addition to redundancy, if one vNIC is overwhelmed or experiences issues, the traffic can be directed to the other vNIC, ensuring continuous operation.
 
-### Improved Throughput
+### Improved throughput
 {: #improved-throughput}
 
 Increased Aggregate Bandwidth: By using two vNICs, there is an essential increase in the aggregate bandwidth that the system can utilize. This is especially useful when dealing with applications or workloads that require high throughput.
 
-### Traffic Isolation
+### Traffic isolation
 {: #traffic-isolation}
 
 Separation of Traffic Types: One vNIC can be used for specific types of traffic (for example, storage traffic), and the other for different types (for example, application traffic). This separation can prevent congestion on a single network path and improve overall performance.
 
-## MROT
+## Multi-Rail over TCP
 {: #mrot}
 
 IBM Storage Scale 5.1.5 introduces the Multi-Rail over TCP (MROT) feature. This functionality allows the concurrent use of multiple subnets to communicate with a specified destination. It also permits the simultaneous utilization of multiple physical network interfaces without the need for bonding configuration.
@@ -84,7 +84,7 @@ To verify the configuration of MROT and the logical subnet, use the following co
 
 `mmdiag --network`
 
-#### On Compute Cluster
+#### On compute cluster
 {: #on-compute-cluster}
 
 The logical subnet can be observed under my address list. In the example results, you can find the destination hostnames and IPs under the columns "hostname" and "idx."
@@ -148,7 +148,7 @@ On the Compute cluster:
 `subnets 10.241.1.0/scale-cluster.compscale.com;scale-cluster.strgscale.com`
 
 
-#### On Storage Cluster
+#### On storage cluster
 {: #on-storage-cluster}
 
 The logical subnet is visible under my address list. In the results, you can find the destination hostnames of nodes and their corresponding destination IPs under the columns "hostname" and "idx."
@@ -207,6 +207,6 @@ For the storage cluster, scaling is configured on both primary and secondary IPs
             1 eth1                up        0 10.241.1.26     10.241.1.25     10.241.1.0/24
 ```
 
-On Storage Cluster:
+On storage cluster:
 
 `subnets 10.241.1.0/scale-cluster.strgscale.com;scale-cluster.compscale.com`

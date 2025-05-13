@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -41,7 +41,7 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 
 Sample response
 
-```
+```pre
 2022/05/09 14:35:53 Terraform apply | Apply complete! Resources: 41 added, 0 changed, 0 destroyed.
 2022/05/09 14:35:53 Terraform apply |
 2022/05/09 14:35:53 Terraform apply | Outputs:
@@ -60,7 +60,7 @@ Sample response
 
 Sample response
 
-```
+```pre
 2022/05/09 12:51:12 Terraform plan | Error: [ERROR] No SSH Key found with name ssh-key-east-new
 2022/05/09 12:51:12 Terraform plan |
 2022/05/09 12:51:12 Terraform plan | on main.tf line 85, in data "ibm_is_ssh_key" "compute_ssh_key":

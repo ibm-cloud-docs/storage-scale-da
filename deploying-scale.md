@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -83,7 +83,7 @@ You can list the workspaces in your account by using the following command:
 
 Example response with workspace details:
 
-```
+```pre
 Name                  ID                                              Description           Status         Frozen
 spectrum-scale-test   us-east.workspace.hpcc-scale-test.7cbc3f6b      Sample workspace      INACTIVE       False
 ```

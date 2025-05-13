@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -183,7 +183,7 @@ Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Ra
 
 After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 5.2.1.0. This is because version 5.2.1.1 includes 'minReleaseLevel' set to 5.2.1.0. For verification of the actual version, run the `mmdiag --version` command.
 
-```
+```pre
 [root@jay-tie-strg-002 ~]# mmdiag --version
 
 === mmdiag: version ===
