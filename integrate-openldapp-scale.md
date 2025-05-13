@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Integrating the OpenLDAP server with your IBM Storage Scale cluster
 {: #integrating-openldap}
 
-You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance_key_pair` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to the {{site.data.keyword.scale_full_notm}} cluster.
+You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance_key_pair` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to the {{site.data.keyword.scale_full_notm}} cluster.
 
 |LDAP Variable	|Description	|Example value |
 |----------|----------|----------|

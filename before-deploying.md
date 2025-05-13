@@ -137,7 +137,7 @@ After completing the mandatory steps, you can enable the optional parameters in 
 {: #enable-encryption}
 {: step}
 
-You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/storage-scale?topic=storage-scale-enable-encryption).
+You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions).
 
 ### Enable parallel vNIC (MROT)
 {: #enable-parallel-vnic}
@@ -152,7 +152,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 {: #enable-ces}
 {: ces}
 
-To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values) topic for more details.
+To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) topic for more details.
 
 ### Enable boot drive encryption for persistent storage
 {: #enable-boot-encryption}
@@ -170,7 +170,7 @@ To enable LDAP, set `enable_ldap` parameter to true and complete other variables
 {: #enable-afm}
 {: step}
 
-To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
+To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## Next steps
 {: #getting-started-next-steps}

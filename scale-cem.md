@@ -44,28 +44,28 @@ You need to have access to a Linux system with root privileges. You need to have
 
 Use these steps to configure an OpenLDAP server:
 
-1.	Install the OpenLDAP server and client packages
+1. Install the OpenLDAP server and client packages
 
     ```pre
     Code:
     yum -y install openldap-servers openldap-clients
 
     ```pre
-2.	Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
+2. Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
 
     ```pre
     Code:
     cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG chown ldap. /var/lib/ldap/DB_CONFIG
     ```
 
-3.	Start the slapd service and enable it to start automatically at boot time by running the following commands:
+3. Start the slapd service and enable it to start automatically at boot time by running the following commands:
 
     ```pre
     Code:
     systemctl start slapd systemctl enable slapd
     ```
 
-4.	Generate an admin password by running the slappasswd command. You are prompted to enter a password. For example:
+4. Generate an admin password by running the slappasswd command. You are prompted to enter a password. For example:
 
     ```pre
     Code:
@@ -77,10 +77,11 @@ Use these steps to configure an OpenLDAP server:
     ```Code:
     {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4
     ```
-    The password hash that is generated (in this case, {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you need it later.
+
+    The password hash that is generated (in this case, {SSHA} FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you need it later.
     {: note}
 
-5.	Create a file that is named `chrootpw.ldif` and add the following lines to it:
+5. Create a file that is named `chrootpw.ldif` and add the following lines to it:
 
     ```pre
     Code:
@@ -92,7 +93,7 @@ Use these steps to configure an OpenLDAP server:
 
     Replace the `olcRootPW`` value with the password hash that you generated in the step 4.
 
-6.	Import the basic schema by running the following commands:
+6. Import the basic schema by running the following commands:
 
     ```pre
     Code:
@@ -101,7 +102,7 @@ Use these steps to configure an OpenLDAP server:
     ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
     ```
 
-7.	Generate a manager password by running the slappasswd command again.  For example:
+7. Generate a manager password by running the slappasswd command again.  For example:
 
     ```pre
     Code:
@@ -118,7 +119,7 @@ Use these steps to configure an OpenLDAP server:
 
     Make note of the password hash that is generated (in this case, {SSHA}TVW9z6WLIBC3EXtFHFWnb2EVlK7EZQ3b) as you need it in the next step.
 
-8.	Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
+8. Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
 
     ```pre
     # DC should be your domain
@@ -181,7 +182,7 @@ Use these steps to configure an OpenLDAP server:
     ou: Group
     ```
 
-11.	Apply the `baseddomain.ldif`` changes:
+11.	Apply the `baseddomain.ldif` changes:
 
     ```pre
     Code:
@@ -326,54 +327,57 @@ Before proceeding, several assumptions are made:
 *   Protocol Subnet: The IP address range for CES protocol nodes is assumed to be 10.241.2.0/24.
 *   Supported Protocol Nodes: Only Virtual Server Instances (VSIs) are used as CES protocol nodes.
 
-Additional Input includes:
-•	total_protocol_node_count: The total number of CES protocol nodes to be used.
-•	custom_file_shares: Custom file shares, such as /mnt/lsf:100, /mnt/data:100, etc., are expected.
+Additional input includes:
+
+* total_protocol_node_count: The total number of CES protocol nodes to be used.
+* custom_file_shares: Custom file shares, such as /mnt/lsf:100, /mnt/data:100, etc., are expected.
 
 ### Procedure - Infrastructure Configuration
 {: #infrastructure-config}
 
-1.  Infrastructure Configuration:
+1. **Infrastructure Configuration:**
 
-    a.  Spin up a Storage-Only Cluster
-        Create a dedicated storage cluster to host IBM Spectrum Scale.
-    b.  Create the Protocol Subnet
-        Set up the network segment for CES protocol nodes.
-    c.  Attach Secondary Interface to Protocol Nodes (Minimum 2)
-        Add a secondary network interface to at least two Scale storage nodes for CES protocol communication.
-    d.  Enable IP Spoofing
-        Enable IP spoofing to allow CES protocol nodes to communicate by using private IPs.
-    e.  Configure Security Group
-        Create a security group named storage-sg for managing access control.
-    f.  Reserve Private IPs in Protocol Subnet (Minimum 2)
-        Reserve private IPs in the protocol subnet, matching the count of protocol nodes.
+    a. Spin up a Storage-Only Cluster
+       Create a dedicated storage cluster to host IBM Spectrum Scale.
+    b. Create the Protocol Subnet
+       Set up the network segment for CES protocol nodes.
+    c. Attach Secondary Interface to Protocol Nodes (Minimum 2)
+       Add a secondary network interface to at least two Scale storage nodes for CES protocol communication.
+    d. Enable IP Spoofing
+       Enable IP spoofing to allow CES protocol nodes to communicate by using private IPs.
+    e. Configure Security Group
+       Create a security group named storage-sg for managing access control.
+    f. Reserve Private IPs in Protocol Subnet (Minimum 2)
+       Reserve private IPs in the protocol subnet, matching the count of protocol nodes.
 
-2.  DNS Configuration
-    a.  Create DNS Zone (for example, scaleces.com)
-        Need to set up a DNS zone to manage DNS records for CES.
-    b.  Add VPC as Permitted Network
-        Allow the VPC to access DNS records within the configured zone.
-    c.  Add A and PTR Records
-        Create A and PTR records to resolve CES node names to their corresponding IP addresses.
+2. **DNS Configuration**
 
-## CES Configuration (From Any Scale Node)
+    a. Create DNS Zone (for example, scaleces.com)
+       Need to set up a DNS zone to manage DNS records for CES.
+    b. Add VPC as Permitted Network
+       Allow the VPC to access DNS records within the configured zone.
+    c. Add A and PTR Records
+       Create A and PTR records to resolve CES node names to their corresponding IP addresses.
+
+## CES Configuration (From any scale node)
 {: #ces-config-any-scale-node}
 {: step}
 
-1.  Setting up Cluster Export Services Shared root file system:
-    In this step we created a CesSharedRoot using the following command
-	`mmchconfig cesSharedRoot=/gpfs/fs1`
+1. Setting up Cluster Export Services Shared root file system:
+
+    In this step we created a CesSharedRoot using the following command: `mmchconfig cesSharedRoot=/gpfs/fs1`
+
     The CES shared root (cesSharedRoot) is needed for storing CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as a shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the preceding example.
-2.  Verify CES Shared Root Configuration:
+
+2. Verify CES shared root configuration:
     Confirm the CES shared root configuration by using the mmlsconfig command.
-3.  Configure the cluster Export Services on each of the Scale Nodes, which are going to handle protocol exports:
 
-    `mmchnode --ces-enable -N storage-scale-storage-5[,storage-scale-storage-6]`
+3. Configure the cluster Export Services on each of the Scale Nodes, which are going to handle protocol exports: `mmchnode --ces-enable -N storage-scale-storage-5[,storage-scale-storage-6]`
 
-    In this step, configuration of CES nodes must be done before you configure any protocols.  Nodes that participate in the handling of protocol exports must be configured as CES nodes.
+    In this step, configuration of CES nodes must be done before you configure any protocols. Nodes that participate in the handling of protocol exports must be configured as CES nodes.
 
-4.  Check the status of CES nodes by using the mmces node list command.
-5.  Assign CES IP addresses to protocol nodes by using the mmces address add command.
+4. Check the status of CES nodes by using the mmces node list command.
+5. Assign CES IP addresses to protocol nodes by using the mmces address add command.
 
     Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol IP addresses, the following commands need to be run:
 
@@ -382,32 +386,35 @@ Additional Input includes:
     In this scenario the CES IP address is an alias IP address, this IP address can failover across to the other nodes in the event of failure of the owner node.
     {: note}
 
-6.  Verify the CES cluster status need to use the following command:
+6. Verify the CES cluster status need to use the following command:
     `mmlscluster --ces command`
 
-7.  Enable the NFS service for CES use the following command:
+7. Enable the NFS service for CES use the following command:
     `mmces service enable NFS`
-8.  List the CES services in verbose mode use the following command:
+
+8. List the CES services in verbose mode use the following command:
     `mmces service list --verbose -a`
+
     Two directories (ces and ha) are automatically created in the fs1 file system; do not delete them.
     {: note}
 
-9.  Route Addition at OS & RT Level:
+9. Route addition at OS & RT Level:
     Explanation: Configure routes on all protocol nodes to reach the CES interface base IP addresses.
     Example: ip route add 10.241.0.0/24 through 10.241.2.1 dev eth1
     Add Routes to Reach CES Endpoints:
     Explanation: Set up routes to reach CES endpoints from base IPs using {{site.data.keyword.cloud_notm}} CLI commands.
     Example: ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -q
 
-10. NFS Mount (From Any Scale Node)
+10. NFS Mount (From any scale node)
     Configure the NFS mount:
-    a.  Create an independent file set named lsf within fs1 for CES data.
-         `mmcrfileset fs1 lsf --inode-space new``
-    b.  Link the lsf fileset to the /gpfs/fs1/lsf directory.
-         `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf``
-    c.  Set Fileset-Level Quota (TODO) - Define quotas for the fileset as required.
-    d.  Configure user authentication for file access. Create the authentication service:
-        'mmuserauth services create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess'
+    a. Create an independent file set named lsf within fs1 for CES data: `mmcrfileset fs1 lsf --inode-space new`
+
+    b. Link the lsf fileset to the /gpfs/fs1/lsf directory: `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
+
+    c. Set Fileset-Level Quota (TODO) - Define quotas for the fileset as required.
+
+    d. Configure user authentication for file access. Create the authentication service:
+        `mmuserauth services create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess`
 
         To verify if the LDAP authentication is setup correctly, following command needs to be run, below examples also displays the output:
 
@@ -435,19 +442,19 @@ Additional Input includes:
         OBJECT access not configured
         PARAMETERS               VALUES
         The above command of mmuserauth service list is used to verify the LDAP authentication configuration. The output shows the configuration details of the LDAP authentication service for file access:
-        •	“FILE access configuration : LDAP” Indicates that LDAP is configured for file access.
-        •	ENABLE_SERVER_TLS: TLS encryption for server communication is disabled (false).
-        •	ENABLE_KERBEROS: Kerberos authentication is disabled (false).
-        •	USER_NAME: Specifies the LDAP user name used for authentication (cn=manager,dc=ibmscale,dc=com).
-        •	SERVERS: Lists the LDAP server(s) used for authentication (149.81.12.196).
-        •	NETBIOS_NAME: Specifies the NetBIOS name (ess).
-        •	BASE_DN: Specifies the base distinguished name (DN) for LDAP queries (dc=ibmscale,dc=com).
-        •	USER_DN, GROUP_DN, and NETGROUP_DN: These parameters are not configured (none).
-        •	USER_OBJECTCLASS: Specifies the LDAP object class for user entries (posixAccount).
-        •	GROUP_OBJECTCLASS: Specifies the LDAP object class for group entries (posixGroup).
-        •	USER_NAME_ATTRIB: Specifies the LDAP attribute for user names (cn).
+        * “FILE access configuration : LDAP” Indicates that LDAP is configured for file access.
+        * ENABLE_SERVER_TLS: TLS encryption for server communication is disabled (false).
+        * ENABLE_KERBEROS: Kerberos authentication is disabled (false).
+        * USER_NAME: Specifies the LDAP user name used for authentication (cn=manager,dc=ibmscale,dc=com).
+        * SERVERS: Lists the LDAP server(s) used for authentication (149.81.12.196).
+        * NETBIOS_NAME: Specifies the NetBIOS name (ess).
+        * BASE_DN: Specifies the base distinguished name (DN) for LDAP queries (dc=ibmscale,dc=com).
+        * USER_DN, GROUP_DN, and NETGROUP_DN: These parameters are not configured (none).
+        * USER_OBJECTCLASS: Specifies the LDAP object class for user entries (posixAccount).
+        * GROUP_OBJECTCLASS: Specifies the LDAP object class for group entries (posixGroup).
+        * USER_NAME_ATTRIB: Specifies the LDAP attribute for user names (cn).
     	USER_ID_ATTRIB: Specifies the LDAP attribute for user IDs (uid).
-        •	KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
+        * KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
         ```
 11. Create NFS Export to allow specified IP ranges to access the fileset.
     `mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/24(Access_Type=RW,SQUASH=no_root_squash)"`
@@ -468,15 +475,13 @@ Additional Input includes:
 ### Before you begin
 {: #step5-before-begin}
 
-•	Make sure a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
+Make sure a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
 
-1.  Installing the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
-    `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
+1. Installing the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources: `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
-2.  Install VPC Infrastructure Plugin for {{site.data.keyword.cloud_notm}} CLI.
-    `ibmcloud plugin install is`
+2. Install VPC Infrastructure Plugin for {{site.data.keyword.cloud_notm}} CLI: `ibmcloud plugin install is`
 
-3.  Update mmcesExtendedIpMgmt script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
+3. Update `mmcesExtendedIpMgmt` script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
     * export IC_API_KEY=<ibmcloud_apikey>
     * export IC_REGION=<region>
     * export IC_ZONE=<zone>
@@ -487,8 +492,6 @@ Additional Input includes:
     The script code is mentioned:
 
     Copy mmcesExtendedIpMgmt:
-    Copy the mmcesExtendedIpMgmt script to /var/mmfs/etc/mmcesExtendedIpMgmt.
+    Copy the mmcesExtendedIpMgmt script to `/var/mmfs/etc/mmcesExtendedIpMgmt`.
 
-4.  Ensure that the script has executable permissions.
-
-    `chmod +x /var/mmfs/etc/mmcesExtendedIpMgmt`
+4. Ensure that the script has executable permissions: `chmod +x /var/mmfs/etc/mmcesExtendedIpMgmt`

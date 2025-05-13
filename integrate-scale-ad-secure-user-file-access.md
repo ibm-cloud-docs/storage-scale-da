@@ -121,7 +121,7 @@ Verify that Active Directory and DNS are configured correctly by checking:
 
 1. Verify Active Directory Management
 
-   * Open "Server Manager," and in the "Dashboard," confirm the presence of "Active Directory Users and Computers" and "DNS" listed under "Tools." This indicates successful installation of the Active Directory and DNS management tools.
+   Open "Server Manager," and in the "Dashboard," confirm the presence of "Active Directory Users and Computers" and "DNS" listed under "Tools." This indicates successful installation of the Active Directory and DNS management tools.
 
 2. Start the Active Directory Users and Computers to manage user accounts, groups, and organizational units (OUs) within the domain.
 

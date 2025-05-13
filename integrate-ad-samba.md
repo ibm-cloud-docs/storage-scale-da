@@ -33,7 +33,7 @@ To connect an RHEL system to AD, two components are needed: Samba Winbind and re
 
 In this section, you will explore how to connect a RHEL system to AD using Samba Winbind. The steps include an overview of the direct integration process, supported Windows platforms, ensuring encryption compatibility, joining the AD domain, and using realm commands.
 
-## Supported Windows Platforms and OSs for Direct Integration
+## Supported Windows Platforms and Operating systems for Direct Integration
 {: #supported-windows-platforms}
 
 Direct integration with AD forests is compatible with the following forest and domain functional levels:
@@ -47,9 +47,9 @@ Supported operating systems for direct integration include:
 *  Windows Server 2012 R2
 
 Windows Server 2019 and Windows Server 2022 do not introduce new functional levels and use the highest functional level of Windows Server 2016.
-{: note)
+{: note}
 
-## Ensuring Support for Common Encryption Types in AD and RHEL
+## Ensuring support for common encryption types in AD and RHEL
 {: #encryption-types-ad-rhel}
 
 Samba Winbind supports RC4, AES-128, and AES-256 Kerberos encryption types by default. However, RC4 encryption is deprecated and disabled by default due to security considerations. AD user credentials and trusts may still rely on RC4 encryption, leading to authentication issues.
@@ -67,7 +67,7 @@ Samba Winbind is an alternative to the System Security Services Daemon (SSSD) fo
 
 Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd``:
 
-1.  Install and update the following packages:
+1. Install and update the following packages:
 
     ```shell
     # yum install realmd oddjob-mkhomedir oddjob samba-winbind-clients \
@@ -76,7 +76,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     #yum update
     ```
 
-2.  Updating the /etc/hosts with adding AD domain ip and name.  For example:
+2. Updating the /etc/hosts with adding AD domain ip and name.  For example:
 
     ```shell
     [root@amit-rhel84 ~]# cat /etc/hosts
@@ -88,13 +88,13 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     addc1.POCDomain.local is the AD server FQDN name
     {: note}
 
-3.  Update the DNS entries in /etc/resolv.conf file by using:
+3. Update the DNS entries in /etc/resolv.conf file by using:
 
     `sudo nmcli connection modify "System eth0" ipv4.dns "10.243.0.41" ipv4.ignore-auto-dns yes`
 
     This command not only updates the DNS entries in the /etc/resolv.conf file but also ensures that the DNS entries are not auto updated to cloud based DNS servers
 
-4.  Confirm the changes in the DNS file:
+4. Confirm the changes in the DNS file:
 
     ```shell
     [root@amit-rhel84 ~]# cat /etc/resolv.conf
@@ -103,7 +103,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     [root@amit-rhel84 ~]#
     ```
 
-   In addition to the above confirmation, ping the Domain Controller with Name : - Ping POCDOMAIN.LOCAL
+    In addition to the above confirmation, ping the Domain Controller with Name : - Ping POCDOMAIN.LOCAL
 
     ```pre
     [root@amit-rhel84 ~]# ping POCDOMAIN.LOCAL
@@ -114,63 +114,61 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=4 ttl=128 time=0.525 ms
     ```
 
-5.  Use `nslookup` to make sure that AD domain is resolvable:
+5. Use `nslookup` to make sure that AD domain is resolvable:
 
     ```shell
     [root@amit-rhel84 ~]#  nslookup pocdomain.local
     Server:         10.243.0.41
     Address:        10.243.0.41#53
-
     Name:   pocdomain.local
     Address: 10.243.0.41
     ```
 
-6.  If your AD requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
+6. If your AD requires the deprecated RC4 encryption type for Kerberos authentication, enable support for these ciphers in RHEL:
 
     `# update-crypto-policies --set DEFAULT:AD-SUPPORT`
 
     After running this command, update the crypto policies and ask to restart the system.
 
 
-7.  Back up the existing /etc/samba/smb.conf Samba configuration file:
+7. Back up the existing /etc/samba/smb.conf Samba configuration file:
 
     `# mv /etc/samba/smb.conf /etc/samba/smb.conf.bak`
 
-8.  Join the RHEL 8.x host to the AD domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
+8. Join the RHEL 8.x host to the AD domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL:
 
     `# realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL`
 
     When you use this command, the realm utility automatically:
-    *  Creates a /etc/samba/smb.conf file for a membership in the pocdomain.local domain
+    *  Creates a `/etc/samba/smb.conf` file for a membership in the pocdomain.local domain
     *  Adds the winbind module for user and group lookups to the /etc/nsswitch.conf file
     *  Updates the Pluggable Authentication Module (PAM) configuration files in the /etc/pam.d/ directory
     *  Starts the winbind service and enables the service to start when the system boots
 
+9. (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For details, see the [Understanding and configuring Samba ID mapping](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}.
 
-9.  (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For details, see the [Understanding and configuring Samba ID mapping](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers).
-
-10.  Edit the /etc/krb5.conf file and add this section:
+10. Edit the `/etc/krb5.conf` file and add this section:
 
     ```pre
     [plugins]
-      localauth = {
-        module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
-        enable_only = winbind
+    localauth = {
+    module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
+    enable_only = winbind
     }
     ```
 
 11.  Verify that the winbind service is running. For example:
 
-     ```shell
-     # systemctl status winbind
-     [root@amit-rhel84 ~]# systemctl status winbind
-     winbind.service - Samba Winbind Daemon
-     Loaded: loaded (/usr/lib/systemd/system/winbind.service; enabled; vendor preset: disabled)
-     Active: active (running) since Wed 2023-08-09 08:16:16 EDT; 1h 42min ago
-     Docs: man:winbindd(8)
-           man:samba(7)
-           man:smb.conf(5)
-     Main PID: 4889 (winbindd)
+    ```shell
+    # systemctl status winbind
+    [root@amit-rhel84 ~]# systemctl status winbind
+    winbind.service - Samba Winbind Daemon
+    Loaded: loaded (/usr/lib/systemd/system/winbind.service; enabled; vendor preset: disabled)
+    Active: active (running) since Wed 2023-08-09 08:16:16 EDT; 1h 42min ago
+    Docs: man:winbindd(8)
+          man:samba(7)
+          man:smb.conf(5)
+    Main PID: 4889 (winbindd)
        Status: "winbindd: ready to serve connections..."
        Tasks: 5 (limit: 49264)
       Memory: 10.9M
@@ -189,28 +187,39 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
 ### Verification steps
 {: #verification-steps}
 
+1. Display an AD user’s details, such as the AD administrator account in the AD domain.
 
-1.  Display an AD user’s details, such as the AD administrator account in the AD domain.  For example:
-    `# getent passwd " POCDOMAIN\administrator"
-    POCDOMAIN\administrator:*:2000500:2000513::/home/administrator@POCDOMAIN:/bin/bash`
-2.  Query the members of the domain users group in the AD domain:
-    `# getent group " POCDOMAIN\Domain Users"
-    POCDOMAIN\domain users:x:10000:Symphonyuser01,user2`
+    For example:
+    ```pre
+    # getent passwd " POCDOMAIN\administrator"
+    POCDOMAIN\administrator:*:2000500:2000513::/home/administrator@POCDOMAIN:/bin/bash
+    ```
 
-3.  (Optional) Verify that you can use domain users and groups when you set permissions on files and directories. For example, to set the owner of the /srv/samba/example.txt file to AD\administrator and the group to AD\Domain Users:
+2. Query the members of the domain users group in the AD domain:
+    ```pre
+    # getent group " POCDOMAIN\Domain Users"
+    POCDOMAIN\domain users:x:10000:Symphonyuser01,user2
+    ```
+
+3. (Optional) Verify that you can use domain users and groups when you set permissions on files and directories. For example, to set the owner of the `/srv/samba/example.txt` file to AD\administrator and the group to AD\Domain Users:
 
     `# sudo chown "POCDOMAIN\administrator":"POCDOMAIN\Domain Users" example.txt`
-4.  Verify that Kerberos authentication works as expected. On the AD domain member, obtain a ticket for the administrator@POCDOMAIN.LOCAL principal:
+
+4. Verify that Kerberos authentication works as expected. On the AD domain member, obtain a ticket for the administrator@POCDOMAIN.LOCAL principal:
         `# kinit administrator@POCDOMAIN.LOCAL`
 
-5.  Display the cached Kerberos ticket:
-    `# klist
+5. Display the cached Kerberos ticket:
+
+    ```pre
+    # klist
     Ticket cache: KCM:0
     Default principal: Administrator@POCDOMAIN.LOCAL
     Valid starting       Expires              Service principal
     07/10/2023 16:28:51  07/11/2023 02:28:51  krbtgt/POCDOMAIN.LOCAL@POCDOMAIN.LOCAL
-            renew until 07/17/2023 16:28:46`
-6.  Display the available domains:
+    renew until 07/17/2023 16:28:46
+    ```
+
+6. Display the available domains:
 
     ```shell
     [root@rhelad01 ~]# realm list
@@ -236,7 +245,7 @@ Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by 
 
         POCDOMAIN
     ```
-    Additional resources
+    **Additional resources:**
     * If you do not want to use the deprecated RC4 ciphers, you can enable the AES encryption type in AD.
 
 ### To provide root user permissions to AD users

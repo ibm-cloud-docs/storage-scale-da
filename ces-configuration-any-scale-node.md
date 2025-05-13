@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -60,6 +60,7 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
     {: note}
 
 9. Add Routes to Reach CES Interface Base IP:
+
     a. Configure routes on all protocol nodes to reach the CES interface base IP addresses.
 
     `ip route add 10.241.0.0/24 via 10.241.2.1 dev eth1`
@@ -70,12 +71,11 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 
 10. NFS Mount (From Any Scale Node)
 
-Configure the NFS mount:
-    1. Create an independent file set named lsf within fs1 for CES data.
-        `mmcrfileset fs1 lsf --inode-space new`
+    Configure the NFS mount:
 
-    2. Link the lsf file set to the /gpfs/fs1/lsf directory:
-        `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
+    1. Create an independent file set named lsf within fs1 for CES data: `mmcrfileset fs1 lsf --inode-space new`
+
+    2. Link the lsf file set to the /gpfs/fs1/lsf directory: `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
 
     3. Define quotas for the file set as required.
 
@@ -83,47 +83,47 @@ Configure the NFS mount:
 
     `mmuserauth service create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess`
 
-To verify whether the LDAP authentication is setup correctly, use this command:
+    To verify whether the LDAP authentication is setup correctly, use this command:
 
-```shell
-[root@jl-scale-encrypt-compute-3 vpcuser]# mmuserauth service list
-FILE access configuration : LDAP
-PARAMETERS               VALUES
--------------------------------------------------
-ENABLE_SERVER_TLS        false
-ENABLE_KERBEROS          false
-SER_NAME                cn=manager,dc=ibmscale,dc=com
-SERVERS                  149.81.12.196
-NETBIOS_NAME             ess
-BASE_DN                  dc=ibmscale,dc=com
-SER_DN                  none
-GROUP_DN                 none
-NETGROUP_DN              none
-USER_OBJECTCLASS         posixAccount
-GROUP_OBJECTCLASS        posixGroup
-USER_NAME_ATTRIB         cn
-USER_ID_ATTRIB           uid
-KERBEROS_SERVER          none
-KERBEROS_REALM           none
+    ```shell
+    [root@jl-scale-encrypt-compute-3 vpcuser]# mmuserauth service list
+    FILE access configuration : LDAP
+    PARAMETERS               VALUES
+    -------------------------------------------------
+    ENABLE_SERVER_TLS        false
+    ENABLE_KERBEROS          false
+    SER_NAME                cn=manager,dc=ibmscale,dc=com
+    SERVERS                  149.81.12.196
+    NETBIOS_NAME             ess
+    BASE_DN                  dc=ibmscale,dc=com
+    SER_DN                  none
+    GROUP_DN                 none
+    NETGROUP_DN              none
+    USER_OBJECTCLASS         posixAccount
+    GROUP_OBJECTCLASS        posixGroup
+    USER_NAME_ATTRIB         cn
+    USER_ID_ATTRIB           uid
+    KERBEROS_SERVER          none
+    KERBEROS_REALM           none
 
-OBJECT access not configured
-PARAMETERS               VALUES
-The above command of mmuserauth service list is used to verify the LDAP authentication configuration. The output shows the configuration details of the LDAP authentication service for file access:
+    OBJECT access not configured
+    PARAMETERS               VALUES
+    The above command of mmuserauth service list is used to verify the LDAP authentication configuration. The output shows the configuration details of the LDAP authentication service for file access:
 
-* “FILE access configuration : LDAP” Indicates that LDAP is configured for file access.
-* ENABLE_SERVER_TLS: TLS encryption for server communication is disabled (false).
-* ENABLE_KERBEROS: Kerberos authentication is disabled (false).
-* USER_NAME: Specifies the LDAP user name used for authentication (cn=manager,dc=ibmscale,dc=com).
-* SERVERS: Lists the LDAP server(s) used for authentication (149.81.12.196).
-* NETBIOS_NAME: Specifies the NetBIOS name (ess).
-* BASE_DN: Specifies the base distinguished name (DN) for LDAP queries (dc=ibmscale,dc=com).
-* USER_DN, GROUP_DN, and NETGROUP_DN: These parameters are not configured (none).
-* USER_OBJECTCLASS: Specifies the LDAP object class for user entries (posixAccount).
-* GROUP_OBJECTCLASS: Specifies the LDAP object class for group entries (posixGroup).
-* USER_NAME_ATTRIB: Specifies the LDAP attribute for user names (cn).
-* USER_ID_ATTRIB: Specifies the LDAP attribute for user IDs (uid).
-* KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
-```
+    * “FILE access configuration : LDAP” Indicates that LDAP is configured for file access.
+    * ENABLE_SERVER_TLS: TLS encryption for server communication is disabled (false).
+    * ENABLE_KERBEROS: Kerberos authentication is disabled (false).
+    * USER_NAME: Specifies the LDAP user name used for authentication (cn=manager,dc=ibmscale,dc=com).
+    * SERVERS: Lists the LDAP server(s) used for authentication (149.81.12.196).
+    * NETBIOS_NAME: Specifies the NetBIOS name (ess).
+    * BASE_DN: Specifies the base distinguished name (DN) for LDAP queries (dc=ibmscale,dc=com).
+    * USER_DN, GROUP_DN, and NETGROUP_DN: These parameters are not configured (none).
+    * USER_OBJECTCLASS: Specifies the LDAP object class for user entries (posixAccount).
+    * GROUP_OBJECTCLASS: Specifies the LDAP object class for group entries (posixGroup).
+    * USER_NAME_ATTRIB: Specifies the LDAP attribute for user names (cn).
+    * USER_ID_ATTRIB: Specifies the LDAP attribute for user IDs (uid).
+    * KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
+    ```
 
 11. Create an NFS export to allow specified IP ranges to access the file set:
     * `mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/24(Access_Type=RW,SQUASH=no_root_squash)`

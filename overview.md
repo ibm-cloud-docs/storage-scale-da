@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -28,7 +28,7 @@ With {{site.data.keyword.scale_full}}, you can deploy the High-Performance Compu
 
 A deployable architecture involves components, modules, and dependencies in a way that allows for seamless deployment and makes it easy for developers and operations teams to quickly deploy new features and updates to the system, without requiring extensive manual intervention. Refer the Deployable architecture document for more detailed information.
 
-The bootstrap node (Ansible Controller Node in the [architecture diagram](/docs/storage-scale?topic=storage-scale-about-storage-scale#architecture-diagram)) performs the deployment and configuration of the compute and storage cluster resources. A custom image (see `bootstrap_osimage_name` in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values)) is provided as part of this solution and it contains all of the automation scripts and packages that are needed for the bootstrap node. The bootstrap node is critical during the entire lifetime of this cluster. For example, you need this node for future actions like cleaning up resources. The bootstrap node should not be deleted until the cluster is no longer required.
+The bootstrap node (Ansible Controller Node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram)) performs the deployment and configuration of the compute and storage cluster resources. A custom image (see `bootstrap_osimage_name` in [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values)) is provided as part of this solution and it contains all of the automation scripts and packages that are needed for the bootstrap node. The bootstrap node is critical during the entire lifetime of this cluster. For example, you need this node for future actions like cleaning up resources. The bootstrap node should not be deleted until the cluster is no longer required.
 
 The default VPC instance profile for the bootstrap node has been selected based on the performance of the Ansible scripts that are triggered to deploy the compute and storage cluster resources in parallel. If you choose a smaller VPC instance profile, the deployment time might be longer.
 

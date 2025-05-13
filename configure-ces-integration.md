@@ -39,14 +39,14 @@ The colocation feature avoids the need to provision extra virtual servers and im
 
 Before you begin, review the following information:
 
-1.	Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
+1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
 
-2.	Learn more about cluster export service by using the link, [how CES works](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces)
+2. Learn more about cluster export service by using the link, [how CES works](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication&interface=ui#verify-ces)
 
 ## Configuring CES deployment
 {: #procedureconfig-ces-deploy}
 
-To enable the CES feature on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale?topic=storage-scale-creating-workspace):
+To enable the CES feature on a Storage Scale cluster, the following variables need to be defined in [your workspace]( /docs/storage-scale?topic=storage-scale-creating-workspace):
 
 |CES Variable|	Description|	Example value|
 |-------------|------------|--------------|

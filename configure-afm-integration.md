@@ -53,14 +53,14 @@ An AFM to cloud object storage fileset is supported on all existing AFM fileset 
 
 Before you begin, review the following information:
 
-1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
+1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
 
-2. Learn more about active file management by using the link, [Introduction to AFM to cloud object storage](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=overview-introduction-afm-cloud-object-storage).
+2. Learn more about active file management by referring [Introduction to AFM to cloud object storage](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-introduction-afm-cloud-object-storage).
 
 ## Configuring AFM deployment
 {: #configure-afm-deployment}
 
-To enable the AFM feature on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=ui):
+To enable the AFM feature on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale-da?topic=storage-scale-da-creating-workspace&interface=ui):
 
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|

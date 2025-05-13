@@ -127,7 +127,7 @@ Verify that Active Directory and DNS are configured correctly by checking:
 4. On a client system within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller.
 5.  Attempt to join the client system to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
 
-## Creating a User group and users in Active Directory for users that are accessing the Symphony cluster
+## Creating a user group and users in Active Directory for users that are accessing the Symphony cluster
 {: #create-user-group-ad-symphony}
 {: step}
 
@@ -206,7 +206,7 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 
 To connect an RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
 
-### Supported Windows Platforms and OSs for Direct Integration
+### Supported Windows platforms and Operating systems for Direct Integration
 {: #supported-windows-platforms}
 
 Direct integration with AD forests is compatible with the following forest and domain functional levels:
@@ -222,7 +222,7 @@ Supported operating systems for direct integration include:
 Windows Server 2019 and Windows Server 2022 do not introduce new functional levels and use the highest functional level of Windows Server 2016.
 {: note}
 
-### Ensuring Support for Common Encryption Types in AD and RHEL
+### Ensuring support for common encryption types in AD and RHEL
 {: #encryption-types-ad-rhel}
 
 Samba Winbind supports RC4, AES-128, and AES-256 Kerberos encryption types by default. However, RC4 encryption is deprecated and disabled by default due to security considerations. AD user credentials and trusts might still rely on RC4 encryption, leading to authentication issues.
@@ -461,7 +461,7 @@ To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Li
    Exercise caution when you grant root user permissions to AD users. It's important to grant these privileges only to trusted individuals who require them for specific tasks. Regularly reviewing user privileges and following security best practices helps maintain a secure system environment.
 {: important}
 
-## Step 4 - Configuring setup on the Symphony cluster side
+## Configuring setup on the Symphony cluster side
 {: #config-setup-symphony-cluster-side}
 {: step}
 

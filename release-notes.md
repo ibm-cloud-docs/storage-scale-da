@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-13"
 
 keywords:
 
@@ -30,7 +30,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-mar0525}
 {: release-note}
 
-In this release, IBM Storage Scale deployable architecture is introduced. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. For more information, refer [Overview of IBM Storage Scale](link).
+In this release, IBM Storage Scale deployable architecture is introduced. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. For more information, refer [Overview of IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-overview-storage-scale).
 
 ### What's New
 {: #what-new}

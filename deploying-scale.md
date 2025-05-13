@@ -111,4 +111,4 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 {: #next-steps-create-cli}
 {: cli}
 
-After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=cli) to validate all of the configuration properties.
+After you have successfully created a workspace, you can begin Generating a plan to validate all of the configuration properties.
