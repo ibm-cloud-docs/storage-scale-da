@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -92,8 +92,6 @@ The logical subnet can be observed under my address list. In the example results
 For the compute cluster, scale is configured only on secondary IPs; hence, only secondary IPs are visible in the results. For detailed information on each node, refer to the "Connection Details" section. The IpPair Table displays the source IP and destination IP.
 {: note}
 
-Compute cluster
-
 ```pre
     [root@scale-cluster-compute-1 ~]# mmdiag --network
 
@@ -143,10 +141,7 @@ Compute cluster
             0 eth1                up        0 10.241.1.22     10.241.1.21     10.241.1.0/24
 ```
 
-On the Compute cluster:
-
-`subnets 10.241.1.0/scale-cluster.compscale.com;scale-cluster.strgscale.com`
-
+On the compute cluster: `subnets 10.241.1.0/scale-cluster.compscale.com;scale-cluster.strgscale.com`
 
 #### On storage cluster
 {: #on-storage-cluster}
@@ -207,6 +202,4 @@ For the storage cluster, scaling is configured on both primary and secondary IPs
             1 eth1                up        0 10.241.1.26     10.241.1.25     10.241.1.0/24
 ```
 
-On storage cluster:
-
-`subnets 10.241.1.0/scale-cluster.strgscale.com;scale-cluster.compscale.com`
+On storage cluster: `subnets 10.241.1.0/scale-cluster.strgscale.com;scale-cluster.compscale.com`

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -24,7 +24,10 @@ subcollection: storage-scale-da
 # Storage Scale security groups
 {: #security-groups}
 
-The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups customized for different node types such as bastion, storage, and bootstrap security group. Additionally, when optional features are enabled, the automation creates specific security groups: ldap for LDAP integration, gklm for Guardium Key Lifecycle Manager (GKLM), and comp for compute nodes.
+The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups customized for different node types such as bastion, storage, and bootstrap security group. Additionally, when optional features are enabled, the automation creates specific security groups:
+* ldap for LDAP integration
+* gklm for Guardium Key Lifecycle Manager (GKLM)
+* comp for compute nodes
 
 Each security group is dedicated to a specific set of scale nodes, ensuring that only the necessary ports, sources, and destinations are enabled for those nodes. This approach minimizes exposure, enhances security, and reduces the risk of misconfigurations.
 

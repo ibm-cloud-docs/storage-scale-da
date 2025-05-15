@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -332,7 +332,7 @@ Join a IBM Spectrum Symphony cluster node that is hosted on RHEL 8.4 OS to an AD
 
 10. Edit the `/etc/krb5.conf` file and add this information:
 
-    ```shell
+    ```pre
     [plugins]
     localauth = {
     module = winbind:/usr/lib64/samba/krb5/winbind_krb5_localauth.so
@@ -341,7 +341,7 @@ Join a IBM Spectrum Symphony cluster node that is hosted on RHEL 8.4 OS to an AD
     ```
 11. Verify that the winbind service is running. For example:
 
-    ```shell
+    ```pre
     # systemctl status winbind
     [root@amit-rhel84 ~]# systemctl status winbind
     winbind.service - Samba Winbind Daemon
@@ -364,28 +364,28 @@ Join a IBM Spectrum Symphony cluster node that is hosted on RHEL 8.4 OS to an AD
 
 12. If you installed the samba package to share directories and printers, enable and start the smb service:
 
-    ```shell
+    ```pre
     # systemctl enable --now smb ----tobe noted
     ```
 
 ### Verification steps
 {: #verification-steps}
 
-1.  Display an AD user’s details, such as the AD administrator account in the AD domain.  For example:
+1. Display an AD user’s details, such as the AD administrator account in the AD domain.  For example:
 
-    ```shell
+    ```pre
     # getent passwd " POCDOMAIN\administrator"
     POCDOMAIN\administrator:*:2000500:2000513::/home/administrator@POCDOMAIN:/bin/bash
     ```
 
-2.  Query the members of the domain users group in the AD domain:
+2. Query the members of the domain users group in the AD domain:
 
-        ```
+        ```pre
         # getent group " POCDOMAIN\Domain Users"
         POCDOMAIN\domain users:x:10000:Symphonyuser01,user2
         ```
 
-3.  (Optional) Verify that you can use domain users and groups when you set permissions on files and directories. For example, to set the owner of the /srv/samba/example.txt file to AD\administrator and the group to AD\Domain Users:
+3. (Optional) Verify that you can use domain users and groups when you set permissions on files and directories. For example, to set the owner of the /srv/samba/example.txt file to AD\administrator and the group to AD\Domain Users:
 
         ```sudo
         # sudo chown "POCDOMAIN\administrator":"POCDOMAIN\Domain Users" example.txt
@@ -393,7 +393,7 @@ Join a IBM Spectrum Symphony cluster node that is hosted on RHEL 8.4 OS to an AD
 
 4.  Verify that Kerberos authentication works as expected. On the AD domain member, obtain a ticket for the administrator@POCDOMAIN.LOCAL principal:
 
-        ```
+        ```pre
         # kinit administrator@POCDOMAIN.LOCAL
         ```
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -25,10 +25,13 @@ subcollection: storage-scale-da
 # Storage types
 {: #storage-types}
 
-The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation.
+The {{site.data.keyword.scale_short}} solution offers three different storage types:
+* Scratch storage
+* Persistent storage
+* Evaluation storage
 {: shortdesc}
 
-The offering enables deployment of either scratch (or ephemeral) or persistent storage, depending on application requirements. A scratch configuration uses virtual server instances with instance storage, whereas a persistent configuration uses bare metal servers with locally attached NVMe storage. If a virtual server instance with instance storage is powered off, all data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads. In addition to higher resilience, persistent storage provides higher performance and capacity than scratch storage. For more information, see [Storage types](/docs/storage-scale?topic=storage-scale-storage-types).
+The offering enables deployment of either scratch (or ephemeral) or persistent storage, depending on application requirements. A scratch configuration uses virtual server instances with instance storage, whereas a persistent configuration uses bare metal servers with locally attached NVMe storage. If a virtual server instance with instance storage is powered off, all data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads. In addition to higher resilience, persistent storage provides higher performance and capacity than scratch storage.
 
 ## Scratch storage
 {: #scratch-storage}
@@ -71,4 +74,4 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 {: caption="Storage Scale storage types comparison" caption-side="bottom"}
 {: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
-For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.1.5?topic=overview-spectrum-scale-product-editions){: external}.
+For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-storage-scale-product-editions){: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -49,9 +49,9 @@ Use these steps to configure an OpenLDAP server:
     ```pre
     Code:
     yum -y install openldap-servers openldap-clients
+    ```
 
-    ```pre
-2. Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
+2. Copy the `DB_CONFIG.example` file to the /var/lib/ldap directory and change its ownership to the ldap user:
 
     ```pre
     Code:
@@ -88,10 +88,10 @@ Use these steps to configure an OpenLDAP server:
     dn: olcDatabase={0}config,cn=config
     changetype: modify
     add: olcRootPW
-    olcRootPW: {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4]
+    olcRootPW: {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4
     ```
 
-    Replace the `olcRootPW`` value with the password hash that you generated in the step 4.
+    Replace the `olcRootPW` value with the password hash that you generated in the step 4.
 
 6. Import the basic schema by running the following commands:
 
@@ -339,14 +339,19 @@ Additional input includes:
 
     a. Spin up a Storage-Only Cluster
        Create a dedicated storage cluster to host IBM Spectrum Scale.
+
     b. Create the Protocol Subnet
        Set up the network segment for CES protocol nodes.
+
     c. Attach Secondary Interface to Protocol Nodes (Minimum 2)
        Add a secondary network interface to at least two Scale storage nodes for CES protocol communication.
+
     d. Enable IP Spoofing
        Enable IP spoofing to allow CES protocol nodes to communicate by using private IPs.
+
     e. Configure Security Group
        Create a security group named storage-sg for managing access control.
+
     f. Reserve Private IPs in Protocol Subnet (Minimum 2)
        Reserve private IPs in the protocol subnet, matching the count of protocol nodes.
 
@@ -354,8 +359,10 @@ Additional input includes:
 
     a. Create DNS Zone (for example, scaleces.com)
        Need to set up a DNS zone to manage DNS records for CES.
+
     b. Add VPC as Permitted Network
        Allow the VPC to access DNS records within the configured zone.
+
     c. Add A and PTR Records
        Create A and PTR records to resolve CES node names to their corresponding IP addresses.
 
@@ -399,14 +406,19 @@ Additional input includes:
     {: note}
 
 9. Route addition at OS & RT Level:
+
     Explanation: Configure routes on all protocol nodes to reach the CES interface base IP addresses.
+
     Example: ip route add 10.241.0.0/24 through 10.241.2.1 dev eth1
+
     Add Routes to Reach CES Endpoints:
     Explanation: Set up routes to reach CES endpoints from base IPs using {{site.data.keyword.cloud_notm}} CLI commands.
-    Example: ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -q
+
+    Example: `ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -q`
 
 10. NFS Mount (From any scale node)
     Configure the NFS mount:
+
     a. Create an independent file set named lsf within fs1 for CES data: `mmcrfileset fs1 lsf --inode-space new`
 
     b. Link the lsf fileset to the /gpfs/fs1/lsf directory: `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
@@ -418,7 +430,7 @@ Additional input includes:
 
         To verify if the LDAP authentication is setup correctly, following command needs to be run, below examples also displays the output:
 
-        ```
+        ```pre
         [root@jl-scale-encrypt-compute-3 vpcuser]# mmuserauth service list
         FILE access configuration : LDAP
         PARAMETERS               VALUES
@@ -457,6 +469,7 @@ Additional input includes:
         * KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
         ```
 11. Create NFS Export to allow specified IP ranges to access the fileset.
+
     `mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/24(Access_Type=RW,SQUASH=no_root_squash)"`
     `mmnfs export list`
     Scale Client (LSF) Node
