@@ -64,9 +64,7 @@ With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) cl
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Architecture diagram](images/scale-arch-diagram-da.svg){: caption="Storage Scale architecture diagram" caption-side="bottom"}
-
-![Enter image alt text here.](images/file-name.svg "Title text that shows on hover here"){: caption="A description that prints on the page" caption-side="bottom"}{: external download="file-name.svg"}
+![Architecture diagram.](images/scale-arch-diagram-da.svg "Storage Scale Architecture diagram"){: caption="Storage Scale Architecture diagram" caption-side="bottom"}{: external download="scale-arch-diagram-da.svg"}
 
 ## Design concepts
 {: #design-concepts}
