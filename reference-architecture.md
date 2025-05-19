@@ -5,7 +5,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-19"
 
 keywords: # Not typically populated
 
@@ -64,11 +64,7 @@ With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) cl
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Architecture diagram](images/hpccluster_scale_scratch_architecture.svg){: caption="Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using scratch storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
-
-![Architecture diagram persistent](images/hpccluster_scale_persistent_architecture_05_26_22.svg){: caption="Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using persistent storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
-
-If you have a list or text to describe the diagram, include it here.
+![Architecture diagram](images/scale_arch_diagram_da.svg){: caption="Storage Scale architecture diagram" caption-side="bottom"}
 
 ## Design concepts
 {: #design-concepts}
@@ -114,6 +110,3 @@ Update the following table below with components that are unique to this archite
 |  | Activity Tracker Event Routing | Audit logs |
 | Other  use if there is  additional aspect(s)  Name Aspect | Cell content | Cell content |
 {: caption="Components" caption-side="bottom"}
-
-
-:exclamation: **Important:** Rename this file `<architecture-name>.md`. For deployable architectures, `<architecture-name>` is the same as the deployable architecture name.
