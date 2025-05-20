@@ -6,34 +6,32 @@ lastupdated: "2025-05-20"
 
 keywords: # Not typically populated
 
-subcollection: storage-scale-da # Use deployable-reference-architectures, or the subcollection value from your toc.yaml file if docs-only.
+subcollection: storage-scale-da
 
 authors:
   - name: Piyush Chaudhary
 
-# The release that the reference architecture describes
-version: 1.0
 deployment-url: url
 
 docs: https://cloud.ibm.com/docs/solution-guide
 
-image_source: https://github.com/terraform-ibm-modules/module/reference-architectures/xxx.svg
+image_source:
+
 use-case: IBM Storage Scale
-industry:
+industry: Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
 compliance:
 content-type: reference-architecture
+
 production: false
 
-{{site.data.keyword.attribute-definition-list}}
 ---
+{{site.data.keyword.attribute-definition-list}}
 
 # IBM Storage Scale
 {: #storage-scale}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="StorageScale"}
-
-
 
 With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) clusters by using IBM Storage Scale as the storage solution. This offering uses open source Terraform-based automation to provision and configure IBM Cloud® resources. With simple steps to define configuration properties and the use of automated deployment, you can build your own storage-rich clusters in minutes. IBM® Storage Scale enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster.
 
@@ -71,7 +69,7 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
+| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui)| Creates file shares for configuring user file data sharing. |
 | Compute | Provide infrastructure and administration access | HPC VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
 |  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
 |  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
