@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-20"
 
 keywords:
 
@@ -23,10 +23,10 @@ subcollection: storage-scale-da
 # Overview of IBM Storage Scale
 {: #overview-storage-scale}
 
-With {{site.data.keyword.scale_full}}, you can deploy the High-Performance Computing (HPC) clusters by using {{site.data.keyword.scale_full_notm}} as the storage solution. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud}} resources. With simple steps to define configuration properties and the use of automated deployment, you can build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. The offering uses a bootstrap node where actual provisioning of compute and storage nodes and installation and configuration of {{site.data.keyword.scale_short}} takes place. The top-level Terraform code deploys the bootstrap node and starts subprocesses to trigger the secondary layer of Terraform code for actual deployment of cluster components.
+With {{site.data.keyword.scale_full}}, you can deploy the High-Performance Computing (HPC) clusters by using {{site.data.keyword.scale_full_notm}} as the storage solution. This offering uses open source Terraform-based automation to provision and configure {{site.data.keyword.cloud}} resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} enables configuration of compute nodes and storage nodes to build a complete end to end working HPC cluster. The offering uses a bootstrap node where actual provisioning of compute nodes, storage nodes, installation and configuration of {{site.data.keyword.scale_short}} takes place. The top-level Terraform code deploys the bootstrap node and starts subprocesses to trigger the secondary layer of Terraform code for actual deployment of cluster components.
 {: shortdesc}
 
-A deployable architecture involves components, modules, and dependencies in a way that allows for seamless deployment and makes it easy for developers and operations teams to quickly deploy new features and updates to the system, without requiring extensive manual intervention. Refer the Deployable architecture document for more detailed information.
+A deployable architecture involves components, modules, and dependencies that allows for seamless deployment and makes easy for developers and operations teams to quickly deploy new features and updates to the system, without requiring extensive manual intervention. Refer the [Deployable architecture on IBM Cloud](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document for more detailed information.
 
 The bootstrap node (Ansible Controller Node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram)) performs the deployment and configuration of the compute and storage cluster resources. A custom image (see `bootstrap_osimage_name` in [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values)) is provided as part of this solution and it contains all of the automation scripts and packages that are needed for the bootstrap node. The bootstrap node is critical during the entire lifetime of this cluster. For example, you need this node for future actions like cleaning up resources. The bootstrap node should not be deleted until the cluster is no longer required.
 
