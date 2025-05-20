@@ -1,11 +1,8 @@
 ---
 
-# The YAML header is required. For more information about the YAML header, see
-# https://test.cloud.ibm.com/docs-internal/writing?topic=writing-reference-architectures
-
 copyright:
   years: 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-05-20"
 
 keywords: # Not typically populated
 
@@ -16,40 +13,19 @@ authors:
 
 # The release that the reference architecture describes
 version: 1.0
-
-# Use if the reference architecture has deployable code.
-# Value is the URL to land the user in the IBM Cloud catalog details page for the deployable architecture.
-# See https://test.cloud.ibm.com/docs/get-coding?topic=get-coding-deploy-button
 deployment-url: url
 
 docs: https://cloud.ibm.com/docs/solution-guide
 
 image_source: https://github.com/terraform-ibm-modules/module/reference-architectures/xxx.svg
-
-# use-case from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
 use-case: IBM Storage Scale
-
-# industry from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/industries/industries_flat_list.csv
 industry:
-
-# compliance from 'code' column in
-# https://github.ibm.com/digital/taxonomy/blob/main/compliance_entities/compliance_entities_flat_list.csv
 compliance:
-
 content-type: reference-architecture
-
-
-# For reference architectures in https://github.com/terraform-ibm-modules only.
-# All reference architectures stored in the /reference-architectures directory
-
-# Set production to true to publish the reference architecture to IBM Cloud docs.
-
 production: false
 
----
 {{site.data.keyword.attribute-definition-list}}
+---
 
 # IBM Storage Scale
 {: #storage-scale}
@@ -66,47 +42,51 @@ With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) cl
 
 ![Architecture diagram.](images/scale-arch-diagram-da.svg "Storage Scale Architecture diagram"){: caption="Storage Scale Architecture diagram" caption-side="bottom"}{: external download="scale-arch-diagram-da.svg"}
 
-## Design concepts
-{: #design-concepts}
+The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
-Customize the design requirement heat map template image and highlight the scope of the architecture. Publishing in IBM Cloud Docs requires a caption to meet accessibility requirements.
+* **Data:** Data storage
+* **Compute:** Virtual servers
+* **Storage:** Primary storage
+* **Networking:** Isolation and domain name service
+* **Security:** Data security
+* **Service management:** Logging and automated deployment
 
 ## Requirements
 {: #requirements}
 
-Update the following table with requirements for this architecture. Introduce the table with a sentence. For example, "The following table outlines the requirements that are addressed in this architecture."
+The following table outlines the requirements that are addressed in this architecture.
 
 | Aspect | Requirements |
 | -------------- | -------------- |
+| Data            | Provide a location to store {{site.data.keyword.spectrum_full_notm}} configuration and data. |
 | Compute            | Provide properly isolated compute resources with adequate compute capacity for the applications. |
 | Storage            | Provide storage that meets the application and database performance requirements. |
-| Networking         | Deploy workloads in isolated environment and enforce information flow policies. \n Provide secure, encrypted connectivity to the cloud’s private network for management purposes. \n Distribute incoming application requests across available compute resources. \n Support failover of application to alternate site in the event of planned or unplanned outages \n Provide public and private DNS resolution to support use of hostnames instead of IP addresses. |
-| Security           | Ensure all operator actions are executed securely through a bastion host. \n Protect the boundaries of the application against denial-of-service and application-layer attacks. \n Encrypt all application data in transit and at rest to protect from unauthorized disclosure. \n Encrypt all backup data to protect from unauthorized disclosure. \n Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure. \n Encrypt all data using customer managed keys to meet regulatory compliance requirements for additional security and customer control. \n Protect secrets through their entire lifecycle and secure them using access control measures. |
-| Resiliency         | Support application availability targets and business continuity policies. \n Ensure availability of the application in the event of planned and unplanned outages. \n Provide highly available compute, storage, network, and other cloud services to handle application load and performance requirements. \n Backup application data to enable recovery in the event of unplanned outages. \n Provide highly available storage for security data (logs) and backup data. \n Automate recovery tasks to minimize down time |
-| Service Management | Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n Generate alerts/notifications about issues that might impact the availability of applications to trigger appropriate responses to minimize down time. \n Monitor audit logs to track changes and detect potential security problems. \n Provide a mechanism to identify and send notifications about issues found in audit logs. |
+| Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage. \n * Provide private DNS resolution to support the use of hostnames instead of IP addresses. |
+| Security           | * Ensure that all operator actions are run securely through bastion host. \n * Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
+| Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
 {: caption="Requirements" caption-side="bottom"}
 
 ## Components
 {: #components}
 
-Update the following table below with components that are unique to this architecture. Introduce the table with a sentence. For example, "The following table outlines the products or services used in the architecture for each aspect."
-
-| Aspects | Architecture components | How the component is used |
-| -------------- | -------------- | -------------- |
-| Compute | PowerVS | Web, App, and database servers |
-| Storage | PowerVS | Database servers shared storage for RAC |
-|  | VPC Block Storage | Web app storage if neededt |
-| Networking | VPC Virtual Private Network (VPN) | Remote access to manage resources in private network |
-|  | Virtual Private Gateway & Virtual Private Endpoint (VPE) | For private network access to Cloud Services, e.g., Key Protect, COS, etc. |
-|  | VPC Load Balancers | Application Load Balancing for web servers, app servers, and database servers |
-|  | Public Gateway | For web server access to the internet |
-| Security | IAM | IBM Cloud Identity & Access Management |
-|  | BYO Bastion Host on VPC VSI | Remote access with Privileged Access Management |
-|  | Key protect or HPCS | Hardware security module (HSM) and Key Management Service |
-|  | Secrets Manager | Certificate and Secrets Management |
-| Resiliency | PowerVS | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy |
-| Service Management | IBM Cloud Monitoring | Apps and operational monitoring |
-|  | IBM Log Analysis | Apps and operational logs |
-|  | Activity Tracker Event Routing | Audit logs |
-| Other  use if there is  additional aspect(s)  Name Aspect | Cell content | Cell content |
+| Aspects | Requirement | Architecture component | How the component is used |
+|-------------|-------------|-----------|--------------------|
+| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial)| Creates file shares for configuring user file data sharing. |
+| Compute | Provide infrastructure and administration access | HPC VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
+|  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
+|  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
+|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Creates a VPC virtual server instance that runs LSF as a distributed batch HPC application for HPC workloads.|
+| Networking | * Isolate bastion, login, and LSF management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and users host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the HPC VPC. |
+|  | Enable a public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the LSF management node for any internet access (for example, repositories, packages, and so on). |
+|  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |
+|  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |
+| Security | Create virtual server instances to support management. | Bastion node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
+|  | Create virtual server instances to support management. | Login node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
+|  | Create virtual server instances that run LSF as a distributed batch HPC application for HPC workload (jobs). | LSF management node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
+|  | (Optional) Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
+|  | (Optional) Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
+| Service Management | Schedule and run distributed batch HPC applications. | [IBM Spectrum LSF](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0){: external} cluster includes:  \n * Management nodes: Run LSF internal management is highly available components.  \n * Dynamic compute nodes: Computational hosts where LSF runs the HPC workload and can be placed in a single zone. | {{site.data.keyword.spectrum_full_notm}} software is industry-leading and enterprise-class. LSF provides a resource management framework that takes your job requirements, dynamically requests the best resources from the cloud to run the job, monitors its progress, and releases the resource after the workload completion. |
+|  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
+|  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}
