@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-21"
 
 keywords:
 
@@ -35,4 +35,4 @@ The default VPC instance profile for the bootstrap node has been selected based 
 ## BYOL license support
 {: #license-support}
 
-The offering supports the Bring-Your-Own-License (BYOL) model for {{site.data.keyword.scale_full_notm}} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses. Or, you can also try out the scratch storage capability of the offering on {{site.data.keyword.cloud_notm}} without a license by selecting the evaluation storage type.
+This offering supports the Bring-Your-Own-License (BYOL) model for {{site.data.keyword.scale_full_notm}} to deploy an HPC cluster on {{site.data.keyword.cloud_notm}}. Make sure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster. Contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses. Or, you can also try out the scratch storage capability of the offering on {{site.data.keyword.cloud_notm}} without a license by selecting the evaluation storage type.

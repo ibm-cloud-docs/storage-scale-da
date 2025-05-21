@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-21"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # About OpenLDAP with IBM Storage Scale
 {: #about-openldap}
 
-OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
+OpenLDAP is an open source implementation of Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
 Integrating OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
 

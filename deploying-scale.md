@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-21"
 
 keywords:
 
@@ -36,7 +36,7 @@ The offering enables the initial {{site.data.keyword.scale_short}}-based HPC clu
 {: ui}
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your credentials.
-2. In the Software section, select Compute and then select the **{{site.data.keyword.scale_full}}** tile.
+2. In the Software section, select Storage and then select the **{{site.data.keyword.scale_full}}** tile.
 3. In the _Configure your workspace_ section:
     * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace.
     * Select a Location.
