@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-21"
 
 keywords: # Not typically populated
 
@@ -39,6 +39,9 @@ With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) cl
 {: #architecture-diagram}
 
 ![Architecture diagram.](images/scale-arch-diagram-da.svg "Storage Scale Architecture diagram"){: caption="Storage Scale Architecture diagram" caption-side="bottom"}{: external download="scale-arch-diagram-da.svg"}
+
+## Design concepts
+{: #design-concepts}
 
 The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
 
