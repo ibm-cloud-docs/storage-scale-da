@@ -82,7 +82,7 @@ The following table outlines the requirements that are addressed in this archite
 |  | Create VSI to support NFS based client protocol nodes. | Protocol client nodes | This component is used to create the NFS based client protocol nodes. |
 |  | Create VSI to support Storage Scale nodes. | Storage Scale nodes | Creates VSI to support the Storage Scale nodes. |
 |  | Create VSI to support GKLM. | GKLM nodes | Create VSI to support GKLM nodes. |
-| Networking | * Bastion \n * Deployer \n * GKLM \n * LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+| Networking | * Bastion node \n * Deployer node \n * GKLM node \n * LDAP node | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale VPC. |
 |  | Enable a public gateway for the Scale management subnet. | * Scale storage subnet \n * Scale compute subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the Scale cluster nodes | DNS service | Helps with the IP and name resolution for the Scale compute nodes. |
