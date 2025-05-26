@@ -52,7 +52,7 @@ The architecture framework design covers design considerations and architecture 
 * **Security:** Data security
 * **Service management:** Logging and automated deployment
 
-Add the Architecture design scope.
+![Architecture design scope](images/RA-ibm-cloud-scale-heatmap-phase.svg "Architecture design scope"){: caption="Architecture design scope" caption-side="bottom"}{: external download="RA-ibm-cloud-scale-heatmap-phase.svg"}
 
 ## Requirements
 {: #requirements}
@@ -63,7 +63,7 @@ The following table outlines the requirements that are addressed in this archite
 | -------------- | -------------- |
 | Data            | Provide a location to store {{site.data.keyword.scale_full_notm}} configuration and data. |
 | Compute            | Provide properly isolated compute resources with adequate compute capacity for the applications. |
-| Storage            | Provide storage that meets the application and database performance requirements. |
+| Storage            |  |
 | Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage. \n * Provide private DNS resolution to support the use of hostnames instead of IP addresses. |
 | Security           | * Ensure that all operator actions are run securely through bastion host. \n * Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
 | Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
@@ -74,23 +74,20 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | Create file shares | Scale Storage nodes, Protocol nodes| Creates file shares for configuring user file data sharing. |
-| Compute | Provide infrastructure and administration access | VPC service | Provides a VPC service so that you can log in and submit an job. |
-|  | Create virtual server instances to support bastion. | Scale Compute nodes |  |
-|  | Create virtual server instances to support management. | Scale Client nodes |  |
-| Networking | Bastion, Deployer, GKLM, LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
-|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the HPC VPC. |
-|  | Enable a public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
-|  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |
-|  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |
-| Security | Create virtual server instances to support management. | Bastion node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
-|  |  | Deployer node| |
-|  |  | GKLM node| |
-|  |  | LDAP node| |
-|  | Create virtual server instances that run Storage Scale as a distributed batch HPC application for HPC workload (jobs). | Scale management node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
-|  | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
+| Data and Storage | GPFS or NFS | *\n Scale Storage nodes *\n Protocol nodes| These components are used to create storage elements for the cluster. |
+| Compute | Create virtual server instances to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
+|  | Create virtual server instances to support GPFS based compute nodes. | Scale Compute nodes |  |
+|  | Create virtual server instances to support NFS based client nodes. | Scale client nodes | Creates VSI to support NFS based client nodes. |
+|  | Create virtual server instances to support NFS based protocol nodes. | Scale protocol nodes | Creates VSI to support NFS based protocol nodes. |
+|  | Create virtual server instances to support NFS based client protocol nodes. | Protocol client nodes | Creates VSI to support NFS based protocol nodes. |
+|  | Create virtual server instances to support Storage Scale nodes. | Storage Scale nodes | Create virtual server instances to support Storage Scale nodes. |
+|  | Create virtual server instances to support GKLM. | GKLM nodes | Create virtual server instances to support GKLM nodes. |
+| Networking | *\n Bastion *\n Deployer *\n GKLM *\n LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale VPC. |
+|  | Enable a public gateway for the Scale management subnet. | *\n Scale storage subnet *\n Scale compute subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
+|  | DNS service for the Scale cluster nodes | DNS service | Helps with the IP and name resolution for the Scale compute nodes. |
+| Security | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
 |  | Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
-| Service Management | Schedule and run distributed batch HPC applications. | [IBM Storage Scale](https://www.ibm.com/docs/en/storage-scale/5.2.3){: external} cluster includes:  | {{site.data.keyword.scale_full}} enables configuration of compute nodes and storage nodes to build a complete end to end working HPC cluster. The offering uses a bootstrap node where actual provisioning of compute nodes, storage nodes, installation and configuration of {{site.data.keyword.scale_short}} takes place. |
-|  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
+| Service Management | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}
