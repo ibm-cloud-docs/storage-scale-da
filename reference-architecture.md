@@ -74,17 +74,17 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | GPFS or NFS | *\n Scale Storage nodes *\n Protocol nodes| These components are used to create storage elements for the cluster. |
-| Compute | Create virtual server instances to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
-|  | Create virtual server instances to support GPFS based compute nodes. | Scale Compute nodes |  |
-|  | Create virtual server instances to support NFS based client nodes. | Scale client nodes | Creates VSI to support NFS based client nodes. |
-|  | Create virtual server instances to support NFS based protocol nodes. | Scale protocol nodes | Creates VSI to support NFS based protocol nodes. |
-|  | Create virtual server instances to support NFS based client protocol nodes. | Protocol client nodes | Creates VSI to support NFS based protocol nodes. |
-|  | Create virtual server instances to support Storage Scale nodes. | Storage Scale nodes | Create virtual server instances to support Storage Scale nodes. |
-|  | Create virtual server instances to support GKLM. | GKLM nodes | Create virtual server instances to support GKLM nodes. |
-| Networking | *\n Bastion *\n Deployer *\n GKLM *\n LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+| Data and Storage | GPFS or NFS | * Scale Storage nodes \n * Protocol nodes| These components are used to create storage elements for the cluster. |
+| Compute | Create Virtual Server Instances (VSI) to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
+|  | Create VSI to support GPFS based compute nodes. | Scale Compute nodes | This component is used to create the GPFS compute nodes. |
+|  | Create VSI to support NFS based client nodes. | Scale client nodes | This component is used to create the NFS based client nodes. |
+|  | Create VSI to support NFS based protocol nodes. | Scale protocol nodes | This component is used to create the NFS based protocol nodes. |
+|  | Create VSI to support NFS based client protocol nodes. | Protocol client nodes | This component is used to create the NFS based client protocol nodes. |
+|  | Create VSI to support Storage Scale nodes. | Storage Scale nodes | Creates VSI to support the Storage Scale nodes. |
+|  | Create VSI to support GKLM. | GKLM nodes | Create VSI to support GKLM nodes. |
+| Networking | * Bastion \n * Deployer \n * GKLM \n * LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale VPC. |
-|  | Enable a public gateway for the Scale management subnet. | *\n Scale storage subnet *\n Scale compute subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
+|  | Enable a public gateway for the Scale management subnet. | * Scale storage subnet \n * Scale compute subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the Scale cluster nodes | DNS service | Helps with the IP and name resolution for the Scale compute nodes. |
 | Security | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
 |  | Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
