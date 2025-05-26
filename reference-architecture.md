@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-05-26"
 
 keywords: # Not typically populated
 
@@ -33,7 +33,7 @@ production: false
 {: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="StorageScale"}
 
-With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) clusters by using IBM Storage Scale as the storage solution. This offering uses open source Terraform-based automation to provision and configure IBM Cloud® resources. With simple steps to define configuration properties and the use of automated deployment, you can build your own storage-rich clusters in minutes. IBM® Storage Scale enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster.
+With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) clusters by using IBM Storage Scale as the storage solution. This offering leverages open-source, Terraform-based automation to streamline the provisioning and configuration of the cloud resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end HPC cluster.
 
 ## Architecture diagram
 {: #architecture-diagram}
@@ -51,6 +51,8 @@ The architecture framework design covers design considerations and architecture 
 * **Networking:** Isolation and domain name service
 * **Security:** Data security
 * **Service management:** Logging and automated deployment
+
+Add the Architecture design scope.
 
 ## Requirements
 {: #requirements}
@@ -72,22 +74,23 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspects | Requirement | Architecture component | How the component is used |
 |-------------|-------------|-----------|--------------------|
-| Data and Storage | Create file shares | [{{site.data.keyword.filestorage_vpc_full_notm}}](/docs/vpc?topic=vpc-file-storage-vpc-about) or optionally [{{site.data.keyword.scale_full}}](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui)| Creates file shares for configuring user file data sharing. |
-| Compute | Provide infrastructure and administration access | HPC VPC service | Provides a VPC service so that you can log in and submit an HPC job. |
-|  | Create virtual server instances to support bastion. | Bastion node | Create a VPC virtual server instance for bastion and special-purpose servers that are used to manage access to a private network from an external network, typically the internet. |
-|  | Create virtual server instances to support management. | Login node | Creates a VPC virtual server instance for so that you can log in and submit HPC jobs. |
-|  | Create virtual server instances that run Storage Scale as a distributed batch HPC application for HPC workload (jobs). | Scale management node | Creates a VPC virtual server instance that runs Storage Scale as a distributed batch HPC application for HPC workloads.|
-| Networking | * Isolate bastion, login, and Scale management nodes.  \n * Limit the number of connections to the bastion node.  \n * Restrict management subnet access to bastion and users host or CIDR. | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
+| Data and Storage | Create file shares | Scale Storage nodes, Protocol nodes| Creates file shares for configuring user file data sharing. |
+| Compute | Provide infrastructure and administration access | VPC service | Provides a VPC service so that you can log in and submit an job. |
+|  | Create virtual server instances to support bastion. | Scale Compute nodes |  |
+|  | Create virtual server instances to support management. | Scale Client nodes |  |
+| Networking | Bastion, Deployer, GKLM, LDAP | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
 |  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the HPC VPC. |
 |  | Enable a public gateway for the HPC management subnet. | Public gateway for management subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the HPC compute nodes | DNS service | Helps with the IP and name resolution for the HPC compute nodes. |
 |  | (Optional) Load VPN configuration to simplify VPN setup. | VPN | VPN configuration is the responsibility of the user. |
 | Security | Create virtual server instances to support management. | Bastion node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
-|  | Create virtual server instances to support management. | Login node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
+|  |  | Deployer node| |
+|  |  | GKLM node| |
+|  |  | LDAP node| |
 |  | Create virtual server instances that run Storage Scale as a distributed batch HPC application for HPC workload (jobs). | Scale management node | Configures security group rules to allow access to {{site.data.keyword.cloud_notm}} services. |
-|  | (Optional) Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
-|  | (Optional) Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
-| Service Management | Schedule and run distributed batch HPC applications. | [IBM Storage Scale](https://www.ibm.com/docs/en/storage-scale/5.2.3){: external} cluster includes:  \n * Management nodes: Run Scale internal management is highly available components.  \n * Dynamic compute nodes: Computational hosts where Scale runs the HPC workload and can be placed in a single zone. | {{site.data.keyword.scale_full}} enables configuration of compute nodes and storage nodes to build a complete end to end working HPC cluster. The offering uses a bootstrap node where actual provisioning of compute nodes, storage nodes, installation and configuration of {{site.data.keyword.scale_short}} takes place. |
+|  | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
+|  | Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
+| Service Management | Schedule and run distributed batch HPC applications. | [IBM Storage Scale](https://www.ibm.com/docs/en/storage-scale/5.2.3){: external} cluster includes:  | {{site.data.keyword.scale_full}} enables configuration of compute nodes and storage nodes to build a complete end to end working HPC cluster. The offering uses a bootstrap node where actual provisioning of compute nodes, storage nodes, installation and configuration of {{site.data.keyword.scale_short}} takes place. |
 |  | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}
