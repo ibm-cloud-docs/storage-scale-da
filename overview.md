@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-05-28"
 
 keywords:
 
@@ -33,7 +33,7 @@ A deployable architecture is designed with components, modules, and dependencies
 
 For more information, see [Deployable architecture on IBM Cloud](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document.
 
-The bootstrap node—also referred to as the Ansible Controller Node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram)-manages the deployment and configuration of both compute and storage cluster resources.
+The bootstrap node—also referred as the Ansible Controller Node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram), manages the deployment and configuration of both compute and storage cluster resources.
 
 A custom image - `bootstrap_osimage_name` parameter in [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) is provided as part of this solution. This image includes all the automation scripts and required packages necessary for the bootstrap node to function effectively. The bootstrap node plays a critical role throughout the entire lifecycle of the cluster. For example, it is also required for future operational tasks, such as like cleaning up resources.
 
@@ -47,8 +47,8 @@ The default VPC instance profile for the bootstrap node is selected based on the
 
 This offering supports the Bring-Your-Own-License (BYOL) model for deploying {{site.data.keyword.scale_full_notm}} in an HPC cluster on {{site.data.keyword.cloud_notm}}.
 
-* BYOL deployment - Ensure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster.
+* **BYOL deployment** - Ensure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster.
 
-* Evaluation licenses - If you do not have the license, contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
+* **Evaluation licenses** - If you do not have the license, contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
 
-* License-free evaluation - You can test the offering without a license by selecting the evaluation (scratch) storage type.
+* **License-free evaluation** - You can test the offering without a license by selecting the evaluation (scratch) storage type.

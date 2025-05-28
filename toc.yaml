@@ -24,19 +24,25 @@ toc:
   - navgroup:
       id: plan
       topics:
-      - boot-drive-encryption.md
-      - enabling-encryption.md
+      - configure-afm-integration.md
       - topicgroup:
-          label: Integration and Configuration
+          label: Encryption
           topics:
+          - enabling-encryption.md
+          - boot-drive-encryption.md
+      - topicgroup:
+          label: Configuring CES
+          topics:
+          - configure-ces-integration.md
           - ces-configuration-any-scale-node.md
           - ces-failover-setup.md
-          - configure-afm-integration.md
-          - configure-ces-integration.md
-      - config-setup-symph-cluster.md
-      - integrate-ad-samba.md
-      - integrate-scale-ad-secure-user-file-access.md
-      - scale-cem.md
+      - topicgroup:
+          label: Integration
+          topics:
+          - integrate-ad-samba.md
+          - config-setup-symph-cluster.md
+          - integrate-scale-ad-secure-user-file-access.md
+          - scale-cem.md
   - navgroup:
       id: deploy
       topics:
@@ -59,6 +65,7 @@ toc:
           - configure-ldap-server-setup.md
       - create-user-group-ad-symphony.md
       - creating-user-group-oldap-dir.md
+      - vnic-info.md
       - topicgroup:
           label: Schematics API
           topics:
@@ -71,7 +78,6 @@ toc:
       - responsibilities-da.md
       - security-groups.md
       - storage-types.md
-      - vnic-info.md
   - navgroup:
       id: help
       topics:
