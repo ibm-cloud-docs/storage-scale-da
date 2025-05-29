@@ -46,7 +46,7 @@ If you use other {{site.data.keyword.cloud_notm}} products such as {{site.data.k
 | App networking | You | You | You | You |
 | Cluster networking | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Cluster version | [Shared](#incident-and-ops) | [Shared](#change-management) | Not applicable | Not applicable |
-| Scale Storage nodes | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
+| Storage Scale nodes | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Compute nodes | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Virtual storage | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
 | Virtual network | [Shared](#incident-and-ops) | [Shared](#change-management) | [Shared](#security-compliance) | You |
@@ -61,7 +61,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Scale Storage nodes| * Deploy highly available dedicated storage nodes in a secured, IBM-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | Use the provided console tools to request that storage nodes are rebooted or reloaded, and troubleshoot issues such as when the storage nodes are in an unhealthy state. |
+|Storage Scale nodes| * Deploy highly available dedicated storage nodes in a secured, IBM-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | Use the provided console tools to request that storage nodes are rebooted or reloaded, and troubleshoot issues such as when the storage nodes are in an unhealthy state. |
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and a sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
 |Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Provide the ability to isolate network traffic with bastion nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
 |Observability| Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
@@ -76,7 +76,7 @@ You and IBM share responsibilities for keeping your clusters at the supported pl
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Scale Storage nodes| Provide scale node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) storage nodes updates that include operating system; or to request that storage nodes are rebooted. |
+|Storage Scale nodes| Provide scale node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) storage nodes updates that include operating system; or to request that storage nodes are rebooted. |
 |Compute nodes| Provide compute node patch operating system (OS), version, and security updates. Not supported on existing running VSIs, only for new VSIs with latest image. | Use IBM Cloud tools to apply the provided compute node updates that include operating system patches; or to raise ticket to request that worker nodes are rebooted. |
 |Cluster version| Provide image for new version of Scale for new cluster creation. | Update existing storage nodes and compute nodes to new Scale version, or create new cluster with latest image to run with new cluster version |
 {: caption="Responsibilities for change management" caption-side="bottom"}
@@ -104,7 +104,7 @@ IBM is responsible for the security and compliance of Scale clusters on IBM Clou
 |----------|-----------------------|--------|
 |General| Provide security controls commensurate to best practice for {{site.data.keyword.scale_full}} in Cloud.|
 Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
-|Scale Storage nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the storage nodes, apply the provided security patch updates. |
+|Storage Scale nodes| Disable certain insecure actions for storage nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the storage nodes, apply the provided security patch updates. |
 |Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
@@ -128,5 +128,5 @@ You are responsible for the applications, workloads, and data that you deploy to
 | Resource | How {{site.data.keyword.IBM_notm}} helps | What you can do |
 |----------|-----------------------|--------|
 | Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to IBM Storage Scale statement) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as General Parallel File System (GPFS) and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
-| Applications | * Provision Storage Scale cluster with GPFS and NFS.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up to date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
+| Applications | * Provision Storage Scale clusters with GPFS and NFS.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region. | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up to date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
 {: caption="Responsibilities for applications and data" caption-side="bottom"}

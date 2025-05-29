@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-29"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Before you begin deploying
 {: #before-begin-deploy}
 
-With {{site.data.keyword.scale_full}}, you can deploy HPC clusters that use {{site.data.keyword.scale_full_notm}} as a storage solution. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks.
+With {{site.data.keyword.scale_full}}, you can deploy Scale clusters that use {{site.data.keyword.scale_full_notm}} as a storage solution. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks.
 
 ## Confirm your {{site.data.keyword.cloud}} settings
 {: #confirm-cloud-settings-scale}
@@ -66,12 +66,12 @@ The {{site.data.keyword.scale_full}} requires access to the following {{site.dat
 | Endpoint | Type | Notes |
    | ------- | --------- | ---- |
    | `iam.cloud.ibm.com` | IAM | The IAM endpoint is protected by Akamai under the [Akamai IP ranges](https://techdocs.akamai.com/origin-ip-acl/docs/update-your-origin-server){: external} |
-{: caption="{{site.data.keyword.cloud_notm}} public endpoints required for {{site.data.keyword.cloud_notm}} HPC deployment" caption-side="bottom"}
+{: caption="{{site.data.keyword.cloud_notm}} public endpoints required for {{site.data.keyword.cloud_notm}} Scale deployment" caption-side="bottom"}
 
 ## Gather Scale entitlement information
 {: #gather-scale-entitlement-information}
 
-The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy an cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the HPC cluster by using {{site.data.keyword.scale_full}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
+The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy an cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster by using {{site.data.keyword.scale_full}}. Failure to comply with licenses for production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 Before you can deploy your {{site.data.keyword.scale_full}}, you need to create or gather some information. To get started, complete the following steps:
 
@@ -186,7 +186,7 @@ After you have created and reviewed for any additional prerequisites for your in
 
 2. **Generate a plan** to confirm whether the configuration properties are valid, so that when you run the Terraform code, all of the resources are provisioned correctly. If the validation fails, fix the configuration properties and try again.
 
-3. **Apply a plan** triggers the actual deployment of the {{site.data.keyword.cloud_notm}} resources to have an HPC cluster up and running by the time the deployment completes. If the deployment fails, identify the reason for failure, fix the problem, and try again. If a change is needed to the configuration properties, it might be better to generate a plan again.
+3. **Apply a plan** triggers the actual deployment of the {{site.data.keyword.cloud_notm}} resources to have an Scale cluster up and running by the time the deployment completes. If the deployment fails, identify the reason for failure, fix the problem, and try again. If a change is needed to the configuration properties, it might be better to generate a plan again.
 
 If instead of using {{site.data.keyword.bplong_notm}} you decide to deploy your {{site.data.keyword.scale_full_notm}} cluster through the {{site.data.keyword.cloud_notm}} catalog, when you click **Install**, the **Generate plan** action is skipped, and the steps go from **Create workspace** to **Apply plan** directly. You need to enter values in the catalog that work for your permissions and {{site.data.keyword.cloud_notm}} account. If the deployment fails, the {{site.data.keyword.bpshort}} UI can be used to fix the errors, and you can retry the **Apply Plan** step.
 {: note}

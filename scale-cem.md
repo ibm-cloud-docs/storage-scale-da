@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-05-29"
 
 keywords:
 
@@ -344,7 +344,7 @@ Additional input includes:
        Set up the network segment for CES protocol nodes.
 
     c. Attach Secondary Interface to Protocol Nodes (Minimum 2)
-       Add a secondary network interface to at least two Scale storage nodes for CES protocol communication.
+       Add a secondary network interface to at least two storage scale nodes for CES protocol communication.
 
     d. Enable IP Spoofing
        Enable IP spoofing to allow CES protocol nodes to communicate by using private IPs.
