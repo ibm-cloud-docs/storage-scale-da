@@ -25,17 +25,11 @@ toc:
       id: plan
       topics:
       - configure-afm-integration.md
-      - topicgroup:
-          label: Encryption
-          topics:
-          - enabling-encryption.md
-          - boot-drive-encryption.md
-      - topicgroup:
-          label: Configuring CES
-          topics:
-          - configure-ces-integration.md
-          - ces-configuration-any-scale-node.md
-          - ces-failover-setup.md
+      - enabling-encryption.md
+      - boot-drive-encryption.md
+      - configure-ces-integration.md
+      - ces-configuration-any-scale-node.md
+      - ces-failover-setup.md
       - topicgroup:
           label: Integration
           topics:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-29"
+lastupdated: "2025-06-10"
 
 keywords:
 
@@ -114,13 +114,13 @@ You can use the default image or create a custom image for compute, storage, and
 Stock image is not supported, when parallel vNIC and CES features are enabled.
 {: note}
 
-{{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. See the `storage_vsi_osimage_name`, `storage_bare_metal_osimage_name` and `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
+{{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. See the `storage_vsi_osimage_name`, `storage_bare_metal_osimage_name` and `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
 
 ### Gather public IP address
 {: #gather-ip-address}
 {: step}
 
-You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_cidr_blocks` deployment value. For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
+You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_cidr_blocks` deployment value. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Identify cluster deployment location
 {: #identify-cluster}
@@ -164,7 +164,7 @@ To enable boot drive encryption for persistent storage, set `bms_boot_drive_encr
 {: #enable-ldap}
 {: step}
 
-To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values). Existing LDAP is also supported.
 
 ### Enable AFM
 {: #enable-afm}

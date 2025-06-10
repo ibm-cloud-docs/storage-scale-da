@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-29"
+lastupdated: "2025-06-10"
 
 keywords:
 
@@ -26,7 +26,7 @@ subcollection: storage-scale-da
 # Deploying IBM Storage Scale
 {: #deploying-storage-scale}
 
-{{site.data.keyword.scale_short}} enables all three interfaces: UI, API, and CLI. To use the API and CLI interfaces, the Terraform-based automation code is available in this [public GitHub repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
+Deploy the {{site.data.keyword.scale_short}} deployable architecture with Storage Scale cluster using either the IBM Cloud console UI, or the IBM Cloud catalog CLI, and then access the deployed environment.
 
 The offering enables the initial {{site.data.keyword.scale_short}}-based Scale cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup should be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
