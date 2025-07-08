@@ -60,7 +60,7 @@ Before you begin, review the following information:
 ## Configuring AFM deployment
 {: #configure-afm-deployment}
 
-To enable the AFM feature on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale-da?topic=storage-scale-da-creating-workspace&interface=ui):
+To enable the AFM feature on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale-da?topic=storage-scale-da-creating-workspace):
 
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|

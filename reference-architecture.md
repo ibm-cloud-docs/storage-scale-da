@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-07-08"
 
 keywords: # Not typically populated
 
@@ -76,7 +76,7 @@ The following table outlines the requirements that are addressed in this archite
 |-------------|-------------|-----------|--------------------|
 | Data and Storage | GPFS or NFS | * Storage Scale nodes \n * Protocol nodes| These components are used to create storage elements for the cluster. |
 | Compute | Create Virtual Server Instances (VSI) to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
-|  | Create VSI to support GPFS based compute nodes. | Scale Compute nodes | This component is used to create the GPFS compute nodes. |
+|  | Create VSI to support GPFS based compute nodes. | Scale compute nodes | This component is used to create the GPFS compute nodes. |
 |  | Create VSI to support NFS based client nodes. | Scale client nodes | This component is used to create the NFS based client nodes. |
 |  | Create VSI to support NFS based protocol nodes. | Scale protocol nodes | This component is used to create the NFS based protocol nodes. |
 |  | Create VSI to support NFS based client protocol nodes. | Protocol client nodes | This component is used to create the NFS based client protocol nodes. |
