@@ -59,6 +59,7 @@ toc:
           - configure-ldap-server-setup.md
       - create-user-group-ad-symphony.md
       - creating-user-group-oldap-dir.md
+      - creating-workspace.md
       - vnic-info.md
       - topicgroup:
           label: Schematics API

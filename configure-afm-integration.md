@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-07-08"
 
 keywords:
 
@@ -40,13 +40,13 @@ An AFM to cloud object storage fileset is supported on all existing AFM fileset 
 ## Key features and benefits of COS-AFM
 {: #keybenefits-cos-afm}
 
-* Cloud Object Storage Integration: COS-AFM allows {{site.data.keyword.scale_full_notm}} to use IBM Cloud Object Storage as a storage target. This integration facilitates the movement of data between on-premises storage and cloud storage, enabling hybrid cloud solutions.
+* **Cloud Object Storage Integration:** COS-AFM allows {{site.data.keyword.scale_full_notm}} to use IBM Cloud Object Storage as a storage target. This integration facilitates the movement of data between on-premises storage and cloud storage, enabling hybrid cloud solutions.
 
-* Data Caching and Tiering: COS-AFM supports caching frequently accessed data locally within the IBM Storage Scale system while storing less frequently accessed data in IBM COS. This tiering approach optimizes data access performance and storage costs.
+* **Data Caching and Tiering:** COS-AFM supports caching frequently accessed data locally within the IBM Storage Scale system while storing less frequently accessed data in IBM COS. This tiering approach optimizes data access performance and storage costs.
 
-* Disaster Recovery and Data Protection: COS-AFM enables disaster recovery and data protection by replicating data to IBM COS. This ensures that a copy of the data is stored in a geographically separated location, providing resilience against data loss or system failures.
+* **Disaster Recovery and Data Protection:** COS-AFM enables disaster recovery and data protection by replicating data to IBM COS. This ensures that a copy of the data is stored in a geographically separated location, providing resilience against data loss or system failures.
 
-* Secure Data Management: COS-AFM supports secure data transmission and storage by using IBM COS built-in security features, such as encryption and access controls, to protect sensitive data.
+* **Secure Data Management:** COS-AFM supports secure data transmission and storage by using IBM COS built-in security features, such as encryption and access controls, to protect sensitive data.
 
 ## Before you begin
 {: #beforeyoubegin-afm}
@@ -64,9 +64,8 @@ To enable the AFM feature on a Storage Scale cluster, the following variables ne
 
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|
-| `afm_server_profile` | The virtual instance or bare metal server instance profile type name used to create the AFM gateway nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). | bx2-32x128 |
+| `afm_instances` | Total number of instances that you need to provision AFM nodes and enable AFM. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) | bx2-32x128 |
 | `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain up to 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="fileset1", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
-| `total_afm_cluster_instances`  | Total number of instances that you need to provision AFM nodes and enable AFM.	| 0  |
 {: caption='AFM variables'}
 
 Following components are required for a successful scale deployment with AFM feature:
