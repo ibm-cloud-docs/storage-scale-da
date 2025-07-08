@@ -84,17 +84,9 @@ Complete the following steps to create and configure an HPC cluster from the {{s
 
 1. In the {{site.data.keyword.cloud_notm}} catalog, search for _Storage Scale_, and then select IBM Storage Scale.
 
-2. In the **Set the deployment values** section, supply the required values: `app_center_gui_password`, `existing_resource_group`, `ibmcloud_api_key`, `lsf_version`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
+2. In the **Set the deployment values** section, supply the required values: << update the required values>>
 
-3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 15 minutes with the default configuration.
-
-IBM Storage Scale supports different features like PAC/PAC HA/SCC/Observability/Hyperthreading/Cloud Logs/Monitoring/VPN etc. To configure all the features, refer to the [deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) section.
-{: note}
-
-### Parameters for instance profiles
-{: #hpc-cluster-instance-profiles-deployment-parameters}
-
-You can control the instance profile for each instance type through the `xxx_node_instance_type` parameters. The management nodes are where the main LSF daemons are running. You need to select ones with more compute power if you plan to run jobs by using 100+ nodes. The worker nodes are the ones where the workload execution takes place and the choice needs to be made according to the characteristic of workloads.
+3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 40 minutes with the default configuration.
 
 ## Accessing the HPC cluster
 {: #hpc-cluster-access}
@@ -122,7 +114,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 1. To check the two worker nodes, run the following command:
 
-    ```
+    ```pre
     bhosts -w
     ```
     {: pre}
@@ -133,7 +125,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 2. To try the auto scaling function, run a job that requires more than two nodes. For example, this job requires five jobs to sleep for 10 seconds:
 
-    ```
+    ```pre
     bsub -n 5 -R "span[ptile=1]" sleep 10
     ```
     {: pre}
@@ -142,7 +134,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 4. After a minute, check the nodes by running the following command:
 
-    ```
+    ```pre
     bhosts -w
     ```
     {: pre}
@@ -159,7 +151,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 If you want to know more about OpenLDAP with IBM Storage Scale, see [About OpenLDAP with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-about-openldap).
 
-During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values.
+During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the << update the values >> deployment input values.
 
 If you want to know more about integrating OpenLDAP with your IBM Storage Scale cluster, see [Integrating OpenLDAP with your IBM Storage Scale cluster](/docs/storage-scale-da?topic=storage-scale-da-integrating-openldap).
 
@@ -171,8 +163,8 @@ If you want to know more about integrating OpenLDAP with your IBM Storage Scale 
 
 If you leave the `dns_custom_resolver_id` deployment input value as null, the deployment process creates a new VPC and enables a new custom resolver for your cluster. Alternatively, to create custom DNS resolvers with an existing VPC, provide the resolver ID for the `dns_custom_resolver_id` deployment input value.
 
-## Using IBM Key Protect instances to manage data encryption
+## Using IBM Key Protect instances and GKLM to manage data encryption
 {: #key-protect-encryption}
 {: step}
 
-To manage the data encryption to your virtual server instances, use the IBM Key Protect instance through IBM Storage Scale cluster. For more information on Key Protect and encryption keys, see [Enabling encryption by using IBM KeyProtect](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions#enable-encryption-keyprotect).
+The Storage Scale cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. For more information, see [Enabling encryption by using GKLM](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions&interface=ui#enable-encryption-gklm) and [Enabling encryption by using IBM KeyProtect](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions#enable-encryption-keyprotect).

@@ -64,7 +64,7 @@ To enable the AFM feature on a Storage Scale cluster, the following variables ne
 
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|
-| `afm_instances` | Total number of instances that you need to provision AFM nodes and enable AFM. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) | bx2-32x128 |
+| `afm_instances` | Total number of instances that you need to provision AFM nodes and enable AFM. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) | [ { profile = "bx2-32x128" count   = 1 image   = "hpcc-scale5221-rhel810" } ] |
 | `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain up to 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="fileset1", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
 {: caption='AFM variables'}
 

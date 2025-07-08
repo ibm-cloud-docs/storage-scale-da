@@ -1,0 +1,75 @@
+---
+
+copyright:
+  years: 2025
+lastupdated: "2025-07-08"
+
+keywords:
+
+subcollection: storage-scale-da
+
+---
+
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:external: target="_blank" .external}
+{:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:step: data-tutorial-type='step'}
+{:table: .aria-labeledby="caption"}
+
+# Cleaning up deployed environments
+{: #cleaning-deploy-envn}
+
+If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account. The process is in three phases:
+
+1. Destroy all the associated VPC resources and remove them from your {{site.data.keyword.cloud_notm}} account.
+2. Remove the workspace.
+3. Verify that the cluster is free of running jobs or working compute nodes.
+{: shortdesc}
+
+## Destroying resources by using the UI
+{: #destroy-resources-ui}
+{: ui}
+
+1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Destroy** to delete all the related VPC resources that were deployed as part of that workspace.
+2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
+3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
+
+## Deleting a workspace by using the UI
+{: #delete-workspace-ui}
+{: ui}
+
+1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete workspace** to delete the schematics workspace.
+2. Confirm the action by entering the workspace name in the text box and click **Delete workspace**.
+
+## Deleting a workspace by using the CLI
+{: #delete-workspace-cli}
+{: cli}
+
+Run the following command to delete your workspace:
+
+```pre
+ibmcloud schematics workspace delete --id <WORKSPACE_ID>
+```
+{: pre}
+
+You can monitor the log files to view the deletion progress of your workspace.
+{: note}
+
+## Destroying resources by using the CLI
+{: #destroy-resources-cli}
+{: cli}
+
+Run the following command to remove your VPC resources from your workspace:
+
+```pre
+ibmcloud schematics destroy --id <WORKSPACE_ID>
+```
+{: pre}
+
+You can monitor the log files to view the deletion progress of all {{site.data.keyword.cloud_notm}} resources.
+{: note}

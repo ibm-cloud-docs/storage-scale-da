@@ -60,7 +60,9 @@ toc:
       - create-user-group-ad-symphony.md
       - creating-user-group-oldap-dir.md
       - creating-workspace.md
+      - accessing-gui.md
       - vnic-info.md
+      - cleanup_deployed_envn_scale.md
       - topicgroup:
           label: Schematics API
           topics:
