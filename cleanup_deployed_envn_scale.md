@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -18,7 +18,9 @@ subcollection: storage-scale-da
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
-{:step: data-tutorial-type='step'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 {:table: .aria-labeledby="caption"}
 
 # Cleaning up deployed environments

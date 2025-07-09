@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -18,7 +18,7 @@ content-type: faq
 
 
 
-# FAQ
+# FAQs for IBM Storage Scale
 {: #storage-scale-faq}
 
 This document provides a list of frequently asked questions and answers about a specific topic for IBM Storage Scale.

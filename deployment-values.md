@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -24,6 +24,13 @@ subcollection: storage-scale-da
 {: #deployment-values}
 
 The following deployment values can be used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}:
+
+## Mandatory deployment values
+{: #mandate-values}
+
+The following are the mandatory deployment values used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}:
+
+
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |

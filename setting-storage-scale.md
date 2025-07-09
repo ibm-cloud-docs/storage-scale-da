@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -151,7 +151,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 If you want to know more about OpenLDAP with IBM Storage Scale, see [About OpenLDAP with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-about-openldap).
 
-During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the << update the values >> deployment input values.
+During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_instance` deployment input values.
 
 If you want to know more about integrating OpenLDAP with your IBM Storage Scale cluster, see [Integrating OpenLDAP with your IBM Storage Scale cluster](/docs/storage-scale-da?topic=storage-scale-da-integrating-openldap).
 
