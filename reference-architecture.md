@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-10"
 
 keywords: # Not typically populated
 
@@ -33,7 +33,7 @@ production: false
 {: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
 {: toc-use-case="StorageScale"}
 
-With IBM® Storage Scale, you can deploy the High-Performance Computing (HPC) clusters by using IBM Storage Scale as the storage solution. This offering leverages open-source, Terraform-based automation to streamline the provisioning and configuration of the cloud resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end HPC cluster.
+You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end Storage cluster.
 
 ## Architecture diagram
 {: #architecture-diagram}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-07-10"
 
 keywords:
 
@@ -31,38 +31,67 @@ Deploy the {{site.data.keyword.scale_short}} deployable architecture with Storag
 The offering enables the initial {{site.data.keyword.scale_short}}-based Scale cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup should be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
 
-## Creating a workspace by using the UI
-{: #create-workspace-ui}
+## Creating the project by using the UI
+{: #deploy-project-gui}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your credentials.
-2. In the Software section, select Storage and then select the **{{site.data.keyword.scale_full}}** tile.
-3. In the _Configure your workspace_ section:
-    * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace.
-    * Select a Location.
-    * Select a Resource group.
-    * Define any **Tags** that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
-4. In the _Set the deployment values_ section, specify the values for the required properties.
-5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
-6. Review and accept the **{{site.data.keyword.scale_full_notm}}** license terms and conditions in the order summary.
-7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the Apply Plan action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
-8. You can also review the status of your deployment process by identifying the workspace name in the _View the existing installations_ section. When you click a record in _View the existing installations_ section, you are taken to the {{site.data.keyword.bpshort}} workspace view. 
+You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{site.data.keyword.cloud_notm}} console UI to create an {{site.data.keyword.scale_short}} project.
 
-## Next steps (UI)
-{: #next-steps-create-ui}
-{: ui}
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
+2. Search for IBM Storage Scale in the search catalog.
+3. Click **Add to project**.
+4. In the _Create new_ section:
+    * Specify a **Name** for your {{site.data.keyword.scale_short}} project.
+    * Optionally provide a **Description** to describe the purpose of the project.
+    * Specify a **Configuration name** for your {{site.data.keyword.scale_short}} project. The name can be up to 64 characters.
+    * Select a **Region** for the location where you want the {{site.data.keyword.scale_short}} project deployed. The region for the LSF project container can be different from the actual region where the cluster is deployed.
+    * Select a **Resource group** for where to get resources for your {{site.data.keyword.scale_short}} project.
 
-After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=ui) to validate all the configuration properties.
+    Click **Create** to save and add your project. When created, the project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
 
-## Before you begin
-{: #before-you-begin-creating-cli}
+5. In the _Configure_ section of the _Edit configuration_ page, edit the configuration by entering the **Security** and **Configure architecture** input values.
+6. You can edit all the required values from **Configure architecture**, toggle the **Advanced** option to view and edit all the optional values.
+
+    Descriptions of the deployment input values are next to each variable in the {{site.data.keyword.cloud_notm}} console.
+    {: tip}
+
+    Secure deployment input values might be entered directly or might be referenced from an existing [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). As a best practice, the more secure option is to use a Secrets Manager to store secured input values.
+
+    * In the **Security** tab, you have two sections:
+        * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.scale_short}} cluster to fulfill the `ibmcloud_api_key` input variable.
+        * **Compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.scale_short}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
+
+    * In the **Required** tab, specify the deployment values for the mandatory input variables: `ibm_customer_number`, `storage_gui_username`, `storage_gui_password`, `zones`, `existing_resource_group`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
+
+    For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the LSF cluster by using {{site.data.keyword.scale_short}}.
+
+    * When you toggle the **Advanced** option tab, you can specify optional deployment values for advanced configuration and for deeper customization of the provisioned elements.
+
+    For example, to enable the `override` variable, you need to set the value to **true**.
+
+7. Click **Done**.
+8. Click **Save** to save your configuration options.
+9. Click **Validate**.
+   {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/ContinuousDelivery?topic=ContinuousDelivery-cra-cli-plugin#terraform-scc-goals). It checks controls that are part of the {{site.data.keyword.scale_short}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
+
+   Provide a comment to approve the validation and proceed to deployment.
+
+10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project.
+
+When deployed, you can then access your deployed environment.
+
+Following are the steps, to see the created workspace in the Schematics:
+
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
+2. Go to the Navigation Menu.
+3. Select **Platform Automation** > **Schematics** > **Terraform**.
+4. You can see the list of workspaces created.
+
+## Deploying {{site.data.keyword.scale_short}} by using the CLI
+{: #create-project-cli}
 {: cli}
 
 Before you get started, make sure that you have completed the prerequisites in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli).
-
-## Creating a workspace by using the CLI
-{: #create-workspace-cli}
-{: cli}
 
 The first step using {{site.data.keyword.bpshort}} is to create a workspace with the specific configuration parameters defined in the corresponding Terraform source code.
 
@@ -84,8 +113,8 @@ You can list the workspaces in your account by using the following command:
 Example response with workspace details:
 
 ```pre
-Name                  ID                                              Description           Status         Frozen
-spectrum-scale-test   us-east.workspace.hpcc-scale-test.7cbc3f6b      Sample workspace      INACTIVE       False
+Name                  ID                                              Description           Status         Frozen
+spectrum-scale-test   us-east.workspace.hpcc-scale-test.7cbc3f6b      Sample workspace      INACTIVE       False
 ```
 {: screen}
 
@@ -107,8 +136,36 @@ You can update the details for an existing workspace, such as the workspace name
 
 To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/schematics?topic=schematics-schematics-cli-reference) reference.
 
-## Next steps (CLI)
-{: #next-steps-create-cli}
-{: cli}
+## Accessing the deployed environment
+{: #access-deployed-environment}
 
-After you have successfully created a workspace, you can begin Generating a plan to validate all of the configuration properties.
+Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+
+* Verify that you have access to the bastion host by using an SSH key.
+* Verify that you can log in to all created {{site.data.keyword.scale_short}} instances.
+* Verify that you can connect to the {{site.data.keyword.scale_short}} environment by using the following SSH commands:
+
+Run the command to login to the management node:
+
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<management_node_IP>
+```
+{: codeblock}
+
+
+Run the command for the login node:
+
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<bastion_node_IP> lsfadmin@<login_node_ip>
+```
+{: codeblock}
+
+For example:
+
+```ssh
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@150.239.215.145 lsfadmin@10.241.0.4
+```
+{: codeblock}
+
+If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
+{: tip}
