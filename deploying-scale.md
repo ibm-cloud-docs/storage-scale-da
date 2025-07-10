@@ -76,9 +76,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
    Provide a comment to approve the validation and proceed to deployment.
 
-10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project.
-
-When deployed, you can then access your deployed environment.
+10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
 Following are the steps, to see the created workspace in the Schematics:
 
@@ -138,6 +136,7 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 
 ## Accessing the deployed environment
 {: #access-deployed-environment}
+{: ui}
 
 Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
 
