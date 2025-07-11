@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Before you begin deploying
 {: #before-begin-deploy}
 
-With {{site.data.keyword.scale_full}}, you can deploy Scale clusters that use {{site.data.keyword.scale_full_notm}} as a storage solution. The deployment is performed by using Terraform and IBM Projects.
+You can deploy the Scale clusters that use {{site.data.keyword.scale_full_notm}} as the storage solution. The deployment is performed by using Terraform and IBM Projects.
 
 If you are creating Storage Scale on a persistent model (with baremetal), ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}

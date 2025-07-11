@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-11"
 
 keywords:
 
@@ -23,14 +23,29 @@ subcollection: storage-scale-da
 # Deployment values
 {: #deployment-values}
 
-The following deployment values can be used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}:
+The following deployment values can be used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}.
 
 ## Mandatory deployment values
 {: #mandate-values}
 
 The following are the mandatory deployment values used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}:
 
+| Value | Description | Is it required? | Default value |
+| ----- | ----------- | --------------- | ------------ |
+| `ibm_customer_number` | Comma-separated list of the IBM Customer Number(s) (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | Yes | Null |
+| `storage_gui_username` | Specify the storage cluster GUI username to perform system management and monitoring tasks. | Yes | admin |
+| `storage_gui_password` | Specify the password for storage cluster GUI. | Yes | hpc@IBMCloud |
+| `existing_resource_group` | String describing resource groups to create or reference. | Yes | Default |
+| `remote_allowed_ips` | Comma-separated list of IP addresses that can access the IBM Spectrum LSF cluster instance through an SSH interface. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, [\"169.45.117.34\"]). To fetch the IP address of the device, use [https://ipv4.icanhazip.com/](https://ipv4.icanhazip.com/). | Yes |  |
+| `ssh_keys` | The key pair to use to access the HPC cluster. | Yes | Null |
+| `zones` | Specify the IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). | Yes | ["us-east-1"] |
+{: caption="Mandatory deployment values" caption-side="top"}
 
+
+## Optional deployment values
+{: #optional-values}
+
+The following are the optional deployment values used to configure the {{site.data.keyword.scale_short}} cluster instance on {{site.data.keyword.cloud}}:
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
