@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-07-11"
 
 keywords:
 
@@ -46,8 +46,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
     * Specify a **Configuration name** for your {{site.data.keyword.scale_short}} project. The name can be up to 64 characters.
     * Select a **Region** for the location where you want the {{site.data.keyword.scale_short}} project deployed. The region for the LSF project container can be different from the actual region where the cluster is deployed.
     * Select a **Resource group** for where to get resources for your {{site.data.keyword.scale_short}} project.
-
-    Click **Create** to save and add your project. When created, the project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
+    * Click **Create** to save and add your project. When created, the project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
 
 5. In the _Configure_ section of the _Edit configuration_ page, edit the configuration by entering the **Security** and **Configure architecture** input values.
 6. You can edit all the required values from **Configure architecture**, toggle the **Advanced** option to view and edit all the optional values.
@@ -78,10 +77,10 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 10. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
-Following are the steps, to see the created workspace in the Schematics:
+To view the created workspace in the Schematics, follow the steps:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
-2. Go to the Navigation Menu.
+2. Go to the **Navigation Menu**.
 3. Select **Platform Automation** > **Schematics** > **Terraform**.
 4. You can see the list of workspaces created.
 

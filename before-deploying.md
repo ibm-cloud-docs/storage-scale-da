@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-07-11"
 
 keywords:
 
@@ -106,7 +106,7 @@ You need to provide the GUI username to perform the system management and monito
 
 You need to provide the password for the storage cluster GUI.
 
-## Update the zones
+## Provide the zones
 {: #identify-cluster}
 {: step}
 
@@ -137,7 +137,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 
 ## Enable CES
 {: #enable-ces}
-{: ces}
+{: step}
 
 To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) topic for more details.
 
@@ -167,7 +167,7 @@ Once the necessary input values are gathered to define your cluster configuratio
 
 After you have created and reviewed for any additional prerequisites for your interface, perform the following:
 
-1. **Create a project** - This step defines the set of configuration properties that are used to perform the automation. For more information, see [Creating a project](/docs/storage-scale-da?topic=storage-scale-da-deploying-storage-scale&interface=ui#create-workspace-ui).
+1. **Create a project** to define the set of configuration properties used to perform the automation. For more information, see [Creating a project](/docs/storage-scale-da?topic=storage-scale-da-deploying-storage-scale&interface=ui#create-workspace-ui).
 
 2. **Validate** to confirm whether the configuration properties are valid, so that when you run the Terraform code, all of the resources are provisioned correctly. If the validation fails, fix the configuration properties and try again.
 
