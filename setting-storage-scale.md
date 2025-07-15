@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-15"
 
 keywords: architecture overview, cluster access, hpc cluster
 content-type: tutorial
@@ -59,10 +59,10 @@ Complete the following steps to create your SSH key:
 
 1. Log in to the [{{site.data.keyword.cloud}} console](https://cloud.ibm.com/){: external} by using your unique credentials.
 2. From the dashboard, click **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Infrastructure > Compute > SSH keys**.
-3. Click Create.
+3. Click **Create**.
 4. Enter the SSH key name (for example, `po-ibm-ssh-key`), select the default resource group, add tags, and select the region.
 5. Copy and paste the public key into the _Public key_ field (the contents that you saved from `.ssh/id_rsa.pub`).
-6. Click Add SSH key.
+6. Click **Add SSH** key.
 
 ## Create API key
 {: #hpc-api-key}
@@ -73,30 +73,30 @@ Complete the following steps to create your API key:
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > API keys**.
 2. Click **Create**.
 3. Enter a name and description for your API key.
-4. Click Create.
-5. Then click Show to display the API key, **Copy** to copy and save it for later, or click Download.
+4. Click **Create**.
+5. Click Show to display the API key. Copy the key and save it for later, or click **Download**.
 
 ## Create and configure an HPC cluster from the IBM Cloud catalog
 {: #hpc-cluster-creation}
 {: step}
 
-Complete the following steps to create and configure an HPC cluster from the {{site.data.keyword.cloud_notm}} catalog:
+Complete the following steps to create and configure an Storage cluster from the {{site.data.keyword.cloud_notm}} catalog:
 
-1. In the {{site.data.keyword.cloud_notm}} catalog, search for _Storage Scale_, and then select IBM Storage Scale.
+1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, search for _Storage Scale_, and then select IBM Storage Scale.
 
-2. In the **Set the deployment values** section, supply the required values: << update the required values>>
+2. Click on **Review deployment options** on right-side and then provide the required input values: `ibm_customer_number`, `storage_gui_username`, `storage_gui_password`, `existing_resource_group`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
 
-3. After you confirm with the license agreement, you can use the default values for other parameters and click Install. The HPC cluster is created and completed within 40 minutes with the default configuration.
+3. After you confirm with the license agreement, you can use the default values for other parameters and click **Deploy**. The Storage cluster is created and completed within 40 minutes with the default configuration.
 
-## Accessing the HPC cluster
+## Accessing the Storage cluster
 {: #hpc-cluster-access}
 {: step}
 
-To access your HPC cluster, complete the following steps:
+To access your Storage cluster, complete the following steps:
 
-1. Go to Schematics > Choose the name for your workspace > Plan applied > View log.
+1. Go to **Schematics** > **Choose your workspace** > **Apply plan** > **View log**.
 
-2. Copy `ssh-command` to access your cluster.
+2. Copy the `ssh-command` to access your cluster.
 
     * `ssh -J root@ip-jumphost lsfadmin@ip-managementhost`
 
@@ -119,10 +119,6 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
     ```
     {: pre}
 
-    Example output:
-
-    ![Two worker nodes](images/original_workernodes.png){: caption="Two worker nodes"}
-
 2. To try the auto scaling function, run a job that requires more than two nodes. For example, this job requires five jobs to sleep for 10 seconds:
 
     ```pre
@@ -139,10 +135,6 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
     ```
     {: pre}
 
-    You can see that now five nodes were added to your cluster:
-
-    ![Two worker nodes](images/autoscaling.png){: caption="Five worker nodes added"}
-
 5. The difference of nodes that are created by the auto scaling function are destroyed automatically after 10 minutes of not being used.
 
 ## Using OpenLDAP with IBM Storage Scale
@@ -151,7 +143,7 @@ The following example shows `worker_node_min_count=2` and `worker_node_max_count
 
 If you want to know more about OpenLDAP with IBM Storage Scale, see [About OpenLDAP with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-about-openldap).
 
-During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_instance` deployment input values.
+During deployment, you enable OpenLDAP with your IBM Storage Scale cluster by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance` deployment input values.
 
 If you want to know more about integrating OpenLDAP with your IBM Storage Scale cluster, see [Integrating OpenLDAP with your IBM Storage Scale cluster](/docs/storage-scale-da?topic=storage-scale-da-integrating-openldap).
 

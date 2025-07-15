@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-11"
+lastupdated: "2025-07-15"
 
 keywords:
 
@@ -35,12 +35,11 @@ The following are the mandatory deployment values used to configure the {{site.d
 | `ibm_customer_number` | Comma-separated list of the IBM Customer Number(s) (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | Yes | Null |
 | `storage_gui_username` | Specify the storage cluster GUI username to perform system management and monitoring tasks. | Yes | admin |
 | `storage_gui_password` | Specify the password for storage cluster GUI. | Yes | hpc@IBMCloud |
-| `existing_resource_group` | String describing resource groups to create or reference. | Yes | Default |
+| `existing_resource_group` | Resource group name from your IBM Cloud account where the VPC resources must be deployed. For more information, see [Managing resource groups](/docs/account?topic=account-rgs&interface=ui). The strings describe the resource groups to create or reference. | Yes | Default |
 | `remote_allowed_ips` | Comma-separated list of IP addresses that can access the IBM Spectrum LSF cluster instance through an SSH interface. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, [\"169.45.117.34\"]). To fetch the IP address of the device, use [https://ipv4.icanhazip.com/](https://ipv4.icanhazip.com/). | Yes |  |
 | `ssh_keys` | The key pair to use to access the HPC cluster. | Yes | Null |
 | `zones` | Specify the IBM Cloud zone within the chosen region where the IBM Spectrum LSF cluster will be deployed. A single zone input is required, and the management nodes, file storage shares, and compute nodes will all be provisioned in this zone.[Learn more](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). | Yes | ["us-east-1"] |
 {: caption="Mandatory deployment values" caption-side="top"}
-
 
 ## Optional deployment values
 {: #optional-values}

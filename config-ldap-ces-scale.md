@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-07-15"
 
 keywords:
 
@@ -30,7 +30,7 @@ The directory services enable access to files through the NFS protocol.
 
 LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster.
 
-By setting up the `enable_ldap`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, `ldap_instance_key_pair`, and `ldap_basedns` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
+By setting up the `enable_ldap`, `ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
 
 ## Verifying authentication
 {: #verify-authentication}
