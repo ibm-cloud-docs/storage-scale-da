@@ -26,8 +26,6 @@ subcollection: storage-scale-da
 {:new_window: target="_blank"}
 {:step: data-tutorial-type='step'}
 
----
-
 # Setting up an IBM Storage Scale cluster
 {: #using-hpc-cluster}
 

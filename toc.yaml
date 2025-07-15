@@ -62,7 +62,13 @@ toc:
       - creating-workspace.md
       - accessing-gui.md
       - vnic-info.md
-      - cleanup_deployed_envn_scale.md
+      - cleanup-deployed-envn-scale.md
+      - scc-workload-protect-scale.md
+      - topicgroup:
+            label: Observability
+            topics:
+             - activity-track-event-route.md
+             - cloud-monitoring-scale.md
       - topicgroup:
           label: Schematics API
           topics:
