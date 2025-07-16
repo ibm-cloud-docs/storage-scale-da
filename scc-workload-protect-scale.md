@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -99,6 +99,7 @@ If the IAM permissions for the SCC Workload Protection are not enabled right, th
 {: note}
 
 So below are the required permissions for SCC Workload Protection are:
+
 | Service | Resources | Platform roles | Service roles |
 | ------- | --------- | ---- | ---- |
 | App configuration | All | Administrator | Manager |

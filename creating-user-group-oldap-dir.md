@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -33,7 +33,7 @@ to the LDAP directory.
 
 1.  Create your groups.  For example, to create groups that are called `developers` and `testers`, you create an LDIF file with these contents:
 
-    ```
+    ```pre
     # create an organizational unit for groups
     dn: ou=groups,dc=ibmscale,dc=com
     objectClass: organizationalUnit
@@ -64,7 +64,7 @@ to the LDAP directory.
 
 3.  Use the `ldapadd` command to add these group entries to your LDAP directory. For example:
 
-    ```
+    ```pre
     ldapadd -x -D cn=Manager,dc=ibmscale,dc=com -W -f groups.ldif=
 
     [root@oldapserverlsfcl ~]# ``ldapsearch -x -D cn=Manager,dc=ibmscale,dc=com -W -b "ou=groups,dc=ibmscale,dc=com" "(objectClass=posixGroup)"``

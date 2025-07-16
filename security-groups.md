@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -38,7 +38,6 @@ For best practices, it is recommended to use separate and dedicated security gro
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. Failure to provide the required security groups will result in automation failure.
 
 **Scenario 1**
-
 If user is using an existing security groups, then they must ensure that at least three default security groups `bastion_sg_name`, `strg_sg_name`, and `bootstrap_sg_name` are provided for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_sg_name`, `gklm_sg_name`, and `comp_sg_name`) must also be provided.
 
 For example, if the user wants to create only storage and compute clusters with `enable_sg_validation` variable set to `true` and provides only the `bastion_sg_name`, `comp_sg_name`, and `bootstrap_sg_name` variables omitting the `strg_sg_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
@@ -65,13 +64,10 @@ This validation is applicable on all security groups.
 ```
 {: pre}
 
-![Security groups and its rules](images/four-security-groups.png){: caption="Security groups and its rules" caption-side="bottom"}
-
 In the bootstrap security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
 {: note}
 
 **Scenario 2**
-
 If the variable `enable_sg_validation` is set to `false`, then the automation bypasses these security group validations as mentioned in **Scenario 1**. This allows the deployment to progress with cluster creation, but it may result in a failure at a later stage during the Terraform apply if the rules are not set correctly or if all required security groups are not provided.
 
 When the `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that could prevent the cluster from operating as expected and it requires an additional debugging.

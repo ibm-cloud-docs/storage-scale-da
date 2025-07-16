@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -35,8 +35,7 @@ subcollection: storage-scale-da
 The following parameters might not be required in `config.json` as the {{site.data.keyword.bpshort}} update variables API uses the `workspace ID w_id` to update the variables against that workspace.
 {: note}
 
-```
-{
+```pre
   "name": "Schematic Dev Workspace",
   "type": [
     "terraform_v0.13.7"

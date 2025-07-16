@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -38,15 +38,13 @@ You can use {{site.data.keyword.metrics_router_full_notm}}, a platform service t
 
 To check whether Cloud Monitoring is configured correctly on your VSI, SSH into the instance and run the following commands:
 
-```
+```pre
 systemctl status prometheus
 ```
-{: pre}
 
-```
+```pre
 systemctl status dragent
 ```
-{: pre}
 
 Go to the `cloud_monitoring_url` in the terraform output.
 For example: https://cloud.ibm.com/observe/embedded-view/monitoring/e68481cb-21ff-45bb-90db-cee02cebed3d

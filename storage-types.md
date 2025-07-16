@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -48,7 +48,7 @@ A persistent configuration uses bare metal servers with locally attached NVMe st
 ## Evaluation storage
 {: #evaluation-storage}
 
-Evaluation storage is based on {{site.data.keyword.scale_short}} Developer Edition. This option supports all advanced features of {{site.data.keyword.scale_short}} Data Management Edition but is limited to 12 TB of storage.
+Evaluation storage is based on {{site.data.keyword.scale_short}} Developer Edition. This option supports all advanced features of {{site.data.keyword.scale_short}} Data Management Edition but is limited to 12TB of storage.
 
 With evaluation storage, you can try out the {{site.data.keyword.scale_short}} solution on {{site.data.keyword.cloud}} without a license. The automated deployment is done on virtual server instances with instance storage, with {{site.data.keyword.scale_short}} Developer Edition packages, and is available only for prototyping and testing purposes.
 
@@ -66,8 +66,8 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Storage cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
 | Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
 | Protocol nodes | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) |
-| Client nodes | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) |
-| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Developer Edition v5.2.1.0 |
+| Client nodes | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 |
+| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Developer Edition v5.2.3.0 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
 {: row-headers}

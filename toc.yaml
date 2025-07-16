@@ -31,6 +31,13 @@ toc:
       - ces-configuration-any-scale-node.md
       - ces-failover-setup.md
       - topicgroup:
+          label: Integrating existing infrastructure resources
+          topics:
+          - vpc-scale.md
+          - dns-resolver-scale.md
+          - bastion-node-scale.md
+          - deployer-node-scale.md
+      - topicgroup:
           label: Integration
           topics:
           - integrate-ad-samba.md
@@ -43,6 +50,7 @@ toc:
       - before-deploying.md
       - deployment-values.md
       - deploying-scale.md
+      - storage-types.md
   - navgroup:
       id: howto
       topics:
@@ -62,6 +70,7 @@ toc:
       - creating-workspace.md
       - accessing-gui.md
       - vnic-info.md
+      - security-groups.md
       - cleanup-deployed-envn-scale.md
       - scc-workload-protect-scale.md
       - topicgroup:
@@ -79,8 +88,6 @@ toc:
       id: reference
       topics:
       - responsibilities-da.md
-      - security-groups.md
-      - storage-types.md
   - navgroup:
       id: help
       topics:

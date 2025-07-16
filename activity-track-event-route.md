@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -63,31 +63,28 @@ Two variables are required to configure the {{site.data.keyword.atracker_short}}
 
 To validate the Activity Tracker event routing by using the CLI, first install the atracker plug-in:
 
-```
+```pre
 ibmcloud plugin install atracker
 ```
-{: pre}
 
 ### Checking an Activity Tracker Route
 {: #activity-tracker-check}
 
 Run the following command to retrieve details about an Activity Tracker Event Routing route:
 
-```
+```pre
 ibmcloud atracker route get --route ROUTE [--output FORMAT]
 ```
-{: pre}
 
 For example:
 
-```
+```pre
 ibmcloud atracker route get --route nproba-atracker-route
 ```
-{: pre}
 
 Sample Output:
 
-```
+```pre
 OK
 Route
 Name:         <cluster_prefix>-atracker-route
@@ -99,28 +96,25 @@ CreatedAt:    2025-01-29T07:40:42.854Z
 UpdatedAt:    2025-01-29T07:40:42.854Z
 API version:  2
 ```
-{: pre}
 
 ### Validating an Activity Tracker Target
 {: #activity-tracker-target}
 
 Run the following command to check whether a target is correctly configured for an IBM Cloud Activity Tracker Event Routing region:
 
-```
+```pre
 ibmcloud atracker target validate --target TARGET [--region REGION] [--output FORMAT]
 ```
-{: pre}
 
 For example:
 
-```
+```pre
 ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
 ```
-{: pre}
 
 Sample Output:
 
-```
+```pre
 OK
 Target
 Name:                    nproba-atracker-target
@@ -133,6 +127,5 @@ Write Status:            success
 CreatedAt:               2025-01-29T07:40:38.091Z
 UpdatedAt:               2025-01-29T07:40:38.091Z
 ```
-{: pre}
 
 If you set `observability_atracker_target_type` to cloudlogs, then the output includes a Cloud Logs Target CRN. If the `observability_atracker_target_type` is set to cos, then the output contains a Cloud Object Storage Target CRN instead.
