@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-17"
 
 keywords:
 
@@ -55,10 +55,6 @@ Following are the steps to manually access the dashboard:
 2. Search the name of the metrics instance.
 3. On the right-side, click Dashboards.
 4. The dashboard results in a visual confirmation of logs that are captured and flow.
-
-![Cloud Monitoring instances - Fix Pack 14](images/cloud_monitoring_fixpack_14.png "Cloud Monitoring instances - Fix Pack 14"){: caption="Cloud Monitoring instances - Fix Pack 14" caption-side="bottom"}
-
-![Cloud Monitoring instances - Fix Pack 15](images/cloud_monitoring_fixpack_15.png "Cloud Monitoring instances - Fix Pack 15"){: caption="Cloud Monitoring instances - Fix Pack 15" caption-side="bottom"}
 
 ## Key features
 {: #key-features}

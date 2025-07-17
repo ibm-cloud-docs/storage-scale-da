@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-17"
 
 keywords:
 
@@ -23,9 +23,9 @@ subcollection: storage-scale-da
 # DNS zones and DNS custom resolvers
 {: #dns-custom-resolvers}
 
-[{{site.data.keyword.cloud}} DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) provides private DNS to VPC users. Also, if you have an {{site.data.keyword.cloud}} DNS Services instance ID, you can specify that ID when you create the DNS zones or custom resolvers for your {{site.data.keyword.spectrum_full_notm}} cluster.
+[{{site.data.keyword.cloud}} DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) provides private DNS to VPC users. Also, if you have an {{site.data.keyword.cloud}} DNS Services instance ID, you can specify that ID when you create the DNS zones or custom resolvers for your {{site.data.keyword.scale_full_notm}} cluster.
 
-## DNS zones for your {{site.data.keyword.spectrum_full}} cluster
+## DNS zones for your {{site.data.keyword.scale_full_notm}} cluster
 {: #dns}
 
 Private DNS zones are resolvable only on {{site.data.keyword.cloud}}, and only from explicitly permitted networks in an account.

@@ -2,13 +2,10 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-17"
 
 keywords: architecture overview, cluster access, hpc cluster
-content-type: tutorial
-services: virtual-servers, vpc, loadbalancer-service
 account-plan: paid
-completion-time: 60m
 subcollection: storage-scale-da
 
 ---
@@ -34,7 +31,7 @@ This section describes the process and procedure to setup an IBM Storage Scale c
 ## Architecture overview
 {: #hpc-cluster-architecture-overview}
 
-<<Architecture overiew in brief>>
+Mention brief about architecture overview.
 
 ## Create SSH key
 {: #hpc-ssh-key-creation-before}

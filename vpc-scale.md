@@ -35,11 +35,11 @@ For more details about {{site.data.keyword.vpc_short}}, see the [{{site.data.key
 
 If you choose to create a new VPC, set the `vpc_name` input value as null during the Storage Scale cluster deployment. With this setting, the deployment automatically creates a brand-new VPC by using the provided address prefix that you provide for the `vpc_cidr` input value. Make sure that you provide a valid address prefix for the `vpc_cidr` input value.
 
-With a new VPC, the cluster deployment automatically isolates the network, and creates three different subnets under the new VPC by using the `vpc_cidr` value:
+With a new VPC, the deployment automatically isolates the network, and creates three different subnets under the new VPC by using the `vpc_cidr` value:
 
 * It splits the larger CIDR range from in `vpc_cidr`, into three different networks ranges based on number of IP addresses needed under that subnet.
 
-* After the CIDR ranges are passed in the `vpc_cidr`, `client_subnets_cidr`, `protocol_subnets_cidr`, and `storage_subnets_cidr` input values, the cluster deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
+* After the CIDR ranges are passed in the `vpc_cidr`, `client_subnets_cidr`, `protocol_subnets_cidr`, and `storage_subnets_cidr` input values, the deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
 
 ## Using an existing VPC for your Storage Scale cluster
 {: #vpc-existing}
@@ -49,9 +49,9 @@ If you have existing VPC infrastructure, you can use that VPC for your Storage S
 ### An existing VPC with existing subnets
 {: #existing-vpc}
 
-If you use your existing VPC for your cluster, set the `vpc_name` value during deployment with the name of your existing VPC. With this setting, the cluster deployment automatically skips creating a new VPC and uses the one you specify and its existing VPC details for all networking.
+If you use your existing VPC for your cluster, set the `vpc_name` value during deployment with the name of your existing VPC. With this setting, the deployment automatically skips creating a new VPC and uses the one you specify and its existing VPC details for all networking.
 
-With an existing VPC, you can also choose to use existing subnets to create Storage Scale cluster nodes. Cluster deployment needs three subnets:
+With an existing VPC, you can also choose to use existing subnets to create Storage Scale cluster nodes. The following subnets are required for the deployment:
 
 * Provide a larger subnet ID for the `storage_subnets_cidr` deployment input value, as it is used to create all storage nodes.
 * Provide another subnet ID for the `client_subnets_cidr` to create the client nodes.
