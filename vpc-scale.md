@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-17"
 
 keywords: vpc, scale
 
@@ -72,5 +72,5 @@ When you provide existing VPC detail, subsequent VPC IDs are attached as an allo
 Provide a valid CIDR range for the creation of the subnets.
 {: important}
 
-`vpc_name` is the name of the VPC variable and the **cluster subnet id** is the ID of the subnet and not the CRN.
+`vpc_name` is the name of the VPC variable and `cluster subnet id` is the ID of the subnet and not the CRN.
 {: note}
