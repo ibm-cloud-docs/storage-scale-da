@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-18"
 
 keywords:
 
@@ -31,16 +31,16 @@ The {{site.data.keyword.scale_full_notm}} deployment currently supports the crea
 
 Each security group is dedicated to a specific set of scale nodes, ensuring that only the necessary ports, sources, and destinations are enabled for those nodes. This approach minimizes exposure, enhances security, and reduces the risk of misconfigurations.
 
-When using the Storage Scale automation, the required security groups and their associated rules are automatically created and applied. However, if users prefer to utilize pre-existing security groups, they must ensure that at least three default security groups `bastion_sg_name`, `strg_sg_name`, and `bootstrap_sg_name` are provided for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_sg_name`, `gklm_sg_name`, and `comp_sg_name`) must also be provided.
+When using the Storage Scale automation, the required security groups and their associated rules are automatically created and applied. Users can create the security group if not done already. The storage security groups are - `login_security_group_name`, `storage_security_group_name`, `cluster_security_group_name`, `client_security_group_name`, `gklm_security_group_name`, `ldap_security_group_name` for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `cluster_security_group_name`) must also be provided.
 
 For best practices, it is recommended to use separate and dedicated security groups for each respective scale node type. This approach ensures consistent security policies across all resources and simplifies management by reducing the risk of policy conflicts and misaligned configurations.
 
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. Failure to provide the required security groups will result in automation failure.
 
 **Scenario 1**
-If user is using an existing security groups, then they must ensure that at least three default security groups `bastion_sg_name`, `strg_sg_name`, and `bootstrap_sg_name` are provided for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_sg_name`, `gklm_sg_name`, and `comp_sg_name`) must also be provided.
+If user is using an existing security groups, then they must ensure that at least three default security groups `login_security_group_name`, `storage_security_group_name`, and are provided for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `cluster_security_group_name`) must also be provided.
 
-For example, if the user wants to create only storage and compute clusters with `enable_sg_validation` variable set to `true` and provides only the `bastion_sg_name`, `comp_sg_name`, and `bootstrap_sg_name` variables omitting the `strg_sg_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
+For example, if the user wants to create only storage and compute clusters with `enable_sg_validation` variable set to `true` and provides only the `login_security_group_name`, `cluster_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
 
 This validation is applicable on all security groups.
 {: note}
@@ -77,11 +77,11 @@ You must either use new security groups created by the automation or depend on t
 
 | Variable	|Description	| Value |
 |----------|----------|----------|
-|`enable_sg_validation`| If `enable_sg_validation` is set to true, the deployment confirms that the correct security groups are attached and allows the appropriate rules. When set to false, no validation is performed, and the deployment proceeds without verifying the security groups. | true |
-|`bastion_sg_name`| Provide the security group name to provision the bastion node. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bastion node to function properly. | Null |
-|`bootstrap_sg_name`| Provide the security group name to provision the bootstrap node. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bootstrap node to function properly. | Null |
-|`strg_sg_name`| Provide the security group name to provision the storage nodes. If set to `null`, the solution automatically creates the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the storage nodes to function properly. | Null |
-|`comp_sg_name`| Provide the security group name to provision the compute nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the compute nodes to function properly. | Null |
-|`gklm_sg_name`| Provide the security group name to provision the gklm nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
-|`ldap_sg_name`| Provide the security group name to provision the ldap nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the ldap nodes to function properly. | Null |
+|`enable_sg_validation`| Enable or disable security group validation. Security group validation ensures that the specified security groups are properly assigned. | true |
+|`login_security_group_name`| Provide the security group name to provision the bastion node. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bastion node to function properly. | Null |
+|`storage_security_group_name`| Provide the security group name to provision the storage nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the storage nodes to function properly. | Null |
+|`cluster_security_group_name`| Provide the security group name to provision the compute nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the compute nodes to function properly. | Null |
+| `client_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
+|`gklm_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
+|`ldap_security_group_name`| Provide the security group name to provision the ldap nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the ldap nodes to function properly. | Null |
 {: caption="Security Group Validation" caption-side="bottom"}

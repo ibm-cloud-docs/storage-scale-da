@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-18"
 
 keywords:
 
@@ -90,9 +90,9 @@ Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more infor
 {: #create-ssh-key}
 {: step}
 
-Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You might need multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
+Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You need to choose multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-You can select the required SSH key for the created region/zone from the drop-down list.
+You can select the required SSH key for the supported region/zone from the drop-down list.
 
 ## Set the remote_allowed_ips
 {: #gather-ip-address}
@@ -104,19 +104,19 @@ You need to provide your public IP addresses from where you want to access the e
 {: #storage-gui-username}
 {: step}
 
-You need to provide the GUI username to perform the system management and monitoring tasks on storage cluster.
+You need to provide the username to access the GUI to perform the system management and monitoring tasks on storage cluster.
 
 ## Set the storage_gui_password
 {: #storage-gui-password}
 {: step}
 
-You need to provide the password for the storage cluster GUI.
+You need to provide the password to access the GUI to perform the system management and monitoring tasks on storage cluster.
 
 ## Provide the zones
 {: #identify-cluster}
 {: step}
 
-You need to decide where you want your cluster that is deployed by choosing an {{site.data.keyword.cloud_notm}} region and availability zone. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 You can view or set the optional values by toggling on the **Advanced** option in the UI.
 {: note}
@@ -124,7 +124,7 @@ You can view or set the optional values by toggling on the **Advanced** option i
 ## Enabling optional features
 {: #optional-steps}
 
-After completing the mandatory steps, you can enable the optional parameters in deployment values in the {{site.data.keyword.scale_short}} cluster:
+After completing the mandatory steps, you can enable the optional features by looking into the input values in the {{site.data.keyword.scale_short}} cluster. For example, to enable the encryption, you need to set the `scale_encryption_type` value.
 
 ### Enable encryption
 {: #enable-encryption}
@@ -159,10 +159,14 @@ To enable LDAP, set `enable_ldap` parameter to true and complete other variables
 
 To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
-## Select the method for accessing the cluster
+## Accessing the deployed environment
 {: #accessing-cluster}
 
-The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. All the cluster nodes can be directly accessed through bastion nodes.
+Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+
+* Verify that you have access to the bastion host by using an SSH key.
+* Verify that you can log in to all created {{site.data.keyword.scale_short}} instances.
+* Verify that you can connect to the {{site.data.keyword.scale_short}} environment by using the following SSH commands:
 
 **Deployer node:**
 
