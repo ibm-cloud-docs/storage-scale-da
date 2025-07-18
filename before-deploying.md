@@ -162,7 +162,9 @@ To enable AFM, set `total_afm_cluster_instances` parameter to a value greater th
 ## Accessing the deployed environment
 {: #accessing-cluster}
 
-Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+The values for `remote_allowed_ips` must be provided to identify a list of IP addresses of systems that can access the bastion node. All the cluster nodes can be directly accessed through bastion nodes.
+
+Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI, after you deploy you must:
 
 * Verify that you have access to the bastion host by using an SSH key.
 * Verify that you can log in to all created {{site.data.keyword.scale_short}} instances.

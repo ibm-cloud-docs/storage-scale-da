@@ -44,9 +44,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
     * Specify a **Name** for your {{site.data.keyword.scale_short}} project.
     * Optionally provide a **Description** to describe the purpose of the project.
     * Specify a **Configuration name** for your {{site.data.keyword.scale_short}} project. The name can be up to 64 characters.
-    * Select a **Region** for the location where you want the Schematics workspace to be created.
-    The region selected here is not for the Scale cluster deployment but for the schematics workspace to be created.
-    {: note}
+    * Select a **Region** for the location where you want the Schematics workspace to be created. The region selected here is not for the Scale cluster deployment but for the schematics workspace to be created.
     * Select a **Resource group** for your Schematics workspace.
     * Click **Create** to save and add your project. When created, the project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
 
@@ -139,7 +137,7 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 {: #access-deployed-environment}
 {: ui}
 
-Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI after you deploy:
+Regardless of whether you deployed the {{site.data.keyword.scale_short}} environment by using the {{site.data.keyword.cloud_notm}} console UI or the CLI, after you deploy you must:
 
 * Verify that you have access to the bastion host by using an SSH key.
 * Verify that you can log in to all created {{site.data.keyword.scale_short}} instances.
