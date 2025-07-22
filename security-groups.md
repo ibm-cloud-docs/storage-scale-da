@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-18"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Storage Scale security groups
 {: #security-groups}
 
-The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups customized for different node types such as bastion, storage, and bootstrap security group. Additionally, when optional features are enabled, the automation creates specific security groups:
+The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups customized for different node types such as bastion, storage, and client security group. Additionally, when optional features are enabled, the automation creates specific security groups:
 * ldap for LDAP integration
 * gklm for Guardium Key Lifecycle Manager (GKLM)
 * comp for compute nodes
@@ -37,8 +37,10 @@ For best practices, it is recommended to use separate and dedicated security gro
 
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. Failure to provide the required security groups will result in automation failure.
 
-**Scenario 1**
-If user is using an existing security groups, then they must ensure that at least three default security groups `login_security_group_name`, `storage_security_group_name`, and are provided for the clusters core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `cluster_security_group_name`) must also be provided.
+## Scenario 1
+{: #scenario1}
+
+If user is using an existing security group, then they must ensure that at least three default security groups `login_security_group_name`, `storage_security_group_name`, and `cluster_security_group_name` are provided for the cluster core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `cluster_security_group_name`) must also be provided.
 
 For example, if the user wants to create only storage and compute clusters with `enable_sg_validation` variable set to `true` and provides only the `login_security_group_name`, `cluster_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
 
@@ -67,13 +69,18 @@ This validation is applicable on all security groups.
 In the bootstrap security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
 {: note}
 
-**Scenario 2**
+## Scenario 2
+{: #scenario2}
+
 If the variable `enable_sg_validation` is set to `false`, then the automation bypasses these security group validations as mentioned in **Scenario 1**. This allows the deployment to progress with cluster creation, but it may result in a failure at a later stage during the Terraform apply if the rules are not set correctly or if all required security groups are not provided.
 
 When the `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that could prevent the cluster from operating as expected and it requires an additional debugging.
 
 You must either use new security groups created by the automation or depend on the pre-existing ones. A mixed approach combining both new and existing security groups is not supported and can lead to inconsistent configurations and potential security vulnerabilities.
 {: important}
+
+## Security Group Validation
+{: #security-grp-validation}
 
 | Variable	|Description	| Value |
 |----------|----------|----------|

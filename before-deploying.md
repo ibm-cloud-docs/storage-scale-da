@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-18"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -74,17 +74,17 @@ An ICN is not required if the `storage_type` selected is evaluation.
 ## Before you begin
 {: #before-begin}
 
-The deployment is performed by using Terraform and IBM Projects.
+The deployment is performed using Terraform and IBM Projects.
 Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. For more information, see [Deploying IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-deploying-storage-scale).
 {: note}
 
-Before you can deploy your {{site.data.keyword.scale_full}}, you need to create or gather some information. To get started, complete the following steps:
+To get started with the deployment, complete the following steps:
 
 ## Create an IBM Cloud API key
 {: #create-api-key}
 {: step}
 
-Verify that you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
+Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create SSH key
 {: #create-ssh-key}
@@ -116,7 +116,7 @@ You need to provide the password to access the GUI to perform the system managem
 {: #identify-cluster}
 {: step}
 
-Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 You can view or set the optional values by toggling on the **Advanced** option in the UI.
 {: note}
@@ -142,7 +142,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 ### Enable CES
 {: #enable-ces}
 
-To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) topic for more details.
+To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable boot drive encryption for persistent storage
 {: #enable-boot-encryption}
@@ -157,7 +157,7 @@ To enable LDAP, set `enable_ldap` parameter to true and complete other variables
 ### Enable AFM
 {: #enable-afm}
 
-To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## Accessing the deployed environment
 {: #accessing-cluster}

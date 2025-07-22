@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-17"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -28,7 +28,7 @@ IBM Cloud® Monitoring is a cloud-native and container-intelligence management s
 
 | Value | Description | Type | Default value | Validation |
 | ----- | ----------- | --------------- | ------------ | ------------ |
-| `observability_monitoring_enable` | Set this value as "false" to disable the {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure and LSF application metrics only from management nodes are captured. | bool | true |
+| `observability_monitoring_enable` | Set this value as "false" to disable the {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure and Scale application metrics only from management nodes are captured. | bool | true |
 | `observability_monitoring_on_compute_nodes_enable` | Set this value as "false" to disable {{site.data.keyword.monitoringlong_notm}} integration. If enabled, infrastructure metrics from both static and dynamic compute nodes are captured. | bool | false |
 | `observability_monitoring_plan` | This is a type of service plan for {{site.data.keyword.monitoringlong_notm}} instance. You can choose one of the following: lite or graduated-tier. For more information, refer to the [IBM Cloud Monitoring Service Plans](/docs/monitoring?topic=monitoring-service_plans). | string | "graduated-tier" | * Condition: Validates if the value matches lite or graduated-tier.  \n * Error Message: "Please enter a valid plan for {{site.data.keyword.monitoringlong_notm}}, for all details visit https://cloud.ibm.com/docs/monitoring?topic=monitoring-service_plans." |
 | `observability_enable_metrics_routing` | Enable the metrics routing to manage metrics at the account level by configuring targets and routes that define how the data points are routed. | bool | false |
