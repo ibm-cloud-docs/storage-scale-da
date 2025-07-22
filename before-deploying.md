@@ -49,16 +49,17 @@ To view access policies, complete the following steps:
 2. In the _IAM_ navigation menu, select **Users** and then select the account user.
 3. Select **Access** to view the associated access policies and access groups. See the following table for the permissions that you need for this deployable architecture:
 
-   | Service | Resources | Role |
-   | ------- | --------- | ---- |
-   | All IAM Account Management services| All | Editor, Operator, Service ID creator, VPN Administrator, User API key creator, API key reviewer |
-   | Resource group only | Deployment can be done from any resource group. Ensure that the resource group is enabled. | Editor, Viewer |
-   | Schematics | All | Manager, Editor |
-   | DNS Services | All | Manager, Editor |
-   | Key Protect | All | Manager, Editor |
-   | Cloud Object Storage | All | Writer, Editor |
-   | All Identity and Access enabled services | All | Editor, Operator, Service ID creator, VPN Administrator, User API key creator, API key reviewer |
-   | VPC Infrastructure Services | All | Writer, Editor, Bare Metal Advanced Network Operator, Bare Metal Console Admin, IP Spoofing Operator |
+   | Service | Resources | Platform roles | Service roles |
+   | ------- | --------- | ---- | ---- |
+   | App configuration | All | Administrator | Manager |
+   | All Identity and Access enabled services | All | Administrator | Manager |
+   | Cloud Object Storage | All | Service Configuration Reader | Writer |
+   | DNS Services | All | Editor | Manager |
+   | Flow Logs for VPC | All | Editor | -- |
+   | IAM Identity Service | All | Administrator | -- |
+   | Key Protect | All | Service Configuration Reader | Manager |
+   | Security and Compliance Center Workload Protection | All | Administrator | -- |
+   | Virtual Private Cloud | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Gather Scale entitlement information
