@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-29"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -61,8 +61,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Storage Scale nodes| * Deploy highly available dedicated storage nodes in a secured, IBM-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | Use the provided console tools to request that storage nodes are rebooted or reloaded, and troubleshoot issues such as when the storage nodes are in an unhealthy state. |
-|Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n * Ensure that compute nodes successfully provision when the user account and permissions are correctly set up, and a sufficient quota exists.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster |
+|Storage Scale nodes| * Deploy highly available dedicated storage nodes in a secured, customer-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | Use the provided console tools to request that storage nodes are rebooted or reloaded, and troubleshoot issues such as when the storage nodes are in an unhealthy state. |
+|Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n *  If you have the right permissions and sufficient quota, then the required amount of compute nodes will be successfully provisioned.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster.  \n * Ensure that you raise the sufficient quota request. |
 |Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Provide the ability to isolate network traffic with bastion nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
 |Observability| Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
 {: caption="Responsibilities for incident and operations" caption-side="bottom"}
@@ -127,6 +127,6 @@ You are responsible for the applications, workloads, and data that you deploy to
 
 | Resource | How {{site.data.keyword.IBM_notm}} helps | What you can do |
 |----------|-----------------------|--------|
-| Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to IBM Storage Scale statement) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as General Parallel File System (GPFS), Network File System (NFS), and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
+| Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to [IBM Storage Scale statement](https://www.ibm.com/docs/en/ssdas?topic=planning-security-requirements)) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as General Parallel File System (GPFS), Network File System (NFS), and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
 | Applications | * Provision Storage Scale clusters with GPFS and NFS file systems.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region. | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up to date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
 {: caption="Responsibilities for applications and data" caption-side="bottom"}

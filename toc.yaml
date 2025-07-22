@@ -21,6 +21,7 @@ toc:
       id: architecture
       topics:
       - reference-architecture.md
+      - setting-storage-scale.md
   - navgroup:
       id: plan
       topics:
@@ -54,7 +55,8 @@ toc:
   - navgroup:
       id: howto
       topics:
-      - setting-storage-scale.md
+      - creating-workspace.md
+      - accessing-gui.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
           topics:
@@ -67,8 +69,6 @@ toc:
           - configure-ldap-server-setup.md
       - create-user-group-ad-symphony.md
       - creating-user-group-oldap-dir.md
-      - creating-workspace.md
-      - accessing-gui.md
       - vnic-info.md
       - security-groups.md
       - cleanup-deployed-envn-scale.md

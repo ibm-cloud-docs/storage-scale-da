@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -26,27 +26,25 @@ subcollection: storage-scale-da
 # Cleaning up deployed environments
 {: #cleaning-deploy-envn}
 
-If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account. The process is in three phases:
-
-1. Destroy all the associated VPC resources and remove them from your {{site.data.keyword.cloud_notm}} account.
-2. Remove the workspace.
-3. Verify that the cluster is free of running jobs or working compute nodes.
-{: shortdesc}
+If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account.
 
 ## Destroying resources by using the UI
 {: #destroy-resources-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Destroy** to delete all the related VPC resources that were deployed as part of that workspace.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the navigation menu and select **Platform Automation** > **Schematics** > **Terraform**. Select the resource to be deleted and click **Actions** drop-down and select **Destroy resources** to destroy all the related VPC resources that were deployed as part of that workspace.
 2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
-3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
+3. Confirm the action by entering the workspace name in the text box and click **Destroy resources**.
 
 ## Deleting a workspace by using the UI
 {: #delete-workspace-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete workspace** to delete the schematics workspace.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the navigation menu and select **Platform Automation** > **Schematics** > **Terraform**. Select the workspace and click **Actions** drop-down and select **Delete workspace** to delete the schematics workspace.
 2. Confirm the action by entering the workspace name in the text box and click **Delete workspace**.
+
+If you directly delete the workspaces, the resources cannot be deleted through the Schematics and it should be deleted manually.
+{: note}
 
 ## Deleting a workspace by using the CLI
 {: #delete-workspace-cli}
