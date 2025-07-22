@@ -46,20 +46,6 @@ If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of 
 If you directly delete the workspaces, the resources cannot be deleted through the Schematics and it should be deleted manually.
 {: note}
 
-## Deleting a workspace by using the CLI
-{: #delete-workspace-cli}
-{: cli}
-
-Run the following command to delete your workspace:
-
-```pre
-ibmcloud schematics workspace delete --id <WORKSPACE_ID>
-```
-{: pre}
-
-You can monitor the log files to view the deletion progress of your workspace.
-{: note}
-
 ## Destroying resources by using the CLI
 {: #destroy-resources-cli}
 {: cli}
@@ -72,4 +58,18 @@ ibmcloud schematics destroy --id <WORKSPACE_ID>
 {: pre}
 
 You can monitor the log files to view the deletion progress of all {{site.data.keyword.cloud_notm}} resources.
+{: note}
+
+## Deleting a workspace by using the CLI
+{: #delete-workspace-cli}
+{: cli}
+
+Run the following command to delete your workspace:
+
+```pre
+ibmcloud schematics workspace delete --id <WORKSPACE_ID>
+```
+{: pre}
+
+You can monitor the log files to view the deletion progress of your workspace.
 {: note}

@@ -137,7 +137,7 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 {: #access-deployed-environment}
 {: ui}
 
-After deploying the {{site.data.keyword.scale_short}} environment either by using the {{site.data.keyword.cloud_notm}} console UI or the CLI you deploy you must verify that you have access to the bastion host and all the created {{site.data.keyword.scale_short}} instances by using an SSH key. Access the {{site.data.keyword.scale_short}} environment by using the following SSH commands:
+After deploying the {{site.data.keyword.scale_short}} environment either by using the {{site.data.keyword.cloud_notm}} console UI or the CLI, you must verify the access to the bastion host and all the created {{site.data.keyword.scale_short}} instances by using an SSH key. Access the {{site.data.keyword.scale_short}} environment by using the following SSH commands:
 
 **Deployer node:**
 

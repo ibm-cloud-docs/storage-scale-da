@@ -38,9 +38,9 @@ When using the Storage Scale automation, the required security groups and their 
 * `login_security_group_name` - This security group is requried to allow connections for the login node and bastion node.
 * `storage_security_group_name` - This security group is required to provision the storage nodes.
 * `compute_security_group_name` - This security group is required to provision the compute nodes.
-* `client_security_group_name` -
-* `gklm_security_group_name` - This security group is required to
-* `ldap_security_group_name` - This security group is required to
+* `client_security_group_name` - This security group is required to provision the client nodes.
+* `gklm_security_group_name` - This security group is required to provision the gklm nodes.
+* `ldap_security_group_name` - This security group is required to provision the ldap nodes.
 
 Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
 {: note}
