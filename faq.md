@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -90,17 +90,17 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
 
-## Can you use own custom image in the Storage Scale cluster by specifying the image name in the deployment value `bootstrap_osimage_name`?
+## Can you use own custom image in the Storage Scale cluster by specifying the image name in the deployment value `deployer_instance`?
 {: #bring-own-custom-image}
 {: faq}
 
-No, you can't use your own custom image for the bootstrap node currently. The bootstrap node image is configured with all of the required functions to setup the {{site.data.keyword.scale_short}} compute and storage resources.
+No, you can't use your own custom image for the deployer node currently. The deployer node image is configured with all of the required functions to setup the {{site.data.keyword.scale_short}} compute and storage resources.
 
-## Can you connect directly through SSH to the bootstrap, compute, or storage nodes from a system external to IBM Cloud?
+## Can you connect directly through SSH to the deployer, compute, or storage nodes from a system external to IBM Cloud?
 {: #connecting-nodes-external}
 {: faq}
 
-No, any SSH connection to the bootstrap, compute, or storage nodes is only possible through the bastion node for security reasons. You would use the following command to connect to your bootstrap, compute, or storage nodes (the IP address is specific to your particular node): `ssh -J ubuntu@<bastion_IP_address> vpcuser@<IP_address>`
+No, any SSH connection to the deployer, compute, or storage nodes is only possible through the bastion node for security reasons. You would use the following command to connect to your deployer, compute, or storage nodes (the IP address is specific to your particular node): `ssh -J ubuntu@<bastion_IP_address> vpcuser@<IP_address>`
 
 ## Can you establish an SSH connection between compute and storage nodes?
 {: #establish-connection-between-nodes}

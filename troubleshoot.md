@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -156,7 +156,7 @@ You need to talk to the administrator of the account to increase the quota for t
 You are receiving the following error when you try to apply a plan to your workspace: `Apply failed due to "ERROR - [CLOUD-DEPLOY] Provided IBM Customer Number is not entitled to use Storage Scale on Cloud. Kindly contact IBM Support Team. Exiting!"`
 {: tsSymptoms}
 
-During the apply plan process, the bootstrap node initiates provisioning the resources for storage and compute cluster creation. During the process, rpm- and gpfs-related packages need to be decrypted through the Bring-Your-Own-License concept. If the {{site.data.keyword.IBM_notm}} Customer Number is valid, the deployment begins. If not, the automation errors out the deployment.
+During the apply plan process, the deployer node initiates provisioning the resources for storage and compute cluster creation. During the process, rpm- and gpfs-related packages need to be decrypted through the Bring-Your-Own-License concept. If the {{site.data.keyword.IBM_notm}} Customer Number is valid, the deployment begins. If not, the automation errors out the deployment.
 {: tsCauses}
 
 You need to provide a valid {{site.data.keyword.IBM_notm}} Customer Number that is entitled to {{site.data.keyword.scale_short}} without any spaces in the number. If the value that you provided is valid and you still received this error, contact {{site.data.keyword.IBM_notm}} support to clarify about the entitlement.
@@ -181,7 +181,7 @@ You can try the following procedures to help troubleshoot the SSH issue:
 2. Check whether the SSH connection works for the bastion host (for example, `ssh ubuntu@bastion-IP-address). If the connection is successful, then you can troubleshoot the SSH issue for the other nodes.
 3. Open the security group of the bastion host and check if TCP port 22 with source range is open from the user system.
 4. Use https://ipv4.icanhazip.com/ to fetch the current IP address and validate whether there is a different, updated IP address on the security group of the source address range.
-5. Open the security group of the bootstrap, compute, and storage nodes to see the bastion node security group source details to access SSH to connect to the other nodes.
+5. Open the security group of the deployer, compute, and storage nodes to see the bastion node security group source details to access SSH to connect to the other nodes.
 6. Make sure that the public SSH key that is used in the region matches the `id_rsa.pub` content from the local system. Use the commands `cd .ssh` and `cat id_rsa.pub` to check.
 7. Ensure that there are no duplicate `id_rsa.pub` files present in the `.ssh` folder in the local system.
 {: tsResolve}
@@ -225,7 +225,7 @@ You are receiving the following errors when you try to apply a plan to your work
 * `Error: the provided token is not authorized to view the specified instance (ID:*) in this account`
 {: tsSymptoms}
 
-During the apply plan process, the {{site.data.keyword.scale_short}} automation is integrated with trusted profiles, which is used for authorization purposes to provide permissions for the bootstrap node to create compute resources.
+During the apply plan process, the {{site.data.keyword.scale_short}} automation is integrated with trusted profiles, which is used for authorization purposes to provide permissions for the deployer node to create compute resources.
 {: tsCauses}
 
 Contact your administrator to provide the required set of permissions on the trusted profile for the deployment to happen. For more support, you can raise a request with {{site.data.keyword.IBM_notm}} support.
@@ -280,7 +280,7 @@ The logs can be checked at `cd /var/adm/ras` and `cat mmsysmonitor.log`.
 While {{site.data.keyword.bpshort}} sets up the cluster, the deployment fails with an error similar to: `Error: error executing "/tmp/terraform_516879781.sh": Process exited with status 137 from signal KILL`
 {: tsSymptoms}
 
-Cluster provisioning is a two-phase process. In the first phase, {{site.data.keyword.bpshort}} deploys some initial resources and the bastion host. In the second phase, {{site.data.keyword.bpshort}} uses SSH for remote access from the bastion host to the bootstrap node and then starts the subsequent resource provisioning. During the second phase, if any resource provisioning takes too long, {{site.data.keyword.bpshort}} stops the SSH process, which results in the `signal KILL` error. This can happen if bare metal provisioning takes longer than 40 minutes.
+Cluster provisioning is a two-phase process. In the first phase, {{site.data.keyword.bpshort}} deploys some initial resources and the bastion host. In the second phase, {{site.data.keyword.bpshort}} uses SSH for remote access from the bastion host to the deployer node and then starts the subsequent resource provisioning. During the second phase, if any resource provisioning takes too long, {{site.data.keyword.bpshort}} stops the SSH process, which results in the `signal KILL` error. This can happen if bare metal provisioning takes longer than 40 minutes.
 
 Since {{site.data.keyword.bpshort}} is a free service, there is a time limit of one hour on remote execution. If the one hour time limit elapses, {{site.data.keyword.bpshort}} automatically stops the deployment and returns a `signal KILL` error.
 {: tsCauses}
@@ -325,7 +325,7 @@ Open an issue with {{site.data.keyword.cloud_notm}} Support. This needs to be re
 {: troubleshoot}
 {: support}
 
-After the bootstrap node creates all the resources, the solution triggers the Ansible code to configure the entire Scale configuration on storage bare metal servers. During the Ansible configuration, the following error occurs: `[ERROR] Check passwordless SSH on all scale inventory hosts (1 retries left)`
+After the deployer node creates all the resources, the solution triggers the Ansible code to configure the entire Scale configuration on storage bare metal servers. During the Ansible configuration, the following error occurs: `[ERROR] Check passwordless SSH on all scale inventory hosts (1 retries left)`
 {: tsSymptoms}
 
 After all the infrastructure-related resources are up and running, the Ansible code tries to perform the Scale configuration through a passwordless SSH method. During this process, on the storage bare metal server, if the SSH service is not in a running state, then Ansible can't SSH to that specific bare metal storage node and it fails with the error.

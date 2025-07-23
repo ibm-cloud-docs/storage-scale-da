@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Retrieving apply plan logs
 {: #retrieve-apply-plan-logs}
 
-You can retrieve the logs from either the Schematics workspace or the bootstrap node to view both successful and failed cluster deployments.
+You can retrieve the logs from either the Schematics workspace or the deployer node to view both successful and failed cluster deployments.
 {: shortdesc}
 
 ## Retrieving apply plan logs in the Schematics workspace
@@ -37,7 +37,7 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 
 1. In the _Jobs_ tab in the Schematics workspace, select the job and expand the log file.
 2. If the job was successful in creating all of the resources that are part of the deployment, then your workspace goes to an active state.
-3. Use the SSH command in the output of your apply plan log to log in as `vpcuser` for the bootstrap, compute, and storage node through the bastion host as `ubuntu` user. See the following sample response of a successful deployment:
+3. Use the SSH command in the output of your apply plan log to log in as `vpcuser` for the deployer, compute, and storage node through the bastion host as `ubuntu` user. See the following sample response of a successful deployment:
 
 **Sample response**
 
