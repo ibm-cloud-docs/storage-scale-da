@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -36,4 +36,8 @@ In this release, IBM Storage Scale deployable architecture is introduced. {{site
 {: #what-new}
 
 The following new features are added as part of this release:
-add the new features
+
+* Refactoring of the code structure to use the Deployable Architecture module.
+* Support for SCC Workload Protection
+* Support for Activity Tracker Event Routing
+* Scale GPFS version updated to 5.2.3.2
