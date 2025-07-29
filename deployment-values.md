@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-29"
 
 keywords:
 
@@ -49,7 +49,7 @@ The following are the optional deployment values used to configure the {{site.da
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
-| `cluster_prefix` | A unique identifier for resources. Must begin with a letter and end with a letter or number. This cluster_prefix will be prepended to any resources provisioned by this template. Prefixes must be 16 or fewer characters.| No | scale |
+| `cluster_prefix` | A unique identifier for the resources. It must begin with a letter and end with a letter or number. This cluster_prefix will be prepended to any resources provisioned by this template. Prefixes must be 16 or fewer characters.| No | scale |
 | `vpc_name` | Provide the name of an existing VPC in which the cluster resources will be deployed. If no value is given, solution provisions a new VPC. [Learn more](https://cloud.ibm.com/docs/vpc). | Yes | Null|
 | `vpc_cidr` | An address prefix is created for the new VPC when the `vpc_name` variable is set to null. This prefix is required to provision subnets within a single zone, and the subnets will be created using the specified CIDR blocks. For more information, see [Setting IP ranges](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design). | No | "10.241.0.0/18" |
 | `placement_strategy` | VPC placement groups to create (null / host_spread / power_spread) | No | Null |
@@ -119,4 +119,4 @@ quota  = 0}, { client_mount_path = "/mnt/scale/data" quota  = 0}] |
 | `storage_subnet_id` | Name of an existing subnet for storage nodes. If no value is given, a new subnet will be created. | No | Null |
 | `protocol_subnet_id` | Name of an existing subnet for protocol nodes. If no value is given, a new subnet will be created. | No | Null |
 | `client_subnet_id` | Name of an existing subnet for protocol nodes. If no value is given, a new subnet will be created. | No | Null |
-{: caption="Deployment values" caption-side="top"}
+{: caption="Optional deployment values" caption-side="top"}
