@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-04"
 
 keywords: vpc, scale
 
@@ -39,7 +39,7 @@ With a new VPC, the deployment automatically isolates the network, and creates t
 
 * It splits the larger CIDR range from in `vpc_cidr`, into three different networks ranges based on number of IP addresses needed under that subnet.
 
-* After the CIDR ranges are passed in the `vpc_cidr`, `client_subnets_cidr`, `protocol_subnets_cidr`, and `storage_subnets_cidr` input values, the deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
+* After the CIDR ranges are passed in the `vpc_cidr`, `client_subnet_cidr`, `protocol_subnet_cidr`, and `storage_subnet_cidr` input values, the deployment automatically creates the VPC and subnets. One subnet range with the same CIDR range is used only for the creation of bastion and login nodes. The other subnets are used to create management nodes or VPC file shares and compute nodes.
 
 ## Using an existing VPC for your Storage Scale cluster
 {: #vpc-existing}
@@ -53,9 +53,13 @@ If you use your existing VPC for your cluster, set the `vpc_name` value during d
 
 With an existing VPC, you can also choose to use existing subnets to create Storage Scale cluster nodes. The following subnets are required for the deployment:
 
-* Provide a larger subnet ID for the `storage_subnets_cidr` deployment input value, as it is used to create all storage nodes.
-* Provide another subnet ID for the `client_subnets_cidr` to create the client nodes.
-* Provide another subnet ID for the `protocol_subnets_cidr` to create the protocol nodes.
+* Provide a larger subnet ID for the `storage_subnet_id` deployment input value, as it is used to create all storage nodes.
+* Provide another subnet ID for the `client_subnet_id` to create the client nodes.
+* Provide another subnet ID for the `protocol_subnet_id` to create the protocol nodes.
+* Provide another subnet ID for the `login_subnet_id` to create the login nodes.
+* Provide another subnet ID for the `compute_subnet_id` to create the compute nodes.
+
+<Add the client subnet table here>
 
 You cannot use existing subnets with new subnets.
 {: note}
@@ -63,14 +67,14 @@ You cannot use existing subnets with new subnets.
 ### An existing VPC and automatically creating three new subnets from the Storage Scale cluster deployment
 {: #existing-three-subnets}
 
-If you have an existing VPC but there are no existing subnets to use, then provide the available valid CIDR range for the `vpc_cluster_private_subnets_cidr_blocks` and `vpc_cluster_login_private_subnets_cidr_blocks` deployment input values. The deployment creates three new subnets under your provided existing VPC. When a new VPC is created, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
+If you have an existing VPC but there are no existing subnets to use, then provide the available valid CIDR range for the `login_subnet_cidr`, `compute_subnet_cidr`, and `storage_subnet_cidr` deployment input values. The optional variables are `client_subnet_cidr` and `protocol_subnet_cidr` which are created based upon the feature enablement. For more information, see the table above. When a new VPC is created, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
 
-* Provide a smaller CIDR range for `vpc_cluster_login_private_subnets_cidr_blocks` for the creation of bastion and login nodes. Provide a bigger range of CIDR under `vpc_cluster_private_subnets_cidr_blocks` for the creation of compute nodes.
+* Provide a smaller CIDR range for `login_subnet_cidr` for the creation of bastion and deployer nodes. Provide a bigger range of CIDR under `compute_subnet_cidr`, and `storage_subnet_cidr` for the creation of compute and storage nodes.
 
 When you provide existing VPC detail, subsequent VPC IDs are attached as an allowed network under the DNS zones. Custom resolvers can also resolve all the DNS entries for the traffic that originates from VPC or subnets.
 
 Provide a valid CIDR range for the creation of the subnets.
 {: important}
 
-`vpc_name` is the name of the VPC variable and **cluster subnet id** is the ID of the subnet and not the CRN.
+`vpc_name` is the name of the VPC variable and `storage_subnet_id` is the ID of the subnet and not the CRN.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -42,25 +42,20 @@ When using the Storage Scale automation, the required security groups and their 
 * `gklm_security_group_name` - This security group is required to provision the gklm nodes.
 * `ldap_security_group_name` - This security group is required to provision the ldap nodes.
 
-Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
+Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) are created in the automation.
 {: note}
 
 For example, when the scale encryption type is set as `gklm`, the gklm node is created and associated with the separate gklm security group name.
 
-For best practices, it is recommended to use separate and dedicated security groups for each respective scale node type. This approach ensures consistent security policies across all resources and simplifies management by reducing the risk of policy conflicts and misaligned configurations.
+## Scenario 1
+{: #scenario1}
 
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. If not provided, then the required security groups will result in automation failure.
 {: note}
 
-In the login security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
-{: note}
-
-## Scenario 1
-{: #scenario1}
-
 If user is using an existing security group, then they must ensure that at least three default security groups `login_security_group_name`, `storage_security_group_name`, and `client_security_group_name` are provided for the cluster core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
 
-For example, if the user wants to create only storage and compute clusters with `enable_sg_validation` variable set to `true` and provides only the `login_security_group_name` and `compute_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
+For example, if the user wants to create only storage and compute clusters and provides only the `login_security_group_name` and `compute_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
 
 This validation is applicable on all security groups.
 {: note}
@@ -84,12 +79,18 @@ This validation is applicable on all security groups.
 ```
 {: pre}
 
+Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) are created in the automation.
+{: note}
+
 ## Scenario 2
 {: #scenario2}
 
 If the variable `enable_sg_validation` is set to `false`, then the automation bypasses these security group validations as mentioned in **Scenario 1**. This allows the deployment to progress with cluster creation, but it may result in a failure at a later stage during the Terraform apply if the rules are not set correctly or if all required security groups are not provided.
 
 When the `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that could prevent the cluster from operating as expected and it requires an additional debugging.
+
+In the login security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
+{: note}
 
 ## Security Group Validation
 {: #security-grp-validation}
@@ -104,3 +105,5 @@ When the `enable_sg_validation` is set to `false`, then the validations are skip
 |`gklm_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
 |`ldap_security_group_name`| Provide the security group name to provision the ldap nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the ldap nodes to function properly. | Null |
 {: caption="Security Group Validation" caption-side="bottom"}
+
+For best practices, it is recommended to use separate and dedicated security groups for each respective scale node type. This approach ensures consistent security policies across all resources and simplifies management by reducing the risk of policy conflicts and misaligned configurations.

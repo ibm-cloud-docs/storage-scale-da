@@ -21,7 +21,13 @@ toc:
       id: architecture
       topics:
       - reference-architecture.md
-      - setting-storage-scale.md
+  - navgroup:
+      id: deploy
+      topics:
+      - before-deploying.md
+      - deployment-values.md
+      - deploying-scale.md
+      - storage-types.md
   - navgroup:
       id: plan
       topics:
@@ -31,13 +37,10 @@ toc:
       - configure-ces-integration.md
       - ces-configuration-any-scale-node.md
       - ces-failover-setup.md
-      - topicgroup:
-          label: Integrating existing infrastructure resources
-          topics:
-          - vpc-scale.md
-          - dns-resolver-scale.md
-          - bastion-node-scale.md
-          - deployer-node-scale.md
+      - vpc-scale.md
+      - dns-resolver-scale.md
+      - bastion-node-scale.md
+      - deployer-node-scale.md
       - topicgroup:
           label: Integration
           topics:
@@ -45,13 +48,6 @@ toc:
           - config-setup-symph-cluster.md
           - integrate-scale-ad-secure-user-file-access.md
           - scale-cem.md
-  - navgroup:
-      id: deploy
-      topics:
-      - before-deploying.md
-      - deployment-values.md
-      - deploying-scale.md
-      - storage-types.md
   - navgroup:
       id: howto
       topics:

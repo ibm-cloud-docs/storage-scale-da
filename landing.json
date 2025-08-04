@@ -10,12 +10,16 @@
         "href": "/docs-draft/storage-scale-da?topic=storage-scale-da-overview-storage-scale"
       },
       {
-        "title": "Deployment values",
-        "href": "/docs-draft/storage-scale-da?topic=storage-scale-da-deployment-values"
-      },
-      {
         "title": "Reference Architecture",
         "href": "/docs-draft/storage-scale-da?topic=storage-scale-da-storage-scale"
+      },
+      {
+        "title": "Before you begin deploying",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy"
+      },
+      {
+        "title": "Deployment values",
+        "href": "/docs-draft/storage-scale-da?topic=storage-scale-da-deployment-values"
       },
       {
         "title": "Understanding your responsibilities",

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -26,7 +26,8 @@ subcollection: storage-scale-da
 # Deploying IBM Storage Scale
 {: #deploying-storage-scale}
 
-Deploy the {{site.data.keyword.scale_short}} deployable architecture with Storage Scale cluster using the IBM Cloud console.
+Deploy the deployable architecture variant Storage Scale cluster using the IBM Cloud console.
+{: ui}
 
 The offering enables the initial {{site.data.keyword.scale_short}}-based cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup should be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
@@ -71,15 +72,21 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 9. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
-Once you deploy the project, in backend a Schematics workspace is created for the cluster deployment. To view the created workspace follow the steps:
+Schematics workspace
+{: #schematics}
+{: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
-2. Go to the **Navigation Menu**.
-3. Select **Platform Automation** > **Schematics** > **Terraform**.
-4. You can see the list of workspaces created.
+Once you deploy the project, in back-end a Schematics workspace is created for the cluster deployment. To view the created workspace follow the steps:
+
+1. Go to the **Navigation Menu**.
+2. Select **Platform Automation** > **Schematics** > **Terraform**.
+3. You can see the list of workspaces created.
 
 ## Deploying {{site.data.keyword.scale_short}} by using the CLI
 {: #create-project-cli}
+{: cli}
+
+Deploy the deployable architecture variant Storage Scale cluster using the IBM Cloud console.
 {: cli}
 
 Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.data.keyword.scale_full_notm}}, review and complete the following prerequisites:
@@ -98,6 +105,14 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
 3. Install and set up the [{{site.data.keyword.bplong_notm}} CLI plug-in](/docs/schematics?topic=schematics-setup-cli#install-schematics-plugin).
 4. Make sure to generate your {{site.data.keyword.cloud_notm}} API key. For more information, see [Managing user API keys](/docs/account?topic=account-userapikey).
 
+### Apply plan
+{: #retrieve-workspace-details-cli}
+{: cli}
+
+You can retrieve the details of an existing workspace, including the values of all input variables, by running the following command:
+
+`ibmcloud schematics plan --id WORKSPACE_ID`
+
 ### Listing available workspaces
 {: #list-available-workspaces-cli}
 {: cli}
@@ -115,21 +130,13 @@ OK
 ```
 {: screen}
 
-### Apply plan
-{: #retrieve-workspace-details-cli}
-{: cli}
-
-You can retrieve the details of an existing workspace, including the values of all input variables, by running the following command:
-
-`ibmcloud schematics plan --id WORKSPACE_ID`
-
 ### Updating a workspace
 {: #update-workspace-cli}
 {: cli}
 
 You can update the details for an existing workspace, such as the workspace name, variables, or source control URL by running the following command:
 
-`ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME [--github-token GITHUB_TOKEN]`
+`ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME`
 
 To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/schematics?topic=schematics-schematics-cli-reference) reference.
 
