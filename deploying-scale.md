@@ -26,8 +26,11 @@ subcollection: storage-scale-da
 # Deploying IBM Storage Scale
 {: #deploying-storage-scale}
 
-Deploy the deployable architecture variant Storage Scale cluster using the IBM Cloud console.
+Deploy the Storage Scale deployable architecture using the IBM Cloud console.
 {: ui}
+
+Deploy the Storage Scale deployable architecture using the IBM Cloud CLI.
+{: cli}
 
 The offering enables the initial {{site.data.keyword.scale_short}}-based cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup should be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
@@ -72,7 +75,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 9. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
-Schematics workspace
+### Schematics workspace
 {: #schematics}
 {: ui}
 
@@ -84,9 +87,6 @@ Once you deploy the project, in back-end a Schematics workspace is created for t
 
 ## Deploying {{site.data.keyword.scale_short}} by using the CLI
 {: #create-project-cli}
-{: cli}
-
-Deploy the deployable architecture variant Storage Scale cluster using the IBM Cloud console.
 {: cli}
 
 Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.data.keyword.scale_full_notm}}, review and complete the following prerequisites:

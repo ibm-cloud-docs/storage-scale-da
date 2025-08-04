@@ -42,7 +42,7 @@ When using the Storage Scale automation, the required security groups and their 
 * `gklm_security_group_name` - This security group is required to provision the gklm nodes.
 * `ldap_security_group_name` - This security group is required to provision the ldap nodes.
 
-Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) are created in the automation.
+Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) are created in automation.
 {: note}
 
 For example, when the scale encryption type is set as `gklm`, the gklm node is created and associated with the separate gklm security group name.
