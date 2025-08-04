@@ -53,7 +53,7 @@ For example, when the scale encryption type is set as `gklm`, the gklm node is c
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. If not provided, then the required security groups will result in automation failure.
 {: note}
 
-If user is using an existing security group, then they must ensure that at least three default security groups `login_security_group_name`, `storage_security_group_name`, and `client_security_group_name` are provided for the cluster core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
+The three default security groups `login_security_group_name`, `storage_security_group_name`, and `client_security_group_name` are provided for the cluster core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
 
 For example, if the user wants to create only storage and compute clusters and provides only the `login_security_group_name` and `compute_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
 
