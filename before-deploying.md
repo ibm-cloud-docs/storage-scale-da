@@ -7,6 +7,7 @@ lastupdated: "2025-08-06"
 keywords: deploy, storage scale
 completion-time: 1h
 subcollection: storage-scale-da
+content-type: tutorial
 
 
 ---
@@ -22,9 +23,12 @@ subcollection: storage-scale-da
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
+{{site.data.keyword.attribute-definition-list}}
+
 # Before you begin deploying
 {: #before-begin-deploy}
 {: toc-completion-time="1h"}
+{: toc-content-type="tutorial"}
 
 You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant storage cluster.
 
