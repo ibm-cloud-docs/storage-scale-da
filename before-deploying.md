@@ -23,8 +23,6 @@ content-type: tutorial
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-{{site.data.keyword.attribute-definition-list}}
-
 # Before you begin deploying
 {: #before-begin-deploy}
 {: toc-completion-time="1h"}
