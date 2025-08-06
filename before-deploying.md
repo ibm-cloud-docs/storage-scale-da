@@ -2,11 +2,12 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-06"
 
-keywords:
-
+keywords: deploy, storage scale
+completion-time: 1h
 subcollection: storage-scale-da
+
 
 ---
 
@@ -23,6 +24,7 @@ subcollection: storage-scale-da
 
 # Before you begin deploying
 {: #before-begin-deploy}
+{: toc-completion-time="1h"}
 
 You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant storage cluster.
 

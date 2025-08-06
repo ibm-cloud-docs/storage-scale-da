@@ -2,9 +2,8 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-04"
-
-keywords:
+lastupdated: "2025-08-06"
+keywords: storage scale, security groups
 
 subcollection: storage-scale-da
 
