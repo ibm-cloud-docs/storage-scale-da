@@ -33,7 +33,7 @@ The {{site.data.keyword.scale_short}} cluster file system can be encrypted by us
 
 The following diagram is an example of a {{site.data.keyword.scale_short}} deployment with encryption enabled. The deployment includes key servers that use the GKLM application.
 
-![Architecture diagram](images/Scale-With-SGKLM5.svg){: caption="{{site.data.keyword.scale_short}} deployment with encryption" caption-side="bottom"}
+![Architecture diagram](images/Scale-With-SGKLM5.png){: caption="{{site.data.keyword.scale_short}} deployment with encryption" caption-side="bottom"}
 
 By setting the `scale_encryption_type` deployment value to `gklm`, the key servers are automatically deployed and configured for encryption during the deployment.
 
