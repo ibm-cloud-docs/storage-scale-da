@@ -42,7 +42,7 @@ By setting the `scale_encryption_type` deployment value to `gklm`, the key serve
 
 Before you begin, review the following tasks:
 
-1. To begin the deployment for the Scale cluster, refer the [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin the deployment for the Scale cluster, refer to [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 2. For more information on file system encryption using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
 
 A minimum of two key servers are added to the cluster to avoid a single point of failure.
@@ -145,7 +145,7 @@ By setting the `scale_encryption_type` deployment value to `key_protect`, the ke
 
 Before you begin, review the following tasks:
 
-1. To begin the deployment for the Scale cluster, refer the [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin the deployment for the Scale cluster, refer to [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 2. For more information on file system encryption using [IBM Key Protect](/docs/key-protect?topic=key-protect-getting-started-tutorial).
 
 ### Configuring encryption deployment values
