@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-17"
+lastupdated: "2025-08-07"
 
 keywords:
 subcollection: storage-scale-da
@@ -60,7 +60,7 @@ The solution is designed to accommodate scenarios where an existing bastion node
 
 * The environment uses LDAP-based authentication.
 
-For instance, if a Storage Scale cluster is already deployed and configured. The solution is associated with a bastion node already, users can repurpose this bastion node to manage and access the cluster nodes. This provides a single, secure access point for both solutions.
+For instance, if a Scale cluster is already deployed and configured. The solution is associated with a bastion node already, users can repurpose this bastion node to manage and access the cluster nodes. This provides a single, secure access point for both solutions.
 
 To configure and use an existing bastion node, users must provide the following details:
 

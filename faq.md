@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -24,7 +24,7 @@ content-type: faq
 This document provides a list of frequently asked questions and answers about a specific topic for IBM Storage Scale.
 {: shortdesc}
 
-## What locations are available for deploying the VPC resources that make up the Storage Scale cluster?
+## What locations are available for deploying the VPC resources that make up the Scale cluster?
 {: #locations-vpc-resources}
 {: faq}
 
@@ -50,7 +50,7 @@ ssh -J ubuntu@<IP_address_bastion_host> vpcuser@<IP-address-of-nodes>
 Although all the nodes of each cluster have passwordless SSH set up among them, due to security constraints, you cannot directly log in to a node from one cluster to another cluster.
 {: note}
 
-## How many compute and storage nodes can you deploy in the Storage Scale cluster through this offering?
+## How many compute and storage nodes can you deploy in the Scale cluster through this offering?
 {: #how-many-compute-storage-nodes}
 {: faq}
 
@@ -90,7 +90,7 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
 
-## Can you use own custom image in the Storage Scale cluster by specifying the image name in the deployment value `deployer_instance`?
+## Can you use own custom image in the Scale cluster by specifying the image name in the deployment value `deployer_instance`?
 {: #bring-own-custom-image}
 {: faq}
 

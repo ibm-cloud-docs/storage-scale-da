@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-07"
 
 keywords: vpc, scale
 
@@ -33,7 +33,7 @@ For more details about {{site.data.keyword.vpc_short}}, see the [{{site.data.key
 ## Using a new VPC for your Storage Scale cluster
 {: #vpc-new}
 
-If you choose to create a new VPC, set the `vpc_name` input value as null during the Storage Scale cluster deployment. With this setting, the deployment automatically creates a brand-new VPC by using the provided address prefix that you provide for the `vpc_cidr` input value. Make sure that you provide a valid address prefix for the `vpc_cidr` input value.
+If you choose to create a new VPC, set the `vpc_name` input value as null during the Scale cluster deployment. With this setting, the deployment automatically creates a brand-new VPC by using the provided address prefix that you provide for the `vpc_cidr` input value. Make sure that you provide a valid address prefix for the `vpc_cidr` input value.
 
 With a new VPC, the deployment automatically isolates the network, and creates three different subnets under the new VPC by using the `vpc_cidr` value:
 
@@ -44,14 +44,14 @@ With a new VPC, the deployment automatically isolates the network, and creates t
 ## Using an existing VPC for your Storage Scale cluster
 {: #vpc-existing}
 
-If you have existing VPC infrastructure, you can use that VPC for your Storage Scale cluster. There are two possible approaches to using an existing VPC:
+If you have existing VPC infrastructure, you can use that VPC for your Scale cluster. There are two possible approaches to using an existing VPC:
 
 ### An existing VPC with existing subnets
 {: #existing-vpc}
 
 If you use your existing VPC for your cluster, set the `vpc_name` value during deployment with the name of your existing VPC. With this setting, the deployment automatically skips creating a new VPC and uses the one you specify and its existing VPC details for all networking.
 
-With an existing VPC, you can also choose to use existing subnets to create Storage Scale cluster nodes. The following subnets are required for the deployment:
+With an existing VPC, you can also choose to use existing subnets to create Scale cluster nodes. The following subnets are required for the deployment:
 
 * Provide a larger subnet ID for the `storage_subnet_id` deployment input value, as it is used to create all storage nodes.
 * Provide another subnet ID for the `client_subnet_id` to create the client nodes.

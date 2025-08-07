@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -39,7 +39,7 @@ The following are the mandatory deployment values used to configure the {{site.d
 | `existing_resource_group` | Specify the name of the existing resource group in your IBM Cloud account where VPC resources will be deployed. By default, the resource group is set to 'Default.' In some older accounts, it may be 'default,' so verify the resource group name before proceeding. If the value is set to \"null\", the automation will create two separate resource groups: 'workload-rg' and 'service-rg.' For more information, see [Managing resource groups](https://cloud.ibm.com/docs/account?topic=account-rgs&interface=ui). | Yes | Default |
 | `remote_allowed_ips` | To ensure secure access to the IBM Storage Scale cluster through SSH, you must specify the public IP addresses of the devices that are permitted to connect. These IPs will be used to configure access restrictions and protect the environment from unauthorized connections. To allow access from multiple devices, provide the IP addresses as a comma-separated list in the format: [\"169.45.117.34\", \"203.0.113.25\"]. Identify your current public IP address, you can visit: https://ipv4.icanhazip.com. | Yes | None |
 | `ssh_keys` | Specify the names of the SSH keys already configured in your IBM Cloud account to enable access to the Storage Scale nodes. The solution does not create new SSH keys, so ensure you provide existing ones. These keys must reside in the same resource group and region as the cluster being provisioned. To provide multiple SSH keys, use a comma-separated list in the format: [\"key-name-1\", \"key-name-2\"]. If you do not have an SSH key in your IBM Cloud account, you can create one by following the instructions [SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys). | Yes | Null |
-| `zones` | Specify the IBM Cloud zone within the chosen region where the IBM Storage scale cluster will be deployed. A single zone input is required, (for example, [\"us-east-1\"]) all the cluster nodes will be provisioned in this zone. For more information, see [Zones](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). | Yes | ["us-east-1"] |
+| `zones` | Specify the IBM Cloud zone within the chosen region where the IBM Scale cluster will be deployed. A single zone input is required, (for example, [\"us-east-1\"]) all the cluster nodes will be provisioned in this zone. For more information, see [Zones](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region#get-zones-using-the-cli). | Yes | ["us-east-1"] |
 {: caption="Mandatory deployment values" caption-side="top"}
 
 ## Optional deployment values
@@ -49,7 +49,7 @@ The following are the optional deployment values used to configure the {{site.da
 
 | Value | Description | Is it required? | Default value |
 | ------ | ----------- | --------------- | ------------- |
-| `cluster_prefix` | Prefix that is used to name the IBM Cloud resources that are provisioned to build the Storage Scale cluster. Make sure that the prefix is unique, since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. Must begin with a letter and end with a letter or number. | Yes | Null|
+| `cluster_prefix` | Prefix that is used to name the IBM Cloud resources that are provisioned to build the Scale cluster. Make sure that the prefix is unique, since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. Must begin with a letter and end with a letter or number. | Yes | Null|
 | `vpc_cidr` | An address prefix is created for the new VPC when the vpc_name variable is set to null. This prefix is required to provision subnets within a single zone, and the subnets will be created using the specified CIDR blocks. For more information, see [Setting IP ranges](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design). | No | "10.241.0.0/18" |
 | `placement_strategy` | VPC placement groups to create (null / host_spread / power_spread). | No | Null |
 | `bastion_instance` | Configuration for the bastion node, including the image and instance profile. Only Ubuntu 22.04 stock images are supported. | No | {image = "ibm-ubuntu-22-04-5-minimal-amd64-3" profile = "cx2-4x8"} |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -128,5 +128,5 @@ You are responsible for the applications, workloads, and data that you deploy to
 | Resource | How {{site.data.keyword.IBM_notm}} helps | What you can do |
 |----------|-----------------------|--------|
 | Data | * Maintain platform-level standards so that your data can be stored with controls commensurate (refer to [IBM Storage Scale statement](https://www.ibm.com/docs/en/ssdas?topic=planning-security-requirements)) to a minimum set of security compliance standards.  \n * Integrate with IBM Cloud services that you can use to store and manage your data, such as General Parallel File System (GPFS), Network File System (NFS), and Block Storage. | * Maintain responsibility for your data and how your apps consume the data.|
-| Applications | * Provision Storage Scale clusters with GPFS and NFS file systems.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region. | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up to date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
+| Applications | * Provision Scale clusters with GPFS and NFS file systems.  \n * Generate an API key that is used to access infrastructure permissions for each resource group and region. | * Maintain responsibility for your apps, data, and their complete lifecycle.  \n * Use the provided tools and features to configure and deploy; keep up to date; set up resource requests and limits; size your compute pool to have enough resources to run your apps; set up permissions; integrate with other services; externally serve; save, back up, and restore data; and otherwise manage your highly available and resilient workloads. |
 {: caption="Responsibilities for applications and data" caption-side="bottom"}

@@ -44,7 +44,7 @@ Before you begin, review the following information:
 ## Configuring CES deployment
 {: #procedureconfig-ces-deploy}
 
-To enable the CES feature on a Storage Scale cluster, the following variables need to be defined in your workspace.
+To enable the CES feature on a Scale cluster, the following variables need to be defined in your workspace.
 
 |CES Variable|	Description|	Example value|
 |-------------|------------|--------------|
