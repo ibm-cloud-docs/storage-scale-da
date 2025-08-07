@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -66,9 +66,9 @@ nvme6n1     259:7    0   2.9T  0 disk
 [root@scale-bm-drive-strg-002 ~]
 ```
 
-Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase the same as the initial setup as this data is not secure.
+Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase same as the initial one, as this data is not secure.
 
-The initial passphrase that is used in the initial setup is `n0tsecret`.
+The initial passphrase that is used in the initial setup is `notsecret`.
 {: note}
 
 Following are the steps to rotate the LUKS Encryption Keys:

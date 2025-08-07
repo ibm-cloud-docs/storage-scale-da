@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -24,9 +24,7 @@ subcollection: storage-scale-da
 # Enabling cluster export services
 {: #config-ces-integration-ldap-authentication}
 
-Cluster Export Services (CES) is a key component of the {{site.data.keyword.scale_full_notm}} architecture, which is designed to enable access to data stored in the Scale-out File and Object Storage (Storage Scale) system. CES plays a critical role in providing efficient and versatile data access to meet the diverse needs of modern enterprises.
-
-CES is designed to offer versatile access methods. This flexibility allows organizations to support a wide range of applications and use cases.
+Cluster Export Services (CES) is a key component of the {{site.data.keyword.scale_full_notm}} architecture, which is designed to enable access to data stored in the Scale cluster and Object Storage (Storage Scale) system. CES plays a critical role in providing efficient and versatile data access to meet the diverse needs of modern enterprises. This flexibility allows organizations to support a wide range of applications and its use cases.
 
 Enabling colocation designates the subset of Storage server as protocol nodes. If disabled, protocol nodes are created on dedicated virtual servers or bare metal, depending on the specified protocol server profile.
 
@@ -39,28 +37,23 @@ The colocation feature avoids the need to provision extra virtual servers and im
 
 Before you begin, review the following information:
 
-1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
+1. To begin the deployment for the Scale cluster, refer the [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 
-2. Learn more about cluster export service by using the link, [how CES works](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication&interface=ui#verify-ces)
+2. For more information on cluster export service see, [how CES works](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication&interface=ui#verify-ces) topic.
 
 ## Configuring CES deployment
 {: #procedureconfig-ces-deploy}
 
-To enable the CES feature on a Storage Scale cluster, the following variables need to be defined in [your workspace]( /docs/storage-scale?topic=storage-scale-creating-workspace):
+To enable the CES feature on a Storage Scale cluster, the following variables need to be defined in your workspace.
 
 |CES Variable|	Description|	Example value|
 |-------------|------------|--------------|
-|`vpc_protocol_cluster_private_subnets_cidr_blocks`|The CIDR block is required for the creation of the protocol node's private subnet	|`["10.241.17.0/24"]`|
-|`vpc_protocol_cluster_dns_domain`|IBM Cloud DNS Services domain name to be used for the protocol nodes.	|`cesscale.com`|
-|`protocol_server_profile`	|The virtual instance or bare metal server instance profile type name to be used to create the protocol nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). |`cx2-32x64`|
-|`total_protocol_cluster_instances`|	protocol nodes	|`2`  |
-|`custom_file_shares`	|Mount points and sizes in GB of file shares that can be used to customize shared file storage layout. Provide the details for up to 5 shares.	|`[{ mount_path = "/mnt/binaries", size = 100 }, { mount_path = "/mnt/data", size = 100 }]`|
-|`total_client_cluster_instances`	|Client cluster node count	|`2`  |
-|`client_vsi_osimage_name`	|Image name to use for provisioning the client cluster instances.	| `ibm-redhat-8-8-minimal-amd64-3`  |
-|`client_vsi_profile`	|The virtual server instance profile type name is used to create the client cluster nodes. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui).|`cx2-2x4` |
-|`vpc_client_cluster_dns_domain`	|IBM Cloud DNS domain name to be used for client cluster.	|`clientscale.com`|
-|`client_cluster_key_pair`	|Name of the SSH key configured in your IBM Cloud account that is used to establish a connection to the Client cluster nodes. Make sure that the SSH key is present in the same resource group and region where the cluster is provisioned. If you do not have an SSH key in your IBM Cloud account, create one by using the SSH keys instructions.|`["my-ssh-key1", "my-ssh-key2"]` |
-|`colocate_protocol_cluster_instances`|Enable this to use storage instances as protocol instances	|false |
+|`protocol_subnet_cidr`|Provide the CIDR block required for the creation of the protocal private subnet. One CIDR block is required. If using a hybrid environment, modify the CIDR block to avoid conflicts with any on-premises CIDR blocks. Ensure the selected CIDR block size can accommodate the maximum number of scale storage nodes expected in your cluster. For more information on CIDR block size selection, refer to the documentation, see [Choosing IP ranges for your VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-choosing-ip-ranges-for-your-vpc).	|`ces.com`|
+|`protocol_instances`|Specify the list of virtual server instances to be provisioned as protocol nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). |[{ profile = "bx2d-16x64" count  = 2 image  = "hpcc-scale5232-rhel810-new" }]|
+|`filesets_config`| Specify a list of filesets with client mount paths and optional storage quotas (0 means no quota) to be created within the IBM Storage Scale filesystem. |[{ client_mount_path = "/mnt/scale/tools" quota  = 0 }, {
+client_mount_path = "/mnt/scale/data" quota  = 0 }] |
+|`client_instances`	|Defines the list of virtual server instances to be provisioned as client nodes in the cluster. Each object in the list specifies the instance profile (machine type), the count (number of instances), and the image (OS image to use). This allows you to customize the hardware configuration and image for the client nodes based on your workload requirements. The profile must match a valid IBM Cloud VPC Gen2 instance profile format. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{ profile = "cx2-2x4" count  = 0 image  = "ibm-redhat-8-10-minimal-amd64-6" }] |
+|`colocate_protocol_instances`|Enable it to use storage instances as protocol instances. | true |
 {: caption='CES Variables'}
 
 The successful scale deployment with the CES feature enabled consists of different clusters:

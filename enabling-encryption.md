@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -42,8 +42,8 @@ By setting the `scale_encryption_type` deployment value to `gklm`, the key serve
 
 Before you begin, review the following tasks:
 
-1. Make sure to complete the steps for [Getting started with {{site.data.keyword.scale_full_notm}}](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
-2. Learn more about file system encryption by using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
+1. To begin the deployment for the Scale cluster, refer the [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+2. For more information on file system encryption using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
 
 A minimum of two key servers are added to the cluster to avoid a single point of failure.
 {: note}
@@ -51,23 +51,19 @@ A minimum of two key servers are added to the cluster to avoid a single point of
 ### Configuring encryption deployment values
 {: #configure-encryption-values-gklm}
 
-To enable encryption on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale-da?topic=storage-scale-da-creating-workspace&interface=ui):
+To enable encryption on a Scale cluster, the following variables need to be defined in your workspace.
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | `gklm` |
-|`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `gklm` |
-| `scale_encryption_vsi_osimage_name` | Specify the image name to create the GKLM server when `scale_encryption_type` is set to `gklm`. Only RHEL 8.8 stock images are supported. | `gklm-custom-image-name` |
-| `scale_encryption_vsi_profile` | Specify the virtual server instance profile type to create storage nodes when `scale_encryption_type` is set to `gklm`. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | `bx2-2x8` |
-| `scale_encryption_server_count` | Specify the number of servers for a high-availability encryption setup when `scale_encryption_type` is set to `gklm`. A minimum of 2 servers and a maximum of 5 servers are allowed. | `3` |
+|`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | `gklm` |
+|`gklm_instances` | Specify the list of virtual server instances to be provisioned as ldap nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{ profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3" }] |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/5.x){: external}. | `xxxxxxx` |
-| `scale_encryption_dns_domain` | Specify the IBM Cloud DNS Services domain name for the GKLM cluster when `scale_encryption_type` is set to `gklm`. Note: If an existing DNS domain is in use, a new domain must be provided, as existing domains are not supported. | `gklmscale.com` |
-| `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when `scale_encryption_type` is set to `gklm`. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 After a successful cluster creation, the following resources are automatically configured to encrypt the file system:
 
-* The key servers are deployed along with the Storage Scale cluster.
+* The key servers are deployed along with the Scale cluster.
 * The admin password is updated for the GKLM application.
 * An SSL certificate is created on the key server.
 * Replication occurs between the primary and clone key servers.
@@ -84,7 +80,7 @@ The storage and compute clusters have access to the encrypted file system, and a
 1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command:
 
     ```ssh
-    ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
+    ssh -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your storage_node IP address>
     ```
     {: codeblock}
 
@@ -130,33 +126,32 @@ To learn more about encryption for {{site.data.keyword.scale_short}} or differen
 1. Open a new command line terminal.
 2. Run the following commands from the local machine:
 
-    ```
+    ```pre
     ssh -L 9443:localhost:9443 -J ubuntu@<bastion_host_IP> vpcuser@<first_GKLM_server>
     ```
-    {: codeblock}
 
-3. Open the browser on the local machine, and run https://localhost:9443/.
-4. Enter the username **SKLMAdmin** and the password that you set up when you created your workspace to access the GKLM GUI.
+3. Open the browser on the local system, and run https://localhost:9443/.
+4. Enter the username **SKLMAdmin** and the password that you set for `scale_encryption_admin_password` when you create your workspace to access the GKLM GUI.
 
 ## Enabling encryption by using IBM KeyProtect
 {: #enable-encryption-keyprotect}
 
-The Storage Scale cluster file system can be encrypted using IBM® Key Protect. The IBM Key Protect on IBM Cloud service helps you provision and store encrypted keys for applications across IBM Cloud services, so that you can see and manage data encryption and the entire key lifecycle from one central location.
+The Scale cluster file system can be encrypted using IBM® Key Protect. The IBM Key Protect helps you to provision and store encrypted keys for applications across IBM Cloud services, so that you can see and manage data encryption and the entire key lifecycle from one central location.
 
-You can enable encryption features during deployment by setting the `scale_encryption_type` deployment value to `key_protect`.
+By setting the `scale_encryption_type` deployment value to `key_protect`, the key servers are automatically deployed and configured for encryption during the deployment.
 
 ### Before you begin
 {: #before-you-begin-keyprotect}
 
 Before you begin, review the following tasks:
 
-1. Make sure to complete the steps for [Getting started with {{site.data.keyword.scale_full_notm}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
-2. Learn more about file system encryption by using [IBM Key Protect](/docs/key-protect?topic=key-protect-getting-started-tutorial).
+1. To begin the deployment for the Scale cluster, refer the [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+2. For more information on file system encryption using [IBM Key Protect](/docs/key-protect?topic=key-protect-getting-started-tutorial).
 
 ### Configuring encryption deployment values
 {: #configure-encryption-values-keyprotect}
 
-To enable encryption on a Storage Scale cluster, the following variables need to be defined in [your workspace](/docs/storage-scale?topic=storage-scale-creating-workspace):
+To enable encryption on a Scale cluster, the following variables need to be defined in your workspace.
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
@@ -171,7 +166,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command and switch to the `root` user:
 
     ```ssh
-    ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
+    ssh -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your storage_node IP address>
     sudo -i
     ```
     {: codeblock}
