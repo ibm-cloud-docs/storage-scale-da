@@ -94,13 +94,13 @@ To get started with the deployment, complete the following steps:
 {: #create-api-key}
 {: step}
 
-Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). `ibmcloud_api_key` is the value required for the variable.
+Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). `ibmcloud_api_key` is the value required for this variable.
 
 ## Create SSH key
 {: #create-ssh-key}
 {: step}
 
-Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You need to choose multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. `ssh_keys` is the value required for the variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
+Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You need to choose multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. `ssh_keys` is the value required for this variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
 You can select the required SSH key for the supported region/zone from the drop-down list.
 
@@ -116,19 +116,19 @@ If this field is left empty (for example, [""]) or not provided, then the cluste
 {: #storage-gui-username}
 {: step}
 
-You need to provide the username to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_username` is the value required for the variable.
+You need to provide the username to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_username` is the value required for this variable.
 
 ## Set the storage_gui_password
 {: #storage-gui-password}
 {: step}
 
-You need to provide the password to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_password` is the value required for the variable.
+You need to provide the password to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_password` is the value required for this variable.
 
 ## Provide the zones
 {: #identify-cluster}
 {: step}
 
-Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. `zones` is the value required for the variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. `zones` is the value required for this variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 You can view or set the optional values by toggling on the **Advanced** option in the UI.
 {: note}
