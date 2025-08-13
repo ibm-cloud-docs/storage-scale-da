@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-13"
 
 keywords:
 
@@ -85,6 +85,9 @@ Once you deploy the project, in back-end a Schematics workspace is created for t
 2. Select **Platform Automation** > **Schematics** > **Terraform**.
 3. You can see the list of workspaces created.
 
+When deployed, you can then access your deployed environment.
+For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster)
+
 ## Deploying {{site.data.keyword.scale_short}} by using the CLI
 {: #create-project-cli}
 {: cli}
@@ -105,21 +108,12 @@ Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.dat
 3. Install and set up the [{{site.data.keyword.bplong_notm}} CLI plug-in](/docs/schematics?topic=schematics-setup-cli#install-schematics-plugin).
 4. Make sure to generate your {{site.data.keyword.cloud_notm}} API key. For more information, see [Managing user API keys](/docs/account?topic=account-userapikey).
 
-### Apply plan
-{: #retrieve-workspace-details-cli}
-{: cli}
+### Schematics actions
+{: #schematics}
 
-You can retrieve the details of an existing workspace, including the values of all input variables, by running the following command:
+1. You can view the logs in your workspace by running the command `ibmcloud schematics logs --id us-east.workspace.hpcc-cluster.7cbc3f6b`
 
-`ibmcloud schematics plan --id WORKSPACE_ID`
-
-### Listing available workspaces
-{: #list-available-workspaces-cli}
-{: cli}
-
-You can list the workspaces in your account by using the following command:
-
-`$ ibmcloud schematics workspace list`
+2. You can list the workspaces in your account by running the command `$ ibmcloud schematics workspace list`
 
 Example response with workspace details:
 
@@ -130,33 +124,7 @@ OK
 ```
 {: screen}
 
-### Updating a workspace
-{: #update-workspace-cli}
-{: cli}
-
-You can update the details for an existing workspace, such as the workspace name, variables, or source control URL by running the following command:
-
-`ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME`
-
-To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/schematics?topic=schematics-schematics-cli-reference) reference.
-
-## Accessing the deployed environment
-{: #access-deployed-environment}
-{: ui}
-
-After deploying the {{site.data.keyword.scale_short}} environment either by using the {{site.data.keyword.cloud_notm}} console UI or the CLI, you must verify the access to the bastion host and all the created {{site.data.keyword.scale_short}} instances by using an SSH key. Access the {{site.data.keyword.scale_short}} environment by using the following SSH commands:
-
-**Deployer node:**
-
-```pre
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your deployer_node IP address>
-```
-
-**Scale Storage node:**
-
-```pre
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your storage node IP address>
-```
+For more information, see the [IBM Cloud Schematics CLI reference](/docs/schematics?topic=schematics-schematics-cli-reference).
 
 If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
 {: tip}

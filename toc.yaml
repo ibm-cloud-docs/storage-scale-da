@@ -41,17 +41,10 @@ toc:
       - dns-resolver-scale.md
       - bastion-node-scale.md
       - deployer-node-scale.md
-      - topicgroup:
-          label: Integration
-          topics:
-          - integrate-ad-samba.md
-          - config-setup-symph-cluster.md
-          - integrate-scale-ad-secure-user-file-access.md
-          - scale-cem.md
+      - scale-cem.md
   - navgroup:
       id: howto
       topics:
-      - creating-workspace.md
       - accessing-gui.md
       - topicgroup:
           label: Using OpenLDAP with the deployed environment
