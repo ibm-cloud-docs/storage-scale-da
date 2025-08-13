@@ -2,12 +2,15 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-08-13"
 
 keywords: deploy, storage scale
 completion-time: 1h
+use-case: ITServiceManagement
+industry: Technology
 subcollection: storage-scale-da
 content-type: tutorial
+deployment-url: https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjYWxsX3Byb2R1Y3Rz
 
 
 ---
@@ -27,6 +30,8 @@ content-type: tutorial
 {: #before-begin-deploy}
 {: toc-completion-time="1h"}
 {: toc-content-type="tutorial"}
+{: toc-industry="Technology"}
+{: toc-use-case="ITServiceManagement"}
 
 You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant storage cluster.
 
