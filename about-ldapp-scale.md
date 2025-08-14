@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -36,5 +36,5 @@ OpenLDAP server can be installed and configured on a Linux&reg; system; for exam
 
 Before you begin, review the following information:
 
-1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
+1. Make sure to complete the steps in [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 2. Learn more about [OpenLDAP](https://www.openldap.org/doc/admin26/) configuration.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -39,37 +39,33 @@ You should have access to a Linux system with root privileges. You should also h
 ## Procedure
 {: #proc-config-openldap}
 
-Use these steps to configure an OpenLDAP server:
+Follow these steps to configure an OpenLDAP server:
 
-1. Install the OpenLDAP server and client packages
+1. Install the OpenLDAP server and client packages using the command:
 
     `yum -y install openldap-servers openldap-clients`
 
-2. Copy the DB_CONFIG.example file to the /var/lib/ldap directory and change its ownership to the ldap user:
+2. Copy the `DB_CONFIG.example` file to the /var/lib/ldap directory and change its ownership to the ldap user:
 
     ```shell
-    Code:
     cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG chown ldap. /var/lib/ldap/DB_CONFIG
     ```
 
-3.	Start the slapd service and enable it to start automatically at boot time by running the following commands:
+3. Start the slapd service and enable automatically at boot time using the commands:
 
     ```shell
-    Code:
     systemctl start slapd systemctl enable slapd
     ```
 
-4.	Generate an admin password by running the slappasswd command. You are prompted to enter a password. For example:
+4. Generate an admin password by running the `slappasswd` command. You are prompted to enter a password. For example:
 
     ```shell
-    Code:
     slappasswd
     ```
 
-    You see an output that looks something like this:
+    The output looks like:
 
     ```shell
-    Code:
     {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4
     ```
     The password hash that is generated (in this case,   {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you need it later.
@@ -87,7 +83,7 @@ Use these steps to configure an OpenLDAP server:
 
     Replace the `olcRootPW`` value with the password hash that you generated in the step 4.
 
-6.	Import the basic schema by running the following commands:
+6. Import the basic schema by running the following commands:
 
     ```shell
     Code:
@@ -96,7 +92,7 @@ Use these steps to configure an OpenLDAP server:
     ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
     ```
 
-7.	Generate a manager password by running the slappasswd command again.  For example:
+7. Generate a manager password using the `slappasswd` command again. For example:
 
     ```shell
     Code:
@@ -146,7 +142,6 @@ Use these steps to configure an OpenLDAP server:
 
     Replace the {SSHA} value with the password hash that you generated in the previous step.
 
-
 9.	Apply the changes:
 
     ```shell
@@ -176,12 +171,13 @@ Use these steps to configure an OpenLDAP server:
     ou: Group
     ```
 
-11.	Apply the `baseddomain.ldif`` changes:
+11.	Apply the `baseddomain.ldif` changes:
 
     ```shell
     Code:
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f basedomain.ldif
     ```
+
 12.	Create a file named `ldapuser.ldif` using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
 
     ```shell

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -35,7 +35,9 @@ After {{site.data.keyword.scale_full_notm}} cluster deployment, Schematic logs s
     ```
     {: codeblock}
 
-    where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
+    where
+    * `<floating_IP_address>` is the floating IP address for the bastion node.
+    * `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
 
 2. Verify the LDAP service status:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -23,10 +23,7 @@ subcollection: storage-scale-da
 # Enabling parallel vNIC
 {: #enabling-vnic}
 
-## Overview
-{: #overview-vnic}
-
-A vNIC (Virtual Network Interface Controller) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see [Managing network interfaces](https://cloud.ibm.com/docs/vpc?topic=vpc-using-instance-vnics).
+A Virtual Network Interface Controller (vNIC) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see [Managing network interfaces](https://cloud.ibm.com/docs/vpc?topic=vpc-using-instance-vnics).
 
 As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated. This functionality is supported on both compute and storage profiles. For more details about the VSI profile, see [x86-64 instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui).
 
@@ -49,16 +46,16 @@ Parallel virtual network interface cards (vNICs) are beneficial for {{site.data.
 ### Parallelism and load balancing
 {: #parallel-load-balance}
 
-Load Distribution: With two vNICs, network traffic gets distributed between them, effectively balancing the load. This is beneficial in scenarios where there is a high volume of network traffic.
+* **Load Distribution:** With two vNICs, network traffic gets distributed between them, effectively balancing the load. This is beneficial in scenarios where there is a high volume of network traffic.
 
-Parallel Processing: Multiple vNICs can handle network tasks in parallel, allowing for more efficient use of available bandwidth. This is similar to the concept of parallel processing in computing.
+* **Parallel Processing:** Multiple vNICs can handle network tasks in parallel, allowing for more efficient use of available bandwidth. This is similar to the concept of parallel processing in computing.
 
 ### Redundancy and failover
 {: #redendant-failover}
 
-Network Redundancy: Two vNICs can provide network redundancy. If one network path or vNIC fails, the other can take over, ensuring continuous network connectivity. This is often implemented in environments where high availability is crucial.
+* **Network Redundancy:** Two vNICs can provide network redundancy. If one network path or vNIC fails, the other can take over, ensuring continuous network connectivity. This is often implemented in environments where high availability is crucial.
 
-Failover: In addition to redundancy, if one vNIC is overwhelmed or experiences issues, the traffic can be directed to the other vNIC, ensuring continuous operation.
+* **Failover:** In addition to redundancy, if one vNIC is overwhelmed or experiences issues, the traffic can be directed to the other vNIC, ensuring continuous operation.
 
 ### Improved throughput
 {: #improved-throughput}

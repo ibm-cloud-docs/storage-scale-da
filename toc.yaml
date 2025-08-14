@@ -41,7 +41,6 @@ toc:
       - dns-resolver-scale.md
       - bastion-node-scale.md
       - deployer-node-scale.md
-      - scale-cem.md
   - navgroup:
       id: howto
       topics:
@@ -66,7 +65,6 @@ toc:
             label: Observability
             topics:
              - activity-track-event-route.md
-             - cloud-monitoring-scale.md
       - topicgroup:
           label: Schematics API
           topics:

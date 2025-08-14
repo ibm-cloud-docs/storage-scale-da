@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Accessing the GUI
 {: #access-gui}
 
-After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=reference-storage-scale-gui){: external}.
+After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=reference-storage-scale-gui){: external}.
 {: shortdesc}
 
 ## Before you begin
@@ -36,7 +36,7 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 * Provide the SSH key path from the local system that is used to configure the compute and storage nodes.
 * It is recommended to use the Safari browser to access the GUI.
 * If you encounter slowness in loading or accessing the GUI, clear the browsers cache.
-* You cannot open both the compute and storage GUIs on the same port 22443. Use a different port or close one of the GUIs so you can access the other GUI cluster.
+* You cannot open both the compute and storage GUIs on the same port 21443. Use a different port or close one of the GUIs so you can access the other GUI cluster.
 
 ## Identifying Scale management node
 {: #identify-scale-mgmt-node}
@@ -58,9 +58,9 @@ This automation always uses the same IP address, so there can be issues in the `
 1. Open a new command line terminal.
 2. Run the following command to access the storage cluster:
 
-`ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
+    `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
-3. Open the browser on your local system, and run https://localhost:21443. You get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
+3. Open the browser on your local system and run https://localhost:21443. You get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
 4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
@@ -70,8 +70,8 @@ This automation always uses the same IP address, so there can be issues in the `
 1. Open a new command line terminal.
 2. Run the following command to access the compute cluster:
 
-`ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
+    `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
-3. Open the browser on your local system, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
+3. Open the browser on your local system and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
 4. Enter your login credentials that you set up when you created your workspace to access the Compute GUI.

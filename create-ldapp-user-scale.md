@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -24,9 +24,9 @@ subcollection: storage-scale-da
 # Creating an LDAP user
 {: #create-ldap-user}
 
-If you do not have an existing LDAP server, the deployment process created one for you and connected it to {{site.data.keyword.scale_full_notm}} cluster during deployment. Create a LDAP user for your {{site.data.keyword.scale_full_notm}} cluster. Use it to run Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
+If you do not have an existing LDAP server, the deployment process creates one for you and connects to the {{site.data.keyword.scale_full_notm}} cluster during deployment. Create a LDAP user for your Scale cluster. Use this to run the Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
 
-If you have an existing LDAP server with the LDAP information that is provided during the {{site.data.keyword.scale_full_notm}} cluster deployment, then you need not create a new LDAP user.
+If you have an existing LDAP server with the LDAP information that is provided during the cluster deployment, then you need not create a new LDAP user.
 {: shortdesc}
 
 ## Before you begin
