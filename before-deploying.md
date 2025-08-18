@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-18"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -130,7 +130,8 @@ You need to provide the password to access the GUI to perform the system managem
 
 Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. `zones` is the value required for this variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-The Bare Metal server capacities are limited and region constraint. If you provide the zones that are not supported, then an error message is displayed:
+The Bare Metal server capacities are limited and region-constrained. If you provide zones that are not supported, an error message is displayed:
+
 `error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
 
 You can view or set the optional values by toggling on the **Advanced** option in the UI.

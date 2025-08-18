@@ -61,10 +61,7 @@ toc:
       - security-groups.md
       - cleanup-deployed-envn-scale.md
       - scc-workload-protect-scale.md
-      - topicgroup:
-            label: Observability
-            topics:
-             - activity-track-event-route.md
+      - activity-track-event-route.md
       - topicgroup:
           label: Schematics API
           topics:

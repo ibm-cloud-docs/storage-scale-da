@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-08-18"
 
 keywords:
 
@@ -55,7 +55,7 @@ To enable encryption on a Scale cluster, the following variables need to be defi
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
-|`scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | `gklm` |
+|`scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | true or false |
 |`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | `gklm` |
 |`gklm_instances` | Specify the list of virtual server instances to be provisioned as ldap nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{ profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3" }] |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/5.x){: external}. | `xxxxxxx` |
@@ -157,7 +157,7 @@ To enable encryption on a Scale cluster, the following variables need to be defi
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/4.2.1). | `xxxxxxx` |
-|`key_protect_instance_id`| An existing Key Protect instance used for filesystem encryption.| Null |
+|`key_protect_instance_id`| An existing Key Protect instance used for filesystem encryption.| `asdsad` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system

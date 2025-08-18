@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-08-18"
 
 keywords:
 
@@ -61,7 +61,7 @@ The following new variables are introduced for SCC Workload Protection:
 The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `cspm_enabled` is set to "false", no data will be visible on the dashboard.
 {: note}
 
-* `app_config_plan`: Specify the IBM service pricing plan for the application. Allowed values are 'basic', 'lite', 'standard', 'enterprise'.
+* `app_config_plan`: Specify the IBM service pricing plan for the application. Allowed values are 'basic', 'standard', 'enterprise'.
 
 ## Accessing the SCC Workload Protection
 {: #accessing-scc}

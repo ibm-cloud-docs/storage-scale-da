@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-08-18"
 
 keywords:
 
@@ -34,9 +34,7 @@ Two target types are supported as part of {{site.data.keyword.atracker_short}}:
 * Cloud Object Storage(COS) bucket
 * {{site.data.keyword.logs_full}}
 
-By default, `observability_atracker_target_type` is set to cloudlogs as a target type, which creates the Cloud Logs instance and configures it for Activity Tracker Event Routing. Even if the `observability_logs_enable_for_management` or `observability_logs_enable_for_compute` variable is not set to true, a {{site.data.keyword.logs_full}} instance is still created for {{site.data.keyword.at_short}}.
-
-When `observability_logs_enable_for_management` or `observability_logs_enable_for_compute` is set to true, the same {{site.data.keyword.logs_full}} instance can be used as a target, enabling the filtering of management, compute, and {{site.data.keyword.at_short}} logs within a unified dashboard.
+By default, `observability_atracker_target_type` is set to cloudlogs as a target type, which creates the Cloud Logs instance and configures it for Activity Tracker Event Routing.
 
 For Cloud Object Storage bucket as a target, you can provide an existing COS instance as well. Under this instance, automation creates a COS bucket that acts as a target for {{site.data.keyword.atracker_short}}.
 

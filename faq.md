@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-08-18"
 
 keywords:
 
@@ -61,13 +61,13 @@ See the following minimum and maximum number of nodes that are supported in a cl
 * Scratch and evaluation cluster storage nodes: For a scratch and evaluation storage clusters, a minimum of 2 and a maximum of 64 virtual server instance storage nodes are supported.
 * Persistent cluster storage nodes: For a persistent storage cluster, a minimum of 2 and a maximum of 32 bare metal server storage nodes are supported.
 
-For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
+For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## What storage types are available through this offering?
 {: #storage-types-scale-offering}
 {: faq}
 
-The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. For more information, see [Storage types](/docs/storage-scale?topic=storage-scale-storage-types).
+The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. For more information, see [Storage types](/docs/storage-scale-da?topic=storage-scale-da-storage-types).
 
 Parallel vNIC is not supported on the persistent storage type and it is only supported by a custom image.
 {: note}

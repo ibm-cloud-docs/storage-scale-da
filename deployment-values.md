@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-08-18"
 
 keywords:
 
@@ -90,14 +90,14 @@ The following are the optional deployment values used to configure the {{site.da
 |`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | No | Null |
 | `gklm_instances` | Specify the list of virtual server instances to be provisioned as ldap nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | No | [{ profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-2" }] |
 | `scale_encryption_admin_password` | Password that is used for performing administrative operations for the GKLM.The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter.  Two numbers, and at least one special character from this(~@_+:). Make sure that the password doesn't include the username. Visit this [page](https://www.ibm.com/docs/en/gklm/3.0.1?topic=roles-password-policy) to know more about password policy of GKLM. | Yes | Null |
-| `key_protect_instance_id` | An existing Key Protect instance used for filesystem encryption. | No | Null |
+| `key_protect_instance_id` | Provide an existing Key Protect instance ID to enable filesystem encryption when they want to use an existing Key Protect instance. | No | sadsdsd |
 | `storage_type` | Select the Storage Scale file system deployment method. Note: The Storage Scale scratch and evaluation type deploys the Storage Scale file system on virtual server instances, and the persistent type deploys the Storage Scale file system on bare metal servers. | No | scratch |
 | `observability_atracker_enable` | Activity Tracker Event Routing to configure how to route auditing events. While multiple Activity Tracker instances can be created, only one tracker is needed to capture all events. Creating additional trackers is unnecessary if an existing Activity Tracker is already integrated with a COS bucket. In such cases, set the value to false, as all events can be monitored and accessed through the existing Activity Tracker. | No | False |
 | `observability_atracker_target_type` | All the events will be stored in either COS bucket or Cloud Logs on the basis of user input, so customers can retrieve or ingest them in their system. | No | "cloudlogs" |
 | `sccwp_service_plan` | Specify the plan type for the Security and Compliance Center (SCC) Workload Protection instance. Valid values are free-trial and graduated-tier only. | No | "free-trial" |
 | `sccwp_enable` | Set this flag to true to create an instance of IBM Security and Compliance Center (SCC) Workload Protection. When enabled, it provides tools to discover and prioritize vulnerabilities, monitor for security threats, and enforce configuration, permission, and compliance policies across the full lifecycle of your workloads. To view the data on the dashboard, enable the cspm to create the app configuration and required trusted profile policies.[Learn more](https://cloud.ibm.com/docs/workload-protection?topic=workload-protection-about). | No | False |
 | `cspm_enabled` | Cloud Security Posture Management (CSPM) is a set of tools and practices that continuously monitor and secure cloud infrastructure. When enabled, it creates a trusted profile with viewer access to the App Configuration and Enterprise services for the SCC Workload Protection instance. Make sure the required IAM permissions are in place, as missing permissions will cause deployment to fail. If CSPM is disabled, dashboard data will not be available.[Learn more](https://cloud.ibm.com/docs/workload-protection?topic=workload-protection-about). | No | True |
-| `app_config_plan` | Specify the IBM service pricing plan for the app configuration. Allowed values are 'basic', 'lite', 'standardv2', 'enterprise'. | No | "basic" |
+| `app_config_plan` | Specify the IBM service pricing plan for the app configuration. Allowed values are 'basic', 'standardv2', 'enterprise'. | No | "basic" |
 | `skip_flowlogs_s2s_auth_policy` | Skip auth policy between flow logs service and COS instance, set to true if this policy is already in place on account. | No | False |
 | `existing_bastion_instance_name` | Provide the name of the bastion instance. If none given then new bastion will be created. | No | Null |
 | `existing_bastion_instance_public_ip` | Provide the public ip address of the bastion instance to establish the remote connection. | No | Null |
