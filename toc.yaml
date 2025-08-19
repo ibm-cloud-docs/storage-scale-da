@@ -55,19 +55,11 @@ toc:
           - create-ldapp-user-scale.md
           - config-ldap-ces-scale.md
           - configure-ldap-server-setup.md
-      - create-user-group-ad-symphony.md
-      - creating-user-group-oldap-dir.md
       - vnic-info.md
       - security-groups.md
-      - cleanup-deployed-envn-scale.md
       - scc-workload-protect-scale.md
       - activity-track-event-route.md
-      - topicgroup:
-          label: Schematics API
-          topics:
-          - retrieving-apply-plan-logs.md
-          - retrieving-action-logs-hide.md
-          - updating-variables-scale.md
+      - cleanup-deployed-envn-scale.md
   - navgroup:
       id: reference
       topics:

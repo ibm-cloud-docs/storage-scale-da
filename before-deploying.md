@@ -38,6 +38,10 @@ You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant st
 If you are creating Storage Scale on a persistent model (with baremetal), ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}
 
+The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with the error message:
+`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
+{: important}
+
 ## Confirm your {{site.data.keyword.cloud}} settings
 {: #confirm-cloud-settings-scale}
 
@@ -99,9 +103,9 @@ Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more in
 {: #create-ssh-key}
 {: step}
 
-Create SSH keys in your {{site.data.keyword.cloud_notm}} account. If you want to use multiple SSH keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. You can select the required SSH key for the supported region/zone from the drop-down list. `ssh_keys` is the value required for this variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
+Create SSH keys in your {{site.data.keyword.cloud_notm}} account. If you want to use multiple SSH keys to access the bastion host, compute cluster, and storage cluster, ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. You can select the required SSH key for the supported region/zone from the drop-down list. `ssh_keys` is the value required for this variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-From the UI, the drop-down list all the SSH keys across all the regions.
+In the UI, the drop-down lists all the available ssh keys from all the regions. If you have a similar name across all the region and you click the drop down, then all the keys are selected but the right SSH key will be picked only in the back-end based upon the input provided for the zones.
 
 ## Set the remote_allowed_ips
 {: #gather-ip-address}
@@ -128,10 +132,6 @@ You need to provide the password to access the GUI to perform the system managem
 {: step}
 
 Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. `zones` is the value required for this variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
-
-The Bare Metal server capacities are limited and region-constrained. If you provide zones that are not supported, an error message is displayed:
-
-`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
 
 You can view or set the optional values by toggling on the **Advanced** option in the UI.
 {: note}

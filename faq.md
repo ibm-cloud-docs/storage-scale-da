@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -192,3 +192,33 @@ Built on Sep 20 2024 at 12:35:51
 Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@jay-tie-strg-002 ~]#
 ```
+
+## Why do we see the `No image found with name: hpcc-scale5232-rhel810-v1` error on the client nodes?
+{: #client-node}
+
+
+
+## Why does the automation fail for the Bare Metal server capacities?
+{: #bare-metal}
+
+The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with the error message:
+
+`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
+
+For more information, see [Bare Metal Server Profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+
+## Why does the UI select multiple SSH keys?
+{: #ssh-keys}
+
+If you want to use multiple SSH keys to access the bastion host, compute cluster, and storage cluster, ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. You can select the required SSH key for the supported region/zone from the drop-down list. `ssh_keys` is the value required for this variable.
+
+In the UI, the drop-down lists all the available ssh keys from all the regions. If you have a similar name across all the region and you click the drop down, then all the keys are selected but the right SSH key will be picked only in the back-end based upon the input provided for the zones.
+
+![SSH key](images/ssh_key.png "SSH key"){: caption="SSH key" caption-side="bottom"}
+
+## Failure in mmetverify
+
+
+## Instance storage
+
+## AFM is not part of the encryption (encryption failure)
