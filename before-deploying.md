@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-19"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -64,11 +64,10 @@ To view access policies, complete the following steps:
    | All Identity and Access enabled services | All | Administrator | Manager |
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
-   | Flow Logs for VPC | All | Editor | -- |
    | IAM Identity Service | All | Administrator | -- |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
-   | Virtual Private Cloud | All | Editor | -- |
+   | VPC Infrastructure Services | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
 ## Gather Scale entitlement information
@@ -100,9 +99,9 @@ Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more in
 {: #create-ssh-key}
 {: step}
 
-Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You need to choose multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. `ssh_keys` is the value required for this variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
+Create SSH keys in your {{site.data.keyword.cloud_notm}} account. If you want to use multiple SSH keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. You can select the required SSH key for the supported region/zone from the drop-down list. `ssh_keys` is the value required for this variable. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-You can select the required SSH key for the supported region/zone from the drop-down list.
+From the UI, the drop-down list all the SSH keys across all the regions.
 
 ## Set the remote_allowed_ips
 {: #gather-ip-address}

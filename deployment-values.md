@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -32,7 +32,6 @@ The following are the mandatory deployment values used to configure the {{site.d
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
-| `ibm_customer_number` | Comma-separated list of the IBM Customer Number(s) (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | Yes | Null |
 | `ibmcloud_api_key` | Provide the IBM Cloud API key for the account where the IBM Storage Scale cluster will be deployed. For details on creating an API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui). | Yes | Null |
 | `storage_gui_username` | GUI username to perform system management and monitoring tasks on the storage cluster. **Note:** Username should be at least 4 characters, (any combination of lowercase and uppercase letters). | Yes | "" |
 | `storage_gui_password` | GUI password to perform system management and monitoring tasks on the storage cluster. | Yes | "" |
@@ -49,7 +48,8 @@ The following are the optional deployment values used to configure the {{site.da
 
 | Value | Description | Is it required? | Default value |
 | ------ | ----------- | --------------- | ------------- |
-| `cluster_prefix` | Prefix that is used to name the IBM Cloud resources that are provisioned to build the Scale cluster. Make sure that the prefix is unique, since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. Must begin with a letter and end with a letter or number. | Yes | Null|
+| `ibm_customer_number` | Comma-separated list of the IBM Customer Number(s) (ICN) that is used for the Bring Your Own License (BYOL) entitlement check. For more information on how to find your ICN, see [What is my IBM Customer Number (ICN)?](https://www.ibm.com/support/pages/what-my-ibm-customer-number-icn). | No | Null |
+| `cluster_prefix` | Prefix that is used to name the IBM Cloud resources that are provisioned to build the Scale cluster. Make sure that the prefix is unique, since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. Must begin with a letter and end with a letter or number. | No | Null|
 | `vpc_cidr` | An address prefix is created for the new VPC when the vpc_name variable is set to null. This prefix is required to provision subnets within a single zone, and the subnets will be created using the specified CIDR blocks. For more information, see [Setting IP ranges](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design). | No | "10.241.0.0/18" |
 | `placement_strategy` | VPC placement groups to create (null / host_spread / power_spread). | No | Null |
 | `bastion_instance` | Configuration for the bastion node, including the image and instance profile. Only Ubuntu 22.04 stock images are supported. | No | {image = "ibm-ubuntu-22-04-5-minimal-amd64-3" profile = "cx2-4x8"} |
@@ -90,7 +90,7 @@ The following are the optional deployment values used to configure the {{site.da
 |`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | No | Null |
 | `gklm_instances` | Specify the list of virtual server instances to be provisioned as ldap nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | No | [{ profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-2" }] |
 | `scale_encryption_admin_password` | Password that is used for performing administrative operations for the GKLM.The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter.  Two numbers, and at least one special character from this(~@_+:). Make sure that the password doesn't include the username. Visit this [page](https://www.ibm.com/docs/en/gklm/3.0.1?topic=roles-password-policy) to know more about password policy of GKLM. | Yes | Null |
-| `key_protect_instance_id` | Provide an existing Key Protect instance ID to enable filesystem encryption when they want to use an existing Key Protect instance. | No | sadsdsd |
+| `key_protect_instance_id` | Provide an existing Key Protect instance ID to enable filesystem encryption when they want to use an existing Key Protect instance. | No | Null |
 | `storage_type` | Select the Storage Scale file system deployment method. Note: The Storage Scale scratch and evaluation type deploys the Storage Scale file system on virtual server instances, and the persistent type deploys the Storage Scale file system on bare metal servers. | No | scratch |
 | `observability_atracker_enable` | Activity Tracker Event Routing to configure how to route auditing events. While multiple Activity Tracker instances can be created, only one tracker is needed to capture all events. Creating additional trackers is unnecessary if an existing Activity Tracker is already integrated with a COS bucket. In such cases, set the value to false, as all events can be monitored and accessed through the existing Activity Tracker. | No | False |
 | `observability_atracker_target_type` | All the events will be stored in either COS bucket or Cloud Logs on the basis of user input, so customers can retrieve or ingest them in their system. | No | "cloudlogs" |
