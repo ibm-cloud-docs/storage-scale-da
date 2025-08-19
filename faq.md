@@ -196,7 +196,7 @@ Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 ## Why do we see the `No image found with name: hpcc-scale5232-rhel810-v1` error on the client nodes?
 {: #client-node}
 
-
+You need to change the custom image to stock image. Update to the latest version of the stock image (RHEL 8.10).
 
 ## Why does the automation fail for the Bare Metal server capacities?
 {: #bare-metal}
@@ -205,7 +205,7 @@ The Bare Metal server capacities are limited and support for only specific regio
 
 `error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
 
-For more information, see [Bare Metal Server Profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+Before doing a deployment, check in the UI or CLI if the profile is available in the specific region to provision the Bare Metal. For more information, see [Bare Metal Server Profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ## Why does the UI select multiple SSH keys?
 {: #ssh-keys}
@@ -216,9 +216,15 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 
 ![SSH key](images/ssh_key.png "SSH key"){: caption="SSH key" caption-side="bottom"}
 
-## Failure in mmetverify
+For example, in the back-end if the zones provided is `us-east` then only `us-east` zone will be picked.
 
+## What is the supported instance profile for Storage nodes?
+{: #instance-storage}
 
-## Instance storage
+When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
 
 ## AFM is not part of the encryption (encryption failure)
+{: #afm}
+
+## Failure in mmetverify
+{: #failure}
