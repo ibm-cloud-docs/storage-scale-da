@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-20"
 
 keywords:
 
@@ -193,10 +193,10 @@ Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@jay-tie-strg-002 ~]#
 ```
 
-## Why do we see the `No image found with name: hpcc-scale5232-rhel810-v1` error on the client nodes?
+## Why do we see the **"No image found with name: hpcc-scale5232-rhel810-v1"** error on the client nodes?
 {: #client-node}
 
-You need to change the custom image to stock image. Update to the latest version of the stock image (RHEL 8.10).
+This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 8.10).
 
 ## Why does the automation fail for the Bare Metal server capacities?
 {: #bare-metal}
