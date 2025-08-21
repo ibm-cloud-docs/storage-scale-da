@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -216,7 +216,7 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 
 ![SSH key](images/ssh_key.png "SSH key"){: caption="SSH key" caption-side="bottom"}
 
-For example, in the back-end if the zones provided is `us-east` then only `us-east` zone will be picked.
+For example, in the back-end if the zones provided is [\"us-east-1\"] then only [\"us-east-1\"] zone will be picked.
 
 ## What is the supported instance profile for Storage nodes?
 {: #instance-storage}

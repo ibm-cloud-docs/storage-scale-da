@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -28,15 +28,18 @@ subcollection: storage-scale-da
 
 If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account.
 
-## Destroying resources by using the UI
+## Destroying resources using the UI
 {: #destroy-resources-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to the navigation menu and select **Platform Automation** > **Schematics** > **Terraform**. Select the resource to be deleted and click **Actions** drop-down and select **Destroy resources** to destroy all the related VPC resources that were deployed as part of that workspace.
-2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
-3. Confirm the action by entering the workspace name in the text box and click **Destroy resources**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the navigation menu and select **Platform Automation** > **Schematics** > **Terraform**. Select the workspace to be deleted and click **Actions** drop-down and select **Destroy resources** to destroy all the related resources that were deployed as part of that workspace/solution.
 
-## Deleting a workspace by using the UI
+If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone.
+{: note}
+
+2. Confirm the action by entering the workspace name in the text box and click **Destroy resources**.
+
+## Deleting a workspace using the UI
 {: #delete-workspace-ui}
 {: ui}
 
@@ -46,7 +49,15 @@ If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of 
 If you directly delete the workspaces, the resources cannot be deleted through the Schematics and it should be deleted manually.
 {: note}
 
-## Destroying resources by using the CLI
+## Deleting a project using the UI
+{: #delete-project}
+{: ui}
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to the navigation menu and click **Projects**. You will find the list of all the projects.
+2. Select the project you want to delete. Click the overflow menu **(⋮)** on the right-side and select **Delete Project**.
+3. A confirmation dialog box appears. Enter the project name and click **Delete**.
+
+## Destroying resources using the CLI
 {: #destroy-resources-cli}
 {: cli}
 
@@ -60,11 +71,11 @@ ibmcloud schematics destroy --id <WORKSPACE_ID>
 You can monitor the log files to view the deletion progress of all {{site.data.keyword.cloud_notm}} resources.
 {: note}
 
-## Deleting a workspace by using the CLI
+## Deleting a workspace using the CLI
 {: #delete-workspace-cli}
 {: cli}
 
-Run the following command to delete your workspace:
+Run the following command to delete your workspace after destroying the workspace:
 
 ```pre
 ibmcloud schematics workspace delete --id <WORKSPACE_ID>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -40,8 +40,8 @@ Before you deploy the IBM Storage Scale cluster with the LDAP input values, comp
 |----------|----------|----------|
 |`enable_ldap`|Set this option to true to enable LDAP for IBM Cloud Storage Scale, with the default value set to false.|true |
 |`ldap_basedns`	|The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name.|`ldapscale.com`|
-| `ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | Null |
-| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. | Null |
+| `ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | `xxxxxx` |
+| `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. | `xxxxxx` |
 |`ldap_admin_password`	|The LDAP administrative password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required. It is important to avoid including the username in the password for enhanced security.	|`xxxxxx`|
 |`ldap_user_name`	|Custom LDAP User for performing cluster operations. Note: Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]	|`scaleuser`|
 |`ldap_user_password`	|The LDAP user password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required.It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server].|`xxxxxx`|

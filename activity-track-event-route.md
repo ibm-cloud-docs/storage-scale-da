@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -36,9 +36,7 @@ Two target types are supported as part of {{site.data.keyword.atracker_short}}:
 
 By default, `observability_atracker_target_type` is set to cloudlogs as a target type, which creates the Cloud Logs instance and configures it for Activity Tracker Event Routing.
 
-For Cloud Object Storage bucket as a target, you can provide an existing COS instance as well. Under this instance, automation creates a COS bucket that acts as a target for {{site.data.keyword.atracker_short}}.
-
-If you do not provide any existing COS instance, then the solution creates the new one by default.
+For Cloud Object Storage bucket as a target, you can provide an existing COS instance as well. Under COS instance, automation creates a COS bucket that acts as a target for {{site.data.keyword.atracker_short}}. If you do not provide any existing COS instance, then the solution creates the new one by default.
 
 Two variables are required to configure the {{site.data.keyword.atracker_short}}:
 
@@ -56,8 +54,10 @@ Two variables are required to configure the {{site.data.keyword.atracker_short}}
 
     * Usage: Select the desired target type to retrieve or capture events into your system.
 
-## Validating Activity Tracker Event Routing
-{: #activity-tracker-validate}
+## Post deployment
+{: #post-deployment}
+
+After successful deployment, if you want to ensure that the Activity Tracker event routing is configured correctly then run the following commands.
 
 To validate the Activity Tracker event routing by using the CLI, first install the atracker plug-in:
 

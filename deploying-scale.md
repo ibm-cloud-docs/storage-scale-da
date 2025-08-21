@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-13"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -88,25 +88,110 @@ Once you deploy the project, in back-end a Schematics workspace is created for t
 When deployed, you can then access your deployed environment.
 For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster)
 
-## Deploying {{site.data.keyword.scale_short}} by using the CLI
+You can retrieve the logs from either the Schematics workspace or the deployer node to view both successful and failed cluster deployments.
+{: shortdesc}
+
+## Retrieving apply plan logs in the Schematics workspace
+{: #retrieve-apply-plan-logs-schematics-workspace}
+
+After you apply a plan, a new log file is generated, which can be viewed in the _Jobs_ tab in the Schematics workspace. See the following sections for instructions and examples of successful or failed deployments.
+
+### Successful cluster deployment
+{: #successful-apply-plan}
+
+1. In the _Jobs_ tab in the Schematics workspace, select the job and expand the log file.
+2. If the job was successful in creating all of the resources that are part of the deployment, then your workspace goes to an active state.
+3. Use the SSH command in the output of your apply plan log to log in as `vpcuser` for the deployer, compute, and storage node through the bastion host as `ubuntu` user. See the following sample response of a successful deployment:
+
+**Sample response**
+
+```pre
+2022/05/09 14:35:53 Terraform apply | Apply complete! Resources: 41 added, 0 changed, 0 destroyed.
+2022/05/09 14:35:53 Terraform apply |
+2022/05/09 14:35:53 Terraform apply | Outputs:
+2022/05/09 14:35:53 Terraform apply |
+2022/05/09 14:35:53 Terraform apply | ssh_command = "ssh -J ubuntu@141.125.161.0 vpcuser@10.241.1.5"
+2022/05/09 14:35:53 Command finished successfully.
+```
+{: screen}
+
+### Failed cluster deployment
+{: #failed-apply-plan}
+
+1. In the _Jobs_ tab in the Schematics workspace, select the job and expand the log file for a better view.
+2. If the job fails to create any of the resources that are a part of the deployment, then your workspace goes to a failed state. Deployment might error out if any of the deployment values are incorrect or if there are any issues at the infrastructure level.
+3. Fix the errors, and then click Apply plan again. See the following sample response of a failed deployment:
+
+**Sample response**
+
+```pre
+2022/05/09 12:51:12 Terraform plan | Error: [ERROR] No SSH Key found with name ssh-key-east-new
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan | on main.tf line 85, in data "ibm_is_ssh_key" "compute_ssh_key":
+2022/05/09 12:51:12 Terraform plan | 85: data "ibm_is_ssh_key" "compute_ssh_key" { # This block is trying to fetch the key_pair details for compute node, which is dependent on the code present on public repo
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan | Error: [ERROR] No SSH Key found with name ssh-key-east-new
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan | on main.tf line 89, in data "ibm_is_ssh_key" "storage_ssh_key":
+2022/05/09 12:51:12 Terraform plan | 89: data "ibm_is_ssh_key" "storage_ssh_key" { # This block is trying to fetch the key_pair details for compute node, which is dependent on the code present on public repo
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 Terraform plan |
+2022/05/09 12:51:12 �[1m�[31mTerraform PLAN error: Terraform PLAN errorexit status 1�[39m�[0m
+2022/05/09 12:51:12 �[1m�[31mCould not execute job: Error : Terraform PLAN errorexit status 1�[39m�[0m
+```
+{: screen}
+
+## Deploying Storage Scale cluster using the CLI
 {: #create-project-cli}
 {: cli}
 
-Before you begin using the {{site.data.keyword.bplong}} CLI to deploy {{site.data.keyword.scale_full_notm}}, review and complete the following prerequisites:
+To generate the API key, refer [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
+To login to the IBM Cloud CLI, refer [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
+{: note}
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
-2. Log in to the {{site.data.keyword.cloud_notm}} CLI with your IBMid. If you have multiple accounts, you are prompted to select which account to use. If you do not specify a region with the `-r` flag, you must also select a region.
+You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud_notm}} CLI to create a catalog workspace with the supported Storage Scale cluster version. The CLI requires a `values.json` file with your configuration settings.
 
-    ```pre
-    ibmcloud login
+1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
+
+2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/hpc_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
+
+3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your Storage Scale cluster with the configuration you specified in your `values.json` file.
+    ```text
+    ibmcloud catalog install --vl <version_locator_value> --override-values values.json
     ```
-    {: pre}
+    {: codeblock}
 
-    If your credentials are rejected, you might be using a federated ID. To log in with a federated ID, use the `--sso` flag. For more information, see [Logging in with a federated ID](/docs/account?topic=account-federated_id).
-    {: tip}
+    outputs:
 
-3. Install and set up the [{{site.data.keyword.bplong_notm}} CLI plug-in](/docs/schematics?topic=schematics-setup-cli#install-schematics-plugin).
-4. Make sure to generate your {{site.data.keyword.cloud_notm}} API key. For more information, see [Managing user API keys](/docs/account?topic=account-userapikey).
+    ```text
+    Attempting install of Storage Scale cluster version x.x.x...
+    Schematics workspace: https://cloud.ibm.com/schematics/workspaces/us-south.workspace.globalcatalog-collection.40b1c1e4/jobs?region=
+    Workspace status: DRAFT
+    Workspace status: INACTIVE
+    Workspace status: INPROGRESS
+    Workspace status: ACTIVE
+    Installation successful
+    OK
+    ```
+    {: codeblock}
+
+4. The CLI requires a `version_locator_value`. You can retrieve this value from the {{site.data.keyword.cloud_notm}} console UI by clicking on **View details**.
+
+    1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
+    2. Click **Review deployment options**.
+    3. In the _Deployment options_ section, select **Create from the CLI**, copy the `version_locator_value`, and save this value to be used in a later step. The value is an 80 character alphanumeric string, such as:
+
+        ```text
+        1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc.6c26cd4c-4f72-45e5-8bde-77387aa05138-global
+        ```
+        {: codeblock}
+
+    * Provide the mandatory deployment values for your Storage Scale cluster, specifically, replace the **Fill the value here** text with values.
+
+If you deployed by using a project, you can copy this SSH command from the {{site.data.keyword.cloud_notm}} console: select **Projects > _project_name_ > Configurations > _project_configuration_name_ > Outputs** tab, and use the copy icon to copy the `ssh_command` value and run it from a command line.
+{: tip}
 
 ### Schematics actions
 {: #schematics}
