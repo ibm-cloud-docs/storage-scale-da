@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -77,14 +77,22 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 ## Storage type combination list
 {: #storage-type-comparison-table}
 
+The following table lists the features and the supported storage types:
+
 |Category| Scratch | Persistent | Evaluation |
 | ---- | ----------------- | ---------- | ---------- |
-| Compute nodes | Custom image, Stock image | Custom image, Stock image | Evaluation custom image |
-| Storage nodes | Custom image, Stock image | Custom image, Stock image | Evaluation custom image |
-| Protocol nodes | Custom image | Custom image | Evaluation custom image |
-| Client nodes | Stock image | Stock image | Stock image |
-| GKLM | Custom image | Custom image | Custom image |
-| AFM | Custom image | Custom image | Evaluation custom image |
+| Compute nodes | Yes | Yes | Yes |
+| Storage nodes | Yes | Yes | Yes |
+| Protocol nodes | Yes | Yes | Yes |
+| Client nodes | Yes | Yes | Yes |
+| GKLM | Yes | Yes | Yes |
+| AFM | Yes | Yes | Yes |
+| KMS | Yes | Yes | Yes |
+| LDAP | Yes | Yes | Yes |
+| Colocation | Yes | Yes | Yes |
+| tie_breaker_baremetal_server_profile | No | Yes | No |
+| bms_boot_drive_encryption | No | Yes | No |
+| vNIC | Yes | No | No |
 {: row-headers}
 {: caption="Storage Scale storage types combination list" caption-side="bottom"}
 
