@@ -84,3 +84,19 @@ ibmcloud schematics workspace delete --id <WORKSPACE_ID>
 
 You can monitor the log files to view the deletion progress of your workspace.
 {: note}
+
+## Deleting a project using the CLI
+{: #delete-project}
+{: cli}
+
+Run the following command to delete a project by specifying the ID. A project can be deleted only after you delete all of its resources.
+
+```pre
+ibmcloud project delete --id ID
+```
+
+Example:
+```pre
+ibmcloud project delete
+     --id exampleString
+```
