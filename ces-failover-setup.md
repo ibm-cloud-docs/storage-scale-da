@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -24,19 +24,14 @@ subcollection: storage-scale-da
 # Setting up CES failover
 {: #ces-failover-setupp}
 
-This section describes the procedure to setup the CES failover.
-
-## Before you begin
-{: #before-you-begin-ces-failoverr}
-
-Ensure that you have a correct Scale cluster with the ability to move CES IP addresses across protocol nodes.
+This section describes the procedure to setup the CES failover. Ensure that you have a correct Scale cluster with the ability to move CES IP addresses across protocol nodes.
 
 ## Procedure
 {: #procedures-ces-failover}
 
-1. Install the IBM Cloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources:`curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
+1. Install the IBM Cloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources: `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
-2. Install the VPC Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI:`ibmcloud plugin install is`
+2. Install the VPC Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI: `ibmcloud plugin install is`
 
 3. Update the `mmcesExtendedIpMgmt` script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
 

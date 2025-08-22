@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -75,7 +75,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 9. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
-### Schematics workspace
+## Schematics workspace
 {: #schematics}
 {: ui}
 
@@ -91,7 +91,7 @@ For more information on accessing the cluster after the deployment, see [Accessi
 You can retrieve the logs from either the Schematics workspace or the deployer node to view both successful and failed cluster deployments.
 {: shortdesc}
 
-## Retrieving apply plan logs in the Schematics workspace
+### Retrieving apply plan logs in the Schematics workspace
 {: #retrieve-apply-plan-logs-schematics-workspace}
 
 After you apply a plan, a new log file is generated, which can be viewed in the _Jobs_ tab in the Schematics workspace. See the following sections for instructions and examples of successful or failed deployments.

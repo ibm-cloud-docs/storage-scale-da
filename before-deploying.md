@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-22"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -38,7 +38,7 @@ You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant st
 If you are creating Storage Scale on a persistent model (with baremetal), ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}
 
-The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with the error message:
+The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with:
 `error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
 {: important}
 
@@ -157,7 +157,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 ### Enable CES
 {: #enable-ces}
 
-To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable boot drive encryption for persistent storage
 {: #enable-boot-encryption}
@@ -172,7 +172,7 @@ To enable LDAP, set `enable_ldap` parameter to true and complete other variables
 ### Enable AFM
 {: #enable-afm}
 
-To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable AFM, set `afm_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## Accessing the deployed environment
 {: #accessing-cluster}

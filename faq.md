@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -222,9 +222,3 @@ For example, in the back-end if the zones provided is [\"us-east-1\"] then only 
 {: #instance-storage}
 
 When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
-
-## AFM is not part of the encryption (encryption failure)
-{: #afm}
-
-## Failure in mmetverify
-{: #failure}

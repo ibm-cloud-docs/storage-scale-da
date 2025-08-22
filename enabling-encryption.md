@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -55,10 +55,10 @@ To enable encryption on a Scale cluster, the following variables need to be defi
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
-|`scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | true or false |
+|`scale_encryption_enabled` | Encryption ensures that data stored in the filesystem is protected from unauthorized access and secures sensitive information at rest. To enable the encryption for the filesystem. Select true or false. | true or false |
 |`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | `gklm` |
-|`gklm_instances` | Specify the list of virtual server instances to be provisioned as ldap nodes in the cluster. Each object in the list defines the instance profile (machine type), the count (number of instances), the image (OS image to use), and an optional filesystem mount path. This configuration allows you to customize the compute tier of the cluster based on your performance and workload requirements. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{ profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3" }] |
-| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. | `xxxxxxx` |
+|`gklm_instances` | Specify the list of virtual server instances to be provisioned as GKLM (Guardium Key Lifecycle Manager) nodes in the cluster. Each object in the list includes the instance profile (machine type), the count (number of instances), and the image (OS image to use).  This configuration allows you to  manage and securely store encryption keys used across the cluster components. The profile must match a valid IBM Cloud VPC Gen2 instance profile format. A minimum of 2 and maximum of 5 gklm nodes are supported. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3"}] |
+| `scale_encryption_admin_password` | Specifies the administrator password for GKLM-based encryption. This is required when encryption is enabled for IBM Spectrum Scale (GPFS) and the encryption type is set to 'gklm'. The password is used to authenticate administrative access to the Guardium Key Lifecycle Manager (GKLM) for managing encryption keys. Ensure the password meets your organization's security standards. | `xxxxxxx` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 After a successful cluster creation, the following resources are automatically configured to encrypt the file system:
@@ -155,10 +155,10 @@ To enable encryption on a Scale cluster, the following variables need to be defi
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
-|`scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | true or false |
-|`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
-| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/4.2.1). | `xxxxxxx` |
-|`key_protect_instance_id`| An existing Key Protect instance used for filesystem encryption.| `asdsad` |
+|`scale_encryption_enabled` | Encryption ensures that data stored in the filesystem is protected from unauthorized access and secures sensitive information at rest. To enable the encryption for the filesystem. Select true or false. | true or false |
+|`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
+| `scale_encryption_admin_password` | Specifies the administrator password for GKLM-based encryption. This is required when encryption is enabled for IBM Spectrum Scale (GPFS) and the encryption type is set to 'gklm'. The password is used to authenticate administrative access to the Guardium Key Lifecycle Manager (GKLM) for managing encryption keys. Ensure the password meets your organization's security standards. | `xxxxxxx` |
+|`key_protect_instance_id`| Provide the ID of an existing IBM Key Protect instance to be used for filesystem encryption in IBM Storage Scale. If this value is provided, the automation will use the existing Key Protect instance and create a new encryption key within it. If not provided, a new Key Protect instance will be created automatically during deployment.| Null |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system

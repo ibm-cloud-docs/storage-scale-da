@@ -31,8 +31,8 @@ toc:
   - navgroup:
       id: plan
       topics:
-      - configure-afm-integration.md
       - enabling-encryption.md
+      - configure-afm-integration.md
       - boot-drive-encryption.md
       - configure-ces-integration.md
       - ces-configuration-any-scale-node.md

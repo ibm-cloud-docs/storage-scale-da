@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -28,7 +28,7 @@ Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a loc
 
 |Boot drive variable|	Description|	Example value|
 |-------------|------------|--------------|
-|`bms_boot_drive_encryption`|Enable the boot drive encryption for the bare metal server. Select true or false	| true |
+|`bms_boot_drive_encryption`| Enable or disable encryption for the boot drive of bare metal servers. When set to true, the boot drive will be encrypted to enhance data security, protecting the operating system and any sensitive information stored on the root volume. This is especially recommended for workloads with strict compliance or security requirements. Set to false to disable boot drive encryption. | true |
 {: caption='Boot drive variables'}
 
 ## Verifying boot drive encryption on the Bare Metal server
