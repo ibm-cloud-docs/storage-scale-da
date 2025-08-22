@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 keywords: storage scale, security groups
 
 subcollection: storage-scale-da
@@ -30,12 +30,12 @@ The {{site.data.keyword.scale_full_notm}} deployment currently supports the crea
 
 Each security group is dedicated to a specific set of scale nodes, ensuring that only the necessary ports, sources, and destinations are enabled for those nodes. This approach minimizes exposure, enhances security, and reduces the risk of misconfigurations.
 
-Following are the ports that needs to be opened for GKLM security group:
+Following ports needs to be opened for GKLM security group:
 
 * TCP 9443 - IBM GKLM Console
 * TCP 5696 - KMIP Port
 
-Following are the ports that needs to be opened for LDAP security group:
+Following ports needs to be opened for LDAP security group:
 
 * TCP 389 - LDAP (Authentication)
 * TCP 636 - LDAPS (Secure LDAP)

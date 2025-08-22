@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -74,8 +74,8 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 {: caption="Storage Scale storage types comparison" caption-side="bottom"}
 {: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
-## Storage type combination list
-{: #storage-type-comparison-table}
+## Supported storage types
+{: #storage-type-table}
 
 The following table lists the features and the supported storage types:
 
@@ -94,6 +94,6 @@ The following table lists the features and the supported storage types:
 | bms_boot_drive_encryption | No | Yes | No |
 | vNIC | Yes | No | No |
 {: row-headers}
-{: caption="Storage Scale storage types combination list" caption-side="bottom"}
+{: caption="Supported storage types" caption-side="bottom"}
 
 For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-storage-scale-product-editions){: external}.
