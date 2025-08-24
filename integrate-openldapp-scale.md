@@ -28,7 +28,7 @@ You can enable the OpenLDAP in your {{site.data.keyword.scale_full_notm}} cluste
 
 |LDAP Variable	|Description	|Example value |
 |----------|----------|----------|
-|`enable_ldap`| Set this option to true to enable LDAP for IBM Spectrum LSF, with the default value set to false. | false |
+|`enable_ldap`| Set this option to true to enable LDAP for IBM Storage Scale, with the default value set to false. | false |
 |`ldap_basedns`	| The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. |`ldapscale.com`|
 | `ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | Null |
 | `ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the 'ldap_server' variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, see [existing LDAP server certificate](/docs/allowlist/hpc-service?topic=hpc-service-integrating-openldap). | Null |
