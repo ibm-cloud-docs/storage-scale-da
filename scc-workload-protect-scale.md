@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-24"
 
 keywords:
 
@@ -48,7 +48,7 @@ Scanning for vulnerabilities on OS packages and third-party libraries such as Ja
 In addition to rules, behavioral analysis allows detection of common threats and malware such as crypto mining activities and workload profiling to automatically define expected behavior that can extend detection capabilities. Advanced remediation, allowing to automatically run corrective actions including killing processes, killing or pausing containers, and so on.
 
 ## SCC Workload Protection on IBM Storage Scale cluster
-{: #scc-lsf-cluster}
+{: #scc-scale-cluster}
 
 The following new variables are introduced for SCC Workload Protection:
 
