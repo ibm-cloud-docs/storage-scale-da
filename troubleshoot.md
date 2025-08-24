@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-08-24"
 
 keywords:
 
@@ -59,7 +59,7 @@ Schematics isn't able to provision the cluster, and you are seeing the following
 You do not have the required access to get any VPC resources provisioned.
 {: tsCauses}
 
-Contact your account administrator and get the required access permissions. For more information, see [Required permissions](https://cloud.ibm.com/docs/account?topic=account-userroles).
+Contact your account administrator and get the required access permissions. For more information, see [Required permissions](/docs/account?topic=account-userroles).
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique?

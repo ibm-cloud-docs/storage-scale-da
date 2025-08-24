@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-08-24"
 
 keywords: vpc, scale
 
@@ -28,7 +28,7 @@ You can choose to deploy the Storage Scale solution by creating a new Virtual Pr
 
 You can use {{site.data.keyword.vpc_full}} as your VPC. {{site.data.keyword.vpc_short}} supports creating your own space in {{site.data.keyword.cloud}} for a secure, isolated virtual network that combines the security of a private cloud with the availability and scalability of {{site.data.keyword.IBM_notm}}'s public cloud. {{site.data.keyword.vpc_short}} gives your applications logical isolation from other networks, and provides scalability and security. To make this logical isolation possible, the VPC is divided into subnets that use a range of private IP addresses. You can create subnets in suggested prefix ranges, or bring your own public IP address range (BYOIP) to your IBM Cloud account. By default, all resources within the same VPC can communicate with each other over the private network, regardless of their subnet.
 
-For more details about {{site.data.keyword.vpc_short}}, see the [{{site.data.keyword.vpc_short}} documentation](/docs/vpc?topic=vpc-about-vpc).
+For more information about {{site.data.keyword.vpc_short}}, see the [{{site.data.keyword.vpc_short}} documentation](/docs/vpc?topic=vpc-about-vpc).
 
 ## Using a new VPC for your Storage Scale cluster
 {: #vpc-new}

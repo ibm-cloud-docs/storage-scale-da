@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-08-24"
 
 keywords:
 subcollection: storage-scale-da
@@ -73,7 +73,7 @@ To configure and use an existing bastion node, users must provide the following 
 Failing to provide a correct security group ID or leaving the value as empty, the deployments will fail.
 {: note}
 
-* `existing_bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process. For more information, see [Getting started with SSH keys](https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys&interface=ui).
+* `existing_bastion_ssh_private_key`: The private SSH key (for example, id_rsa) used during the initial creation of the bastion node. This key is required for validation and for running remote operations during the cluster setup process. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui).
 
 By providing these details, the cluster can be configured to use the existing bastion node, enabling secure access and efficient management.
 

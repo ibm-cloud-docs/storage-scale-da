@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-08-24"
 
 keywords:
 
@@ -147,8 +147,8 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 {: #create-project-cli}
 {: cli}
 
-To generate the API key, refer [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
-To login to the IBM Cloud CLI, refer [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
+To generate the API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
+To login to the IBM Cloud CLI, see [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
 {: note}
 
 You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud_notm}} CLI to create a catalog workspace with the supported Storage Scale cluster version. The CLI requires a `values.json` file with your configuration settings.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-24"
 
 keywords:
 
@@ -23,9 +23,9 @@ subcollection: storage-scale-da
 # Enabling parallel vNIC
 {: #enabling-vnic}
 
-A Virtual Network Interface Controller (vNIC) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see [Managing network interfaces](https://cloud.ibm.com/docs/vpc?topic=vpc-using-instance-vnics).
+A Virtual Network Interface Controller (vNIC) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 
-As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated. This functionality is supported on both compute and storage profiles. For more details about the VSI profile, see [x86-64 instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui).
+As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated. This functionality is supported on both compute and storage profiles. For more details about the VSI profile, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 If the profile of compute nodes has a Bandwidth of 64 Gbps or more, a secondary network interface is activated only on the compute cluster, and scale will be configured on the secondary network interface.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-08-24"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -97,7 +97,7 @@ To get started with the deployment, complete the following steps:
 {: #create-api-key}
 {: step}
 
-Verify whether you have an {{site.data.keyword.cloud_notm}} API key. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). `ibmcloud_api_key` is the value required for this variable.
+Verify whether you have an {{site.data.keyword.cloud_notm}} API key. `ibmcloud_api_key` is the value required for this variable. For more information, see [Creating an API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key).
 
 ## Create SSH key
 {: #create-ssh-key}
@@ -167,7 +167,7 @@ To enable boot drive encryption for persistent storage, set `bms_boot_drive_encr
 ### Enable LDAP
 {: #enable-ldap}
 
-To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values). Existing LDAP is also supported.
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values). Existing LDAP is also supported.
 
 ### Enable AFM
 {: #enable-afm}

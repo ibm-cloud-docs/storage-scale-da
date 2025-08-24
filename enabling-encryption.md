@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-08-24"
 
 keywords:
 
@@ -42,7 +42,7 @@ By setting the `scale_encryption_type` deployment value to `gklm`, the key serve
 
 Before you begin, review the following tasks:
 
-1. To begin the deployment for the Scale cluster, refer to [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin the deployment for the Scale cluster, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 2. For more information on file system encryption using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
 
 A minimum of two key servers are added to the cluster to avoid a single point of failure.
@@ -57,7 +57,7 @@ To enable encryption on a Scale cluster, the following variables need to be defi
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_enabled` | Encryption ensures that data stored in the filesystem is protected from unauthorized access and secures sensitive information at rest. To enable the encryption for the filesystem. Select true or false. | true or false |
 |`scale_encryption_type` | To enable filesystem encryption, specify either 'key_protect' or 'gklm'. If neither is specified, the default value will be 'null' and encryption is disabled. | `gklm` |
-|`gklm_instances` | Specify the list of virtual server instances to be provisioned as GKLM (Guardium Key Lifecycle Manager) nodes in the cluster. Each object in the list includes the instance profile (machine type), the count (number of instances), and the image (OS image to use).  This configuration allows you to  manage and securely store encryption keys used across the cluster components. The profile must match a valid IBM Cloud VPC Gen2 instance profile format. A minimum of 2 and maximum of 5 gklm nodes are supported. For more details, refer [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui). | [{profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3"}] |
+|`gklm_instances` | Specify the list of virtual server instances to be provisioned as GKLM (Guardium Key Lifecycle Manager) nodes in the cluster. Each object in the list includes the instance profile (machine type), the count (number of instances), and the image (OS image to use).  This configuration allows you to  manage and securely store encryption keys used across the cluster components. The profile must match a valid IBM Cloud VPC Gen2 instance profile format. A minimum of 2 and maximum of 5 gklm nodes are supported. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | [{profile = "bx2-2x8" count  = 2 image  = "hpcc-scale-gklm4202-v2-5-3"}] |
 | `scale_encryption_admin_password` | Specifies the administrator password for GKLM-based encryption. This is required when encryption is enabled for IBM Spectrum Scale (GPFS) and the encryption type is set to 'gklm'. The password is used to authenticate administrative access to the Guardium Key Lifecycle Manager (GKLM) for managing encryption keys. Ensure the password meets your organization's security standards. | `xxxxxxx` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
@@ -118,7 +118,7 @@ The storage and compute clusters have access to the encrypted file system, and a
     {: codeblock}
 
 
-To learn more about encryption for {{site.data.keyword.scale_short}} or different encryption use cases, see [Encryption](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=administering-encryption){: external}.
+To learn more about encryption for {{site.data.keyword.scale_short}} or different encryption use cases, see [Encryption](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=administering-encryption){: external}.
 
 ### Accessing the GKLM dashboard
 {: #access-gklm}
@@ -145,7 +145,7 @@ By setting the `scale_encryption_type` deployment value to `key_protect`, the ke
 
 Before you begin, review the following tasks:
 
-1. To begin the deployment for the Scale cluster, refer to [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin the deployment for the Scale cluster, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 2. For more information on file system encryption using [IBM Key Protect](/docs/key-protect?topic=key-protect-getting-started-tutorial).
 
 ### Configuring encryption deployment values
