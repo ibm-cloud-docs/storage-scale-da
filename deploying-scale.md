@@ -163,7 +163,7 @@ You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud
     ```
     {: codeblock}
 
-    outputs:
+    **Outputs:**
 
     ```text
     Attempting install of Storage Scale cluster version x.x.x...
