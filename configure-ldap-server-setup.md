@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -36,14 +36,15 @@ OpenLDAP is an open source implementation of the Lightweight Directory Access Pr
 
 You should have access to a Linux system with root privileges. You should also have a basic understanding of the command-line interface and how to use a text editor.
 
-## Procedure
-{: #proc-config-openldap}
+## Steps to configure an OpenLDAP server
+{: #steps-config-openldap}
 
-Follow these steps to configure an OpenLDAP server:
+Following are the steps to configure an OpenLDAP server:
 
 1. Install the OpenLDAP server and client packages using the command:
-
-    `yum -y install openldap-servers openldap-clients`
+    ```pre
+    yum -y install openldap-servers openldap-clients
+    ```
 
 2. Copy the `DB_CONFIG.example` file to the /var/lib/ldap directory and change its ownership to the ldap user:
 

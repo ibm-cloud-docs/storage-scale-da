@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -24,11 +24,7 @@ subcollection: storage-scale-da
 # Configuring CES with LDAP deployment values
 {: #config-ldap-ces}
 
-The CES feature offers two authentication options, the default user-defined method and the use of directory services like AD, LDAP, or NIS.
-
-The directory services enable access to files through the NFS protocol.
-
-LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster.
+The CES feature offers two authentication options, the default user-defined method and the use of directory services like AD, LDAP, or NIS. The directory services enable access to files through the NFS protocol. LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster.
 
 By setting up the `enable_ldap`, `ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
 
@@ -43,7 +39,7 @@ mmuserauth service check
 
 The command that is mentioned indicates that the authentication process is being carried out through LDAP.
 
-To know more about CES authentication click [CES User Authentication](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication#verify-ces).
+For more information about CES authentication, see [CES User Authentication](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication#verify-ces).
 
 ## Creating and configuring a LDAP certificate with your LDAP server
 {: #create-configure-ldap-certificate}

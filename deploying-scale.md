@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -86,7 +86,7 @@ Once you deploy the project, in back-end a Schematics workspace is created for t
 3. You can see the list of workspaces created.
 
 When deployed, you can then access your deployed environment.
-For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster)
+For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster).
 
 You can retrieve the logs from either the Schematics workspace or the deployer node to view both successful and failed cluster deployments.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -37,7 +37,7 @@ The colocation feature avoids the need to provision extra virtual servers and im
 
 Before you begin, review the following information:
 
-1. To begin the deployment for the Scale cluster, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin with the Scale cluster deployment, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 
 2. For more information on cluster export service see, [how CES works](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication&interface=ui#verify-ces) topic.
 
@@ -57,56 +57,56 @@ To enable the CES feature on a Scale cluster, the following variables need to be
 
 The successful scale deployment with the CES feature enabled consists of different clusters:
 
-*   Storage cluster with defined storage and CES protocol nodes.
-*   Client cluster with defined client nodes that mounts file shares that are exported by protocol nodes with NFS protocol.
-*   (Optional) Compute cluster with defined compute nodes.
+* Storage cluster with defined storage and CES protocol nodes.
+* Client cluster with defined client nodes that mounts file shares that are exported by protocol nodes with NFS protocol.
+* **(Optional)** Compute cluster with defined compute nodes.
 
 ## Verifying CES on the file system
 {: #verify-ces}
 
-1.	Log in to any of the clusters (storage or compute nodes) by running the following SSH command:
+1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command:
 
     ```pre
     ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
     ```
 
-2.	To view the cluster shared root configuration on the storage cluster, run the following command:
+2. To view the cluster shared root configuration on the storage cluster, run the following command:
 
     ```pre
     mmlsconfig cesSharedRoot
     ```
 
-3.	To list the protocol nodes in the cluster, run the following command:
+3. To list the protocol nodes in the cluster, run the following command:
 
     ```pre
     mmces node list
     ```
 
-4.	To view the protocol cluster information, use the mmlscluster command:
+4. To view the protocol cluster information, use the mmlscluster command:
 
     ```pre
     mmlscluster --ces
     ```
 
-5.	Use the service list command that provides comprehensive list of the services that are running in the CES cluster, use --verbose and -a flag for detailed information:
+5. Use the service list command that provides comprehensive list of the services that are running in the CES cluster, use --verbose and -a flag for detailed information:
 
     ```pre
     mmces service list --verbose -a
     ```
 
-6.	Use the mmuserauth command to view the details on the type of authentication used for CES:
+6. Use the mmuserauth command to view the details on the type of authentication used for CES:
 
     ```pre
     mmuserauth service check
     ```
 
-7.	Use the mmnfs export command to add, change, list, load, or remove NFS export declarations for IP addresses on nodes that are configured as CES types. Use list to view the current NFS exports:
+7. Use the mmnfs export command to add, change, list, load, or remove NFS export declarations for IP addresses on nodes that are configured as CES types. Use list to view the current NFS exports:
 
     ```pre
     mmnfs export list
     ```
 
-8.	Use the mmlsquota command to display quota information for a user, group, or file set. The -j flag is used for displaying the quota for file set in a file system.
+8. Use the mmlsquota command to display quota information for a user, group, or file set. The -j flag is used for displaying the quota for file set in a file system.
 
     ```pre
     mmlsquota -j data FILESYSTEM

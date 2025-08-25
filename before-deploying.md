@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -167,7 +167,7 @@ To enable boot drive encryption for persistent storage, set `bms_boot_drive_encr
 ### Enable LDAP
 {: #enable-ldap}
 
-To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values). Existing LDAP is also supported.
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. Existing LDAP is also supported. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable AFM
 {: #enable-afm}

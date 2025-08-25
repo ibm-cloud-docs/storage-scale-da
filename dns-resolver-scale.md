@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-17"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -36,11 +36,11 @@ Private DNS zones are resolvable only on {{site.data.keyword.cloud}}, and only f
 To create a {{site.data.keyword.cloud_notm}} DNS Service instance setup and to automatically create and manage a new DNS instance ID, set the `dns_instance_id` value as "null" during deployment. In this case, the deployment creates a VPC (as necessary), DNS service instance ID, and the respective DNS zones. This process includes associating the new VPC under the appropriate permitted network.
 
 There are five domains that are created by default:
-    compute  = "comp.com"
-    storage  = "strg.com"
-    protocol = "ces.com"
-    client   = "clnt.com"
-    gklm     = "gklm.com"
+* compute  = "comp.com"
+* storage  = "strg.com"
+* protocol = "ces.com"
+* client   = "clnt.com"
+* gklm     = "gklm.com"
 
 ### Creating DNS zones with an existing {{site.data.keyword.cloud_notm}} DNS Services instance ID
 {: #dns-existing}

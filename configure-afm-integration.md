@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -24,15 +24,13 @@ subcollection: storage-scale-da
 # Enabling Active File Management to Cloud Object Storage
 {: #config-afm-integration-cos}
 
-Active File Management (AFM) to Cloud Object Storage (COS) is a feature that integrates {{site.data.keyword.scale_full_notm}} with {{site.data.keyword.cos_full_notm}}. Active File Management provides a hybrid cloud storage solution by allowing {{site.data.keyword.scale_full_notm}} to interact with IBM Cloud Object Storage as a storage target.
+Active File Management (AFM) to Cloud Object Storage (COS) is a feature that integrates {{site.data.keyword.scale_full_notm}} with {{site.data.keyword.cos_full_notm}}. Active File Management provides a hybrid cloud storage solution by allowing Storage Scale to interact with COS as a storage target. AFM enables data sharing across clusters even if the networks are unreliable or have high latency.
 
-AFM enables data sharing across clusters even if the networks are unreliable or have high latency.
-
-You can use the COS to run the workloads such as mobile applications, backup and restore, enterprise applications, big data analytics, and file server. These workloads can be cached on AFM to COS filesets for faster computation and synchronize back to the cloud object storage server.
+You can use COS to run the workloads such as mobile applications, backup and restore, enterprise applications, big data analytics, and file server. These workloads can be cached on AFM to COS filesets for faster computation and synchronize back to the cloud object storage server.
 
 ![Architecture diagram.](images/afm_cos_architecture.svg){: caption="AFM storage scale framework" caption-side="bottom"}
 
-An AFM to cloud object storage fileset is supported on all existing AFM fileset modes that includes Read-Only (RO), Single Writer (SW), Local Updates (LU), and Independent Writer (IW).
+An AFM to COS fileset is supported on all existing AFM fileset modes that includes Read-Only (RO), Single Writer (SW), Local Updates (LU), and Independent Writer (IW).
 
 {{site.data.keyword.scale_full_notm}} AFM gateway nodes can be a set of BMS or VSIs.
 {: note}
@@ -81,25 +79,23 @@ Following components are required for a successful scale deployment with AFM fea
 
 Verify Active File Management on the Storage Cluster by using the following steps:
 
-1. Login to one of the storage nodes by using SSH with a jump host by running the command:
-
-`ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE`
+1. Login to one of the storage nodes by using SSH with a jump host by running the command: `ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE`
 
 2. To get details about a specific fileset and its mode (including AFM specifics), run the `mmlsfileset fs1 fileset1 --afm -L` command.
 
-    * fs1: The name of the file system.
-    * fileset1: The name of the fileset.
-    * --afm: Option to include AFM-specific details.
-    * -L: Option to list all details about the fileset.
+    * **fs1:** The name of the file system.
+    * **fileset1:** The name of the fileset.
+    * **--afm:** Option to include AFM-specific details.
+    * **-L:** Option to list all details about the fileset.
 
 3. To check the synchronization status from an AFM fileset to the home cluster, run the `mmafmctl  fs1 getstate -j fileset1` command.
-    * fs1: The name of the file system.
-    * getstate: The operation to retrieve the state.
-    * -j fileset1: Specifies the fileset for which to check the synchronization state.
+    * **fs1:** The name of the file system.
+    * **getstate:** The operation to retrieve the state.
+    * **-j fileset1:** Specifies the fileset for which to check the synchronization state.
 
 4. To check the HMAC for a bucket, run the `mmafmcoskeys storage-scale-bucket get` command.
-    * storage-scale-bucket: The name of the Cloud Object Storage bucket.
-    * get: Operation to retrieve the HMAC key associated with the specified bucket.
+    * **storage-scale-bucket:** The name of the Cloud Object Storage bucket.
+    * **get:** Operation to retrieve the HMAC key associated with the specified bucket.
 
 ## LDAP user access to COS filesets
 {: #ldap-user-access-cos}

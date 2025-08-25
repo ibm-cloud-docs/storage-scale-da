@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -77,9 +77,7 @@ MROT configuration occurs only when both the storage and compute cluster VSI pro
 ### Verification
 {: #mrot-verification}
 
-To verify the configuration of MROT and the logical subnet, use the following commands:
-
-`mmdiag --network`
+To verify the configuration of MROT and the logical subnet, use the following commands: `mmdiag --network`
 
 #### On compute cluster
 {: #on-compute-cluster}
