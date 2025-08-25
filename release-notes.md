@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-08-25"
 
 keywords:
 
@@ -37,7 +37,10 @@ In this release, IBM Storage Scale deployable architecture is introduced. {{site
 
 The following new features are added as part of this release:
 
-* Refactoring of the code structure to use the Deployable Architecture module.
-* Support for SCC Workload Protection
-* Support for Activity Tracker Event Routing
-* Scale GPFS version updated to 5.2.3.2
+* [IBM Storage Scale deployable architecture](/docs/storage-scale-da?topic=storage-scale-da-storage-scale): You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources.
+
+* [IBM Cloud Security and Compliance Center Workload Protection](/docs/storage-scale-da?topic=storage-scale-da-scc-overview): IBM Cloud® Security and Compliance Center Workload Protection (SCCWP) helps you accelerate your hybrid cloud adoption by addressing security and regulatory compliance.
+
+* [IBM Cloud Activity Tracker Event Routing](/docs/storage-scale-da?topic=storage-scale-da-activity-tracker-overview): This is a platform service which manages the auditing events at the account-level by configuring targets and routes that define where auditing data is routed.
+
+* Scale GPFS version updated to 5.2.3.2.
