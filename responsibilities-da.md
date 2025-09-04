@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -117,7 +117,7 @@ IBM is responsible for the recovery of Storage Scale Computing on IBM Cloud comp
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|General|  | * Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
+|General| Provide security controls commensurate to best practice for {{site.data.keyword.scale_full}} in Cloud. | * Set up and maintain disaster recovery capabilities for your apps and data. For example, to prepare your cluster for HA/DR scenarios, follow the guidance in High availability on IBM Cloud. Note that persistent storage of data such as application logs and cluster metrics are not set up by default.  \n * Creating resources in a secondary region and managing the application and data disaster recovery. |
 {: caption="Responsibilities for disaster recovery" caption-side="bottom"}
 
 ## Applications and data

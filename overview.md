@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -30,7 +30,7 @@ A deployable architecture is designed with components, modules, and dependencies
 
 For more information, see [Deployable architecture on IBM Cloud](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document.
 
-The deployer node—also referred as the Ansible Controller Node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram), manages the deployment and configuration of both compute and storage cluster resources.
+The deployer node, which is also referred as the Ansible Controller node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram), manages the deployment and configuration of both compute and storage cluster resources.
 
 With the new release, the naming convention of bootstrap node is changed to **deployer node**.
 {: tip}

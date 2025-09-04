@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -123,7 +123,7 @@ You need to check whether the provided resource group name is available in the s
 {: troubleshoot}
 {: support}
 
-You are receiving the following error when you try to either generate or apply a plan to your workspace: `Apply failed due to "Error: [ERROR] No image found with name hpcc-spectrumscalecontroller513-06may2021-rhel84-v6."`
+You are receiving the following error when you try to either generate or apply a plan to your workspace: `Apply failed due to "Error: [ERROR] No image found with name hpcc-scale5232-rhel810-v1."`
 {: tsSymptoms}
 
 Either during generating or applying a plan, Terraform tries to validate if the provided image name and its image ID are present in the `image_map.tf` file. If Terraform finds the correct image details, it provisions the instances, but if the correct image details can't be found, Terraform tries to fetch the image details from {{site.data.keyword.cloud_notm}} through `data_source`.
