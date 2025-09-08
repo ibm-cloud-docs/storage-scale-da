@@ -20,6 +20,7 @@ subcollection: storage-scale-da
 {:important: .important}
 {:beta: .beta}
 {:row-headers: .row-headers}
+{:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
 # Expanding the IBM Storage Scale cluster
@@ -27,7 +28,7 @@ subcollection: storage-scale-da
 
 This document describes the procedure to expand an existing IBM Storage Scale cluster using Terraform.
 
-Expanding the Scale cluster should be performed with caution. Running incorrect steps or skipped verifications may result in cluster misconfiguration. Proceed only if you are familiar with the process and its impact.
+Expanding the Scale cluster should be performed with caution. Running incorrect steps or skipped verifications may result in cluster misconfiguration. You must proceed only if you are familiar with the process and its impact.
 {: important}
 
 ## Prerequisites
@@ -37,40 +38,35 @@ Expanding the Scale cluster should be performed with caution. Running incorrect 
 * Sufficient permissions to modify Terraform configuration files and run the Terraform commands.
 * Backup of your existing Terraform state and configuration.
 
-## Steps to expand the cluster
-{: #steps}
-
-Following are the steps required to expand the Scale cluster.
+Following are the steps required to expand the Scale cluster using Terraform.
 
 ## Log in to the Deployer node
 {: #login-deployer}
 {: step}
 
 Access the deployer node that was originally used to provision the cluster. All cluster expansion operations must be initiated from this node.
+
 `ssh <deployer-node>`
 
-## Update the Terraform variables file
+## Update the Terraform variable file
 {: #terraform-var-file}
 {: step}
 
-Edit the Terraform variables file `vi /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json` to include the new configuration details such as additional nodes, storage, or network settings. Update the file with the required changes and save.
+Edit the terraform variables file `vi /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json` to include the new configuration details such as additional nodes, storage, or network settings. Update the file with the required changes and save.
 
-## Run Terraform plan
+## Run the Terraform plan
 {: #run-terraform-plan}
 {: step}
 
-Generate an execution plan to review the changes Terraform will apply:
-`terraform plan`
+Generate an execution plan to review the changes for the terraform using the command `terraform plan`.
 
-Ensure that only the planned modifications (for example, new nodes or resources) are listed.
-
-Verify there are no destructive changes that could impact the existing cluster.
+Ensure only the planned modifications (for example, new nodes or resources) are listed. Verify there are no destructive changes that could impact the existing cluster.
 
 ## Apply the changes
 {: #apply-changes}
 {: step}
 
-If the plan looks correct, apply the changes to expand the cluster using the command `terraform apply`
+If the plan looks correct, apply the changes to expand the cluster using the command `terraform apply`.
 
 Confirm the action when prompted. Terraform will provision the additional resources as specified in your updated configuration.
 
