@@ -41,6 +41,7 @@ toc:
       - dns-resolver-scale.md
       - bastion-node-scale.md
       - deployer-node-scale.md
+      - expanding-scale-cluster.md
   - navgroup:
       id: howto
       topics:

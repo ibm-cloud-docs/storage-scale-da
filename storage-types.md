@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-24"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -74,26 +74,115 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 {: caption="Storage Scale storage types comparison" caption-side="bottom"}
 {: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
-## Supported storage types
+## Storage types and supported configurations
 {: #storage-type-table}
 
-The following table lists the features and the supported storage types:
+Following is the summary of the different storage types and their supported configurations.
 
-|Category| Scratch | Persistent | Evaluation |
-| ---- | ----------------- | ---------- | ---------- |
-| Compute nodes | Yes | Yes | Yes |
-| Storage nodes | Yes | Yes | Yes |
-| Protocol nodes | Yes | Yes | Yes |
-| Client nodes | Yes | Yes | Yes |
-| GKLM | Yes | Yes | Yes |
-| AFM | Yes | Yes | Yes |
-| KMS | Yes | Yes | Yes |
-| LDAP | Yes | Yes | Yes |
-| Colocation | Yes | Yes | Yes |
-| tie_breaker_baremetal_server_profile | No | Yes | No |
-| bms_boot_drive_encryption | No | Yes | No |
-| vNIC | Yes | No | No |
-{: row-headers}
-{: caption="Supported storage types" caption-side="bottom"}
+### Scratch storage
+{: #storage-type}
+
+**Supported Configurations:**
+
+* Storage (VSI)
+* Storage (VSI) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol + Client + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
+
+**Not recommended configurations**
+
+* Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (VSI)
+* Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client + AFM (VSI)
+* Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI)
+* Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (BareMetal)
+
+### Persistent storage
+{: #persistent-type}
+
+**Supported Configurations**
+
+* Storage (BareMetal)
+* Storage (BareMetal) + AFM (BareMetal)
+* Storage (BareMetal) + Compute (VSI) + AFM (BareMetal)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + AFM (BareMetal)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (BareMetal)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + LDAP (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS + LDAP (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
+
+**Not recommended configurations**
+
+* Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + AFM (BareMetal)
+* Storage (BareMetal) + Compute (BareMetal) + Protocol (VSI) + Client + AFM (BareMetal)
+* Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (BareMetal) + AFM (BareMetal)
+* Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (BareMetal)
+* Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (BareMetal)
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal)
+
+### Evaluation storage
+{: #evaluation-type}
+
+**Supported Configurations**
+
+* Storage (VSI)
+* Storage (VSI) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol + Client + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
+* Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
+
+**Not recommended configurations**
+
+* Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + AFM (VSI)
+* Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (VSI)
+* Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client + AFM (VSI)
+* Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI)
+* Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI)
+
+Following are the recommended profiles for the nodes:
+
+* Compute - Always use the VSI profile
+* Client - Always use the VSI profile
+* GKLM - Always use the VSI profile
+* LDAP - Always use the VSI profile
+* Scratch - Always use the VSI profile
+* Persistent - Always use the BareMetal profile
+* Evaluation - Always use the VSI profile
+
+## Conclusion
+{: #conclusion}
+
+* Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
+* Boot drive encryption is supported only for Persistent storage.
+* `tie_breaker_bm_server` is not applicable for Scratch (only for Persistent). If specified for Scratch, it will be ignored. For Persistent, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
+* The evaluation image supports: Compute, Storage, Protocol, and AFM.
+* ICN is mandatory for both Scratch and Persistent.
+* Protocol cannot be enabled when using a stock image for either `storage_instances` or `storage_baremetal_server`. Protocol node requires a custom image since the storage image is internally reused as the protocol image.
+* If protocol_instances = 0, enabling client has no effect.
+* `afm_instances` and `protocol_instances` profiles must not be smaller than the default profile.
 
 For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-storage-scale-product-editions){: external}.
