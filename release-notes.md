@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -26,7 +26,7 @@ The release notes describes the brief overview of the new features, enhancements
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-## 05 July 2025
+## September 2025
 {: #subcollection-mar0525}
 {: release-note}
 
