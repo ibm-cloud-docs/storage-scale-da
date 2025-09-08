@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -47,8 +47,6 @@ The default VPC instance profile for the deployer node is selected based on the 
 
 This offering supports the Bring-Your-Own-License (BYOL) model for deploying {{site.data.keyword.scale_full_notm}} on {{site.data.keyword.cloud_notm}}.
 
-* **BYOL deployment** - Ensure that you have sufficient software licenses to deploy the required capacity on the {{site.data.keyword.cloud_notm}} cluster.
+* **BYOL deployment** - Ensure that you have sufficient software licenses to deploy the {{site.data.keyword.scale_full_notm}} cluster.
 
-* **Evaluation licenses** - If you do not have the license, contact your {{site.data.keyword.cloud_notm}} sales or support team for evaluation licenses.
-
-* **License-free evaluation** - You can test the offering without a license by selecting the evaluation storage type.
+* **License-free evaluation** - You can test the offering without a license by selecting the storage type as evaluation.
