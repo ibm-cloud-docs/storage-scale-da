@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords:
 
@@ -46,19 +46,25 @@ Following are the steps required to expand the Scale cluster using Terraform.
 
 Access the deployer node that was originally used to provision the cluster. All cluster expansion operations must be initiated from this node.
 
-`ssh <deployer-node>`
+`ssh_to_deployer = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@bastion_ip vpcuser@deployer_ip"`
 
 ## Update the Terraform variable file
 {: #terraform-var-file}
 {: step}
 
-Edit the terraform variables file `vi /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json` to include the new configuration details such as additional nodes, storage, or network settings. Update the file with the required changes and save.
+1. Run the command: `sudo su -`
+    The VPC user do not have the required permissions to make the changes. So you need to switch to `root` and perform the changes.
+2. cd /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json
+3. vi /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json
+4. Update the file with the required changes and save.
 
 ## Run the Terraform plan
 {: #run-terraform-plan}
 {: step}
 
-Generate an execution plan to review the changes for the terraform using the command `terraform plan`.
+Generate an execution plan to review the changes Terraform will apply:
+
+`terraform plan`
 
 Ensure only the planned modifications (for example, new nodes or resources) are listed. Verify there are no destructive changes that could impact the existing cluster.
 
