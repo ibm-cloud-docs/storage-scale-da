@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-09-09"
 
 keywords:
 subcollection: storage-scale-da
@@ -63,7 +63,7 @@ The deployment process is divided into two stages:
 
 This hybrid model improves modularity, enhances user control, and ensures a transparent, maintainable, and scalable HPC solution.
 
-**Command to ssh** - `ssh_to_deployer = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@52.116.127.21 vpcuser@10.241.16.4"`
+**Command to ssh** - `ssh_to_deployer = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<prefix-deployer-node> vpcuser@<prefix-bastion-node>"`
 
 ## Software deployment and management
 {: #scale-sw-mgmt-dn}

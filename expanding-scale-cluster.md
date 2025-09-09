@@ -54,17 +54,15 @@ Access the deployer node that was originally used to provision the cluster. All 
 
 1. Run the command: `sudo su -`
     The VPC user do not have the required permissions to make the changes. So you need to switch to `root` and perform the changes.
-2. cd /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json
-3. vi /opt/ibm/terraform-ibm-hpc/terraform.tfvars.json
+2. cd /opt/ibm/terraform-ibm-hpc/
+3. vi /terraform.tfvars.json
 4. Update the file with the required changes and save.
 
 ## Run the Terraform plan
 {: #run-terraform-plan}
 {: step}
 
-Generate an execution plan to review the changes Terraform will apply:
-
-`terraform plan`
+Generate an execution plan to review the changes terraform will apply: `terraform plan`
 
 Ensure only the planned modifications (for example, new nodes or resources) are listed. Verify there are no destructive changes that could impact the existing cluster.
 
