@@ -62,7 +62,7 @@ Access the deployer node that was originally used to provision the cluster. All 
 {: #run-terraform-plan}
 {: step}
 
-Generate an execution plan to review the changes terraform will apply: `terraform plan`
+Generate an execution plan to review the changes terraform will apply: `terraform plan`.
 
 Ensure only the planned modifications (for example, new nodes or resources) are listed. Verify there are no destructive changes that could impact the existing cluster.
 
@@ -74,9 +74,9 @@ If the plan looks correct, apply the changes to expand the cluster using the com
 
 Confirm the action when prompted. Terraform will provision the additional resources as specified in your updated configuration.
 
-**Important**
+**Important:**
 
-* Expanding the cluster is an at-your-own-risk operation.
+* Expanding the cluster is an **at-your-own-risk** operation.
 * If the steps are not followed correctly, the cluster may be misconfigured or become unstable.
 * Contraction or reduction of the cluster is not supported. Attempting to reduce resources may result in complete cluster failure and permanent data loss.
 * Always maintain proper backups and validate cluster health after expansion.

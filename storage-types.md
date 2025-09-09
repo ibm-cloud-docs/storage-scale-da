@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords:
 
@@ -77,12 +77,12 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 ## Storage types and supported configurations
 {: #storage-type-table}
 
-Following is the summary of the different storage types and their supported configurations.
+Following are the list of different storage types and their supported configurations.
 
 ### Scratch storage
 {: #storage-type}
 
-**Supported Configurations:**
+**Supported configurations:**
 
 * Storage (VSI)
 * Storage (VSI) + AFM (VSI)
@@ -97,7 +97,7 @@ Following is the summary of the different storage types and their supported conf
 * Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
 * Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
 
-**Not recommended configurations**
+**Not recommended configurations:**
 
 * Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + AFM (VSI)
 * Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (VSI)
@@ -110,7 +110,7 @@ Following is the summary of the different storage types and their supported conf
 ### Persistent storage
 {: #persistent-type}
 
-**Supported Configurations**
+**Supported configurations:**
 
 * Storage (BareMetal)
 * Storage (BareMetal) + AFM (BareMetal)
@@ -127,7 +127,7 @@ Following is the summary of the different storage types and their supported conf
 * Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
 * Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
 
-**Not recommended configurations**
+**Not recommended configurations:**
 
 * Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + AFM (BareMetal)
 * Storage (BareMetal) + Compute (BareMetal) + Protocol (VSI) + Client + AFM (BareMetal)
@@ -140,7 +140,7 @@ Following is the summary of the different storage types and their supported conf
 ### Evaluation storage
 {: #evaluation-type}
 
-**Supported Configurations**
+**Supported configurations:**
 
 * Storage (VSI)
 * Storage (VSI) + AFM (VSI)
@@ -155,7 +155,7 @@ Following is the summary of the different storage types and their supported conf
 * Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
 * Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
 
-**Not recommended configurations**
+**Not recommended configurations:**
 
 * Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + AFM (VSI)
 * Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (VSI)
