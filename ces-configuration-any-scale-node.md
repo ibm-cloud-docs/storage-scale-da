@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-10"
 
 keywords:
 
@@ -31,7 +31,7 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 
 1. Setting up Cluster Export Services Shared root file system. For example, create CesSharedRoot by using this command:
     ```pre
-    mmchconfig cesSharedRoot=/gpfsfs1
+    mmchconfig cesSharedRoot=/gpfsfs1/
     ```
 
     The CES shared root (cesSharedRoot) is needed to store CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as a shared root. The `mmchconfig` command is used to configure this directory as part of setting up a CES cluster as mentioned in the example.
@@ -45,9 +45,9 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 
     In this step, configuration of CES nodes must be done before you configure any protocols. Nodes that participate in the handling of protocol exports must be configured as CES nodes.
 
-4. Check the status of CES nodes: `mces`
+4. Check the status of CES nodes: `mmces state show`
 
-5. Assign CES IP addresses to protocol nodes by using the `mmces` address add command.
+5. Assign CES IP addresses to protocol nodes by using the `mmces address add` command.
 
     Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. Configure the CES protocol IP addresses by using the following command:
     ```pre
@@ -154,5 +154,5 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 
 13. Mount the NFS share from the CES server to the LSF node:
     ```pre
-    mount -t nfs4 -o sec=sys storage-scale-ces-1.cesscale.com:/gpfs/fs1/lsf /mnt/lsf
+    mount -t nfs -o sec=sys,vers=4.1 storage-scale-ces-1.cesscale.com:/gpfs/fs1/lsf /mnt/lsf
     ```
