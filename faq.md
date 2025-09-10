@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-09-10"
 
 keywords:
 
@@ -222,3 +222,10 @@ For example, in the back-end if the zones provided is [\"us-east-1\"] then only 
 {: #instance-storage}
 
 When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
+
+## What are requirements for the configuration of storage types?
+{: #storage-types}
+
+* Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
+* Boot drive encryption is supported only for Persistent storage.
+* `tie_breaker_bm_server` is not applicable for Scratch (only for Persistent) storage. If specified for Scratch, it will be ignored. For Persistent, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
