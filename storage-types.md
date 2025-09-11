@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -47,11 +47,11 @@ A scratch configuration uses virtual server instances with instance storage. If 
 | Storage (VSI) + Compute (VSI) + Protocol + Client + AFM (VSI) | Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI) |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS | Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) | Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (BareMetal) |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
 {: row-headers}
 {: caption="Scratch storage configurations" caption-side="bottom"}
 
@@ -71,13 +71,13 @@ A persistent configuration uses bare metal servers with locally attached NVMe st
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (BareMetal) | Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (BareMetal) |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) | Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) |
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + LDAP (VSI)
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS + LDAP (VSI)
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI)
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
-| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + LDAP (VSI) | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS + LDAP (VSI) | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
+| Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
 {: row-headers}
 {: caption="Persistent storage configurations" caption-side="bottom"}
 
@@ -95,13 +95,13 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Storage (VSI) + Compute (VSI) + AFM (VSI) | Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client + AFM (VSI) |
 | Storage (VSI) + Compute (VSI) + Protocol + AFM (VSI) | Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI) |
 | Storage (VSI) + Compute (VSI) + Protocol + Client + AFM (VSI) | Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI)
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
+| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
 {: row-headers}
 {: caption="Evaluation storage configurations" caption-side="bottom"}
 
@@ -129,24 +129,5 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 
 For the storage instance profiles, "d" profile is mandatory. But for other profiles, this is not required.
 {: tip}
-
-Following are the recommended profiles for the nodes:
-
-* Compute - Always use the VSI profile
-* Client - Always use the VSI profile
-* GKLM - Always use the VSI profile
-* LDAP - Always use the VSI profile
-* Scratch - Always use the VSI profile
-* Persistent - Always use the BareMetal profile
-* Evaluation - Always use the VSI profile
-
-## Conclusion
-{: #conclusion}
-
-* Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
-* Boot drive encryption is supported only for Persistent storage.
-* `tie_breaker_bm_server` is not applicable for Scratch (only for Persistent) storage. If specified for Scratch, it will be ignored. For Persistent, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
-* If `protocol_instances` = 0, enabling client has no effect.
-* `afm_instances` and `protocol_instances` profiles should not be smaller than the default profile.
 
 For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-storage-scale-product-editions){: external}.
