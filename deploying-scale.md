@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -103,7 +103,7 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 2. If the job was successful in creating all of the resources that are part of the deployment, then your workspace goes to an active state.
 3. Use the SSH command in the output of your apply plan log to log in as `vpcuser` for the deployer, compute, and storage node through the bastion host as `ubuntu` user. See the following sample response of a successful deployment:
 
-**Sample response**
+**Sample response**:
 
 ```pre
 2022/05/09 14:35:53 Terraform apply | Apply complete! Resources: 41 added, 0 changed, 0 destroyed.
@@ -122,7 +122,7 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 2. If the job fails to create any of the resources that are a part of the deployment, then your workspace goes to a failed state. Deployment might error out if any of the deployment values are incorrect or if there are any issues at the infrastructure level.
 3. Fix the errors, and then click Apply plan again. See the following sample response of a failed deployment:
 
-**Sample response**
+**Sample response**:
 
 ```pre
 2022/05/09 12:51:12 Terraform plan | Error: [ERROR] No SSH Key found with name ssh-key-east-new

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -224,7 +224,7 @@ For example, in the back-end if the zones provided is [\"us-east-1\"] then only 
 When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
 
 ## What are requirements for the configuration of storage types?
-{: #storage-types}
+{: #storage-quest}
 
 * Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
 * Boot drive encryption is supported only for Persistent storage.

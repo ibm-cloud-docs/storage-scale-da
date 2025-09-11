@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-09-11"
 
 keywords: # Not typically populated
 
@@ -25,6 +25,7 @@ content-type: reference-architecture
 production: false
 
 ---
+
 {{site.data.keyword.attribute-definition-list}}
 
 # IBM Storage Scale
