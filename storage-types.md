@@ -19,7 +19,6 @@ subcollection: storage-scale-da
 {:note: .note}
 {:important: .important}
 {:beta: .beta}
-{:row-headers: .row-headers}
 {:table: .aria-labeledby="caption"}
 
 # Storage types
@@ -70,7 +69,6 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Storage Scale edition and version | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Developer Edition v5.2.3.0 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
-{: row-headers}
 {: caption="Storage Scale storage types comparison" caption-side="bottom"}
 {: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
