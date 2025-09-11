@@ -28,6 +28,7 @@ toc:
       - deployment-values.md
       - deploying-scale.md
       - storage-types.md
+      - scale-storage-types.md
   - navgroup:
       id: plan
       topics:
