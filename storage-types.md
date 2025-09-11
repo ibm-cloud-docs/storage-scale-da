@@ -52,7 +52,6 @@ A scratch configuration uses virtual server instances with instance storage. If 
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
-{: row-headers}
 {: caption="Scratch storage configurations" caption-side="bottom"}
 
 ## Persistent storage
@@ -78,7 +77,6 @@ A persistent configuration uses bare metal servers with locally attached NVMe st
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation | |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
-{: row-headers}
 {: caption="Persistent storage configurations" caption-side="bottom"}
 
 ## Evaluation storage
@@ -102,7 +100,6 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
-{: row-headers}
 {: caption="Evaluation storage configurations" caption-side="bottom"}
 
 ## Storage type comparison
