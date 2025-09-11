@@ -38,22 +38,6 @@ The offering enables deployment of either scratch (or ephemeral) or persistent s
 
 A scratch configuration uses virtual server instances with instance storage. If a virtual server instance with instance storage is powered off then all the data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads.
 
-| Supported configurations | Not recommended configurations |
-| ----------------- | ---------- |
-| Storage (VSI) | Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + AFM (VSI) |
-| Storage (VSI) + AFM (VSI) | Storage (VSI) + Compute (VSI) + Protocol (BareMetal) + Client + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + AFM (VSI) | Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + Protocol + AFM (VSI) | Storage (VSI) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + Protocol + Client + AFM (VSI) | Storage (BareMetal) + Compute (BareMetal) + Protocol (BareMetal) + Client (BareMetal) + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS | Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) | Storage (BareMetal) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (BareMetal) |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + LDAP | |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP | |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
-| Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
-{: caption="Scratch storage configurations" caption-side="bottom"}
-
 ## Persistent storage
 {: #persistent-storage}
 
