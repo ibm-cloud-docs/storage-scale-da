@@ -25,6 +25,7 @@ subcollection: storage-scale-da
 {: #storage-types}
 
 The {{site.data.keyword.scale_short}} solution offers three different storage types:
+
 * Scratch storage
 * Persistent storage
 * Evaluation storage
