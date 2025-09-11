@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-11"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -10,7 +10,7 @@ use-case: ITServiceManagement
 industry: Technology
 subcollection: storage-scale-da
 content-type: tutorial
-deployment-url: https://cloud.ibm.com/catalog/content/ibm-spectrum-scale-d722b6b6-8bb5-4506-8f0f-03a5f05a3d6e-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjYWxsX3Byb2R1Y3Rz
+deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjYWxsX3Byb2R1Y3Rz
 
 
 ---
