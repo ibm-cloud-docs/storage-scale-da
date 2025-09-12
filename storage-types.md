@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-12"
 
 keywords:
 
@@ -31,7 +31,7 @@ The {{site.data.keyword.scale_short}} solution offers three different storage ty
 * Evaluation storage
 {: shortdesc}
 
-The offering enables deployment of either scratch (or ephemeral) or persistent storage, depending on application requirements. A scratch configuration uses virtual server instances with instance storage, whereas a persistent configuration uses bare metal servers with locally attached NVMe storage. If a virtual server instance with instance storage is powered off, all data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads. In addition to higher resilience, persistent storage provides higher performance and capacity than scratch storage.
+The offering enables deployment of either scratch (or ephemeral), persistent, or evaluation storage depending on application requirements.
 
 ## Scratch storage
 {: #scratch-storage}
