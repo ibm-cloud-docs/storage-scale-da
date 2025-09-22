@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-22"
 
 keywords:
 
@@ -61,9 +61,9 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Storage Scale nodes| * Deploy highly available dedicated storage nodes in a secured, customer-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | Use the provided console tools to request that storage nodes are rebooted or reloaded, and troubleshoot issues such as when the storage nodes are in an unhealthy state. |
+|Storage Scale nodes| * Deploy highly available dedicated storage nodes in a secured, customer-owned infrastructure account for each cluster.  \n * Ensure the health of storage nodes in OS level. | It is the customer responsibility to update and reboot the nodes if necessary and troubleshoot issues such as when the storage nodes are in an unhealthy state. For more information, see [Storage Scale documentation for Upgrades](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=upgrading).|
 |Compute nodes | * Provision compute nodes in VPC under your IBM Cloud infrastructure account.  \n *  If you have the right permissions and sufficient quota, then the required amount of compute nodes will be successfully provisioned.  \n * Fulfill requests for more infrastructure, such as adding, reloading, updating, and removing compute nodes.  \n * Fulfill automation requests to help recover compute nodes.  \n * Ensure the health of compute nodes in OS level. | * Use the provided API, CLI, or console tools to adjust storage capacity to meet the needs of your workload.  \n * Deploy application/tools in cluster.  \n * Ensure that you raise the sufficient quota request. |
-|Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Provide the ability to isolate network traffic with bastion nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload. |
+|Cluster networking| * Set up cluster management components, such as public or private cloud service endpoints.  \n * Provide the ability to isolate network traffic with bastion nodes. | Use IBM Cloud VPC tools to adjust networking configuration to meet the needs of your workload.  |
 |Observability| Provide a standard IBM Cloud Console for monitoring the status of VPC resources(VSI, network, storage, and so on). | Set up and monitor the health of your cluster health metrics. |
 {: caption="Responsibilities for incident and operations" caption-side="bottom"}
 
@@ -76,7 +76,7 @@ You and IBM share responsibilities for keeping your clusters at the supported pl
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Storage Scale nodes| Provide scale node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) storage nodes updates that include operating system; or to request that storage nodes are rebooted. |
+|Storage Scale nodes| Provide scale node patch operating system(OS), version, and security updates for image used for new cluster creation. | Use the IBM Cloud tools to apply the provided(existing) storage nodes updates that include operating system. It is the customer responsibility to update and reboot the nodes if necessary and troubleshoot issues such as when the storage nodes are in an unhealthy state. For more information, see [Storage Scale documentation for Upgrades](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=upgrading). |
 |Compute nodes| Provide compute node patch operating system (OS), version, and security updates. Not supported on existing running VSIs, only for new VSIs with latest image. | Use IBM Cloud tools to apply the provided compute node updates that include operating system patches; or to raise ticket to request that worker nodes are rebooted. |
 |Cluster version| Provide image for new version of Scale for new cluster creation. | Update existing storage nodes and compute nodes to new Scale version, or create new cluster with latest image to run with new cluster version |
 {: caption="Responsibilities for change management" caption-side="bottom"}
