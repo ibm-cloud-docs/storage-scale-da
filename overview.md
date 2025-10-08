@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-10-08"
 
 keywords:
 
@@ -23,11 +23,10 @@ subcollection: storage-scale-da
 # Overview of IBM Storage Scale
 {: #overview-storage-scale}
 
-{{site.data.keyword.scale_full}} enables you to quickly deploy high-performance computing (HPC) clusters with powerful storage capabilities. By leveraging the open-source, Terraform-based automation using the deployable architecture, you can easily provision and configure IBM Cloud® resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end Storage cluster.
+{{site.data.keyword.scale_full}} enables you to quickly deploy High-Performance Computing (HPC) clusters with powerful storage capabilities. By leveraging the open-source, Terraform-based automation using the deployable architecture, you can easily provision and configure IBM Cloud® resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end Storage cluster.
 
 The offering uses a deployer node where actual provisioning of compute nodes, storage nodes, installation, and configuration of {{site.data.keyword.scale_short}} takes place. The top-level Terraform code from DA modules deploys the deployer node and starts subprocesses to trigger the secondary layer of Terraform code for actual deployment of cluster components.
 A deployable architecture is designed with components, modules, and dependencies that work together to enable seamless deployment. You can define the configuration properties and make use of the automation.
-
 For more information, see [Deployable architecture on IBM Cloud](https://www.ibm.com/think/insights/deployable-architecture-on-ibm-cloud-simplifying-system-deployment) document.
 
 The deployer node, which is also referred as the Ansible Controller node in the [architecture diagram](/docs/storage-scale-da?topic=storage-scale-da-storage-scale#architecture-diagram), manages the deployment and configuration of both compute and storage cluster resources.
