@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -27,16 +27,16 @@ A Virtual Network Interface Controller (vNIC) is a virtual representation of a p
 
 As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated. This functionality is supported on both compute and storage profiles. For more details about the VSI profile, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
-If the profile of compute nodes has a Bandwidth of 64 Gbps or more, a secondary network interface is activated only on the compute cluster, and scale will be configured on the secondary network interface.
+If the profile of compute nodes has a bandwidth of 64 Gbps or more, a secondary network interface is activated only on the compute cluster and scale is configured on the secondary network interface.
 
 Compute vNICs are connected to two different subnets, providing network segmentation and isolation between application traffic and storage traffic. This setup enhances security and efficiency by keeping these types of traffic separate and ensuring that each subnet serves its dedicated purpose. The primary interface of the compute cluster is dedicated to application communication. The secondary interface is utilized for scale communication as scale is configured on the secondary interface.
 
-Similarly, if the profile of storage nodes has a Bandwidth of 64 Gbps or more, a secondary network interface is activated only on the storage cluster, and scale will be configured on the primary network interface. Storage vNICs are connected to the same subnets, handling scaled traffic. Both primary and secondary interfaces are dedicated to scale communication. Communication occurs between the primary and secondary interfaces of the storage cluster to the secondary interface of the compute cluster.
+Similarly, if the profile of storage nodes has a bandwidth of 64 Gbps or more, a secondary network interface is activated only on the storage cluster, and scale will be configured on the primary network interface. Storage vNICs are connected to the same subnets, handling scaled traffic. Both primary and secondary interfaces are dedicated to scale communication. Communication occurs between the primary and secondary interfaces of the storage cluster to the secondary interface of the compute cluster.
 
 Parallel vNIC feature is not supported for persistent storage type.
 {: note}
 
-![Architecture diagram.](images/install-config-spectrum-scale.png){: caption="Install and Configure Storage Scale" caption-side="bottom"}
+![Architecture diagram](images/install-config-spectrum-scale.png){: caption="Install and Configure Storage Scale" caption-side="bottom"}
 
 ## Benefits
 {: #benefits}

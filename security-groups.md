@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-10-27"
 keywords: storage scale, security groups
 
 subcollection: storage-scale-da
@@ -23,28 +23,28 @@ subcollection: storage-scale-da
 # Storage Scale security groups
 {: #security-groups}
 
-The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups customized for different node types such as bastion, storage, and client security group. Additionally, when optional features are enabled, the automation creates specific security groups:
+The {{site.data.keyword.scale_full_notm}} deployment currently supports the creation of new security groups through the automation process. This automated setup provisions distinct security groups that are customized for different node types such as bastion, storage, and client security group. Also, when optional features are enabled, the automation creates specific security groups:
 * ldap for LDAP integration
 * gklm for Guardium Key Lifecycle Manager (GKLM)
 * comp for compute nodes
 
 Each security group is dedicated to a specific set of scale nodes, ensuring that only the necessary ports, sources, and destinations are enabled for those nodes. This approach minimizes exposure, enhances security, and reduces the risk of misconfigurations.
 
-Following ports needs to be opened for GKLM security group:
+The following port needs to be opened for GKLM security group:
 
 * TCP 9443 - IBM GKLM Console
 * TCP 5696 - KMIP Port
 
-Following ports needs to be opened for LDAP security group:
+The following port needs to be opened for LDAP security group:
 
 * TCP 389 - LDAP (Authentication)
 * TCP 636 - LDAPS (Secure LDAP)
 
-You must either use new security groups created by the automation or depend on the pre-existing ones. A mixed approach combining both new and existing security groups is not supported and can lead to inconsistent configurations and potential security vulnerabilities.
+You must either use new security groups that are created by the automation or depend on the pre-existing ones. A mixed approach combining both new and existing security groups is not supported and can lead to inconsistent configurations and potential security vulnerabilities.
 {: important}
 
 When using the Storage Scale automation, the required security groups and their associated rules are automatically created and applied. Following are the list of security groups created:
-* `login_security_group_name` - This security group is requried to allow connections for the login node and bastion node.
+* `login_security_group_name` - This security group is required to allow connections for the login node and bastion node.
 * `storage_security_group_name` - This security group is required to provision the storage nodes.
 * `compute_security_group_name` - This security group is required to provision the compute nodes.
 * `client_security_group_name` - This security group is required to provision the client nodes.
@@ -59,12 +59,12 @@ For example, when the scale encryption type is set as `gklm`, the gklm node is c
 ## Scenario 1
 {: #scenario1}
 
-When users opt for the existing security groups, they must ensure that all necessary groups are specified. If not provided, then the required security groups will result in automation failure.
+When users opt for the existing security groups, they must ensure that all necessary groups are specified. If not provided, then the required security groups result in automation failure.
 {: note}
 
 The three default security groups `login_security_group_name`, `storage_security_group_name`, and `client_security_group_name` are provided for the cluster core functionality. Depending on the optional features enabled, the respective additional security groups (`ldap_security_group_name`, `gklm_security_group_name`, and `compute_security_group_name`) must also be provided.
 
-For example, if the user wants to create only storage and compute clusters and provides only the `login_security_group_name` and `compute_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure all mandatory existing security groups are passed for cluster creation.
+For example, if the user wants to create only storage and compute clusters and provides only the `login_security_group_name` and `compute_security_group_name` variables omitting the `storage_security_group_name`, then the terraform automation fails due to built-in validations designed to ensure that all mandatory existing security groups are passed for cluster creation.
 
 This validation is applicable on all security groups.
 {: note}
@@ -96,9 +96,9 @@ Depending on the optional features enabled, the respective additional security g
 
 If the variable `enable_sg_validation` is set to `false`, then the automation bypasses these security group validations as mentioned in **Scenario 1**. This allows the deployment to progress with cluster creation, but it may result in a failure at a later stage during the Terraform apply if the rules are not set correctly or if all required security groups are not provided.
 
-When the `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that could prevent the cluster from operating as expected and it requires an additional debugging.
+When the `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that might prevent the cluster from operating as expected and it requires an additional debugging.
 
-In the login security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
+In the login security group, the ICMP rule should allow traffic from the public IP address that is assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
 {: note}
 
 ## Security Group Validation
@@ -107,12 +107,12 @@ In the login security group, the ICMP rule should allow traffic from the public 
 | Variable	|Description	| Value |
 |----------|----------|----------|
 |`enable_sg_validation`| Enable or disable security group validation. Security group validation ensures that the specified security groups are properly assigned. | true |
-|`login_security_group_name`| Provide the security group name to provision the bastion node. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bastion node to function properly. | Null |
-|`storage_security_group_name`| Provide the security group name to provision the storage nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the storage nodes to function properly. | Null |
-|`compute_security_group_name`| Provide the security group name to provision the compute nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the compute nodes to function properly. | Null |
-| `client_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
-|`gklm_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
-|`ldap_security_group_name`| Provide the security group name to provision the ldap nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the ldap nodes to function properly. | Null |
+|`login_security_group_name`| Provide the security group name to provision the bastion node. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure that it has the appropriate rules that are configured for the bastion node to function properly. | Null |
+|`storage_security_group_name`| Provide the security group name to provision the storage nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure that it has the appropriate rules configured for the storage nodes to function properly. | Null |
+|`compute_security_group_name`| Provide the security group name to provision the compute nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure that it has the appropriate rules that are configured for the compute nodes to function properly. | Null |
+| `client_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules that are configured for the gklm nodes to function properly. | Null |
+|`gklm_security_group_name`| Provide the security group name to provision the gklm nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure that it has the appropriate rules that are configured for the gklm nodes to function properly. | Null |
+|`ldap_security_group_name`| Provide the security group name to provision the ldap nodes. If set to null, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure that it has the appropriate rules that are configured for the ldap nodes to function properly. | Null |
 {: caption="Security Group Validation" caption-side="bottom"}
 
 For best practices, it is recommended to use separate and dedicated security groups for each respective scale node type. This approach ensures consistent security policies across all resources and simplifies management by reducing the risk of policy conflicts and misaligned configurations.

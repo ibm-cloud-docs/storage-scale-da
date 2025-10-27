@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -22,7 +22,7 @@ subcollection: storage-scale-da
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to clone the public GitHub repository, and you are seeing one of the following error messages:
+Schematics unable to clone the public GitHub repository, and you are seeing one of the following error messages:
 
 * `Fatal, could not download repo, Failed to clone git repository, authentication required (or the git url is incorrect). Problems found with the Repository. Please Rectify and Retry`
 * `Template error: Failed to clone git repository, authentication required (or the git url is incorrect)`
@@ -39,10 +39,10 @@ Do not provide a GitHub token, and check to see whether the GitHub token was pro
 {: troubleshoot}
 {: support}
 
-Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
+Schematics is unable to create a workspace, and you are seeing the following error message: `You do not have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
 {: tsSymptoms}
 
-You do not have the required access to create a workspace in any resource groups. You are assigned the manager role on the Schematics service for the resource group where you want to deploy the cluster resources.
+You do not have the required access to create a workspace in any resource groups. You are assigned as the manager role on the Schematics service for the resource group where you want to deploy the cluster resources.
 {: tsCauses}
 
 Contact your account administrator and get assigned with the manager role on the Schematics service for the resource group where you want to deploy the cluster resources.
@@ -53,7 +53,7 @@ Contact your account administrator and get assigned with the manager role on the
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
+Schematics is unable to provision the cluster, and you are seeing the following error message: `Request is not authorized. Check your user permissions and authorizations and try again.`
 {: tsSymptoms}
 
 You do not have the required access to get any VPC resources provisioned.
@@ -67,7 +67,7 @@ Contact your account administrator and get the required access permissions. For 
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to provision the cluster, and you are seeing the following example error message:
+Schematics is unable to provision the cluster, and you are seeing the following example error message:
 {: tsSymptoms}
 
 ```pre
@@ -92,13 +92,13 @@ Since the resource names need to be unique, check which resource is generating t
 {: troubleshoot}
 {: support}
 
-While using a custom image, Schematics isn't able to provision the cluster, and you are seeing one of the following error messages:
+While using a custom image, Schematics is unable to provision the cluster, and you are seeing one of the following error messages:
 
 * `The argument "image" is required, but no definition was found.`
 * `Unknown variable. There is no variable named "image_id".`
 {: tsSymptoms}
 
-The custom image that is used for one of the virtual server instances isn't present in the target region and zone or it is not accessible by the account and API key that is used to provision the cluster.
+The custom image that is used for one of the virtual server instances is not present in the target region and zone or it is not accessible by the account and API key that is used to provision the cluster.
 {: tsCauses}
 
 If you are using a custom image for any of your virtual server instances, ensure that the custom image is available in the target region and zone and is accessible by the account and API key that is used to provision the cluster.
@@ -126,7 +126,7 @@ You need to check whether the provided resource group name is available in the s
 You are receiving the following error when you try to either generate or apply a plan to your workspace: `Apply failed due to "Error: [ERROR] No image found with name hpcc-scale5232-rhel810-v1."`
 {: tsSymptoms}
 
-Either during generating or applying a plan, Terraform tries to validate if the provided image name and its image ID are present in the `image_map.tf` file. If Terraform finds the correct image details, it provisions the instances, but if the correct image details can't be found, Terraform tries to fetch the image details from {{site.data.keyword.cloud_notm}} through `data_source`.
+Either during generating or applying a plan, Terraform tries to validate if the provided image name and its image ID are present in the `image_map.tf` file. If Terraform finds the correct image details, it provisions the instances, but if the correct image details cannot be found, Terraform tries to fetch the image details from {{site.data.keyword.cloud_notm}} through `data_source`.
 
 Even if the provided image is not present in the cloud from that specific region, you still might receive the error.
 {: tsCauses}
@@ -162,18 +162,18 @@ During the apply plan process, the deployer node initiates provisioning the reso
 You need to provide a valid {{site.data.keyword.IBM_notm}} Customer Number that is entitled to {{site.data.keyword.scale_short}} without any spaces in the number. If the value that you provided is valid and you still received this error, contact {{site.data.keyword.IBM_notm}} support to clarify about the entitlement.
 {: tsResolve}
 
-## Why does the SSH connection fail and I can't connect to the nodes?
+## Why does the SSH connection fail and I cannot connect to the nodes?
 {: #troubleshoot-topic-11}
 {: troubleshoot}
 {: support}
 
-You aren't able to SSH to the nodes from a local system after a successful cluster deployment.
+You are not able to SSH to the nodes from a local system after a successful cluster deployment.
 {: tsSymptoms}
 
-After a successful cluster deployment, you won't be able to SSH to the nodes due to the following issues:
+After a successful cluster deployment, you will not be able to SSH to the nodes due to the following issues:
 1. SSH keys were not properly installed on the virtual server instance during the automation process.
 2. The wrong SSH key names were used. For example, SSH key names that are not owned by the individual trying to establish SSH connection were used.
-3. The security group doesn't have the appropriate source range.
+3. The security group does not have the appropriate source range.
 {: tsCauses}
 
 You can try the following procedures to help troubleshoot the SSH issue:
@@ -194,7 +194,7 @@ You can try the following procedures to help troubleshoot the SSH issue:
 You are receiving the following error when you try to apply a plan to your workspace: `Apply failed due to Error: [ERROR] Error while creating subnet. The specified CIDR does not fit in any of the address prefixes in the specified VPC. Make sure the subnet's CIDR is a subset of the CIDR of one of the address prefixes.`
 {: tsSymptoms}
 
-During the apply plan process, the workspace tries to create the VPC and subnet with the specified range of the CIDR address prefix from the deployment value. If the address prefix range is out of scope or doesn't belong to the family of the IP address range of the VPC, then you get an error that the address is not in range.
+During the apply plan process, the workspace tries to create the VPC and subnet with the specified range of the CIDR address prefix from the deployment value. If the address prefix range is out of scope or does not belong to the family of the IP address range of the VPC, then you get an error that the address is not in range.
 {: tsCauses}
 
 Validate if the address prefix range that's provided for subnet creation is from the same range of addresses that are used for the VPC. For example, if the VPC address prefix is 10.241.0.0/18, then the subnet should be in the 10.241.x.x range. If a different IP address range is used, then you need to divide the [subnets](https://www.davidc.net/sites/default/subnets/subnets.html?network=10.23.124.128&mask=25&division=11.721){: external} and choose the IP address range that is required for subnet creation.
@@ -328,7 +328,7 @@ Open an issue with {{site.data.keyword.cloud_notm}} Support. This needs to be re
 After the deployer node creates all the resources, the solution triggers the Ansible code to configure the entire Scale configuration on storage bare metal servers. During the Ansible configuration, the following error occurs: `[ERROR] Check passwordless SSH on all scale inventory hosts (1 retries left)`
 {: tsSymptoms}
 
-After all the infrastructure-related resources are up and running, the Ansible code tries to perform the Scale configuration through a passwordless SSH method. During this process, on the storage bare metal server, if the SSH service is not in a running state, then Ansible can't SSH to that specific bare metal storage node and it fails with the error.
+After all the infrastructure-related resources are up and running, the Ansible code tries to perform the Scale configuration through a passwordless SSH method. During this process, on the storage bare metal server, if the SSH service is not in a running state, then Ansible cannot SSH to that specific bare metal storage node and it fails with the error.
 {: tsCauses}
 
 After a failed deployment, clean up all resources. During a subsequent attempt, use a new cluster prefix to avoid any name collisions with resources from the previous failed attempt. If the issue continues to occur, open an issue with {{site.data.keyword.cloud_notm}} Support.
