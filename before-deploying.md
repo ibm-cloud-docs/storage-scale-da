@@ -121,8 +121,10 @@ To view access policies, complete the following steps:
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
    | IAM Identity Service | All | Administrator | -- |
+   | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
    | Key Protect | All | Service Configuration Reader | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
+   | Secrets Manager | All | Administrator | Manager |
    | VPC Infrastructure Services | All | Editor | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
