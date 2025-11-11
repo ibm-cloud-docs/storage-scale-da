@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-11-11"
 
 keywords:
 
@@ -19,7 +19,7 @@ subcollection: storage-scale-da
 # Release notes
 {: #storagescale-service-relnotes}
 
-The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to IBM® Storage Scale for the release.
+The release notes describes the brief overview of the new features, enhancements, known and fixed issues that are added to IBM® Storage Scale for the release.
 {: shortdesc}
 
 {{site.data.keyword.attribute-definition-list}}
