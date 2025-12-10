@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Accessing the GUI
 {: #access-gui}
 
-After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters only when the compute nodes are enabled. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=reference-storage-scale-gui){: external}.
+After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters only when the compute nodes are enabled. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=reference-storage-scale-gui){: external}.
 {: shortdesc}
 
 ## Before you begin
@@ -43,7 +43,7 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 
 Scale GUI daemon runs on a separate virtual server instance for each cluster (compute and storage) named as Scale Management node. This node can easily be identified with `<resource_prefix>-mgmt-001-<domain_name>`.
 
-Currently, single Scale Management node per cluster is only supported.
+Currently, a single Scale Management node per cluster is only supported.
 {: note}
 
 ## Setting up the access

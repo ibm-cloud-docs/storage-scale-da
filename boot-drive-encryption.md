@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -24,17 +24,17 @@ subcollection: storage-scale-da
 # Enabling boot drive encryption for Bare Metal server
 {: #boot-drive-encryption}
 
-Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a local disk drive for boot. This makes sure that the responsibility for encryption of the drive is with the users. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
+Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a local disk drive for boot. This makes sure that the responsibility for encryption of the drive is with the users. Boot drive encryption encrypts the drive by using LUKS and uses the local Trusted Platform Module (TPM) for key management.
 
 |Boot drive variable|	Description|	Example value|
 |-------------|------------|--------------|
-|`bms_boot_drive_encryption`| Enable or disable encryption for the boot drive of bare metal servers. When set to true, the boot drive will be encrypted to enhance data security, protecting the operating system and any sensitive information stored on the root volume. This is especially recommended for workloads with strict compliance or security requirements. Set to false to disable boot drive encryption. | true |
+|`bms_boot_drive_encryption`| Enable or disable encryption for the boot drive of bare metal servers. When set to true, the boot drive is encrypted to enhance data security, protecting the operating system and any sensitive information stored on the root volume. This is especially recommended for workloads with strict compliance or security requirements. Set to false to disable boot drive encryption. | true |
 {: caption='Boot drive variables'}
 
 ## Verifying boot drive encryption on the Bare Metal server
 {: #boot-drive-encryption-verify}
 
-To verify if the boot drive is encrypted, the user can run the `lsblk` command to check that the root type partition that is mounted at `/` is set to crypt.
+To verify whether the boot drive is encrypted, the user can run the `lsblk` command to check that the root type partition that is mounted at `/` is set to crypt.
 
 ```pre
 [root@scale-bm-drive-strg-002 ~]# lsblk
@@ -66,21 +66,21 @@ nvme6n1     259:7    0   2.9T  0 disk
 [root@scale-bm-drive-strg-002 ~]
 ```
 
-Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase same as the initial one, as this data is not secure.
+Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase the same as the initial one, as this data is not secure.
 
 The initial passphrase that is used in the initial setup is `notsecret`.
 {: note}
 
 Following are the steps to rotate the LUKS Encryption Keys:
 
-* **List the TPM keys**
+* List the TPM keys
 
 ```pre
 [root@scale-boot-test-strg-001 ~]# clevis luks list -d /dev/sda5
 1: tpm2 '{"hash":"sha256","key":"rsa"}'
 ```
 
-* **Regenerate the TPM key (rotate it)**
+* Regenerate the TPM key (rotate it)
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# clevis luks regen -d /dev/sda5 -s 1
@@ -90,7 +90,7 @@ Do you want to proceed? [ynYN] y
 Binding regenerated successfully
 ```
 
-* **Change the recovery key**
+* Change the recovery key
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksChangeKey /dev/sda5
@@ -99,26 +99,26 @@ Enter new passphrase:
 Verify passphrase:
 ```
 
-* **Test the passphrase**
+* Test the passphrase
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksOpen --test-passphrase /dev/sda5
 Enter passphrase for /dev/sda5:
 ```
 
-* **Backup the key**
+* Backup the key
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksHeaderBackup /dev/sda5 --header-backup-file luksbackup-sensitive.raw
 ```
 
-* **Restore the key**
+* Restore the key
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksHeaderRestore /dev/sda5 --header-backup-file luksbackup-sensitive.raw
 
 WARNING!
-=========
+========
 
 Device /dev/sda5 already contains LUKS2 header. Replacing header will destroy existing keyslots.
 

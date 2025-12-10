@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: storage-scale-da
 # Creating an LDAP user
 {: #create-ldap-user}
 
-If you do not have an existing LDAP server, the deployment process creates one for you and connects to the {{site.data.keyword.scale_full_notm}} cluster during deployment. Create a LDAP user for your Scale cluster. Use this to run the Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
+If you do not have an existing LDAP server, the deployment process creates one for you and connects to the {{site.data.keyword.scale_full_notm}} cluster during deployment. Create an LDAP user for your Scale cluster. Use this to run the Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
 
 If you have an existing LDAP server with the LDAP information that is provided during the cluster deployment, then you need not create a new LDAP user.
 {: shortdesc}
@@ -65,7 +65,7 @@ export NEW_LDAP_USER_PASSWORD="Test@1234"
     ```
     {: codeblock}
 
-    where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
+    Where `<floating_IP_address>` is the floating IP address for the bastion node and `<LDAP_server_IP>` is the IP address for the OpenLDAP node.
 
 2.  See if the LDAP user is an existing one:
     ```text
@@ -111,5 +111,5 @@ export NEW_LDAP_USER_PASSWORD="Test@1234"
     ```
     {: codeblock}
 
-To accommodate many LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.scale_full_notm}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up-to-date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
+To accommodate many LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.scale_full_notm}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up to date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
 {: note}

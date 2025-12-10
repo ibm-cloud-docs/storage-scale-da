@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -34,7 +34,7 @@ OpenLDAP is an open source implementation of the Lightweight Directory Access Pr
 ## Before you begin
 {: #beforeyoubegin-openldap}
 
-You should have access to a Linux system with root privileges. You should also have a basic understanding of the command-line interface and how to use a text editor.
+You should have access to a Linux system with root privileges. You should also have a basic understanding of the command line interface and how to use a text editor.
 
 ## Steps to configure an OpenLDAP server
 {: #steps-config-openldap}

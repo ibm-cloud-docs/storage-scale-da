@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: storage-scale-da
+    allowlist-id: cc6bd7cc-d05e-8878-446d-8cdf16e63d9e
     href: /docs/storage-scale-da
     path: storage-scale-da
     audience: solution
@@ -31,13 +32,14 @@ toc:
       - configure-afm-integration.md
       - boot-drive-encryption.md
       - configure-ces-integration.md
-      - ces-configuration-any-scale-node.md
+      - expanding-scale-cluster.md
       - ces-failover-setup.md
-      - vpc-scale.md
       - dns-resolver-scale.md
+      - vpc-scale.md
+      - ppnlb.md
+      - sdp.md
       - bastion-node-scale.md
       - deployer-node-scale.md
-      - expanding-scale-cluster.md
   - navgroup:
       id: howto
       topics:

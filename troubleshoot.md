@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -364,28 +364,28 @@ The following steps address the "nfs_sensors_not_configured" issue by configurin
 
 1. Use the following content to define the NFS sensor configuration:
 
-```pre
-content='sensors={
-name = "NFSIO"
-period = 10
-proxyCmd = "/opt/IBM/zimon/GaneshaProxy"
-restrict = "cesNodes"
-type = "Generic"
-}'
-```
-{: screen}
+    ```pre
+    content='sensors={
+    name = "NFSIO"
+    period = 10
+    proxyCmd = "/opt/IBM/zimon/GaneshaProxy"
+    restrict = "cesNodes"
+    type = "Generic"
+    }'
+    ```
+    {: screen}
 
 2. Add the content to the sensor configuration file:
 
-`echo "$content" > /var/lib/mmfs/gui/tmp/sensorDMP.txt`
+    `echo "$content" > /var/lib/mmfs/gui/tmp/sensorDMP.txt`
 
 3. Add the sensor configuration by using the `mmperfmon` command:
 
-`mmperfmon config add --sensors /var/lib/mmfs/gui/tmp/sensorDMP.txt`
+    `mmperfmon config add --sensors /var/lib/mmfs/gui/tmp/sensorDMP.txt`
 
 4. Refresh the NFS health status specifically for CES nodes:
 
-`/usr/lpp/mmfs/bin/mmhealth node show nfs --refresh -N cesNodes`
+    `/usr/lpp/mmfs/bin/mmhealth node show nfs --refresh -N cesNodes`
 
 ## Why do we see the `rkmconf_filenotfound_err` error on the compute nodes?
 {: #troubleshoot-topic-22}
@@ -400,4 +400,32 @@ In the simplified setup, the `mmkeyserv` command manages its own `RKM.conf` file
 {: tsCauses}
 
 Check whether the `/var/mmfs/etc/RKM.conf` file exists (regular setup only), or the file system encryption is enabled by using the simplified setup. The event can be manually cleared by using the `mmhealth event resolve rkmconf_filenotfound_err` command. For more information, see [Encryption events](https://www.ibm.com/docs/en/storage-scale/5.1.9?topic=events-encryption).
+{: tsResolve}
+
+## Why is the GUI component degraded?
+{: #troubleshoot-topic-23}
+{: troubleshoot}
+{: support}
+
+The GUI shows DEGRADED with the following warning message:
+
+```pre
+Node Name:                        hpcc-scl002-c16-comp-mgmt-e0b7-001.comp.com
+Node Status:                      HEALTHY
+Status Change:                    13 min ago
+Component           Status                Status Change	                Reasons & Notices
+GPFS	            HEALTHY	           13 min ago	                  -
+NETWORK	            HEALTHY	           13 hours ago	                -
+FILESYSTEM	    HEALTHY	           13 min ago	                       -
+ENCRYPTION	    HEALTHY	           9 hours ago	                     -
+GUI	            DEGRADED	          26 min ago	              gui_refresh_task_failed
+PERFMON	            HEALTHY	          13 min ago	                    -
+THRESHOLD	    HEALTHY	          12 hours ago
+```
+{: tsSymptoms}
+
+The GUI component shows DEGRADED with `gui_refresh_task_failed` warning because the GUI’s background refresh task fails due to temporary load, network issues, or cached data problems.
+{: tsCauses}
+
+Run the following command to refresh the GUI health status: `mmhealth node show --refresh`
 {: tsResolve}

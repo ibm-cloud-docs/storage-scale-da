@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -126,4 +126,4 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 For the storage instance profiles, "d" profile is mandatory. But for other profiles, this is not required.
 {: tip}
 
-For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=overview-storage-scale-product-editions){: external}.
+For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-storage-scale-product-editions){: external}.

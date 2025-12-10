@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -103,9 +103,9 @@ IBM is responsible for the security and compliance of Scale clusters on IBM Clou
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
 |General| Provide security controls commensurate to best practice for {{site.data.keyword.scale_full}} in Cloud.|
-|Provide options for cluster network connectivity, such as public and private cloud service endpoints | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
-|Storage Scale nodes| Disable certain insecure actions for storage nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the storage nodes, apply the provided security patch updates. The security patches are provided through the Fix central and respective steps are available for customers to go ahead and patch. The notifications would be provided based on the internal Slack communications or in the Git issues. |
-|Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. The security patches are provided through the Fix central and respective steps are available for customers to go ahead and patch. The notifications would be provided based on the internal Slack communications or in the Git issues.|
+|Provide options for cluster network connectivity, such as public and private cloud service endpoints | | Set up and maintain security and regulation compliance for your apps and data. For example, choose how to set up your cluster network, protect sensitive information such as with IBM Key Protect encryption, and configure further security settings to meet your workload's security and compliance needs. If applicable, configure your firewall. |
+|Storage Scale nodes| Disable certain insecure actions for storage nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the storage nodes, apply the provided security patch updates. The security patches are provided through the Fix central and respective steps are available for customers to go ahead and patch. If you encounter any issues, please contact the Support team. After investigation, the matter will be routed to the Automation team. |
+|Compute nodes| Disable certain insecure actions for compute nodes, such as not permitting users to SSH into the host. | As part of your incident and operations management responsibilities for the worker nodes, apply the provided security patch updates. The security patches are provided through the Fix central and respective steps are available for customers to go ahead and patch. If you encounter any issues, please contact the Support team. After investigation, the matter will be routed to the Automation team. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ## Disaster recovery

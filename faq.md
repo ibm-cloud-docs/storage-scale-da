@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -178,10 +178,10 @@ The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided th
 
 Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
 
-## Why does the 'mmlsconfg' command display 5.2.1.0 in the 'minReleaseLevel' parameter?
+## Why does the 'mmlsconfg' command display 6.0.0.0 in the 'minReleaseLevel' parameter?
 {: #version-command}
 
-After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 5.2.1.0. This is because version 5.2.1.1 includes 'minReleaseLevel' set to 5.2.1.0. For verification of the actual version, run the `mmdiag --version` command.
+After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 6.0.0.0. This is because version 6.0.0.0 includes 'minReleaseLevel' set to 6.0.0.0. For verification of the actual version, run the `mmdiag --version` command.
 
 ```pre
 [root@jay-tie-strg-002 ~]# mmdiag --version
@@ -193,7 +193,7 @@ Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@jay-tie-strg-002 ~]#
 ```
 
-## Why do we see the **"No image found with name: hpcc-scale5232-rhel810-v1"** error on the client nodes?
+## Why do we see the **"No image found with name: xxxxxx error on the client nodes?
 {: #client-node}
 
 This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 8.10).
@@ -221,7 +221,7 @@ For example, in the back-end if the zones provided is [\"us-east-1\"] then only 
 ## What is the supported instance profile for Storage nodes?
 {: #instance-storage}
 
-When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
+When you enable Storage cluster based on Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
 
 ## What are requirements for the configuration of storage types?
 {: #storage-types-configuration}
@@ -229,3 +229,38 @@ When you enable Storage cluster based on Virtual Server Instance (VSI) or Bare M
 * Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
 * Boot drive encryption is supported only for Persistent storage.
 * `tie_breaker_bm_server` is not applicable for Scratch (only for Persistent) storage. If specified for Scratch, it will be ignored. For Persistent, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
+
+## Why do you need to create a separate StanzaFile for every nodes, even though there is an existing StanzaFile under /var/mmfs/tmp?
+{: #sdp-stanza}
+
+When you have `n` storage_nodes, you cannot create an NSD for all nodes simultaneously, as this will cause conflicts. The NSD is already registered for use by GPFS, so duplicate registration leads to errors. Solution is to create a new stanza file for each node during NSD creation.
+
+```pre
+[root@hpc-scale-sdp-thu-8-strg-0ea6-001 tmp]# /usr/lpp/mmfs/bin/mmcrnsd -F /var/mmfs/tmp/StanzaFile.test
+mmcrnsd: Processing disk vdd
+mmcrnsd: Disk name nsd_hpc-scale_sdp_thu_8_strg_0ea6_001_vdd is already registered for use by GPFS.
+mmcrnsd: Command failed. Examine previous error messages to determine cause.
+[root@hpc-scale-sdp-thu-8-strg-0ea6-001 tmp]#
+```
+
+## Can you decrease the capacity size of boot or block volume?
+{: #sdp-capacity}
+
+No, you cannot decrease the capacity size of the boot or block volume once it is added or updated to the file system.
+
+```pre
+Error: ---
+id: terraform-d8fcbc36
+summary: 'UpdateInstance validation failed: Error while updating boot volume size
+severity: error
+resource: ibm_is_instance
+operation: update
+component:
+name: github.com/IBM-Cloud/terraform-provider-ibm
+version: 1.85.0
+```
+
+## If I manually increase the boot or block volume size of one node without updating the other nodes, then update my Terraform configuration to reflect the new size. Will running terraform apply successfully re-apply the changes?
+{: #sdp-terraform-apply}
+
+No, running terraform re-apply after increasing the boot/block volume size of only one node will result in an error. To avoid this, you need to update the boot/block volume size for all nodes to match the latest maximum capacity. After making these updates, run `terraform apply` again with the updated size to ensure consistency across all nodes.

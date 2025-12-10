@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-10"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -10,8 +10,7 @@ use-case: ITServiceManagement
 industry: Technology
 subcollection: storage-scale-da
 content-type: tutorial
-deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2cjYWxsX3Byb2R1Y3Rz
-
+deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d
 
 ---
 
@@ -33,9 +32,9 @@ deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd
 {: toc-industry="Technology"}
 {: toc-use-case="ITServiceManagement"}
 
-You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistant storage cluster.
+You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistent storage cluster.
 
-If you are creating Storage Scale on a persistent model (with baremetal), ensure that you have sufficient storage in your account before deploying the cluster.
+If you are creating Storage Scale on a persistent model (with bare metal), ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}
 
 The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with:
@@ -56,14 +55,19 @@ Complete the following steps before you deploy the {{site.data.keyword.scale_ful
 
 Before deploying an {{site.data.keyword.scale_full}} cluster, specific IAM permissions must be assigned to either a user or an access group. The automation script enables this process.
 
-User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the cluster deployment. The automation ensures that if the user has a certain permissions, then the script omits them and add only the required permissions to perform the deployment.
+User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the cluster deployment. The automation ensures that if the user has a certain permission, then the script omits them and add only the required permissions to perform the deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script omits this and provide only Manager permission.
+
+As an admin, you need to have the following permissions to perform the deployment:
+* Administrator for All Identity and Access enabled service
+* Administrator for IAM Identity Service
+* Administrator for All Account Management services
 
 Benefits of the scripts:
 
 * **Interactive input collection** - The script prompts for the IBMid (admin email), Account ID, and target (User or Access Group).
-* **Permission check** - The script verifies that the admin has account-level Administrator rights which are required to assign policies.
+* **Permission check** - The script verifies that the admin has account-level Administrator rights, which are required to assign policies.
 * **Assigns required permissions for Scale deployment** - This script grants the appropriate permissions across IBM Cloud services that Storage Scale depends upon (for example, VPC, COS, DNS services, KMS, Secrets Manager, and Sysdig Monitoring).
 * **Avoids duplicates** - The script skips the assignment if a matching policy already exists.
 
@@ -100,7 +104,7 @@ If the user skips to enter the `ACCOUNT_ID`, then script displays the error mess
 :x: ACCOUNT_ID is required.
 ```
 
-This script ensures the user or access group has all the required IAM permissions to successfully deploy an Storage Scale environment.
+This script ensures the user or access group has all the required IAM permissions to successfully deploy a Storage Scale environment.
 
 ## Setting IAM permissions - UI
 {: #iam-permissions-ui}
@@ -134,12 +138,7 @@ To view access policies, complete the following steps:
 ## Gather Scale entitlement information
 {: #gather-scale-entitlement-information}
 
-The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy an cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. Incase of failure to comply with licenses during the production use of software, is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
-
-The {{site.data.keyword.IBM_notm}} Customer Number (ICN) `ibm_customer_number` variable is used for the Bring Your Own License (BYOL) entitlement check. ICN is required if the storage type is set as Scratch or Persistent.
-
-An ICN is not required if the `storage_type` selected is evaluation.
-{: note}
+The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy a cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. In case of failure to comply with licenses during the production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 ## Before you begin
 {: #before-begin}
@@ -170,27 +169,27 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 
 You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_allowed_ips` deployment value. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
-If this field is left empty (for example, [""]) or not provided, then the cluster deployment will fail during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
+If this field is left empty (for example, [""]) or not provided, then the cluster deployment fails during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
 ## Set the storage_gui_username
 {: #storage-gui-username}
 {: step}
 
-You need to provide the username to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_username` is the value required for this variable.
+You need to provide the username to access the GUI to perform the system management and monitoring tasks on the storage cluster. `storage_gui_username` is the value required for this variable.
 
 ## Set the storage_gui_password
 {: #storage-gui-password}
 {: step}
 
-You need to provide the password to access the GUI to perform the system management and monitoring tasks on storage cluster. `storage_gui_password` is the value required for this variable.
+You need to provide the password to access the GUI to perform the system management and monitoring tasks on the storage cluster. `storage_gui_password` is the value required for this variable.
 
 ## Provide the zones
 {: #identify-cluster}
 {: step}
 
-Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to  configure your workspace. `zones` is the value required for this variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+Choose the {{site.data.keyword.cloud_notm}} region and availability zone where you want to deploy your cluster. You provide this location information to configure your workspace. `zones` is the value required for this variable. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-You can view or set the optional values by toggling on the **Advanced** option in the UI.
+You can view or set the optional values by toggling the **Advanced** option in the UI.
 {: note}
 
 ## Enabling optional features

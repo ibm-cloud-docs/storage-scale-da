@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -32,7 +32,7 @@ Deploy the Storage Scale deployable architecture using the IBM Cloud console.
 Deploy the Storage Scale deployable architecture using the IBM Cloud CLI.
 {: cli}
 
-The offering enables the initial {{site.data.keyword.scale_short}}-based cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup should be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
+The offering enables the initial {{site.data.keyword.scale_short}}-based cluster creation. Any updates that are needed post-deployment regarding {{site.data.keyword.scale_short}} configuration or setup must be performed by using {{site.data.keyword.scale_short}} tools and commands. If you use the {{site.data.keyword.bpshort}} interface to make changes to configuration properties and reapply those changes, you can cause disruptions to the running {{site.data.keyword.scale_short}} cluster. Restoring it back to a working state might not be easy.
 {: important}
 
 ## Creating the project by using the UI
@@ -54,12 +54,12 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 5. In the **Configure** section of the Edit configuration page, edit the configuration by entering the **Security** and **Configure architecture** input values.
 6. In the **Security** tab, you have two sections:
-    * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.scale_short}} cluster to fulfill the `ibmcloud_api_key` input variable.
-    * **Compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.scale_short}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
+    * Authentication: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.scale_short}} cluster to fulfill the `ibmcloud_api_key` input variable.
+    * Compliance: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.scale_short}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
     * In the **Required** tab, specify the deployment values for the mandatory input variables: `ibm_customer_number`, `storage_gui_username`, `storage_gui_password`, `existing_resource_group`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
 7. You can edit all the required values from **Configure architecture**. Toggle the **Advanced** option to view and edit all the optional values.
 
-    Click the info icon **(i)** to view the descriptions for the input values of each variable in the {{site.data.keyword.cloud_notm}} console.
+    Click the information icon **(i)** to view the descriptions for the input values of each variable in the {{site.data.keyword.cloud_notm}} console.
     {: tip}
 
     Secure deployment values might be entered directly or might be referenced from an existing [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). As a best practice, the more secure option is to use a Secrets Manager to store secured input values.
@@ -79,7 +79,7 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 {: #schematics}
 {: ui}
 
-Once you deploy the project, in back-end a Schematics workspace is created for the cluster deployment. To view the created workspace follow the steps:
+Once you deploy the project, in the back end a Schematics workspace is created for the cluster deployment. To view the created workspace follow the steps:
 
 1. Go to the **Navigation Menu**.
 2. Select **Platform Automation** > **Schematics** > **Terraform**.
@@ -155,7 +155,7 @@ You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud
 
 1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
 
-2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/hpc_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
+2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/scale_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 
 3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your Storage Scale cluster with the configuration you specified in your `values.json` file.
     ```text
@@ -177,7 +177,7 @@ You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud
     ```
     {: codeblock}
 
-4. The CLI requires a `version_locator_value`. You can retrieve this value from the {{site.data.keyword.cloud_notm}} console UI by clicking on **View details**.
+4. The CLI requires a `version_locator_value`. You can retrieve this value from the {{site.data.keyword.cloud_notm}} console UI by clicking **View details**.
 
     1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
     2. Click **Review deployment options**.

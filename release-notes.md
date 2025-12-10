@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -19,23 +19,24 @@ subcollection: storage-scale-da
 # Release notes
 {: #storagescale-service-relnotes}
 
-The release notes describes the brief overview of the new features, enhancements, known and fixed issues that are added to IBM® Storage Scale for the release.
+The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to IBM® Storage Scale for the release.
 {: shortdesc}
 
 {{site.data.keyword.attribute-definition-list}}
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-## September 2025
-{: #subcollection-mar0525}
+## December 2025
+{: #subcollection-dec1225}
 {: release-note}
+[New release]{: tag-green}
 
 In this release, IBM Storage Scale deployable architecture is introduced. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. For more information, see [Overview of IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-overview-storage-scale).
 
 ### What's New
 {: #what-new}
 
-The following new features are added as part of this release:
+The following new features are added as part of the release:
 
 * [IBM Storage Scale deployable architecture](/docs/storage-scale-da?topic=storage-scale-da-storage-scale): You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -117,6 +117,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `storage_subnet_id` | Provide ID of an existing subnet to be used for storage nodes. This is required only when deploying into an existing VPC (i.e., when a value is provided for `vpc_name`). When specifying an existing subnet, ensure that a public gateway is attached to the subnet to enable outbound internet access if required. Additionally, if this subnet ID is provided, you must also provide subnet IDs for all other applicable components (e.g., compute , protocol, client, login, gklm) to maintain consistency across the deployment. | No | Null |
 | `protocol_subnet_id` |Provide ID of an existing subnet to be used for protocol nodes. This is required only when deploying into an existing VPC (i.e., when a value is provided for `vpc_name`). When specifying an existing subnet, ensure that a public gateway is attached to the subnet to enable outbound internet access if required. Additionally, if this subnet ID is provided, you must also provide subnet IDs for all other applicable components (e.g., storage , compute, client, login, gklm) to maintain consistency across the deployment. | No | Null |
 | `client_subnet_id` | Provide ID of an existing subnet to be used for client nodes. This is required only when deploying into an existing VPC (i.e., when a value is provided for `vpc_name`). When specifying an existing subnet, ensure that a public gateway is attached to the subnet to enable outbound internet access if required. Additionally, if this subnet ID is provided, you must also provide subnet IDs for all other applicable components (e.g., storage , compute, protocol, login, gklm) to maintain consistency across the deployment. | No | Null |
-| `tie_breaker_baremetal_server_profile` | Specify the bare metal server profile type name to be used for creating the bare metal Tie breaker node. If no value is provided, the storage bare metal server profile will be used as the default. For more information, see [bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). [Tie Breaker Node](https://www.ibm.com/docs/en/storage-scale/5.2.2?topic=quorum-node-tiebreaker-disks). | No | Null |
+| `tie_breaker_baremetal_server_profile` | Specify the bare metal server profile type name to be used for creating the bare metal Tie breaker node. If no value is provided, the storage bare metal server profile will be used as the default. For more information, see [bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) and [Tie Breaker Node](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=quorum-node-tiebreaker-disks). | No | Null |
 | `scale_management_vsi_profile` | The virtual server instance profile type name to be used to create the Management node. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | No | "bx2-8x32" |
+| `volume_storages` | This specifies the boot or block volume of the virtual server instance. | No | ""|
 {: caption="Optional deployment values" caption-side="top"}

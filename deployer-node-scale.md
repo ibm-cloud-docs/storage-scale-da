@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-12-10"
 
 keywords:
 subcollection: storage-scale-da
@@ -24,9 +24,9 @@ subcollection: storage-scale-da
 # Deployer node
 {: #deployer-node-overview}
 
-In Storage Scale solution, a deployer node is provisioned by default to facilitate and streamline the entire deployment and management process of the HPC cluster.
+In the Storage Scale solution, a deployer node is provisioned by default to facilitate and streamline the entire deployment and management process of the HPC cluster.
 
-In the earlier releases, all the cluster infrastructure, including networking, compute, DNS, monitoring, and security services were provisioned through an IBM Cloud Schematics workspace. In this setup, users interacted with the solution through the Project UI and  the back-end depended entirely on the Schematics automation.
+In the earlier releases, all the cluster infrastructure, including networking, compute, DNS, monitoring, and security services were provisioned through an IBM Cloud Schematics workspace. In this setup, users interacted with the solution through the Project UI and the back-end depended entirely on the Schematics automation.
 
 Following are the limitations of Schematics:
 
@@ -34,7 +34,7 @@ Following are the limitations of Schematics:
 * **Troubleshooting and lifecycle operations** - the cluster expansion required additional manual steps.
 * **Longer deployment times** - occurred due to centralized execution outside the user environment.
 
-With the current release, the solution has been significantly enhanced by introducing a dedicated deployer node. This node serves as the central control point for executing both Terraform and Ansible operations.
+With the current release, the solution has been enhanced by introducing a dedicated deployer node. This node serves as the central control point for running both Terraform and Ansible operations.
 
 Following are the key benefits of deployable node:
 
@@ -59,7 +59,7 @@ The deployment process is divided into two stages:
 
 * A terraform apply command is used to provision cluster VSI nodes, DNS records, and optional resources.
 
-* Once the infrastructure is in place, Ansible playbooks execute the configuration and software installation, completing the cluster deployment.
+* Once the infrastructure is in place, Ansible playbooks run the configuration and software installation, completing the cluster deployment.
 
 This hybrid model improves modularity, enhances user control, and ensures a transparent, maintainable, and scalable HPC solution.
 
@@ -68,7 +68,7 @@ This hybrid model improves modularity, enhances user control, and ensures a tran
 ## Software deployment and management
 {: #scale-sw-mgmt-dn}
 
-All the deployments in this solution leverage the Scale software (GPFS). The relevant Ansible playbooks tailored for the specific Scale version are stored on the deployer node. This ensures consistency and reliability in the deployment process.
+All the deployments in this solution use the Scale software (GPFS). The relevant Ansible playbooks tailored for the specific Scale version are stored on the deployer node. This ensures consistency and reliability in the deployment process.
 
 **Additionally:**
 

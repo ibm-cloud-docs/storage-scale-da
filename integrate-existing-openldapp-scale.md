@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -27,7 +27,7 @@ subcollection: storage-scale-da
 If you already have an existing LDAP server with a certificate, then you can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale-da?topic=storage-scale-da-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_server_cert`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance` deployment input values. If you do not have an existing LDAP server and certificate, the deployment process creates one for you and connects it to the IBM Cloud Scale cluster.
 {: shortdesc}
 
-If your existing LDAP server does not have a certificate, follow the steps mentioned in [Creating and Configuring an LDAP certificate with your LDAP server](/docs/storage-scale-da?topic=storage-scale-da-config-ldap-ces#create-configure-ldap-certificate) section.
+If your existing LDAP server does not have a certificate, follow the steps mentioned in [Creating and configuring a LDAP certificate with your LDAP server](/docs/storage-scale-da?topic=storage-scale-da-config-ldap-ces#create-configure-ldap-certificate) section.
 
 Before you deploy the IBM Storage Scale cluster with the LDAP input values, complete the following LDAP requirements:
 

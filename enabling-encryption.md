@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -43,7 +43,7 @@ By setting the `scale_encryption_type` deployment value to `gklm`, the key serve
 Before you begin, review the following tasks:
 
 1. To begin with the Scale cluster deployment, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
-2. For more information on file system encryption, see [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
+2. For more information on file system encryption, see [GKLM](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
 
 A minimum of two key servers are added to the cluster to avoid a single point of failure.
 {: note}
@@ -118,7 +118,7 @@ The storage and compute clusters have access to the encrypted file system, and a
     {: codeblock}
 
 
-To learn more about encryption for {{site.data.keyword.scale_short}} or different encryption use cases, see [Encryption](https://www.ibm.com/docs/en/storage-scale/5.2.3?topic=administering-encryption){: external}.
+To learn more about encryption for {{site.data.keyword.scale_short}} or different encryption use cases, see [Encryption](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=administering-encryption){: external}.
 
 ### Accessing the GKLM dashboard
 {: #access-gklm}

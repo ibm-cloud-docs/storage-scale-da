@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -26,7 +26,7 @@ subcollection: storage-scale-da
 
 {{site.data.keyword.atracker_short}} is a platform service, which manages the auditing events at the account-level by configuring targets and routes that define where auditing data is routed.
 
-The {{site.data.keyword.at_short}} instances are not supported as this feature has been deprecated and replaced by {{site.data.keyword.logs_full_notm}}.
+The {{site.data.keyword.at_short}} instances are not supported as this feature is deprecated and replaced by {{site.data.keyword.logs_full_notm}}.
 {: note}
 
 Two target types are supported as part of {{site.data.keyword.atracker_short}}:
@@ -52,7 +52,7 @@ Two variables are required to configure the {{site.data.keyword.atracker_short}}
 
     * Options: cloudlogs or cos
 
-    * Usage: Select the desired target type to retrieve or capture events into your system.
+    * Usage: Select the required target type to retrieve or capture events into your system.
 
 ## Post deployment
 {: #post-deployment}

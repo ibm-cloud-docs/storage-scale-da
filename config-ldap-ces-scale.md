@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-12-10"
 
 keywords:
 
@@ -127,7 +127,7 @@ If your existing LDAP server is configured without a certificate, follow these s
 11. Restart `slapd` service to apply the changes
     `systemctl restart slapd.service`
 
-12. Create an LDIF file for configuring TLS in LDAP server.
+12. Create an LDIF file for configuring TLS in the LDAP server.
     ```pre
     cat <<EOF > /etc/ssl/certinfo.ldif
     dn: cn=config
