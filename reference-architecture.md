@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords: # Not typically populated
 
@@ -78,17 +78,16 @@ The following table outlines the requirements that are addressed in this archite
 | Data and Storage | GPFS or NFS | * Storage Scale nodes \n * Protocol nodes| These components are used to create storage elements for the cluster. |
 | Compute | Create Virtual Server Instances (VSI) to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
 |  | Create VSI to support GPFS based compute nodes. | Scale compute nodes | This component is used to create the GPFS compute nodes. |
-|  | Create VSI to support NFS based client nodes. | Scale client nodes | This component is used to create the NFS based client nodes. |
 |  | Create VSI to support NFS based protocol nodes. | Scale protocol nodes | This component is used to create the NFS based protocol nodes. |
 |  | Create VSI to support NFS based client protocol nodes. | Protocol client nodes | This component is used to create the NFS based client protocol nodes. |
 |  | Create VSI to support Storage Scale nodes. | Storage Scale nodes | Creates VSI to support the Storage Scale nodes. |
 |  | Create VSI to support GKLM. | GKLM nodes | Create VSI to support GKLM nodes. |
-| Networking | * Bastion node \n * Deployer node \n * GKLM node \n * LDAP node | Security group rules for each subnet | As an alternative, more CIDR or ports can be manually added after deployment. |
-|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale VPC. |
-|  | Enable a public gateway for the Scale management subnet. | * Storage Scale subnet \n * Scale compute subnet | Allows outbound communication for the Scale management node for any internet access (for example, repositories, packages, and so on). |
+| Networking | Create individual security groups for each nodes. | To restrict the traffic at the instance level. |
+|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale bastion node. |
+|  | Enable a public gateway for the Scale subnets. | * Storage subnet \n * Compute subnet | Allows outbound communication for the Scale node for any internet access (for example, repositories, packages, and so on). |
 |  | DNS service for the Scale cluster nodes | DNS service | Helps with the IP and name resolution for the Scale compute nodes. |
-| Security | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) | Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
+| Security | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) \n * [IBM Security® Guardium® Key Lifecycle Manager (GKLM)](/docs/en/ds8900/9.4.0?topic=servers-security-guardium-key-lifecycle-manager)| Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
 |  | Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
-| Service Management | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | * [{{site.data.keyword.monitoringfull_notm}}](/docs/monitoring?topic=monitoring-getting-started) \n * [IBM Security® Guardium® Key Lifecycle Manager (GKLM)](/docs/en/storage-scale/5.2.3?topic=environment-simplified-setup-using-sklm-self-signed-certificate)| Monitors system and application health to detect issues that might impact the availability of the application. |
+| Service Management | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | * [IBM Storage Scale GUI](/docs/en/storage-scale/6.0.0?topic=overview-introduction-storage-scale-gui) | Monitors system and application health to detect issues that might impact the availability of the application. |
 |  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
 {: caption="Components" caption-side="bottom"}

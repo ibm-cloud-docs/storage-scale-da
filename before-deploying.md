@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -34,7 +34,7 @@ deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd
 
 You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistent storage cluster.
 
-If you are creating Storage Scale on a persistent model (with bare metal), ensure that you have sufficient storage in your account before deploying the cluster.
+If you are creating Storage Scale on a bare metal, ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}
 
 The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with:
@@ -50,6 +50,15 @@ Complete the following steps before you deploy the {{site.data.keyword.scale_ful
 
 2. Log in to your [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com){: external} account with your IBMid.
 
+## Prerequisites
+{: #pre-req}
+
+As an admin, you need to have the following permissions to perform the deployment:
+
+* Administrator for All Identity and Access enabled service
+* Administrator for IAM Identity Service
+* Administrator for All Account Management services
+
 ## Setting IAM permissions - CLI
 {: #iam-permissions-cli}
 
@@ -58,11 +67,6 @@ Before deploying an {{site.data.keyword.scale_full}} cluster, specific IAM permi
 User has the flexibility to run the specific scripts to gain the required IAM permissions to perform the cluster deployment. The automation ensures that if the user has a certain permission, then the script omits them and add only the required permissions to perform the deployment.
 
 For example, for the **App configuration** service, the user requires Administrator and Manager permissions. If the user already has the Administrator permission, then the script omits this and provide only Manager permission.
-
-As an admin, you need to have the following permissions to perform the deployment:
-* Administrator for All Identity and Access enabled service
-* Administrator for IAM Identity Service
-* Administrator for All Account Management services
 
 Benefits of the scripts:
 
@@ -77,14 +81,21 @@ You can get the scripts by performing **gitclone** on the branch:
 git clone -b main https://github.com/terraform-ibm-modules/terraform-ibm-hpc.git
 ```
 
-1. Navigate to `cd tools/access-management`, you get the `permissions.sh` file.
-2. Login to the IBM Cloud with your API key. Run the following command:
+1. Login to the IBM Cloud CLI with your API key. Run the following command:
 
     ```pre
     ibmcloud login --apikey <YOUR_API_KEY> -g <RESOURCE_GROUP>
-    chmod +x permissions.sh
-    ./permissions.sh
     ```
+    {: codeblock}
+
+2. Navigate to `cd tools/access-management`, you get the `permissions.sh` file.
+
+    ```pre
+    chmod +x permissions.sh
+    ```
+    {: codeblock}
+
+    To update the script permissions, run `./permissions.sh` command.
 
 3. Enter the admin email or IBMid.
 4. Enter the Account ID.
@@ -134,11 +145,6 @@ To view access policies, complete the following steps:
 
    The above-mentioned permissions are mandatory, failing to have these permissions lead to deployment failure. Contact the account administrator for the permissions.
    {: tip}
-
-## Gather Scale entitlement information
-{: #gather-scale-entitlement-information}
-
-The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy a cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. In case of failure to comply with licenses during the production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 ## Before you begin
 {: #before-begin}
@@ -196,6 +202,11 @@ You can view or set the optional values by toggling the **Advanced** option in t
 {: #optional-steps}
 
 After completing the mandatory steps, you can enable the optional features by looking into the input values in the {{site.data.keyword.scale_short}} cluster. For example, to enable the encryption, you need to set the `scale_encryption_type` value.
+
+### Enable IBM Customer Number (ICN)
+{: #gather-scale-entitlement-information}
+
+The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy a cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. In case of failure to comply with licenses during the production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
 
 ### Enable encryption
 {: #enable-encryption}
