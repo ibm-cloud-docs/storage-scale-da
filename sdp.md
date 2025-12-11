@@ -56,9 +56,9 @@ For more information, see [SSD defined performance profile](/docs/vpc?topic=vpc-
 ### Limitations of using SDP as boot volume
 {: #limitations}
 
-When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB. If the boot volume exceeds 250 GB, the Virtual Server Instance (VSI) fails to boot successfully.
+* When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB. If the boot volume exceeds 250 GB, the Virtual Server Instance (VSI) fails to boot successfully.
 
-Boot volume size can only be increased; reducing the size is not supported to maintain data safety and integrity.
+* Boot volume size can only be increased; reducing the size is not supported to maintain data safety and integrity.
 
 Taking advantage of the bare-metal storage volume feature, today all the VSI created through the automation supports attaching SDP volume as:
 
@@ -70,7 +70,7 @@ Taking advantage of the bare-metal storage volume feature, today all the VSI cre
 
 Boot volumes are automatically created and attached during VSI provisioning. To simplify deployment and ensure consistent performance, the boot volume uses the SDP profile by default. However, this behavior can be overridden during provisioning by specifying a general-purpose profile when required by the workload. In the `volume_storages` variable, the `boot_volume_profile` is set to `sdp` by default, but users may override it as needed.
 
-The boot volume (default: SDP profile) supports expansion up to **250 GB**. For details, refer to Profiles for boot volumes. For more information, see [Profiles for boot volumes](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-boot).
+The boot volume (default: SDP profile) supports expansion up to **250 GB**. For more information, see [Profiles for boot volumes](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-boot).
 
 When specifying for a general-purpose profile, the `boot_volume_iops`, should either be 0 or null. IOPS settings are not supported for general-purpose volumes.
 For example, if the value is not set to 0 or null, the following error message occurs:
@@ -125,7 +125,7 @@ Since Storage Scale requires dedicated storage capacity, the solution utilizes S
 
 Using the `volume_storages` variable, update the `block_volume_capacity` variable to define the required block volume capacity. Based on this configuration, SDP volumes are automatically created and attached to the provisioned instances.
 
-If the cluster needs additional capacity later, the automation supports expanding data volumes. To apply the change at the cluster level, you must either update the capacity manually or rely on automation to handle it. Automation can perform the full expansion in a single operation, just set `block_volume_disk_grow = true`, and the system will automatically extend the disk inside the Scale cluster to use the newly available capacity.
+If the cluster needs additional capacity later, the automation supports expanding data volumes. To apply the change at the cluster level, you must either update the capacity manually or rely on automation to handle it. Automation can perform the full expansion in a single operation, set the `block_volume_disk_grow = true`, and the system will extend the disk inside the Scale cluster to use the newly available capacity.
 
 After expanding the block volume, the Storage Scale cluster does not automatically detect the increased disk size.
 {: note}

@@ -43,4 +43,4 @@ The following new features are added as part of the release:
 
 * [Private Path Network Load Balancer (PPNLB)](/docs/storage-scale-da?topic=storage-scale-da-ppnlb-overview): The IBM Cloud Private Path service enables secure and private connectivity between IBM Cloud services and third-party applications without exposing traffic to the public internet. By leveraging the IBM Cloud backbone, it ensures that all data transmission remains within the trusted IBM network infrastructure, enhancing both security and performance.
 
-* In this release, the storage types "scratch" is changed to **VSI** and "persistent" is changed to **bare-metal**. This change has been made to avoid the confusion due to SDP implementation.
+* In this release, the storage types "scratch" is renamed to **VSI** and "persistent" to **bare-metal**. This change was introduced to avoid the confusion caused by SDP implementation.

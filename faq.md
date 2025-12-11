@@ -218,11 +218,6 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 
 For example, in the back-end if the zones provided is [\"us-east-1\"] then only [\"us-east-1\"] zone will be picked.
 
-## What is the supported instance profile for Storage nodes?
-{: #instance-storage}
-
-When you enable Storage cluster based on Bare Metal, make sure you provide "d" profile (for example, mx3d) instance storage profile.
-
 ## What are requirements for the configuration of storage types?
 {: #storage-types-configuration}
 
