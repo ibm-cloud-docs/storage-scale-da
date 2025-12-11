@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -26,17 +26,17 @@ subcollection: storage-scale-da
 
 The {{site.data.keyword.scale_short}} solution offers three different storage types:
 
-* Scratch storage
-* Persistent storage
+* VSI storage
+* Bare-metal storage
 * Evaluation storage
 {: shortdesc}
 
-The offering enables deployment of either scratch (or ephemeral), persistent, or evaluation storage depending on application requirements.
+The offering enables deployment of either VSI (or ephemeral), bare-metal, or evaluation storage depending on application requirements.
 
-## Scratch storage
-{: #scratch-storage}
+## VSI storage
+{: #vsi-storage}
 
-A scratch configuration uses virtual server instances with instance storage. If a virtual server instance with instance storage is powered off then all the data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads.
+A VSI configuration uses virtual server instances with instance storage. If a virtual server instance with instance storage is powered off then all the data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of VSI storage is not recommended for long-running or mission-critical workloads.
 
 | Supported configurations | Not recommended configurations |
 | ----------------- | ---------- |
@@ -52,12 +52,12 @@ A scratch configuration uses virtual server instances with instance storage. If 
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + KMS + LDAP + Colocation | |
 | Storage (VSI) + Compute (VSI) + Protocol (VSI) + Client (VSI) + AFM (VSI) + GKLM (VSI) + LDAP + Colocation | |
-{: caption="Scratch storage configurations" caption-side="bottom"}
+{: caption="VSI storage configurations" caption-side="bottom"}
 
-## Persistent storage
-{: #persistent-storage}
+## Bare-metal storage
+{: #bare-metal-storage}
 
-A persistent configuration uses bare metal servers with locally attached NVMe storage. In addition to higher resilience, persistent storage provides higher performance and capacity than scratch storage.
+A persistent configuration uses bare metal servers with locally attached NVMe storage. In addition to higher resilience, bare-metal storage provides higher performance and capacity than VSI storage.
 
 {{site.data.keyword.scale_full_notm}} supports both Sapphire Rapids (x3 and x3d) profiles and Cascade Lake (x2 and x2d). For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
@@ -77,7 +77,7 @@ A persistent configuration uses bare metal servers with locally attached NVMe st
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation | |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + KMS (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
 | Storage (BareMetal) + Compute (VSI) + Protocol (BareMetal) + Client (VSI) + AFM (BareMetal) + GKLM (VSI) + LDAP (VSI) + Colocation + Boot Drive Encryption | |
-{: caption="Persistent storage configurations" caption-side="bottom"}
+{: caption="Bare-metal storage configurations" caption-side="bottom"}
 
 ## Evaluation storage
 {: #evaluation-storage}
@@ -105,7 +105,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 ## Storage type comparison
 {: #storage-type-comparison-table}
 
-|      | Scratch (default) | Persistent | Evaluation |
+|      | VSI (default) | Bare-metal | Evaluation |
 | ---- | ----------------- | ---------- | ---------- |
 | Storage cluster nodes | Virtual server instances | Bare metal servers | Virtual server instances |
 | Storage cluster node count | Min 2  \n Max 64 | Min 2  \n Max 32 | Min 2  \n Max 64 |
@@ -121,7 +121,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
 {: caption="Storage Scale storage types comparison" caption-side="bottom"}
-{: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
+{: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to VSI storage. The second column describes the specifics of bare-metal storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
 For the storage instance profiles, "d" profile is mandatory. But for other profiles, this is not required.
 {: tip}

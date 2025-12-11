@@ -73,6 +73,10 @@ If PPNLB is not enabled, protocol nodes and clients can safely use an MTU of 9
 
 2. If multiple clients are running on the same hypervisor, at some point the CPU on hypervisor become saturated, resulting in lower performance than expected. In contrast, when the clients are distributed across different hypervisors, resource contention is reduced and overall performance improves.
 
-3. NFSv4.x with nconnect is designed to improve throughput by parallelizing I/O streams between client and server.
+3. Another limitation involves **NFSv4 multi-channel (Nconnect)**. Features such as setting nconnect=2 or nconnect=4—which allow clients to establish multiple parallel TCP connections to an NFS server for higher throughput—**are not supported when using the Private Path Network Load Balancer (PPNLB)**. As a result, multi-stream NFS operations cannot be leveraged to improve performance in this configuration.
 
-4. Each core independently applies its own round-robin logic when choosing the backend NFS gateway for a new connection. This lack of coordination means that multiple connections from the same client can be distributed unevenly across different servers. As a result, you end up with lopsided load balancing and inconsistent NFS session state, especially when using features like nconnect or NFSv4 sessions that require all streams to land on the same server.
+Additionally, PPNLB does not provide fine-grained control over how backend connections are selected or distributed across NFS nodes. Because load-balancing decisions are handled internally by the platform, clients may not consistently connect to the same backend server or may experience suboptimal routing behavior, which can further impact advanced NFSv4 features.
+
+4. The NFS gateway logic operates **per connection**, and this behavior **is not coordinated across PPNLB cores**. Each core independently performs its own round-robin selection when establishing connections to backend NFS servers.
+
+When multiple PPNLB cores are active, they each make routing decisions without awareness of the others. This results in uneven or lopsided load distribution across the NFS nodes because some cores may direct more connections to a particular backend while others choose differently. Over time, this lack of coordinated connection management can lead to imbalanced utilization, reduced performance consistency, and less predictable NFS traffic flow.

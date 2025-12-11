@@ -32,13 +32,13 @@ deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd
 {: toc-industry="Technology"}
 {: toc-use-case="ITServiceManagement"}
 
-You can deploy the {{site.data.keyword.scale_full_notm}} to have a persistent storage cluster.
+You can deploy the {{site.data.keyword.scale_full_notm}} to have a bare-metal storage cluster.
 
 If you are creating Storage Scale on a bare metal, ensure that you have sufficient storage in your account before deploying the cluster.
 {: tip}
 
 The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with:
-`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
+`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy bare-metal storage provide any one of the supported availability zones."`
 {: important}
 
 ## Confirm your {{site.data.keyword.cloud}} settings
@@ -226,10 +226,10 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 
 To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
-### Enable boot drive encryption for persistent storage
+### Enable boot drive encryption for bare-metal storage
 {: #enable-boot-encryption}
 
-To enable boot drive encryption for persistent storage, set `bms_boot_drive_encryption` parameter to true.
+To enable boot drive encryption for bare-metal storage, set `bms_boot_drive_encryption` parameter to true.
 
 ### Enable LDAP
 {: #enable-ldap}

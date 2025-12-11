@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -58,8 +58,8 @@ Before you deploy a cluster, it is important to make sure that the VPC resource 
 
 See the following minimum and maximum number of nodes that are supported in a cluster:
 * Compute nodes: For all storage clusters, a minimum of 3 and a maximum of 64 virtual server instance compute nodes are supported.
-* Scratch and evaluation cluster storage nodes: For a scratch and evaluation storage clusters, a minimum of 2 and a maximum of 64 virtual server instance storage nodes are supported.
-* Persistent cluster storage nodes: For a persistent storage cluster, a minimum of 2 and a maximum of 32 bare metal server storage nodes are supported.
+* VSI and evaluation cluster storage nodes: For a VSI and evaluation storage clusters, a minimum of 2 and a maximum of 64 virtual server instance storage nodes are supported.
+* Bare-metal cluster storage nodes: For a bare-metal storage cluster, a minimum of 2 and a maximum of 32 bare metal server storage nodes are supported.
 
 For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
@@ -67,9 +67,9 @@ For more information, see [Deployment values](/docs/storage-scale-da?topic=stora
 {: #storage-types-scale-offering}
 {: faq}
 
-The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. For more information, see [Storage types](/docs/storage-scale-da?topic=storage-scale-da-storage-types).
+The {{site.data.keyword.scale_short}} solution offers three different storage types: VSI, bare-metal, and evaluation. For more information, see [Storage types](/docs/storage-scale-da?topic=storage-scale-da-storage-types).
 
-Parallel vNIC is not supported on the persistent storage type and it is only supported by a custom image.
+Parallel vNIC is not supported on the bare-metal storage type and it is only supported by a custom image.
 {: note}
 
 ## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
@@ -138,7 +138,7 @@ For security reasons, {{site.data.keyword.scale_short}} does not allow you to pr
 
 An {{site.data.keyword.IBM_notm}} Customer Number (ICN) is the unique number that {{site.data.keyword.IBM_notm}} issues its customers during the post-contract signing process. The ICN is important because it allows {{site.data.keyword.IBM_notm}} to identify your company and support contract. Without an ICN, you can't deploy the {{site.data.keyword.scale_short}} resources through {{site.data.keyword.bplong_notm}}.
 
-If the `storage_type` deployment value is set as either "scratch" or "persistent", the ICN can't be set as an empty value. An empty value is accepted only if the `storage_type` is set as "evaluation".
+If the `storage_type` deployment value is set as either "VSI" or "bare-metal", the ICN can't be set as an empty value. An empty value is accepted only if the `storage_type` is set as "evaluation".
 {: important}
 
 ## What are trusted profiles and what permissions are required to set up the offering?
@@ -203,7 +203,7 @@ This error occurs when you use incorrect image during deployment. You need to ch
 
 The Bare Metal server capacities are limited and support for only specific regions. You need to check the server capacities are available in that region. If you provide the zones that the Bare Metal does not support, then the automation fails in the planning phase with the error message:
 
-`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy persistent storage provide any one of the supported availability zones."`
+`error_message = "The solution supports bare metal server creation in only given availability zones i.e. us-south-1, us-south-3, us-south-2, eu-de-1, eu-de-2, eu-de-3, jp-tok-2, eu-gb-1, us-east-1, us-east-2, eu-es-3, eu-es-1, jp-tok-3, jp-tok-2, ca-tor-2 and ca-tor-3. To deploy bare-metal storage provide any one of the supported availability zones."`
 
 Before doing a deployment, check in the UI or CLI if the profile is available in the specific region to provision the Bare Metal. For more information, see [Bare Metal Server Profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
@@ -227,8 +227,8 @@ When you enable Storage cluster based on Bare Metal, make sure you provide "d" p
 {: #storage-types-configuration}
 
 * Colocation requires specifying protocol node count. Count must be less than or equal to the storage nodes.
-* Boot drive encryption is supported only for Persistent storage.
-* `tie_breaker_bm_server` is not applicable for Scratch (only for Persistent) storage. If specified for Scratch, it will be ignored. For Persistent, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
+* Boot drive encryption is supported only for bare-metal storage.
+* `tie_breaker_bm_server` is not applicable for VSI (only for bare-metal) storage. If specified for VSI, it will be ignored. For bare-metal, if not provided, the storage instance will be considered as the `tie_breaker_bm_server` profile.
 
 ## Why do you need to create a separate StanzaFile for every nodes, even though there is an existing StanzaFile under /var/mmfs/tmp?
 {: #sdp-stanza}

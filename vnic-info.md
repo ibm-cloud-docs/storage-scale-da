@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -33,7 +33,7 @@ Compute vNICs are connected to two different subnets, providing network segmenta
 
 Similarly, if the profile of storage nodes has a bandwidth of 64 Gbps or more, a secondary network interface is activated only on the storage cluster, and scale will be configured on the primary network interface. Storage vNICs are connected to the same subnets, handling scaled traffic. Both primary and secondary interfaces are dedicated to scale communication. Communication occurs between the primary and secondary interfaces of the storage cluster to the secondary interface of the compute cluster.
 
-Parallel vNIC feature is not supported for persistent storage type.
+Parallel vNIC feature is not supported for bare-metal storage type.
 {: note}
 
 ![Architecture diagram](images/install-config-spectrum-scale.png){: caption="Install and Configure Storage Scale" caption-side="bottom"}
