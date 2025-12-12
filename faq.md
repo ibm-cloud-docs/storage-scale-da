@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -34,7 +34,9 @@ The available regions and zones for deploying VPC resources and a mapping them t
 {: #permissions-cluster-offering}
 {: faq}
 
-Instructions for the appropriate permissions for {{site.data.keyword.cloud_notm}} services that are used by the offering for creating a cluster can be found in Granting user permissions for VPC resources, Managing user access for Schematics, Assigning access to Secrets Manager, and [Creating trusted profiles](/docs/account?topic=account-create-trusted-profile).
+The instructions to set the appropriate permissions for IBM Cloud services platform roles and service roles can be seen in the below screenshots:
+
+![Granting user permissions - Platform and Service roles](images/IAM-permissions-scale-da.png "Granting user permissions - Platform and Service roles"){: caption="Granting user permissions - Platform and Service roles" caption-side="bottom"}{: external download="scale-arch-diagram-da.svg"}
 
 ## How do you SSH among nodes?
 {: #ssh-among-nodes}

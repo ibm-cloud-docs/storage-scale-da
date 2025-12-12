@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords: deploy, storage scale
 completion-time: 1h
@@ -136,11 +136,10 @@ To view access policies, complete the following steps:
    | Cloud Object Storage | All | Service Configuration Reader | Writer |
    | DNS Services | All | Editor | Manager |
    | IAM Identity Service | All | Administrator | -- |
-   | IBM Cloud Monitoring with Sysdig | All | Administrator | Manager |
-   | Key Protect | All | Service Configuration Reader | Manager |
+   | IBM Key Protect | All | Service Configuration Reader | Manager |
    | Security and Compliance Center Workload Protection | All | Administrator | -- |
    | Secrets Manager | All | Administrator | Manager |
-   | VPC Infrastructure Services | All | Editor | -- |
+   | VPC Infrastructure Services | All | Administrator | -- |
    {: caption="Verify access policies" caption-side="bottom"}
 
    The above-mentioned permissions are mandatory, failing to have these permissions lead to deployment failure. Contact the account administrator for the permissions.
