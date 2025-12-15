@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -147,13 +147,13 @@ After you apply a plan, a new log file is generated, which can be viewed in the 
 {: #create-project-cli}
 {: cli}
 
-To generate the API key, see [Managing user API keys](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=cli).
-To login to the IBM Cloud CLI, see [ibmcloud login](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
+To generate the API key, see [Managing user API keys](/docs/account?topic=account-userapikey&interface=cli).
+To login to the IBM Cloud CLI, see [ibmcloud login](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login).
 {: note}
 
 You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud_notm}} CLI to create a catalog workspace with the supported Storage Scale cluster version. The CLI requires a `values.json` file with your configuration settings.
 
-1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](https://cloud.ibm.com/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
+1. Install the [{{site.data.keyword.cloud_notm}} CLI and the catalogs management plug-in](/docs/cli?topic=cli-manage-catalogs-plugin) before you run any CLI commands.
 
 2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/scale_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 

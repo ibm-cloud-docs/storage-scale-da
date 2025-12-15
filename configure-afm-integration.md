@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -63,7 +63,7 @@ To enable the AFM feature on a Scale cluster, the following variables need to be
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|
 | `afm_instances` | Specify the list of virtual server instances to be provisioned as AFM nodes in the cluster. Each object in the list includes the instance profile (machine type), the count (number of instances), the image (OS image to use). This configuration allows you to access remote data and high-performance computing needs. This input can be used to provision virtual server instances (VSI). If persistent, high-throughput storage is required, consider using bare metal instances instead. Ensure you provide valid instance profiles. Maximum of 16 afm nodes is supported. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui). | [{profile = "bx2d-32x128" count  = 0 image  = "hpcc-scale5232-rhel810-v1"}] |
-| `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM file set, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note : The `afm_cos_config` can contain up to 5 entries. For more information, see [Endpoints and storage locations](https://cloud.ibm.com/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints). | [{afm_fileset  = "afm_fileset" mode  = "iw" cos_instance  = "" bucket_name  = "" bucket_region  = "us-south" cos_service_cred_key = "" bucket_storage_class = "smart" bucket_type  = "region_location"}] |
+| `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM file set, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note : The `afm_cos_config` can contain up to 5 entries. For more information, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints). | [{afm_fileset  = "afm_fileset" mode  = "iw" cos_instance  = "" bucket_name  = "" bucket_region  = "us-south" cos_service_cred_key = "" bucket_storage_class = "smart" bucket_type  = "region_location"}] |
 {: caption="AFM variables" caption-side="bottom"}
 
 Following components are required for a successful scale deployment with AFM feature:

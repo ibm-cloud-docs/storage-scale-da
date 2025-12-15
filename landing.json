@@ -23,7 +23,7 @@
       },
       {
         "title": "Understanding your responsibilities",
-        "href": "/docs/storage-scale-da?topic=storage-scale-da-your-id"
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-responsibilities"
       },
       {
         "title": "FAQ for IBM Storage Scale",
@@ -34,11 +34,11 @@
   "section_architectures": [
     {
       "title": "IBM Storage Scale",
-      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
+      "href": "/docs/storage-scale-da?topic=storage-scale-da-storage-scale",
       "deployable": true
     }
   ],
   "section_updates": {
-    "view_more": "/docs/overview?topic=overview-whatsnew"
+    "view_more": "/docs/storage-scale-da?topic=storage-scale-da-storagescale-service-relnotes"
   }
 }

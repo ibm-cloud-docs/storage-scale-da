@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -35,7 +35,7 @@ This solution addresses key challenges around security, privacy, and operational
 
 When private path is integrated with CES for NFS, provides a robust and secure method to deliver file storage to clients within the same VPC offering direct and efficient access to CES (NFS) storage.
 
-For more information, see [Creating a Private Path network load balancer](https://cloud.ibm.com/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
 
 ## Key features
 {: #ppnlb-key-features}
