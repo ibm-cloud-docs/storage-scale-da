@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -195,7 +195,7 @@ Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@jay-tie-strg-002 ~]#
 ```
 
-## Why do we see the **"No image found with name: xxxxxx error on the client nodes?
+## Why do we see the "No image found with name: xxxxxx" error on the client nodes?
 {: #client-node}
 
 This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 8.10).

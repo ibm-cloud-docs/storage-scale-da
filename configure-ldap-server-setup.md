@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -45,24 +45,28 @@ Following are the steps to configure an OpenLDAP server:
     ```pre
     yum -y install openldap-servers openldap-clients
     ```
+    {: codeblock}
 
 2. Copy the `DB_CONFIG.example` file to the /var/lib/ldap directory and change its ownership to the ldap user:
 
     ```shell
     cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG chown ldap. /var/lib/ldap/DB_CONFIG
     ```
+    {: codeblock}
 
 3. Start the slapd service and enable automatically at boot time using the commands:
 
     ```shell
     systemctl start slapd systemctl enable slapd
     ```
+    {: codeblock}
 
 4. Generate an admin password by running the `slappasswd` command. You are prompted to enter a password. For example:
 
     ```shell
     slappasswd
     ```
+    {: codeblock}
 
     The output looks like:
 
@@ -81,6 +85,7 @@ Following are the steps to configure an OpenLDAP server:
     add: olcRootPW
     olcRootPW: {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4]
     ```
+    {: codeblock}
 
     Replace the `olcRootPW`` value with the password hash that you generated in the step 4.
 
@@ -92,6 +97,7 @@ Following are the steps to configure an OpenLDAP server:
     ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
     ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
     ```
+    {: codeblock}
 
 7. Generate a manager password using the `slappasswd` command again. For example:
 
@@ -99,6 +105,7 @@ Following are the steps to configure an OpenLDAP server:
     Code:
     slappasswd
     ```
+    {: codeblock}
 
     You see an output that looks something like this:
 
@@ -106,11 +113,13 @@ Following are the steps to configure an OpenLDAP server:
     ```shell
     Code:
     {SSHA}TVW9z6WLIBC3EXtFHFWnb2EVlK7EZQ3b
-    ``````
+    ```
+    {: codeblock}
+
 
     Make note of the password hash that is generated (in this case, {SSHA}TVW9z6WLIBC3EXtFHFWnb2EVlK7EZQ3b) as you need it in the next step.
 
-8.	Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
+8. Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
 
     ```shell
     # DC should be your domain
@@ -143,14 +152,15 @@ Following are the steps to configure an OpenLDAP server:
 
     Replace the {SSHA} value with the password hash that you generated in the previous step.
 
-9.	Apply the changes:
+9. Apply the changes:
 
     ```shell
     Code:
     ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
     ```
+    {: codeblock}
 
-10.	Create a file that is named `basedomain.ldif` and add the following lines to it:
+10. Create a file that is named `basedomain.ldif` and add the following lines to it:
 
     ```shell
     Code:
@@ -171,15 +181,17 @@ Following are the steps to configure an OpenLDAP server:
     objectClass: organizationalUnit
     ou: Group
     ```
+    {: codeblock}
 
-11.	Apply the `baseddomain.ldif` changes:
+11. Apply the `baseddomain.ldif` changes:
 
     ```shell
     Code:
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f basedomain.ldif
     ```
+    {: codeblock}
 
-12.	Create a file named `ldapuser.ldif` using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
+12. Create a file named `ldapuser.ldif` using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
 
     ```shell
     dn: uid=Scaleusr01,ou=People,dc=ibmscale,dc=com
@@ -199,6 +211,7 @@ Following are the steps to configure an OpenLDAP server:
     gidNumber: 1003
     memberUid: Scaleusr01
     ```
+    {: codeblock}
 
     Replace the {SSHA} value with the password hash that you generated earlier.
 
@@ -208,11 +221,13 @@ Following are the steps to configure an OpenLDAP server:
     Code:
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f ldapuser.ldif
     ```
+    {: codeblock}
 
 14.	Verify whether users have been created as mentioned in the above steps:
 
     ```shell
     ldapsearch -x -LLL -b "ou=People,dc=ibmscale,dc=com" "(objectClass=posixAccount)" uid cn
     ```
+    {: codeblock}
 
     The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and by using the ldapadd command to import them into the directory.

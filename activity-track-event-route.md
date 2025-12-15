@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -64,6 +64,7 @@ To validate the Activity Tracker event routing by using the CLI, first install t
 ```pre
 ibmcloud plugin install atracker
 ```
+{: codeblock}
 
 ### Checking an Activity Tracker Route
 {: #activity-tracker-check}
@@ -73,12 +74,14 @@ Run the following command to retrieve details about an Activity Tracker Event Ro
 ```pre
 ibmcloud atracker route get --route ROUTE [--output FORMAT]
 ```
+{: codeblock}
 
 For example:
 
 ```pre
 ibmcloud atracker route get --route nproba-atracker-route
 ```
+{: codeblock}
 
 Sample Output:
 
@@ -94,6 +97,7 @@ CreatedAt:    2025-01-29T07:40:42.854Z
 UpdatedAt:    2025-01-29T07:40:42.854Z
 API version:  2
 ```
+{: codeblock}
 
 ### Validating an Activity Tracker Target
 {: #activity-tracker-target}
@@ -103,12 +107,14 @@ Run the following command to check whether a target is correctly configured for 
 ```pre
 ibmcloud atracker target validate --target TARGET [--region REGION] [--output FORMAT]
 ```
+{: codeblock}
 
 For example:
 
 ```pre
 ibmcloud atracker target validate --target ceada6af-7381-4297-9a9d-ce4b9aac8cb2
 ```
+{: codeblock}
 
 Sample Output:
 
@@ -125,5 +131,6 @@ Write Status:            success
 CreatedAt:               2025-01-29T07:40:38.091Z
 UpdatedAt:               2025-01-29T07:40:38.091Z
 ```
+{: codeblock}
 
 If you set `observability_atracker_target_type` to cloudlogs, then the output includes a Cloud Logs Target CRN. If the `observability_atracker_target_type` is set to cos, then the output contains a Cloud Object Storage Target CRN instead.

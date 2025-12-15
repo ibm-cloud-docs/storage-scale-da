@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -94,9 +94,11 @@ Run the following command to delete a project by specifying the ID. A project ca
 ```pre
 ibmcloud project delete --id ID
 ```
+{: pre}
 
 Example:
 ```pre
 ibmcloud project delete
      --id exampleString
 ```
+{: pre}

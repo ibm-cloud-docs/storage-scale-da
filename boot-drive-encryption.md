@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -79,6 +79,7 @@ Following are the steps to rotate the LUKS Encryption Keys:
 [root@scale-boot-test-strg-001 ~]# clevis luks list -d /dev/sda5
 1: tpm2 '{"hash":"sha256","key":"rsa"}'
 ```
+{: codeblock}
 
 * Regenerate the TPM key (rotate it)
 
@@ -89,6 +90,7 @@ Pin: tpm2, Config: '{"hash":"sha256","key":"rsa"}'
 Do you want to proceed? [ynYN] y
 Binding regenerated successfully
 ```
+{: codeblock}
 
 * Change the recovery key
 
@@ -98,6 +100,7 @@ Enter passphrase to be changed:
 Enter new passphrase:
 Verify passphrase:
 ```
+{: codeblock}
 
 * Test the passphrase
 
@@ -105,12 +108,14 @@ Verify passphrase:
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksOpen --test-passphrase /dev/sda5
 Enter passphrase for /dev/sda5:
 ```
+{: codeblock}
 
 * Backup the key
 
 ```pre
 [root@scale-boot-test-strg-002 ~]# cryptsetup luksHeaderBackup /dev/sda5 --header-backup-file luksbackup-sensitive.raw
 ```
+{: codeblock}
 
 * Restore the key
 
@@ -124,3 +129,4 @@ Device /dev/sda5 already contains LUKS2 header. Replacing header will destroy ex
 
 Are you sure? (Type 'yes' in capital letters): YES
 ```
+{: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -36,6 +36,7 @@ Use the `mmuserauth` command to view the details on the type of authentication u
 ```pre
 mmuserauth service check
 ```
+{: codeblock}
 
 The command that is mentioned indicates that the authentication process is being carried out through LDAP.
 
@@ -147,11 +148,13 @@ If your existing LDAP server is configured without a certificate, follow these s
     ```pre
     ldapmodify -Y EXTERNAL -H ldapi:/// -f /etc/ssl/certinfo.ldif
     ```
+    {: codeblock}
 
 14. Configure the `slapd` service to listen on both ldap:// and ldaps://"
     ```pre
     sed -i 's\SLAPD_SERVICES="ldap:/// ldapi:///"\SLAPD_SERVICES="ldap:/// ldapi:/// ldaps:///"\g' /etc/default/slapd
     ```
+    {: codeblock}
 
 15. Update `/etc/ldap/ldap.conf` file.
     ```pre

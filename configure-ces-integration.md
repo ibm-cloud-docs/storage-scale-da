@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -69,48 +69,56 @@ The successful scale deployment with the CES feature enabled consists of differe
     ```pre
     ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
     ```
+    {: codeblock}
 
 2. To view the cluster shared root configuration on the storage cluster, run the following command:
 
     ```pre
     mmlsconfig cesSharedRoot
     ```
+    {: codeblock}
 
 3. To list the protocol nodes in the cluster, run the following command:
 
     ```pre
     mmces node list
     ```
+    {: codeblock}
 
 4. To view the protocol cluster information, use the mmlscluster command:
 
     ```pre
     mmlscluster --ces
     ```
+    {: codeblock}
 
 5. Use the service list command that provides comprehensive list of the services that are running in the CES cluster, use --verbose and -a flag for detailed information:
 
     ```pre
     mmces service list --verbose -a
     ```
+    {: codeblock}
 
 6. Use the mmuserauth command to view the details on the type of authentication used for CES:
 
     ```pre
     mmuserauth service check
     ```
+    {: codeblock}
 
 7. Use the mmnfs export command to add, change, list, load, or remove NFS export declarations for IP addresses on nodes that are configured as CES types. Use list to view the current NFS exports:
 
     ```pre
     mmnfs export list
     ```
+    {: codeblock}
 
 8. Use the mmlsquota command to display quota information for a user, group, or file set. The -j flag is used for displaying the quota for file set in a file system.
 
     ```pre
     mmlsquota -j data FILESYSTEM
     ```
+    {: codeblock}
 
 The CES feature is only available with the custom image that is provided by the solution.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -60,6 +60,7 @@ This automation always uses the same IP address, so there can be issues in the `
   ```pre
     ssh -L 21443:localhost:443 -J ubuntu@<bastion_floating_IP_address> vpcuser@<STORAGE_MANAGEMENT_NODE_IP_ADDRESS>
     ```
+    {: codeblock}
 
 3. Open the browser on your local system and run https://localhost:21443. You get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
@@ -73,6 +74,7 @@ This automation always uses the same IP address, so there can be issues in the `
     ```pre
     ssh -L 21443:localhost:443 -J ubuntu@<bastion_floating_IP_address> vpcuser@<COMPUTE_MANAGEMENT_NODE_IP_ADDRESS>
     ```
+    {: codeblock}
 
 3. Open the browser on your local system and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
