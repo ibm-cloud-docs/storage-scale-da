@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "title": "IBM Storage Scale",
+  "introduction": "Find useful information to learn about IBM Storage Scale",
+  "deployment_url": "https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d",
+  "product_page": "https://www.ibm.com/products/storage-scale",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Overview of IBM Storage Scale",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-overview-storage-scale"
+      },
+      {
+        "title": "Before you begin deploying",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy"
+      },
+      {
+        "title": "Deployment values",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-deployment-values"
+      },
+      {
+        "title": "Understanding your responsibilities",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-responsibilities"
+      },
+      {
+        "title": "FAQ for IBM Storage Scale",
+        "href": "/docs/storage-scale-da?topic=storage-scale-da-storage-scale-faq"
+      }
+    ]
+  },
+  "section_architectures": [
+    {
+      "title": "IBM Storage Scale",
+      "href": "/docs/storage-scale-da?topic=storage-scale-da-storage-scale",
+      "deployable": true
+    }
+  ],
+  "section_updates": {
+    "view_more": "/docs/storage-scale-da?topic=storage-scale-da-storagescale-service-relnotes"
+  }
+}

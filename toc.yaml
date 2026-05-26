@@ -1,0 +1,74 @@
+toc:
+  properties:
+    subcollection: storage-scale-da
+    href: /docs/storage-scale-da
+    path: storage-scale-da
+    audience: solution
+    category: solution_docs
+    content-type: deployment
+    label: IBM Storage Scale
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+      - release-notes.md
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture.md
+  - navgroup:
+      id: deploy
+      topics:
+      - before-deploying.md
+      - deployment-values.md
+      - deploying-scale.md
+      - storage-types.md
+  - navgroup:
+      id: plan
+      topics:
+      - configure-afm-integration.md
+      - boot-drive-encryption.md
+      - configure-ces-integration.md
+      - expanding-scale-cluster.md
+      - ces-failover-setup.md
+      - dns-resolver-scale.md
+      - vpc-scale.md
+      - ppnlb.md
+      - sdp.md
+      - bastion-node-scale.md
+      - deployer-node-scale.md
+      - topicgroup:
+          label: Encryption
+          topics:
+          - enabling-encryption.md
+          - rotating-mk-keyprotect-encryption.md
+  - navgroup:
+      id: howto
+      topics:
+      - accessing-gui.md
+      - topicgroup:
+          label: Using OpenLDAP with the deployed environment
+          topics:
+          - about-ldapp-scale.md
+          - integrate-openldapp-scale.md
+          - integrate-existing-openldapp-scale.md
+          - check-openldap-status-scale.md
+          - create-ldapp-user-scale.md
+          - config-ldap-ces-scale.md
+          - configure-ldap-server-setup.md
+      - vnic-info.md
+      - security-groups.md
+      - scc-workload-protect-scale.md
+      - activity-track-event-route.md
+      - cleanup-deployed-envn-scale.md
+  - navgroup:
+      id: reference
+      topics:
+      - responsibilities-da.md
+  - navgroup:
+      id: help
+      topics:
+      - faq.md
+      - troubleshoot.md
+      - get-help-da.md

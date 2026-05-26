@@ -1,0 +1,93 @@
+---
+
+copyright:
+  years: 2026
+lastupdated: "2026-05-26"
+
+keywords: # Not typically populated
+
+subcollection: storage-scale-da
+
+authors:
+  - name: Piyush Chaudhary
+
+deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d
+
+docs: https://cloud.ibm.com/docs/solution-guide
+
+image_source:
+
+use-case: IBM Storage Scale
+industry: Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense
+compliance:
+content-type: reference-architecture
+
+production: false
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# IBM Storage Scale
+{: #storage-scale}
+{: toc-content-type="reference-architecture"}
+{: toc-industry="Electronics, Healthcare, LifeSciences, Automotive, AerospaceAndDefense"}
+{: toc-use-case="StorageScale"}
+
+You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources. In simple steps, you can define the configuration properties and make use of automated deployment to build your own storage-rich clusters in minutes. {{site.data.keyword.scale_full}} supports the configuration of both compute and storage nodes, allowing you to build a complete, end-to-end Storage cluster.
+
+## Architecture diagram
+{: #architecture-diagram}
+
+![Architecture diagram.](images/scale-arch-diagram-da.svg "Storage Scale Architecture diagram"){: caption="Storage Scale Architecture diagram" caption-side="bottom"}{: external download="scale-arch-diagram-da.svg"}
+
+## Design concepts
+{: #design-concepts}
+
+The architecture framework design covers design considerations and architecture decisions for the following aspects and domains:
+
+* **Data:** Data storage
+* **Compute:** Virtual servers
+* **Storage:** Primary storage
+* **Networking:** Isolation and domain name service
+* **Security:** Data security
+* **Service management:** Logging and automated deployment
+
+![Architecture design scope](images/RA-ibm-cloud-scale-heatmap-phase.svg "Architecture design scope"){: caption="Architecture design scope" caption-side="bottom"}{: external download="RA-ibm-cloud-scale-heatmap-phase.svg"}
+
+## Requirements
+{: #requirements}
+
+The following table outlines the requirements that are addressed in this architecture.
+
+| Aspect | Requirements |
+| -------------- | -------------- |
+| Data            | Provide a location to store {{site.data.keyword.scale_full_notm}} configuration and data. |
+| Compute            | Provide properly isolated compute resources with adequate compute capacity for the applications. |
+| Storage            | Provide storage that meets the application and database performance requirements. |
+| Networking         | * Deploy workloads in an isolated environment and enforce information flow policies. \n * Distribute incoming application requests across available compute resources. \n * Support failover of application within the cluster event of planned or unplanned node outage. \n * Provide private DNS resolution to support the use of hostnames instead of IP addresses. |
+| Security           | * Ensure that all operator actions are run securely through bastion host. \n * Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. \n * Protect secrets through their entire lifecycle and secure them using access control measures.|
+| Service Management | * Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. \n * Monitor audit logs to track changes and detect potential security problems. |
+{: caption="Requirements" caption-side="bottom"}
+
+## Components
+{: #components}
+
+| Aspects | Requirement | Architecture component | How the component is used |
+|-------------|-------------|-----------|--------------------|
+| Data and Storage | GPFS or NFS | * Storage Scale nodes \n * Protocol nodes| These components are used to create storage elements for the cluster. |
+| Compute | Create Virtual Server Instances (VSI) to support LDAP. | Scale LDAP nodes | Allows you to login through LDAP users. |
+|  | Create VSI to support GPFS based compute nodes. | Scale compute nodes | This component is used to create the GPFS compute nodes. |
+|  | Create VSI to support NFS based protocol nodes. | Scale protocol nodes | This component is used to create the NFS based protocol nodes. |
+|  | Create VSI to support NFS based client protocol nodes. | Protocol client nodes | This component is used to create the NFS based client protocol nodes. |
+|  | Create VSI to support Storage Scale nodes. | Storage Scale nodes | Creates VSI to support the Storage Scale nodes. |
+|  | Create VSI to support GKLM. | GKLM nodes | Create VSI to support GKLM nodes. |
+| Networking | Create individual security groups for each nodes. | To restrict the traffic at the instance level. |
+|  | Enable floating IP on bastion node for user access. | Floating IP on the bastion node | Allows user access to the Scale bastion node. |
+|  | Enable a public gateway for the Scale subnets. | * Storage subnet \n * Compute subnet | Allows outbound communication for the Scale node for any internet access (for example, repositories, packages, and so on). |
+|  | DNS service for the Scale cluster nodes | DNS service | Helps with the IP and name resolution for the Scale compute nodes. |
+| Security | Provide users with the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. | * [{{site.data.keyword.keymanagementservicefull}}](/docs/key-protect) \n * [IBM Security® Guardium® Key Lifecycle Manager (GKLM)](https://www.ibm.com/docs/en/ds8900/9.4.0?topic=servers-security-guardium-key-lifecycle-manager)| Provides the ability to use keys to ensure that all data meets regulatory compliance requirements for more security and user control. |
+|  | Protect secrets through their entire lifecycle and secure them using access control measures. | [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started&interface=ui) | Protects secrets through their entire lifecycle and secure them using access control measures.
+| Service Management | (Optional) Monitor system and application health metrics and logs to detect issues that might impact the availability of the application. | [IBM Storage Scale GUI](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-introduction-storage-scale-gui) | Monitors system and application health to detect issues that might impact the availability of the application. |
+|  | (Optional) Monitor audit logs to track changes and detect potential security problems. | [{{site.data.keyword.atracker_full}}](/docs/atracker?topic=atracker-getting-started) | Monitors audit logs to track changes and detect potential security problems. |
+{: caption="Components" caption-side="bottom"}
