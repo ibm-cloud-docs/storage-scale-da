@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-15"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -86,7 +86,7 @@ Once you deploy the project, in the back end a Schematics workspace is created f
 3. You can see the list of workspaces created.
 
 When deployed, you can then access your deployed environment.
-For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster).
+For more information on accessing the cluster after the deployment, see [Accessing the deployed environment](/docs/allowlist/storage-scale-da?topic=storage-scale-da-before-begin-deploy&interface=ui#accessing-cluster).
 
 You can retrieve the logs from either the Schematics workspace or the deployer node to view both successful and failed cluster deployments.
 {: shortdesc}
@@ -94,7 +94,7 @@ You can retrieve the logs from either the Schematics workspace or the deployer n
 ### Retrieving apply plan logs in the Schematics workspace
 {: #retrieve-apply-plan-logs-schematics-workspace}
 
-After you apply a plan, a new log file is generated, which can be viewed in the _Jobs_ tab in the Schematics workspace. See the following sections for instructions and examples of successful or failed deployments.
+After you apply a plan, a new log file is generated, which can be viewed in the _Jobs_ tab in the Schematics workspace. In the following sections you can see the instructions and examples of successful or failed deployments.
 
 ### Successful cluster deployment
 {: #successful-apply-plan}
@@ -158,6 +158,7 @@ You can deploy your Storage Scale cluster by using the {{site.data.keyword.cloud
 2. The CLI requires a `values.json` file with your configuration settings. Use the [values.json](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/samples/configs/scale_catalog_values.json) file as a reference. You can copy the contents, change the values to meet your own deployment configurations, and then save it as `values.json`.
 
 3. Run this command in the {{site.data.keyword.cloud_notm}} CLI to deploy your Storage Scale cluster with the configuration you specified in your `values.json` file.
+
     ```text
     ibmcloud catalog install --vl <version_locator_value> --override-values values.json
     ```

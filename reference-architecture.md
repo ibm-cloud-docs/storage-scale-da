@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-11"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords: # Not typically populated
 
@@ -11,7 +11,7 @@ subcollection: storage-scale-da
 authors:
   - name: Piyush Chaudhary
 
-deployment-url: url
+deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d
 
 docs: https://cloud.ibm.com/docs/solution-guide
 

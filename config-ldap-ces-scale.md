@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-15"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -40,7 +40,7 @@ mmuserauth service check
 
 The command that is mentioned indicates that the authentication process is being carried out through LDAP.
 
-For more information about CES authentication, see [CES User Authentication](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication#verify-ces).
+For more information about CES authentication, see [CES User Authentication](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication&interface=ui).
 
 ## Creating and configuring a LDAP certificate with your LDAP server
 {: #create-configure-ldap-certificate}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-11"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -90,7 +90,7 @@ You and IBM share responsibilities for controlling access to your {{site.data.ke
 
 |  | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|Observability| Provide the ability to integrate IBM Cloud Activity Tracker with your cluster to audit the actions that users take in the cluster. | Set up IBM Cloud Activity Tracker or other capabilities to track user activity in the cluster. For more information, see [IBM Cloud Activity Tracker Event Routing](/docs/storage-scale-da?topic=storage-scale-da-activity-tracker-overview).|
+|Observability| Provide the ability to integrate IBM Cloud Activity Tracker with your cluster to audit the actions that users take in the cluster. | Set up IBM Cloud Activity Tracker or other capabilities to track user activity in the cluster. For more information, see [IBM Cloud Activity Tracker Event Routing](/docs/allowlist/storage-scale-da?topic=storage-scale-da-activity-tracker-overview).|
 {: caption="Responsibilities for identity and access management" caption-side="bottom"}
 
 ## Security and regulation compliance

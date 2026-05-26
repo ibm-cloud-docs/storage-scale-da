@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-10"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -31,7 +31,7 @@ Schematics unable to clone the public GitHub repository, and you are seeing one 
 You did not provide the correct GitHub URL, or you provided a GitHub token, which is not required to clone a public repo. A GitHub access token is only required to access a private repo.
 {: tsCauses}
 
-Do not provide a GitHub token, and check to see whether the GitHub token was provided in the `github_token` parameter while creating a workspace by using the [public repo](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
+Do not provide a GitHub token, and check to see whether the GitHub token was provided in the `github_token` parameter while creating a workspace by using the [public repo](https://github.com/terraform-ibm-modules/terraform-ibm-hpc/blob/main/main.tf){: external}.
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to create a workspace?
@@ -178,7 +178,7 @@ After a successful cluster deployment, you will not be able to SSH to the nodes 
 
 You can try the following procedures to help troubleshoot the SSH issue:
 1. Ensure that you have the correct IP address to establish an SSH connection. Refresh the UI to fetch the latest IP address details.
-2. Check whether the SSH connection works for the bastion host (for example, `ssh ubuntu@bastion-IP-address). If the connection is successful, then you can troubleshoot the SSH issue for the other nodes.
+2. Check whether the SSH connection works for the bastion host (for example, `ssh ubuntu@bastion-IP-address`). If the connection is successful, then you can troubleshoot the SSH issue for the other nodes.
 3. Open the security group of the bastion host and check if TCP port 22 with source range is open from the user system.
 4. Use https://ipv4.icanhazip.com/ to fetch the current IP address and validate whether there is a different, updated IP address on the security group of the source address range.
 5. Open the security group of the deployer, compute, and storage nodes to see the bastion node security group source details to access SSH to connect to the other nodes.
@@ -259,7 +259,7 @@ Run the following commands to see the specific logs to fix the issue:
     Loaded: loaded (/usr/lib/systemd/system/pmsensors.service; enabled; vendor preset: disabled)
     Active: failed (Result: start-limit) since Wed 2022-05-11 11:13:44 UTC; 2h 5min ago
     Main PID: 19206 (code=exited, status=78)
-    May 11 11:13:44 anbu-scale-r4-compute-1 systemd[1]: pmsensors.service failed.
+    May 11 11:13:44 test-scale-r4-compute-1 systemd[1]: pmsensors.service failed.
     ```
     {: screen}
 
@@ -429,3 +429,211 @@ The GUI component shows DEGRADED with `gui_refresh_task_failed` warning because 
 
 Run the following command to refresh the GUI health status: `mmhealth node show --refresh`
 {: tsResolve}
+
+## Why does the filesystem component on some nodes appear as DEGRADED?
+{: #troubleshoot-topic-24}
+{: troubleshoot}
+{: support}
+
+The node health shows TIPS or DEGRADED status. The filesystem `fs1` is reported as unmounted on the node.
+Health check raises `unmounted_fs_check`, marking the filesystem component as **DEGRADED**.
+
+```pre
+[root@test-jan-per6-comp-1-2c30-004.comp.com ~]# mmhealth node show
+
+Node name:      test-jan-per6-comp-1-2c30-004.comp.com
+Node status:    TIPS
+Status Change:  23 min. ago
+
+Component          Status       Status Change       Reasons & Notices
+--------------------------------------------------------------------------
+GPFS                TIPS            23 min. ago     gpfs_pagepool_small_4g
+NETWORK            HEALTHY          24 min. ago             -
+FILESYSTEM         DEGRADED         16 min. ago     unmounted_fs_check(fs1)
+PERFMON            HEALTHY          22 min. ago             -
+THRESHOLD          HEALTHY          22 min. ago             -
+```
+{: tsSymptoms}
+
+The node was recently incremented or updated in the cluster. During the addition process the GPFS services was running, but the filesystem did not automatically mount on this node. As a result, Storage Scale detected a discrepancy between the expected and actual filesystem mount state and generated a warning.
+{: tsCauses}
+
+Perform a GPFS shutdown and restart the affected node:
+{: tsResolve}
+
+1. The node health returned to **HEALTHY** state.
+2. The filesystem mounted successfully.
+3. The `unmounted_fs_check` warning was cleared. The following commands are used:
+
+```text
+mmshutdown -N test-jan-per6-comp-1-2c30-004.comp.com
+mmstartup -N test-jan-per6-comp-1-2c30-004.comp.com
+```
+{: codeblock}
+
+As a result, no further health warnings observed. The node is functioning as expected.
+
+## Why does the filesystem component show ill_unbalanced_fs (fs1) warning?
+{: #troubleshoot-topic-25}
+{: troubleshoot}
+{: support}
+
+Run the `mmhealth node show -a` command to check the health status of all nodes in the cluster.
+{: tsSymptoms}
+
+The node **test-jan-case1-strg-f5d4-001.strg.com** is in TIPS state due to:
+1. `callhome_not_enabled`
+2. `ill_unbalanced_fs (fs1)` on the filesystem component.
+
+The node was recently incremented in the cluster. After addition, the filesystem `fs1` became temporarily unbalanced, leading to `ill_unbalanced_fs` warning.
+{: tsCauses}
+
+Filesystem restriping was performed on the storage node using the command `mmrestripefs fs1 -b`. After restriping, the imbalance reason was removed from the filesystem health status.
+{: tsResolve}
+
+## Why does encryption fail on Cluster Health?
+{: #troubleshoot-topic-26}
+{: troubleshoot}
+{: support}
+
+The encryption fails with the following warning message:
+
+```text
+[root@jl-gktest5-strg-bc74-001 vpcuser]# mmhealth node show
+
+Node name:      jl-gktest5-strg-bc74-001.strg.com
+Node status:    TIPS
+Status Change:  1 hour ago
+
+Component      Status        Status Change     Reasons & Notices
+-----------------------------------------------------------------------------------------
+GPFS           TIPS          1 hour ago        callhome_not_enabled, gpfs_maxstatcache_low
+NETWORK        HEALTHY       1 hour ago        -
+FILESYSTEM     HEALTHY       1 hour ago        -
+DISK           HEALTHY       1 hour ago        -
+CES            HEALTHY       1 hour ago        -
+CESCLUSTER     HEALTHY       1 hour ago        -
+ENCRYPTION     FAILED        47 min. ago       rkm_no_access(rkm_ClusterTenant1-jl-gktest5-gklm-bc74-002.gklm.com)
+PERFMON        HEALTHY       1 hour ago        -
+THRESHOLD      HEALTHY       1 hour ago        -
+```
+{: codeblock}
+{: tsSymptoms}
+
+This happens when the GKLM servers are created more than 2. This has no impact on the cluster or the files created on the filesystem.
+{: tsCauses}
+
+* The RKM conf is not synchronized between the master and slave.
+* This warning message will be recovered after the next replication between the GKLM server.
+* Approximately 24 hours after the cluster was created.
+
+To fix the issue, you need to enable replication to synchronize the master node with the slave nodes.
+{: tsResolve}
+
+**With GUI:**
+
+1. Access the GKLM server through SSH tunneling, using the following command:
+    ```text
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 9443:localhost:9443 -J ubuntu@BASTION_IP vpcuser@GKLM_MASTER_SERVER
+    ```
+    {: codeblock}
+
+2. Access the GKLM dashboard through a browser https://localhost:9443
+3. Login using admin user credentials.
+4. Access the **Administration** dashboard.
+
+    ![IBM Security Guardium Key Lifecycle Manager (GKLM) - Replication](images/GKLM_gui.png "IBM Security Guardium Key Lifecycle Manager (GKLM) - Replication"){: caption="IBM Security Guardium Key Lifecycle Manager (GKLM) - Replication" caption-side="bottom"}{: external download="GKLM_gui.png"}
+
+4. Click **Replicate Now** option to synchronize the master configuration across all slave nodes.
+
+    ![IBM Security Guardium Key Lifecycle Manager (GKLM) - Information](images/GKLM_gui_info.png "IBM Security Guardium Key Lifecycle Manager (GKLM) - Information"){: caption="IBM Security Guardium Key Lifecycle Manager (GKLM) - Information" caption-side="bottom"}{: external download="GKLM_gui_info.png"}
+
+Once the replication is complete, the encryption state returns to healthy.
+
+**With API commands:**
+
+1. Login to any node in the cluster that is accessible to the GKLM servers.
+2. Run the below API command to retrieve the auth token:
+    ```text
+    curl -k -X POST \
+      "https://<SCALE_ENCRYPTION_SERVER>:9443/SKLM/rest/v1/ckms/login" \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json" \
+      -d '{
+            "userid": "<SCALE_ENCRYPTION_ADMIN_USERNAME>",
+            "password": "<SCALE_ENCRYPTION_ADMIN_PASSWORD>"
+          }'
+    SCALE_ENCRYPTION_SERVER – Master Key Server
+    SCALE_ENCRYPTION_ADMIN_USERNAME – SKLAdmin
+    SCALE_ENCRYPTION_ADMIN_PASSWORD – Admin Password
+    ```
+    {: codeblock}
+
+3. With the above command, you will receive an authentication token. Use this token on the below replication command:
+    ```text
+    curl -k -X POST \
+      "https://<SCALE_ENCRYPTION_SERVER>:9443/SKLM/rest/v1/replicate/now" \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json" \
+      -H "Authorization: SKLMAuth userAuthId=<USER_AUTH_ID>" \
+      -d '{
+            "hostname": "<ENCRYPTION_SLAVE_SERVER_1 >",
+            "port": "2222"
+          }'
+    SCALE_ENCRYPTION_SERVER – Master Key Server
+    USER_AUTH_ID – Auth Token retrieve on first command
+    ENCRYPTION_SLAVE_SERVER_1 – Slave Key Server 1
+    ```
+    {: codeblock}
+
+    Repeat the same command for remaining slave nodes.
+    {: note}
+
+4. The final result is as below:
+    ```text
+    [{"code":"CTGKM2200I","status":"CTGKM2200I Replication successful for ENCRYPTION_SLAVE_SERVER_1:2222"}]
+    ```
+    {: codeblock}
+
+    After replication the encryption state becomes healthy.
+
+## Why do the Scale commands fail?
+{: #troubleshoot-topic-27}
+{: troubleshoot}
+{: support}
+
+When running Spectrum Scale (GPFS) commands like `mmgetstate -a` after switching to the root user using `sudo su -`, the command prompts for a remote node password and fails to display the cluster state.
+
+**Observed logs:**
+{: tsSymptoms}
+
+```text
+[vpcuser@test-1-scale-strg-515d-001 ~]$ sudo su -
+Last login: Thu Feb  5 17:03:48 UTC 2026 on pts/2
+[root@test-1-scale-strg-515d-001 ~]# mmgetstate -a
+root@test-1-scale-strg-515d-002.strg.com's password:
+mmgetstate: Interrupt received.
+```
+{: codeblock}
+
+Using `sudo su -` starts a login shell for the root user, which resets the environment variables such as path, profiles, and working directory. As a result, the Spectrum Scale environment is not initialized and the passwordless authentication between cluster nodes breaks. This causes GPFS commands to prompt for remote node credentials and prevents them from completing successfully.
+{: tsCauses}
+
+To execute any scale commands, switch to the root user using `sudo su`.
+{: tsResolve}
+
+**Observed logs after fix:**
+
+```text
+[vpcuser@test-1-scale-strg-515d-001 ~]$ sudo su
+[root@test-1-scale-strg-515d-001 vpcuser]# mmgetstate -a
+
+Node number             Node name                   GPFS state
+---------------------------------------------------------------
+    1       test-1-scale-strg-515d-001              active
+    2       test-1-scale-strg-515d-002              active
+    3       test-1-scale-strg-tie-515d-001          active
+    4       test-1-scale-afm-515d-001               active
+    5       test-1-scale-strg-mgmt-515d-001         active
+```
+{: codeblock}

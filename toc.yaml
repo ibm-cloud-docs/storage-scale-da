@@ -27,7 +27,6 @@ toc:
   - navgroup:
       id: plan
       topics:
-      - enabling-encryption.md
       - configure-afm-integration.md
       - boot-drive-encryption.md
       - configure-ces-integration.md
@@ -39,6 +38,11 @@ toc:
       - sdp.md
       - bastion-node-scale.md
       - deployer-node-scale.md
+      - topicgroup:
+          label: Encryption
+          topics:
+          - enabling-encryption.md
+          - rotating-mk-keyprotect-encryption.md
   - navgroup:
       id: howto
       topics:

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-15"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -83,7 +83,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `enable_ldap` | Set this option to true to enable LDAP for IBM Storage Scale, with the default value set to false. | No | False |
 | `ldap_basedns` | The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name. | No | "ldapscale.com" |
 | `ldap_server` | Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created. | No | Null|
-|`ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, see [existing LDAP server certificate](/docs/storage-scale-da?topic=storage-scale-da-config-ldap-ces#create-configure-ldap-certificate). | No | Null |
+|`ldap_server_cert` | Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, see [existing LDAP server certificate](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ldap-ces&interface=ui#create-configure-ldap-certificate). | No | Null |
 | `ldap_admin_password` | The LDAP admin password must be 8 to 20 characters long and include at least two alphabetic characters (with one uppercase and one lowercase), one number, and one special character from the set (!@#$%^&*()_+=-). The password must not contain the username or any spaces. [This value is ignored for an existing LDAP server]. | Yes | Null |
 | `ldap_user_name` | Custom LDAP User for performing cluster operations. **Note:** Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]. | No | ""|
 | `ldap_user_password` | The LDAP user password must be 8 to 20 characters long and include at least two alphabetic characters (with one uppercase and one lowercase), one numeric digit, and at least one special character from the set (!@#$%^&*()_+=-). Spaces are not allowed. The password must not contain the username for enhanced security. [This value is ignored for an existing LDAP server]. | Yes | "" |

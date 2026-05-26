@@ -1,16 +1,14 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-12"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords: deploy, storage scale
-completion-time: 1h
-use-case: ITServiceManagement
-industry: Technology
 subcollection: storage-scale-da
 content-type: tutorial
-deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd76/architecture/deploy-arch-ibm-storage-scale-33105573-84df-4279-9efa-48887456fa6d
+
+docs: https://cloud.ibm.com/docs/allowlist/storage-scale-da
 
 ---
 
@@ -27,10 +25,7 @@ deployment-url: https://cloud.ibm.com/catalog/90717ada-be34-4b82-a0d9-0f225f8dbd
 
 # Before you begin deploying
 {: #before-begin-deploy}
-{: toc-completion-time="1h"}
 {: toc-content-type="tutorial"}
-{: toc-industry="Technology"}
-{: toc-use-case="ITServiceManagement"}
 
 You can deploy the {{site.data.keyword.scale_full_notm}} to have a bare-metal storage cluster.
 
@@ -149,7 +144,7 @@ To view access policies, complete the following steps:
 {: #before-begin}
 
 The deployment is performed using Terraform and IBM Projects.
-Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. For more information, see [Deploying IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-deploying-storage-scale).
+Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. For more information, see [Deploying IBM Storage Scale](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deploying-storage-scale).
 {: note}
 
 To get started with the deployment, complete the following steps:
@@ -172,7 +167,7 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 {: #gather-ip-address}
 {: step}
 
-You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_allowed_ips` deployment value. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_allowed_ips` deployment value. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 If this field is left empty (for example, [""]) or not provided, then the cluster deployment fails during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
@@ -205,12 +200,12 @@ After completing the mandatory steps, you can enable the optional features by lo
 ### Enable IBM Customer Number (ICN)
 {: #gather-scale-entitlement-information}
 
-The offering uses Bring Your Own Licenses (BYOL) for {{site.data.keyword.scale_full}} when you deploy a cluster on {{site.data.keyword.cloud_notm}}. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. In case of failure to comply with licenses during the production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/programlicense.html){: external}.
+The offering uses Bring Your Own License (BYOL) for {{site.data.keyword.scale_full}} when deploying a cluster on {{site.data.keyword.cloud_notm}}. The IBM Storage Scale solution is installed with the **Data Management Edition**. For more information about this edition, see [Features in IBM Storage Scale editions](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-storage-scale-product-editions#prodstruct__table_atn_tqp_rhb) table. Users may need to have the appropriate entitlement to use this version of the software. For production clusters, work with your business owners or license management team to make sure that your organization has procured enough licenses to deploy the Scale cluster. In case of failure to comply with licenses during the production use of software is a violation of the [IBM International Program License Agreement](https://www.ibm.com/software/passportadvantage/licensing){: external}.
 
 ### Enable encryption
 {: #enable-encryption}
 
-You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_type` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions).
+You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_type` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/allowlist/storage-scale-da?topic=storage-scale-da-enable-encryptions).
 
 ### Enable parallel vNIC (MROT)
 {: #enable-parallel-vnic}
@@ -223,7 +218,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 ### Enable CES
 {: #enable-ces}
 
-To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable boot drive encryption for bare-metal storage
 {: #enable-boot-encryption}
@@ -233,12 +228,12 @@ To enable boot drive encryption for bare-metal storage, set `bms_boot_drive_encr
 ### Enable LDAP
 {: #enable-ldap}
 
-To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. Existing LDAP is also supported. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. Existing LDAP is also supported. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable AFM
 {: #enable-afm}
 
-To enable AFM, set `afm_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable AFM, set `afm_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## Accessing the deployed environment
 {: #accessing-cluster}
@@ -256,3 +251,11 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<repla
 ```pre
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J ubuntu@<replace this with your bastion_node IP address> vpcuser@<replace this with your storage node IP address>
 ```
+
+After cluster deployment, executing any scale commands requires root access to the solution nodes. However, when these commands are run using `sudo su -`, the following errors are encountered:
+```pre
+[vpcuser@scale-strg-8017-001 ~]$ mmgetstate -a
+-bash: /usr/lpp/mmfs/bin/mmces: Permission denied
+```
+To execute any scale commands, switch to the root user using `sudo su`.
+{: note}

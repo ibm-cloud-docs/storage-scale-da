@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-15"
+  years: 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -57,7 +57,7 @@ Two variables are required to configure the {{site.data.keyword.atracker_short}}
 ## Post deployment
 {: #post-deployment}
 
-After successful deployment, if you want to ensure that the Activity Tracker event routing is configured correctly then run the following commands.
+After successful deployment, if you want to can ensure that the Activity Tracker event routing is configured correctly then run the following commands.
 
 To validate the Activity Tracker event routing by using the CLI, first install the atracker plug-in:
 
