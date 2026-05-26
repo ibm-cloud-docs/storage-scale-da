@@ -51,7 +51,7 @@ An AFM to COS file set is supported on all existing AFM file set modes that incl
 
 Before you begin, review the following information:
 
-1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/allowlist/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
+1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy).
 
 2. Learn more about active file management by referring [Introduction to AFM to cloud object storage](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-introduction-afm-cloud-object-storage).
 

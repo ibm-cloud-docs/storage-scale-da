@@ -116,7 +116,7 @@ See the following minimum and maximum number of nodes that are supported in a cl
 * VSI and evaluation cluster storage nodes: For a VSI and evaluation storage clusters, a minimum of 2 and a maximum of 64 virtual server instance storage nodes are supported.
 * Bare-metal cluster storage nodes: For a bare-metal storage cluster, a minimum of 2 and a maximum of 32 bare metal server storage nodes are supported.
 
-For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
+For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### **Can you connect directly through SSH to the deployer, compute, or storage nodes from a system external to IBM Cloud?**
 {: #connecting-nodes-external}

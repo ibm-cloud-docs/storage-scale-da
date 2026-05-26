@@ -8,7 +8,7 @@ keywords: deploy, storage scale
 subcollection: storage-scale-da
 content-type: tutorial
 
-docs: https://cloud.ibm.com/docs/allowlist/storage-scale-da
+docs: https://cloud.ibm.com/docs/storage-scale-da
 
 ---
 
@@ -144,7 +144,7 @@ To view access policies, complete the following steps:
 {: #before-begin}
 
 The deployment is performed using Terraform and IBM Projects.
-Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. For more information, see [Deploying IBM Storage Scale](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deploying-storage-scale).
+Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. For more information, see [Deploying IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-deploying-storage-scale).
 {: note}
 
 To get started with the deployment, complete the following steps:
@@ -167,7 +167,7 @@ In the UI, the drop-down lists all the available ssh keys from all the regions. 
 {: #gather-ip-address}
 {: step}
 
-You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_allowed_ips` deployment value. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
+You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_allowed_ips` deployment value. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 If this field is left empty (for example, [""]) or not provided, then the cluster deployment fails during the initial setup phase. It is essential to supply a valid entry to proceed with a successful deployment.
 
@@ -205,7 +205,7 @@ The offering uses Bring Your Own License (BYOL) for {{site.data.keyword.scale_fu
 ### Enable encryption
 {: #enable-encryption}
 
-You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_type` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/allowlist/storage-scale-da?topic=storage-scale-da-enable-encryptions).
+You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. If you want to enable encryption, you need to define the `scale_encryption_type` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling Encryption](/docs/storage-scale-da?topic=storage-scale-da-enable-encryptions).
 
 ### Enable parallel vNIC (MROT)
 {: #enable-parallel-vnic}
@@ -218,7 +218,7 @@ If CES is enabled, parallel vNIC functionality cannot be used.
 ### Enable CES
 {: #enable-ces}
 
-To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable CES, set `protocol_instances` to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable boot drive encryption for bare-metal storage
 {: #enable-boot-encryption}
@@ -228,12 +228,12 @@ To enable boot drive encryption for bare-metal storage, set `bms_boot_drive_encr
 ### Enable LDAP
 {: #enable-ldap}
 
-To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. Existing LDAP is also supported. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. Existing LDAP is also supported. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ### Enable AFM
 {: #enable-afm}
 
-To enable AFM, set `afm_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/allowlist/storage-scale-da?topic=storage-scale-da-deployment-values).
+To enable AFM, set `afm_instances` parameter to a value greater than zero. For more information, see [Deployment values](/docs/storage-scale-da?topic=storage-scale-da-deployment-values).
 
 ## Accessing the deployed environment
 {: #accessing-cluster}

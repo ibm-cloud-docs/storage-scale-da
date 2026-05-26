@@ -40,7 +40,7 @@ The release notes describes the brief overview of the new features, enhancements
 ## December 2025
 {: #subcollection-dec25}
 
-In this release, IBM Storage Scale deployable architecture is introduced. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. For more information, see [Overview of IBM Storage Scale](/docs/allowlist/storage-scale-da?topic=storage-scale-da-overview-storage-scale).
+In this release, IBM Storage Scale deployable architecture is introduced. {{site.data.keyword.scale_full}} enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster. For more information, see [Overview of IBM Storage Scale](/docs/storage-scale-da?topic=storage-scale-da-overview-storage-scale).
 
 ### 12 December 2025
 {: #subcollection-dec1225}
@@ -48,10 +48,10 @@ In this release, IBM Storage Scale deployable architecture is introduced. {{site
 
 The following new features are added as part of the release:
 
-* [IBM Storage Scale deployable architecture](/docs/allowlist/storage-scale-da?topic=storage-scale-da-storage-scale): You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources.
+* [IBM Storage Scale deployable architecture](/docs/storage-scale-da?topic=storage-scale-da-storage-scale): You can deploy the dedicated Storage Scale cluster for High-Performance Computing (HPC) clusters using IBM Storage Scale as the storage solution. This offering leverages deployable architecture automation to streamline the provisioning and configuration of the cloud resources.
 
-* [SSD Defined Performance (SDP)](/docs/allowlist/storage-scale-da?topic=storage-scale-da-sdp-intro): The SSD Defined Performance (SDP) is a second-generation IBM Cloud Block Storage profile designed to provide enhanced flexibility in defining performance and capacity characteristics for block volumes. By using the `sdp` profile, you can specify the capacity and the maximum throughput limit.
+* [SSD Defined Performance (SDP)](/docs/storage-scale-da?topic=storage-scale-da-sdp-intro): The SSD Defined Performance (SDP) is a second-generation IBM Cloud Block Storage profile designed to provide enhanced flexibility in defining performance and capacity characteristics for block volumes. By using the `sdp` profile, you can specify the capacity and the maximum throughput limit.
 
-* [Private Path Network Load Balancer (PPNLB)](/docs/allowlist/storage-scale-da?topic=storage-scale-da-ppnlb-overview): The IBM Cloud Private Path service enables secure and private connectivity between IBM Cloud services and third-party applications without exposing traffic to the public internet. By leveraging the IBM Cloud backbone, it ensures that all data transmission remains within the trusted IBM network infrastructure, enhancing both security and performance.
+* [Private Path Network Load Balancer (PPNLB)](/docs/storage-scale-da?topic=storage-scale-da-ppnlb-overview): The IBM Cloud Private Path service enables secure and private connectivity between IBM Cloud services and third-party applications without exposing traffic to the public internet. By leveraging the IBM Cloud backbone, it ensures that all data transmission remains within the trusted IBM network infrastructure, enhancing both security and performance.
 
 * In this release, the storage types "scratch" is renamed to **VSI** and "persistent" to **bare-metal**. This change was introduced to avoid the confusion caused by SDP implementation.

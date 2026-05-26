@@ -20,8 +20,8 @@ subcollection: storage-scale-da
 If you experience an issue or have questions when deploying IBM Storage Scale, you can use the following resources before you open a support case.
 {: shortdesc}
 
-* Review the [FAQs](/docs/allowlist/storage-scale-da?topic=storage-scale-da-storage-scale-faq) in the deployment guide.
-* Review the [troubleshooting documentation](/docs/allowlist/storage-scale-da?topic=storage-scale-da-troubleshooting-spectrum-scale) to troubleshoot and resolve common issues.
+* Review the [FAQs](/docs/storage-scale-da?topic=storage-scale-da-storage-scale-faq) in the deployment guide.
+* Review the [troubleshooting documentation](/docs/storage-scale-da?topic=storage-scale-da-troubleshooting-spectrum-scale) to troubleshoot and resolve common issues.
 
 If you have problems or questions when you are using the {{site.data.keyword.scale_full}} offering on {{site.data.keyword.cloud}}, you can use the following options:
 

@@ -37,9 +37,9 @@ The colocation feature avoids the need to provision extra virtual servers and im
 
 Before you begin, review the following information:
 
-1. To begin with the Scale cluster deployment, see [Before you begin deploying](/docs/allowlist/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
+1. To begin with the Scale cluster deployment, see [Before you begin deploying](/docs/storage-scale-da?topic=storage-scale-da-before-begin-deploy) topic.
 
-2. For more information on cluster export service see, [how CES works](/docs/allowlist/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication#verify-ces) topic.
+2. For more information on cluster export service see, [how CES works](/docs/storage-scale-da?topic=storage-scale-da-config-ces-integration-ldap-authentication#verify-ces) topic.
 
 ## Configuring CES deployment
 {: #procedureconfig-ces-deploy}
