@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-07-20"
 
 keywords:
 
@@ -43,37 +43,39 @@ You can deploy your {{site.data.keyword.scale_short}} cluster by using the {{sit
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
 2. Search for _IBM Storage Scale_ in the search catalog.
-3. Click **Add to project**.
-4. In the _Create new_ section:
+3. Click **Create project**.
+4. In _Create a project_ section:
     * Specify a **Name** for your project.
     * Optionally provide a **Description** to describe the purpose of the project.
-    * Specify a **Configuration name** for your project. The name can be up to 64 characters.
     * Select a **Region** for the location where you want the Schematics workspace to be created. The region selected here is not for the Scale cluster deployment but for the schematics workspace to be created.
     * Select a **Resource group** for your Schematics workspace.
     * Click **Create** to save your project. The project is added to the **Projects** view of the {{site.data.keyword.cloud_notm}} console.
 
-5. In the **Configure** section of the Edit configuration page, edit the configuration by entering the **Security** and **Configure architecture** input values.
+5. In the **Configure and deploy** section, edit the configuration by entering the **Security** and **Inputs** details.
 6. In the **Security** tab, you have two sections:
-    * Authentication: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.scale_short}} cluster to fulfill the `ibmcloud_api_key` input variable.
-    * Compliance: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance. When you deploy the {{site.data.keyword.scale_short}} cluster and create a new {{site.data.keyword.compliance_short}} instance, you set these deployment input variables in the **Optional** tab.
-    * In the **Required** tab, specify the deployment values for the mandatory input variables: `ibm_customer_number`, `storage_gui_username`, `storage_gui_password`, `existing_resource_group`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
-7. You can edit all the required values from **Configure architecture**. Toggle the **Advanced** option to view and edit all the optional values.
+
+    * **Authentication**: specify an API key for the {{site.data.keyword.cloud_notm}} account where you want to deploy your {{site.data.keyword.scale_short}} cluster to fulfill the `ibmcloud_api_key` input variable.
+    * **Compliance**: configure the {{site.data.keyword.compliance_full}} controls that you want to use to validate the deployable architecture code before the deployment. You can use the architecture defaults or select your own from an existing {{site.data.keyword.compliance_short}} instance.
+
+7. In the **Inputs** tab, you can:
+
+    * Edit the **required** deployment values for the mandatory input variables: `storage_gui_username`, `storage_gui_password`, `existing_resource_group`, `remote_allowed_ips`, `ssh_keys`, and `zones`.
+    * Toggle the **Optional values**, to add the optional values.
+8.  Click **Done**.
 
     Click the information icon **(i)** to view the descriptions for the input values of each variable in the {{site.data.keyword.cloud_notm}} console.
     {: tip}
 
     Secure deployment values might be entered directly or might be referenced from an existing [{{site.data.keyword.cloud}} Secrets Manager](/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui). As a best practice, the more secure option is to use a Secrets Manager to store secured input values.
 
-    * When you toggle the **Advanced** option tab, you can specify optional deployment values for advanced configuration and for deeper customization of the provisioned elements. Click **Done**.
-
     For example, to enable the `scale_encryption_enabled` variable, you need to set the value to **true**.
 
-7. Click **Save** to save your configuration options.
-8. Click **Validate**.
+9. Click **Save** to save your configuration options.
+10. Click **Validate**.
    {{site.data.keyword.cloud_notm}} projects run a Code Risk Analyzer scan that includes a [supported set of {{site.data.keyword.compliance_short}} rules](/docs/ContinuousDelivery?topic=ContinuousDelivery-cra-cli-plugin#terraform-scc-goals). It checks the controls that are part of the {{site.data.keyword.scale_short}} deployment and that {{site.data.keyword.cloud_notm}} projects support. Any extra controls that are not included in the list of supported {{site.data.keyword.compliance_short}} rules are not checked when you validate the configuration.
    Once the validation is completed, provide a comment in the pop-up to approve the validation and proceed to deployment.
 
-9. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
+11. Click **Deploy** to proceed with the deployment. Deploying the deployable architecture can take several minutes. You are notified when the deployment is successful. Optionally click **View resources** from the **Summary** tab to see details about the deployed {{site.data.keyword.scale_short}} project. When deployed, you can then access your deployed environment.
 
 ## Schematics workspace
 {: #schematics}
