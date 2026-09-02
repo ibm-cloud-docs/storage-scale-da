@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-10-27"
+  years: 2026
+lastupdated: "2026-09-02"
 
 keywords:
 
@@ -106,3 +106,23 @@ So, below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
+
+## Unified agent integration logic
+{: #unified-agent-integration-logic}
+
+The cluster deploys a single, unified Sysdig agent to support both monitoring and security, automatically tailoring its configuration based on the specified deployment variables.
+
+### Dual integration (metrics and security)
+{: #dual-integration}
+
+If both `observability_monitoring_enable = true` and `enable_sccwp = true`, the cluster integrates with both monitoring and SCCWP instances. A single agent is installed on the host and connects to both {{site.data.keyword.cloud_notm}} services simultaneously. It routes performance metrics to the monitoring instance while streaming security and compliance data to the Workload Protection instance.
+
+### Standalone operation
+{: #standalone-operation}
+
+If any one of these variable (`observability_monitoring_enable` and `enable_sccwp`) is enabled, the agent is still deployed, but it is configured to communicate solely with the active service.
+
+### Workload Protection
+{: #workload-protection-details}
+
+When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor deep OS system calls, identify real-time threats, and scan installed host packages for known CVEs.
