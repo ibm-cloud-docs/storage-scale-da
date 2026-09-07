@@ -78,7 +78,7 @@ When you access the UI for the service, all the above-mentioned pillars are cove
 
     ![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
 
-3. When the `cspm_enabled` is enabled, the configuration aggregator records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
+3. When the `cspm_enabled` is enabled, the **Configuration aggregator** records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
