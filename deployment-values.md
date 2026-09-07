@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-09-07"
 
 keywords:
 
@@ -98,7 +98,7 @@ The following are the optional deployment values used to configure the {{site.da
 | `observability_atracker_target_type` | All the events will be stored in either COS bucket or Cloud Logs on the basis of user input, so customers can retrieve or ingest them in their system. | No | "cloudlogs" |
 | `sccwp_service_plan` | Specify the plan type for the Security and Compliance Center (SCC) Workload Protection instance. Valid values are free-trial and graduated-tier only. | No | "free-trial" |
 | `sccwp_enable` | Set this flag to true to create an instance of IBM Security and Compliance Center (SCC) Workload Protection. When enabled, it provides tools to discover and prioritize vulnerabilities, monitor for security threats, and enforce configuration, permission, and compliance policies across the full lifecycle of your workloads. To view the data on the dashboard, enable the cspm to create the app configuration and required trusted profile policies. For more information, see [CSPM](/docs/workload-protection?topic=workload-protection-about). | No | False |
-| `cspm_enabled` | Cloud Security Posture Management (CSPM) is a set of tools and practices that continuously monitor and secure cloud infrastructure. When enabled, it creates a trusted profile with viewer access to the App Configuration and Enterprise services for the SCC Workload Protection instance. Make sure the required IAM permissions are in place, as missing permissions will cause deployment to fail. If CSPM is disabled, dashboard data will not be available. For more information, see [CSPM](/docs/workload-protection?topic=workload-protection-about). | No | True |
+| `enable_cspm` | Cloud Security Posture Management (CSPM) is a set of tools and practices that continuously monitor and secure cloud infrastructure. When enabled, it creates a trusted profile with viewer access to the App Configuration and Enterprise services for the SCC Workload Protection instance. Make sure the required IAM permissions are in place, as missing permissions will cause deployment to fail. If CSPM is disabled, dashboard data will not be available. For more information, see [CSPM](/docs/workload-protection?topic=workload-protection-about). | No | True |
 | `app_config_plan` | Specify the IBM service pricing plan for the app configuration. Allowed values are 'basic', 'standardv2', 'enterprise'. | No | "basic" |
 | `skip_flowlogs_s2s_auth_policy` | Skip auth policy between flow logs service and COS instance, set to true if this policy is already in place on account. | No | False |
 | `existing_bastion_instance_name` | Provide the name of the bastion instance. If none given then new bastion will be created. | No | Null |

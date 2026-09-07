@@ -56,9 +56,9 @@ The following new variables are introduced for SCC Workload Protection:
 
 * `sccwp_service_plan`: This is used to enable the service plan for SCC Workload Protection. Valid values are free-trial and graduated-tier only.
 
-* `cspm_enabled`: The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled.
+* `enable_cspm`: The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled.
 
-The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `cspm_enabled` is set to "false", no data is visible on the dashboard.
+The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `enable_cspm` is set to "false", no data is visible on the dashboard.
 {: note}
 
 * `app_config_plan`: Specify the IBM service pricing plan for the application. Allowed values are 'basic', 'standard', 'enterprise'.
@@ -78,7 +78,7 @@ When you access the UI for the service, all the above-mentioned pillars are cove
 
     ![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
 
-3. When the `cspm_enabled` is enabled, the **Configuration aggregator** records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
+3. When the `` is enabled, the **Configuration aggregator** records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
