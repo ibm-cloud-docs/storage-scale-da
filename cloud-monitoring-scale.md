@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-31"
+lastupdated: "2026-09-17"
 
 keywords:
 
@@ -78,6 +78,13 @@ Following are the key features of {{site.data.keyword.monitoringlong_notm}}:
 * Route time-series data to one or multiple target locations as needed.
 * Improve your data residency compliance by ensuring data remains at rest within the designated regions.
 
+Custom dashboards are not automatically created in the EU-ES (Madrid) region.
+{: note}
+
+## References
+{: #ref}
+
 For more information on {{site.data.keyword.monitoringlong_notm}}, refer to the following documentation links:
+
 * [About IBM Cloud Metrics Routing in IBM Cloud](/docs/metrics-router?topic=metrics-router-about&interface=ui)
 * [Getting started with IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started)
