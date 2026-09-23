@@ -292,3 +292,11 @@ Built on Sep 20 2024 at 12:35:51
 Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@test-tie-strg-002 ~]#
 ```
+
+## Why is `sdp` support restricted to allowlisted customers?
+{: #faq-sdp}
+{: faq}
+
+Access to the sdp profile is limited to allowlisted accounts. Customers who are not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing sdp volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+
+For more information see, [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&locale=en&interface=ui#defined-performance-profile).
