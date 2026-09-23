@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-11"
+  years: 2026
+lastupdated: "2026-09-23"
 
 keywords:
 
@@ -113,9 +113,9 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Protocol node count | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
 | Client node count | Min 2  \n Max 2000 | NA | Min 2  \n Max 2000 |
 | AFM node count | Min 1  \n Max 16 | Min 1  \n Max 16 | Min 1  \n Max 16 |
-| Storage cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
-| Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
-| Protocol nodes | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) |
+| Storage cluster OS support | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom image) |
+| Compute cluster OS support | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom image) |
+| Protocol nodes | RHEL 9  \n (custom image) | RHEL 9  \n (custom image) | RHEL 9  \n (custom image) |
 | Client nodes | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 |
 | Storage Scale edition and version | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Developer Edition v5.2.3.0 |
 | IBM Customer Number required? | Yes | Yes | No |

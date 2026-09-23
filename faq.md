@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-09-23"
 
 keywords:
 
@@ -104,7 +104,7 @@ The required set of permissions to create the compute resources are already adde
 ### **Which operating system versions are supported for the images used for the compute and storage nodes in Storage Scale?**
 {: #os-compute-storage-nodes}
 
-In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 8.10 version can be used for compute and storage nodes.
+In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 9 version can be used for compute and storage nodes.
 
 ### **How many compute and storage nodes can you deploy in the Scale cluster through this offering?**
 {: #how-many-compute-storage-nodes}
@@ -276,7 +276,7 @@ Before doing a deployment, check in the UI or CLI if the profile is available in
 ### **Why do we see the `No image found with name: xxxxxx` error on the client nodes?**
 {: #client-node}
 
-This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 8.10).
+This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 9).
 
 ### **Why does the `mmlsconfg` command display 6.0.0.0 in the `minReleaseLevel` parameter?**
 {: #version-command}
