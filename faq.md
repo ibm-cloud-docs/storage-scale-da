@@ -209,7 +209,7 @@ We cannot restrict outbound traffic because customers often maintain connections
 
 The offering uses Bring Your Own License (BYOL) for {{site.data.keyword.scale_full}} when deploying a cluster on {{site.data.keyword.cloud_notm}}. The IBM Storage Scale solution is installed with the **Data Management Edition**. For more information about this edition, see [Features in IBM Storage Scale editions](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-storage-scale-product-editions#prodstruct__table_atn_tqp_rhb) table.
 
-## Why is `sdp` support restricted to allowlisted customers?
+### Why is `sdp` support restricted to allowlisted customers?
 {: #faq-sdp}
 {: faq}
 
