@@ -196,10 +196,3 @@ Policy 'new_encryption_policy.pol' installed and broadcast to all nodes.
 
 The file should be encrypted with the new master key.
 {: note}
-
-## KMS Security Group Configuration
-{: #kms-config}
-
-If you are using an existing or newly created KMS instance, configure an outbound security group rule with the destination set to 0.0.0.0/0 for both the **Storage** and **Compute** security groups.
-
-This allows the Compute and Storage nodes to communicate with the KMS endpoint, helping to prevent the `rkm_no_access (KP-eu-de.kms.cloud.ibm.com)` error.
