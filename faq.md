@@ -209,6 +209,14 @@ We cannot restrict outbound traffic because customers often maintain connections
 
 The offering uses Bring Your Own License (BYOL) for {{site.data.keyword.scale_full}} when deploying a cluster on {{site.data.keyword.cloud_notm}}. The IBM Storage Scale solution is installed with the **Data Management Edition**. For more information about this edition, see [Features in IBM Storage Scale editions](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-storage-scale-product-editions#prodstruct__table_atn_tqp_rhb) table.
 
+## Why is `sdp` support restricted to allowlisted customers?
+{: #faq-sdp}
+{: faq}
+
+Access to the sdp profile is limited to allowlisted accounts. Customers who are not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing sdp volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+
+For more information see, [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&locale=en&interface=ui#defined-performance-profile).
+
 ## Authentication/Certificates
 {: #password-faqs}
 
@@ -292,11 +300,3 @@ Built on Sep 20 2024 at 12:35:51
 Running 2 days 2 hours 30 minutes 12 secs, pid 34239
 [root@test-tie-strg-002 ~]#
 ```
-
-## Why is `sdp` support restricted to allowlisted customers?
-{: #faq-sdp}
-{: faq}
-
-Access to the sdp profile is limited to allowlisted accounts. Customers who are not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing sdp volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
-
-For more information see, [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&locale=en&interface=ui#defined-performance-profile).
