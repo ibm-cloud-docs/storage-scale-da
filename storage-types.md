@@ -116,7 +116,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Storage cluster OS support | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom image) |
 | Compute cluster OS support | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom or stock images) | RHEL 9  \n (custom image) |
 | Protocol nodes | RHEL 9  \n (custom image) | RHEL 9  \n (custom image) | RHEL 9  \n (custom image) |
-| Client nodes | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 | RHEL 8.8, 8.10 |
+| Client nodes | RHEL 8.8, 8.10, 9 | RHEL 8.8, 8.10, 9 | RHEL 8.8, 8.10, 9 |
 | Storage Scale edition and version | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Data Management Edition v5.2.3.2 | Storage Scale Developer Edition v5.2.3.0 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
