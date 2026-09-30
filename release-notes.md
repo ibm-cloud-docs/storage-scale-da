@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-09-30"
 
 keywords:
 
@@ -23,6 +23,27 @@ subcollection: storage-scale-da
 
 The release notes describes the brief overview of the new features, enhancements, known and fixed issues added to IBM® Storage Scale for the release.
 {: shortdesc}
+
+## September 2026
+{: #subcollection-sep26}
+
+### 30 September 2026 [New release]{: tag-green}
+{: #subcollection-sep3026}
+{: release-note}
+
+The following enhancements and updates are included in this release 1.2.0:
+
+IBM Cloud Monitoring for Scale
+
+:   Enabled cloud monitoring for IBM Storage Scale (GPFS) to provide visibility into cluster health, performance, and resource utilization. This enhancement enables proactive monitoring of GPFS metrics and infrastructure, helping identify potential issues and simplify troubleshooting.
+
+Operating System Upgrade (RHEL 9)
+
+:   Upgraded the operating system from Red Hat Enterprise Linux (RHEL) 8 to RHEL 9, providing an updated platform with improved security, performance, and compatibility. The upgrade also ensures compatibility with the latest system packages and dependencies, providing a stable foundation for future enhancements and updates.
+
+Outbound Network Security Enhancements
+
+:   Restricted outbound network access by limiting open ports to only those required for operation. This reduces the network attack surface and strengthens the overall security of the Storage Scale deployment.
 
 ## April 2026
 {: #subcollection-jan26}
