@@ -31,7 +31,7 @@ The release notes describes the brief overview of the new features, enhancements
 {: #subcollection-sep3026}
 {: release-note}
 
-The following enhancements and updates are included in this release 1.2.0:
+**For this release, the Storage Scale version is 1.2.1**
 
 IBM Cloud Monitoring for Scale
 
@@ -48,7 +48,7 @@ Outbound Network Security Enhancements
 ## April 2026
 {: #subcollection-jan26}
 
-### 14 April 2026 [New release]{: tag-green}
+### 14 April 2026
 {: #subcollection-jan1626}
 {: release-note}
 
