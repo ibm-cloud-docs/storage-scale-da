@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-11"
+  years: 2026
+lastupdated: "2026-09-28"
 
 keywords:
 
@@ -29,6 +29,9 @@ IBM Storage Scale is designed as a dedicated storage file system. In earlier scr
 To provide bare-metal storage throughout the cluster lifecycle, the solution uses SSD Defined Performance (SDP), the second-generation IBM Cloud Block Storage. With this enhancement, the scratch version of Scale running on VSIs can now retain data persistently. Customers can also have the option to deploy bare-metal Scale clusters on bare-metal.
 
 In both VSI based and bare-metal deployments, data is now persistent across the entire lifecycle of the cluster.
+
+Access to the sdp profile is limited to allowlisted accounts. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+{: note}
 
 ## SDP Overview
 {: #sdp-overview}

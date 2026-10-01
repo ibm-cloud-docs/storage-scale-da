@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-09-23"
 
 keywords:
 
@@ -104,7 +104,7 @@ The required set of permissions to create the compute resources are already adde
 ### **Which operating system versions are supported for the images used for the compute and storage nodes in Storage Scale?**
 {: #os-compute-storage-nodes}
 
-In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 8.10 version can be used for compute and storage nodes.
+In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 9 version can be used for compute and storage nodes.
 
 ### **How many compute and storage nodes can you deploy in the Scale cluster through this offering?**
 {: #how-many-compute-storage-nodes}
@@ -209,6 +209,13 @@ We cannot restrict outbound traffic because customers often maintain connections
 
 The offering uses Bring Your Own License (BYOL) for {{site.data.keyword.scale_full}} when deploying a cluster on {{site.data.keyword.cloud_notm}}. The IBM Storage Scale solution is installed with the **Data Management Edition**. For more information about this edition, see [Features in IBM Storage Scale editions](https://www.ibm.com/docs/en/storage-scale/6.0.0?topic=overview-storage-scale-product-editions#prodstruct__table_atn_tqp_rhb) table.
 
+### **Why is `sdp` support restricted to allowlisted customers?**
+{: #faq-sdp}
+
+Access to the sdp profile is limited to allowlisted accounts. Customers who are not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing sdp volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+
+For more information see, [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&locale=en&interface=ui#defined-performance-profile).
+
 ## Authentication/Certificates
 {: #password-faqs}
 
@@ -276,7 +283,7 @@ Before doing a deployment, check in the UI or CLI if the profile is available in
 ### **Why do we see the `No image found with name: xxxxxx` error on the client nodes?**
 {: #client-node}
 
-This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 8.10).
+This error occurs when you use incorrect image during deployment. You need to change the custom image to stock image and update to the latest version of the stock image (RHEL 9).
 
 ### **Why does the `mmlsconfg` command display 6.0.0.0 in the `minReleaseLevel` parameter?**
 {: #version-command}

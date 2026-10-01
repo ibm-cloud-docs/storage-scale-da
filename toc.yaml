@@ -57,10 +57,14 @@ toc:
           - create-ldapp-user-scale.md
           - config-ldap-ces-scale.md
           - configure-ldap-server-setup.md
+      - topicgroup:
+          label: Observability
+          topics:
+          - activity-track-event-route.md
+          - cloud-monitoring-scale.md
       - vnic-info.md
       - security-groups.md
       - scc-workload-protect-scale.md
-      - activity-track-event-route.md
       - cleanup-deployed-envn-scale.md
   - navgroup:
       id: reference

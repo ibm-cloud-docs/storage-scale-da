@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-10-27"
+  years: 2026
+lastupdated: "2026-09-07"
 
 keywords:
 
@@ -56,9 +56,9 @@ The following new variables are introduced for SCC Workload Protection:
 
 * `sccwp_service_plan`: This is used to enable the service plan for SCC Workload Protection. Valid values are free-trial and graduated-tier only.
 
-* `cspm_enabled`: The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled.
+* `enable_cspm`: The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled.
 
-The default value for `cspm_enabled` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `cspm_enabled` is set to "false", no data is visible on the dashboard.
+The default value for `enable_cspm` is set to "true". It is recommended to keep this setting enabled, as it ensures that the App Config Aggregator is properly configured along with the IAM trusted profile policy. This setup is necessary to retrieve comprehensive account data and display it on the dashboard. If `enable_cspm` is set to "false", no data is visible on the dashboard.
 {: note}
 
 * `app_config_plan`: Specify the IBM service pricing plan for the application. Allowed values are 'basic', 'standard', 'enterprise'.
@@ -78,21 +78,40 @@ When you access the UI for the service, all the above-mentioned pillars are cove
 
     ![SCC Compliance](images/compliance_scc.png "SCC Compliance"){: caption="SCC Compliance" caption-side="bottom"}
 
-3. When the `cspm_enabled` is enabled, the configuration aggregator records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
+3. When the `` is enabled, the **Configuration aggregator** records the data from all the resources across regions in your account. The configuration aggregator is enabled by default from the automation. You can also choose the specific plan under `app_config_plan` as shown below:
 
     ![SCC Application configuration](images/application_configuration.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
 
-4. Inventory is agentless, which is provided by IBM cloud. For example, in the account we have 1000 resources, you can add the filters and validate all the resources of the inventory,  i.e, Security groups/Instances/FIP and so on. When a certain security group does not have the rules set, then all of them can be monitored here.
+4. To view the connected agents, click **Agents** in the top-right corner. Select a host and navigate to **Vulnerability Findings** to review the detailed findings and the recommended remediation actions available in the dashboard.
 
-    ![SCC Inventory](images/inventory_scc.png "SCC Application configuration"){: caption="SCC Application configuration" caption-side="bottom"}
+    ![SCC Sysdig Agents](images/vulnerability_findings3.png "SCC Sysdig Agents"){: caption="SCC Sysdig Agents" caption-side="bottom"}
+    
+    ![SCC Vulnerability Findings - 1](images/vulnerability_findings2.png "SCC Vulnerability Findings - 1"){: caption="SCC Vulnerability Findings - 1" caption-side="bottom"}
+    
+    ![SCC Vulnerability Findings - 2](images/vulnerability_findings1.png "SCC Vulnerability Findings - 2"){: caption="SCC Vulnerability Findings - 2" caption-side="bottom"}
+    
 
-5. Under **Policies**, you can go ahead and configure the policies. Based on Linux or RHEL platform, certain policies can be set. These are set of rules, based on which you can configure the policy.
+5. Inventory is agentless, which is provided by IBM cloud. For example, in the account we have 1000 resources, you can add the filters and validate all the resources of the inventory i.e, Security groups/Instances/FIP and so on. When a certain security group does not have the rules set, then all of them can be monitored here.
+
+    * Enable the **Use legacy version** toggle option at top right to view the legacy inventory version. 
+
+    ![SCC Inventory - Legacy](images/inventory_scc_old.png "SCC Inventory - Legacy"){: caption="SCC Inventory - Legacy" caption-side="bottom"}
+
+    * Disable the **Use legacy version** toggle option at top right to view the latest inventory version.
+
+    ![SCC Inventory - New](images/inventory_scc_new.png "SCC Inventory - New"){: caption="SCC Inventory - New" caption-side="bottom"}
+
+    Users can just toggle the **Use legacy version** option to view older version or newer version of the dashboard.
+    {: note}
+    
+
+6. Under **Policies**, you can go ahead and configure the policies. Based on Linux or RHEL platform, certain policies can be set. These are set of rules, based on which you can configure the policy.
 
     ![SCC runtime policies](images/policies_scc.png "SCC runtime policies"){: caption="SCC runtime policies" caption-side="bottom"}
 
-6. On **Vulnerabilities**, you can run the scans and this shows the severity of the issues and that might be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
+7. On **Attack Surface**, you can run the scans and this shows the severity of the issues and that could be helped to be scanned. You can filter based on high, medium, and low. For more information, see [Scanning Guidelines](https://docs.sysdig.com/en/sysdig-secure/scanning-usecases/){: external}.
 
-    ![SCC Vulnerabilities](images/vulnerabilities_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
+    ![SCC Attack Surface](images/attack_surface_scc.png "Dashboard view for SCCWP"){: caption="Dashboard view for SCCWP" caption-side="bottom"}
 
 If the IAM permissions for the SCC Workload Protection are not enabled right, then the error occurs stating:
 `Error: [ERROR] Error getting trusted profile policy: You are not allowed to retrieve the requested policy`.
@@ -106,3 +125,23 @@ So, below are the required permissions for SCC Workload Protection are:
 | All Identity and Access enabled services | All | Administrator | Manager |
 | Security and Compliance Center Workload Protection | All | Administrator | -- |
 {: caption="SCC permissions" caption-side="bottom"}
+
+## Unified agent integration logic
+{: #unified-agent-integration-logic}
+
+The cluster deploys a single, unified Sysdig agent to support both monitoring and security, automatically tailoring its configuration based on the specified deployment variables.
+
+### Dual integration (metrics and security)
+{: #dual-integration}
+
+If both `observability_monitoring_enable = true` and `enable_sccwp = true`, the cluster integrates with both monitoring and SCCWP instances. A single agent is installed on the host and connects to both {{site.data.keyword.cloud_notm}} services simultaneously. It routes performance metrics to the monitoring instance while streaming security and compliance data to the Workload Protection instance.
+
+### Standalone operation
+{: #standalone-operation}
+
+If any one of these variable (`observability_monitoring_enable` and `enable_sccwp`) is enabled, the agent is still deployed, but it is configured to communicate solely with the active service.
+
+### Workload Protection
+{: #workload-protection-details}
+
+When SCCWP is enabled, the Sysdig secure engine provides continuous posture management, vulnerability assessment, and runtime protection. In this setup, the `host_scanner: enabled: true` configuration is applied, allowing the agent to monitor deep OS system calls, identify real-time threats, and scan installed host packages for known CVEs.
